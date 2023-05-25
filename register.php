@@ -3003,25 +3003,25 @@ for (var attr in meta) {
     </div>
 
     <div class="page-content page-content--small">
-      <div class="account__block-list"><div class="account__block-item" ><form method="post" action="/account" id="register-customer" accept-charset="UTF-8" data-login-with-shop-sign-up="true" name="create" class="form"><input type="hidden" name="form_type" value="create_customer" /><input type="hidden" name="utf8" value="✓" /><div class="input">
+      <div class="account__block-list"><div class="account__block-item" ><form method="post" action="register-client.php" id="register-customer" accept-charset="UTF-8" data-login-with-shop-sign-up="true" name="create" class="form"><input type="hidden" name="form_type" value="create_customer" /><input type="hidden" name="utf8" value="✓" /><div class="input">
                       <input type="text" id="customer[first_name]" class="input__field" name="customer[first_name]" required="required" autocomplete="given-name" >
-                      <label for="customer[first_name]" class="input__label">First name</label>
+                      <label for="register_first_name" class="input__label">First name</label>
                     </div>
 
                     <div class="input">
                       <input type="text" id="customer[last_name]" class="input__field" name="customer[last_name]" required="required" autocomplete="family-name" >
-                      <label for="customer[last_name]" class="input__label">Last name</label>
+                      <label for="register_last_name" class="input__label">Last name</label>
                     </div><div class="input">
                     <input type="email" id="customer[email]" class="input__field" name="customer[email]" required="required" autocomplete="email" >
-                    <label for="customer[email]" class="input__label">E-mail</label>
+                    <label for="register_email" class="input__label">E-mail</label>
                   </div>
 
                   <div class="input">
                     <input type="password" id="customer[password]" class="input__field" name="customer[password]" required="required" autocomplete="new-password" >
-                    <label for="customer[password]" class="input__label">Password</label>
+                    <label for="register_password" class="input__label">Password</label>
                   </div>
 
-                  <button type="submit" is="loader-button" class="form__submit button button--primary button--full">Create account</button>
+                  <button type="submit" name="register_client" is="loader-button" class="form__submit button button--primary button--full">Create account</button>
 
                   <span class="form__secondary-action text--subdued">Already have an account?<a href="/account/login" class="link">Login</a>
                   </span></form></div></div>

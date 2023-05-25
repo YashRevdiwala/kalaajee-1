@@ -583,7 +583,7 @@ include("connection.php");
                   </p>
                   <form
                     method="post"
-                    action="/kalaajee_copy/subscribe_email.php"
+                    action="../subscribe_email.php"
                     id="footer-newsletter"
                     accept-charset="UTF-8"
                     class="footer__newsletter-form form"
