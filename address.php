@@ -5,11 +5,14 @@ if(!isset($_SESSION)){
   session_start();
   if(isset($_SESSION['client_email'])){
     $client_email = $_SESSION['client_email'];
+    $login_display = '<li class="header__linklist-item">
+                  <a href="account.php">My Account </a>
+                </li>';
     $query = mysqli_query($conn,"SELECT * FROM tbl_client where email = '$client_email'");
     $row = mysqli_fetch_array($query);
     $display_data = '<div class="account__address-details">
                           <p>
-                            '.$row['name'].' '.$row['last_name'].'<br />'.$row['telephone'].'<br />'.$row['address'].',<br />'.$row['city'].'<br />'.$row['state'].'-'.$row['postal_code'].'
+                            '.$row['name'].' '.$row['last_name'].'<br />'.$row['telephone'].'<br />'.$row['address'].'<br />'.$row['city'].'<br />'.$row['state'].' '.$row['postal_code'].'
                           </p>
                         </div>
 
@@ -22,58 +25,12 @@ if(!isset($_SESSION)){
                           >
                             Edit
                           </button>
-
-                          <form
-                            method="post"
-                            action="/account/addresses/8302380974301"
-                          >
-                            <input
-                              type="hidden"
-                              name="_method"
-                              value="delete"
-                            />
-                            <button
-                              class="link text--subdued"
-                              is="confirm-button"
-                              data-message="Are you sure you wish to delete this address?"
-                            >
-                              Delete
-                            </button>
-                          </form>
                         </div>
-                      </div>
-                      <button
-                        is="toggle-button"
-                        class="account__address account__address--empty link text--subdued"
-                        aria-controls="drawer-new-address"
-                        aria-expanded="false"
-                      >
-                        <svg
-                          fill="none"
-                          focusable="false"
-                          width="24"
-                          height="24"
-                          class="icon icon--picto-address-pin"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M14 2.27035C13.3656 2.09317 12.6942 2 12 2C7.54045 2 4.01918 5.8447 5.24704 11.1098C6.47491 16.375 12 22 12 22C12 22 17.5252 16.375 18.753 11.1098C18.841 10.7323 18.9046 10.362 18.9453 10"
-                            stroke="currentColor"
-                            stroke-width="2"
-                          ></path>
-                          <path
-                            d="M14.5 9.37803C14.5 10.8636 13.3472 12.0061 12 12.0061C10.6528 12.0061 9.5 10.8636 9.5 9.37803C9.5 7.89244 10.6528 6.75 12 6.75C13.3472 6.75 14.5 7.89244 14.5 9.37803Z"
-                            stroke="currentColor"
-                            stroke-width="2"
-                          ></path>
-                          <path
-                            d="M20 0V8M16 4H24"
-                            stroke="currentColor"
-                            stroke-width="2"
-                          ></path></svg
-                        >Add a new address
-                      </button>';
+                      </div>';
   }else{
+    $login_display = '<li class="header__linklist-item">
+                  <a href="login.php">Login </a>
+                </li>';
     $display_data = '<div class="account__address-details">
                           <p>
                             You are not currently logged in.<br />
@@ -5546,12 +5503,7 @@ if(!isset($_SESSION)){
                 role="list"
               >
                 <li class="header__linklist-item"></li>
-                <li class="header__linklist-item">
-                  <a href="login.php">Login </a>
-                </li>
-                <li class="header__linklist-item">
-                  <a href="account.php">My Account </a>
-                </li>
+                <?php echo $login_display; ?>
                 <li class="header__linklist-item">
                   <a
                     href="/cart"
@@ -5680,8 +5632,8 @@ if(!isset($_SESSION)){
         global
         hidden
         class="cart-notification"
-      ></cart-notification
-      ><mobile-navigation
+      ></cart-notification>
+      <mobile-navigation
         append-body
         id="mobile-menu-drawer"
         class="drawer drawer--from-left"
@@ -8776,8 +8728,7 @@ if(!isset($_SESSION)){
               <div class="page-header page-header--small">
                 <div class="page-header__text-wrapper text-container">
                   <h1 class="heading h4">
-                    Addresses
-                    <span class="bubble-count bubble-count--top">1</span>
+                    Address
                   </h1>
                 </div>
               </div>
@@ -9872,7 +9823,7 @@ if(!isset($_SESSION)){
             <div class="drawer__content drawer__content--padded-start">
               <form
                 method="post"
-                action="/account/addresses/8302380974301"
+                action="address-updation.php"
                 id="address_form_8302380974301"
                 accept-charset="UTF-8"
                 class="form"
@@ -9889,8 +9840,8 @@ if(!isset($_SESSION)){
                       id="address-8302380974301[first_name]"
                       type="text"
                       class="input__field input__field--text is-filled"
-                      name="address[first_name]"
-                      value="Yash"
+                      name="update_first_name"
+                      value="<?php echo $row['name']; ?>"
                     />
                     <label
                       for="address-8302380974301[first_name]"
@@ -9904,8 +9855,8 @@ if(!isset($_SESSION)){
                       id="address-8302380974301[last_name]"
                       type="text"
                       class="input__field input__field--text is-filled"
-                      name="address[last_name]"
-                      value="Sabhaya"
+                      name="update_last_name"
+                      value="<?php echo $row['last_name']; ?>"
                     />
                     <label
                       for="address-8302380974301[last_name]"
@@ -9935,8 +9886,8 @@ if(!isset($_SESSION)){
                     id="address-8302380974301[phone]"
                     type="text"
                     class="input__field input__field--text is-filled"
-                    name="address[phone]"
-                    value="870 346 0522"
+                    name="update_phone"
+                    value="<?php echo $row['telephone']; ?>"
                   />
                   <label for="address-8302380974301[phone]" class="input__label"
                     >Phone number</label
@@ -9948,28 +9899,13 @@ if(!isset($_SESSION)){
                     id="address-8302380974301[address1]"
                     type="text"
                     class="input__field input__field--text is-filled"
-                    name="address[address1]"
-                    value="f-601, Swastik Tower, Sarthana Jaktanka, Surat"
+                    name="update_address"
+                    value="<?php echo $row['address']; ?>"
                   />
                   <label
                     for="address-8302380974301[address1]"
                     class="input__label"
-                    >Address 1</label
-                  >
-                </div>
-
-                <div class="input">
-                  <input
-                    id="address-8302380974301[address2]"
-                    type="text"
-                    class="input__field input__field--text is-filled"
-                    name="address[address2]"
-                    value="1326216"
-                  />
-                  <label
-                    for="address-8302380974301[address2]"
-                    class="input__label"
-                    >Address 2</label
+                    >Address</label
                   >
                 </div>
 
@@ -9979,8 +9915,8 @@ if(!isset($_SESSION)){
                       id="address-8302380974301[city]"
                       type="text"
                       class="input__field input__field--text is-filled"
-                      name="address[city]"
-                      value="Surat"
+                      name="update_city"
+                      value="<?php echo $row['city']; ?>"
                     />
                     <label
                       for="address-8302380974301[city]"
@@ -9994,8 +9930,8 @@ if(!isset($_SESSION)){
                       id="address-8302380974301[zip]"
                       type="text"
                       class="input__field input__field--text is-filled"
-                      name="address[zip]"
-                      value="395006"
+                      name="update_zip"
+                      value="<?php echo $row['postal_code']; ?>"
                     />
                     <label for="address-8302380974301[zip]" class="input__label"
                       >Zip code</label
@@ -10540,9 +10476,6 @@ if(!isset($_SESSION)){
                       </option>
                       <option value="Norway" data-provinces="[]">Norway</option>
                       <option value="Oman" data-provinces="[]">Oman</option>
-                      <option value="Pakistan" data-provinces="[]">
-                        Pakistan
-                      </option>
                       <option
                         value="Palestinian Territory, Occupied"
                         data-provinces="[]"
@@ -10847,9 +10780,9 @@ if(!isset($_SESSION)){
                   <div class="select-wrapper is-filled">
                     <select
                       class="select"
-                      name="address[province]"
+                      name="update_province"
                       id="address-8302380974301[province]"
-                      data-default="Gujarat"
+                      data-default="<?php echo $row['state']; ?>"
                     ></select
                     ><svg
                       focusable="false"
@@ -10893,6 +10826,7 @@ if(!isset($_SESSION)){
 
                 <button
                   type="submit"
+                  name="edit_address"
                   is="loader-button"
                   class="form__submit button button--primary button--full"
                 >

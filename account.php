@@ -1,3 +1,21 @@
+<?php
+include("components/connection.php");
+
+if(!isset($_SESSION)){
+  session_start();
+  if(isset($_SESSION['client_email'])){
+    $client_email = $_SESSION['client_email'];
+    $login_display = '<li class="header__linklist-item">
+                  <a href="account.php">My Account </a>
+                </li>';
+  }else{
+    $login_display = '<li class="header__linklist-item">
+                  <a href="login.php">Login </a>
+                </li>';
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
@@ -5460,12 +5478,7 @@
                 role="list"
               >
                 <li class="header__linklist-item"></li>
-                <li class="header__linklist-item">
-                  <a href="login.php">Login </a>
-                </li>
-                <li class="header__linklist-item">
-                  <a href="account.php">My Account </a>
-                </li>
+                <?php echo $login_display; ?>
                 <li class="header__linklist-item">
                   <a
                     href="/cart"
@@ -5594,8 +5607,8 @@
         global
         hidden
         class="cart-notification"
-      ></cart-notification
-      ><mobile-navigation
+      ></cart-notification>
+      <mobile-navigation
         append-body
         id="mobile-menu-drawer"
         class="drawer drawer--from-left"
@@ -8586,7 +8599,7 @@
 
                   <li class="link-bar__link-item">
                     <a
-                      href="/account/logout"
+                      href="logout.php"
                       class="link-bar__link link--animated text--subdued"
                       data-no-instant
                       >Logout</a

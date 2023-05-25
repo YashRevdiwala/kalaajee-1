@@ -4,6 +4,9 @@ if(!isset($_SESSION)){
   session_start();
   if(isset($_SESSION['client_email'])){
     $client_email = $_SESSION['client_email'];
+    $login_display = '<li class="header__linklist-item">
+                  <a href="account.php">My Account </a>
+                </li>';
     $query = mysqli_query($conn,"SELECT * FROM tbl_client where email = '$client_email'");
     $row = mysqli_fetch_array($query);
     $display_data = '<div class="account__address-details">
@@ -23,6 +26,9 @@ if(!isset($_SESSION)){
                           </button>
                         </div>';
   }else{
+    $login_display = '<li class="header__linklist-item">
+                  <a href="login.php">Login </a>
+                </li>';
     $display_data = '<div class="account__address-details">
                           <p>
                             You are not currently logged in.<br />
@@ -5133,7 +5139,6 @@ if(!isset($_SESSION)){
                 >
               </div>
             </nav>
-
             <!-- LOGO PART -->
             <h1 class="header__logo">
               <a class="header__logo-link" href="index.php"
@@ -5496,12 +5501,7 @@ if(!isset($_SESSION)){
                 role="list"
               >
                 <li class="header__linklist-item"></li>
-                <li class="header__linklist-item">
-                  <a href="login.php">Login </a>
-                </li>
-                <li class="header__linklist-item">
-                  <a href="account.php">My Account </a>
-                </li>
+                <?php echo $login_display; ?>
                 <li class="header__linklist-item">
                   <a
                     href="/cart"
@@ -5630,8 +5630,8 @@ if(!isset($_SESSION)){
         global
         hidden
         class="cart-notification"
-      ></cart-notification
-      ><mobile-navigation
+      ></cart-notification>
+      <mobile-navigation
         append-body
         id="mobile-menu-drawer"
         class="drawer drawer--from-left"
