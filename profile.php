@@ -1,11 +1,34 @@
-<?php 
+<?php
 include("components/connection.php");
 if(!isset($_SESSION)){
   session_start();
   if(isset($_SESSION['client_email'])){
     $client_email = $_SESSION['client_email'];
-    header("Location:index.php");
-    exit();
+    $query = mysqli_query($conn,"SELECT * FROM tbl_client where email = '$client_email'");
+    $row = mysqli_fetch_array($query);
+    $display_data = '<div class="account__address-details">
+                          <p>
+                            '.$row['name'].' '.$row['last_name'].'<br />Male<br />'.$row['email'].'<br />'.$row['telephone'].'<br />'.$row['address'].'<br />'.$row['city'].'<br />'.$row['state'].'<br />'.$row['postal_code'].'
+                          </p>
+                        </div>
+
+                        <div class="account__address-actions">
+                          <button
+                            class="link text--subdued"
+                            is="toggle-button"
+                            aria-controls="drawer-address-8302380974301"
+                            aria-expanded="false"
+                          >
+                            Edit
+                          </button>
+                        </div>';
+  }else{
+    $display_data = '<div class="account__address-details">
+                          <p>
+                            You are not currently logged in.<br />
+                            Please <a href = "login.php">Login</a> to continue.
+                          </p>
+                        </div>';
   }
 }
 ?>
@@ -232,26 +255,26 @@ if(!isset($_SESSION)){
       var __wzrk_shop_money_format = '<span class="money">₹{{amount}}</span>';
       var __wzrk_shop_name = "Peachmode";
       var __wzrk_charged_currency = "INR";
-      var __wzrk_customer_name = "";
-      var __wzrk_customer_identity = "";
-      var __wzrk_customer_email = "";
+      var __wzrk_customer_name = "Yash Sabhaya";
+      var __wzrk_customer_identity = "6713034932445";
+      var __wzrk_customer_email = "yashsabhaya964@gmail.com";
       var __wzrk_customer_phone = "";
 
       window.clevertapApp = {
         config: {
           currency: "INR",
           meta: {
-            title: "Account",
-            template: "customers/login",
-            url: "https://peachmode.com/account/login",
-            type: "customers/login",
+            title: "Addresses",
+            template: "customers/addresses",
+            url: "https://peachmode.com/account/addresses",
+            type: "customers/addresses",
           },
           routes: {
             customer: {
               account: "/account",
-              login: "/account/login",
-              logout: "/account/logout",
-              register: "/account/register",
+              login: "login.php",
+              logout: "logout",
+              register: "register.php",
             },
             cart: {
               list: "/cart",
@@ -262,6 +285,24 @@ if(!isset($_SESSION)){
             },
           },
         },
+      };
+
+      var tags = [];
+
+      clevertapApp.customer = {
+        phone: "",
+        email: "yashsabhaya964@gmail.com",
+        name: "Yash Sabhaya",
+        id: parseInt("6713034932445"),
+        lastName: "Sabhaya",
+        firstName: "Yash",
+        city: "Surat",
+        acceptsMarketing: "true",
+        hasAccount: "true",
+        ordersCount: parseInt("0"),
+        taxExempt: "false",
+        totalSpent: (parseFloat("0") / 100).toFixed(2),
+        tags: tags,
       };
 
       clevertapApp.frame = {
@@ -296,8 +337,8 @@ if(!isset($_SESSION)){
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Account</title>
-    <link rel="canonical" href="https://peachmode.com/account/login" />
+    <title>Profile Information</title>
+    <link rel="canonical" href="https://peachmode.com/account/addresses" />
     <link rel="shortcut icon" href="img/1.png" />
     <link rel="preconnect" href="https://cdn.shopify.com" />
     <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com" />
@@ -324,7 +365,7 @@ if(!isset($_SESSION)){
     </script>
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Account" />
+    <meta property="og:title" content="Addresses" />
     <meta
       property="og:image"
       content="http://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo.png?v=1649671323"
@@ -335,11 +376,11 @@ if(!isset($_SESSION)){
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
-    <meta property="og:url" content="https://peachmode.com/account/login" />
+    <meta property="og:url" content="https://peachmode.com/account/addresses" />
     <meta property="og:site_name" content="Peachmode" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Account" />
-    <meta name="twitter:description" content="Account" />
+    <meta name="twitter:title" content="Addresses" />
+    <meta name="twitter:description" content="Addresses" />
     <meta
       name="twitter:image"
       content="https://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo_1200x1200_crop_center.png?v=1649671323"
@@ -631,7 +672,7 @@ if(!isset($_SESSION)){
       window.themeVariables = {
         settings: {
           direction: "ltr",
-          pageType: "customers\/login",
+          pageType: "customers\/addresses",
           cartCount: 0,
           moneyFormat:
             '\u003cspan class="money"\u003e₹{{amount}}\u003c\/span\u003e',
@@ -799,20 +840,20 @@ if(!isset($_SESSION)){
     <script>
       (function () {
         var scripts = [
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.96fe0b7abf48419e7469.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.04492a71077e352f2957.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_checkout-react-html_src_hooks_title_ts.latest.en.3457953d3abd1b694aa5.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_shopify_verdict_build_esm_runtimes_browser_index_mts_js.latest.en.f6f2083a5fb187836a1f.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app_components_AddressForm_AddressForm_tsx-app_components_Step_Step_tsx-app_utilities_receipt-224401.latest.en.91b3bf74b8a9635d2c0a.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.94b7d1c1c7ab40c6eac2.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.d63d03b3b69c11f9e6aa.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app_components_AddressForm_AddressForm_tsx-app_components_Step_Step_tsx-app_utilities_receipt-224401.latest.en.4102af967c2318ba421f.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.8e68c4e4246b64be3ba3.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.7eadcddb7755a08c8d6d.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.0ca662c669b41a356f6a.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_card-fields-react_src_hook_ts-packages_checkout-graphql_src_in-92a386.latest.en.b39452fcc8039fc140d1.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.aaa897dd9c534f7f99ac.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.34c13c3036294a9b3b6d.js",
         ];
         var styles = [
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.5196d587d3de2d2fbc8a.css",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.4e93eb2ccac793a61d40.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.90bde523bde67a4067f2.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.b7ed98bf011cf2a4887c.css",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.f987e50a37d7171c2810.css",
         ];
 
@@ -931,9 +972,10 @@ if(!isset($_SESSION)){
       var __st = {
         a: 63748341981,
         offset: 19800,
-        reqid: "2330405b-4527-42cd-9054-c0c3b5cae26f",
-        pageurl: "peachmode.com\/account\/login",
-        u: "bbc3098db7c7",
+        reqid: "9a7fd838-eb02-44b8-9aa6-12b5442af857",
+        pageurl: "peachmode.com\/account\/addresses",
+        u: "00132fc920a8",
+        cid: 6713034932445,
       };
     </script>
     <script>
@@ -1004,7 +1046,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script>
-      var loox_global_hash = "1681114762701";
+      var loox_global_hash = "1681351419703";
     </script>
     <style>
       .loox-reviews-default {
@@ -1956,7 +1998,9 @@ if(!isset($_SESSION)){
         "https://connect.facebook.net/en_US/fbevents.js"
       );
 
-      fbq("init", "795748567170435");
+      fbq("init", "795748567170435", {
+        em: "yashsabhaya964@gmail.com",
+      });
 
       fbq("track", "PageView");
     </script>
@@ -2008,7 +2052,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script
-      src="https://cdn.shopify.com/extensions/cece2cc8-741a-4309-94ee-04a78984c575/1.59.0/assets/ws-currencyconverter.js"
+      src="https://cdn.shopify.com/extensions/c4e8e215-0970-4d3a-ac7b-2e25bea3398b/2.0.0/assets/ws-currencyconverter.js"
       type="text/javascript"
       defer="defer"
     ></script>
@@ -2034,7 +2078,7 @@ if(!isset($_SESSION)){
                   session_token && session_token.length === 2
                     ? session_token[1]
                     : "",
-                page_type: "customers/login",
+                page_type: "customers/addresses",
               };
               window.navigator.sendBeacon(
                 "https://monorail-edge.shopifysvc.com/v1/produce",
@@ -2053,11 +2097,104 @@ if(!isset($_SESSION)){
         }
       })();
     </script>
+    <script id="evids-setup">
+      (function () {
+        let t, e;
+        function n() {
+          (t = {
+            page_viewed: {},
+            collection_viewed: {},
+            product_viewed: {},
+            product_variant_viewed: {},
+            search_submitted: {},
+            product_added_to_cart: {},
+            checkout_started: {},
+            checkout_completed: {},
+            payment_info_submitted: {},
+          }),
+            (e = { wpm: {}, trekkie: {} });
+        }
+        function o(t) {
+          return `${t || "sh"}-${(function () {
+            const t = "xxxx-4xxx-xxxx-xxxxxxxxxxxx";
+            let e = "";
+            try {
+              const n = window.crypto,
+                o = new Uint16Array(31);
+              n.getRandomValues(o);
+              let r = 0;
+              e = t
+                .replace(/[x]/g, (t) => {
+                  const e = o[r] % 16;
+                  return r++, ("x" === t ? e : (3 & e) | 8).toString(16);
+                })
+                .toUpperCase();
+            } catch (n) {
+              e = t
+                .replace(/[x]/g, (t) => {
+                  const e = (16 * Math.random()) | 0;
+                  return ("x" === t ? e : (3 & e) | 8).toString(16);
+                })
+                .toUpperCase();
+            }
+            return `${(function () {
+              let t = 0,
+                e = 0;
+              t = new Date().getTime() >>> 0;
+              try {
+                e = performance.now() >>> 0;
+              } catch (t) {
+                e = 0;
+              }
+              const n = Math.abs(t + e)
+                .toString(16)
+                .toLowerCase();
+              return "00000000".substr(0, 8 - n.length) + n;
+            })()}-${e}`;
+          })()}`;
+        }
+        function r(n, r) {
+          if (
+            !t[n] ||
+            ("trekkie" !== (null == r ? void 0 : r.analyticsFramework) &&
+              "wpm" !== (null == r ? void 0 : r.analyticsFramework))
+          )
+            return o("shu");
+          const i = "string" == typeof (c = r.cacheKey) && c ? c : "default";
+          var c;
+          const a = (function (t, n, o) {
+            const r = e[n];
+            return (
+              void 0 === r[t] && (r[t] = {}),
+              void 0 === r[t][o] ? (r[t][o] = 0) : (r[t][o] += 1),
+              r[t][o]
+            );
+          })(n, r.analyticsFramework, i);
+          return (function (e, n, r) {
+            const i = t[e];
+            if (void 0 === i[r]) {
+              const t = o();
+              i[r] = [t];
+            } else if (void 0 === i[r][n]) {
+              const t = o();
+              i[r].push(t);
+            }
+            return i[r][n];
+          })(n, a, i);
+        }
+        function i() {
+          (window.Shopify = window.Shopify || {}),
+            n(),
+            (window.Shopify.evids = (t, e) => r(t, e));
+        }
+        i();
+      })();
+    </script>
     <script>
       window.ShopifyAnalytics = window.ShopifyAnalytics || {};
       window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
       window.ShopifyAnalytics.meta.currency = "INR";
-      var meta = { page: {} };
+      var meta = { page: { customerId: 6713034932445 } };
       for (var attr in meta) {
         window.ShopifyAnalytics.meta[attr] = meta[attr];
       }
@@ -2201,18 +2338,18 @@ if(!isset($_SESSION)){
                   app_name: "storefront",
                   context_url: window.location.href,
                   source_url:
-                    "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js",
+                    "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js",
                 }
               );
             };
             scriptFallback.async = true;
             scriptFallback.src =
-              "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js";
+              "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js";
             first.parentNode.insertBefore(scriptFallback, first);
           };
           script.async = true;
           script.src =
-            "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js";
+            "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js";
           first.parentNode.insertBefore(script, first);
         };
         trekkie.load({
@@ -2233,6 +2370,7 @@ if(!isset($_SESSION)){
           "Session Attribution": {},
           S2S: {
             facebookCapiEnabled: false,
+            customerId: 6713034932445,
             source: "trekkie-storefront-renderer",
           },
         });
@@ -2251,7 +2389,7 @@ if(!isset($_SESSION)){
           } catch (error) {}
           document.write = originalDocumentWrite;
 
-          window.ShopifyAnalytics.lib.page(null, {});
+          window.ShopifyAnalytics.lib.page(null, { customerId: 6713034932445 });
 
           var match = window.location.pathname.match(
             /checkouts\/(.+)\/(thank_you|post_purchase)/
@@ -2580,7 +2718,13 @@ if(!isset($_SESSION)){
           initData: {
             cart: null,
             checkout: null,
-            customer: null,
+            customer: {
+              email: "yashsabhaya964@gmail.com",
+              firstName: "Yash",
+              id: "6713034932445",
+              lastName: "Sabhaya",
+              phone: null,
+            },
             productVariants: [],
           },
         },
@@ -2589,13 +2733,13 @@ if(!isset($_SESSION)){
         },
         "https://cdn.shopify.com",
         "browser",
-        "0.0.279",
-        "518c152fw00918cf1pc7ca055am99284242"
+        "0.0.285",
+        "da3bd5a4w8ea8a283p30eb74b3mf7ed84c9"
       );
     </script>
   </head>
   <body
-    class="no-focus-outline features--image-zoom template-login"
+    class="no-focus-outline features--image-zoom template-addresses"
     data-instant-allow-query-string
   >
     <!-- Google Tag Manager (noscript) -->
@@ -2685,10 +2829,6 @@ if(!isset($_SESSION)){
             ><announcement-bar-item hidden class="announcement-bar__item"
               ><div class="announcement-bar__message text--xsmall">
                 <p>7 Day no questions asked return policy.</p>
-              </div></announcement-bar-item
-            ><announcement-bar-item hidden class="announcement-bar__item"
-              ><div class="announcement-bar__message text--xsmall">
-                <p>Free Shipping in India. COD Available.</p>
               </div></announcement-bar-item
             >
           </div>
@@ -2889,14 +3029,14 @@ if(!isset($_SESSION)){
                   <li class="header__linklist-item">
                     <a
                       class="header__linklist-link link--animated"
-                      href="track-order.html"
+                      href="track-order.php"
                       >Track Order</a
                     >
                   </li>
                   <li class="header__linklist-item">
                     <a
                       class="header__linklist-link link--animated"
-                      href="contact.html"
+                      href="contact.php"
                       >Contact Us</a
                     >
                   </li>
@@ -2917,396 +3057,8 @@ if(!isset($_SESSION)){
                     type="hidden"
                     name="_method"
                     value="put"
-                  /><input
-                    type="hidden"
-                    name="return_to"
-                    value="/account/login"
-                  />
-                  <div class="popover-container">
-                    <input type="hidden" name="country_code" value="IN" />
-                    <span class="visually-hidden">Country/region</span>
-
-                    <button
-                      type="button"
-                      is="toggle-button"
-                      class="popover-button text--small"
-                      aria-expanded="false"
-                      aria-controls="header-localization-form-currency"
-                    >
-                      India (INR ₹)<svg
-                        focusable="false"
-                        width="9"
-                        height="6"
-                        class="icon icon--chevron icon--inline"
-                        viewBox="0 0 12 8"
-                      >
-                        <path
-                          fill="none"
-                          d="M1 1l5 5 5-5"
-                          stroke="currentColor"
-                          stroke-width="2"
-                        ></path>
-                      </svg>
-                    </button>
-
-                    <popover-content
-                      id="header-localization-form-currency"
-                      class="popover"
-                    >
-                      <span class="popover__overlay"></span>
-
-                      <header class="popover__header">
-                        <span class="popover__title heading h6"
-                          >Country/region</span
-                        >
-
-                        <button
-                          type="button"
-                          class="popover__close-button tap-area tap-area--large"
-                          data-action="close"
-                          title="Close"
-                        >
-                          <svg
-                            focusable="false"
-                            width="14"
-                            height="14"
-                            class="icon icon--close"
-                            viewBox="0 0 14 14"
-                          >
-                            <path
-                              d="M13 13L1 1M13 1L1 13"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              fill="none"
-                            ></path>
-                          </svg>
-                        </button>
-                      </header>
-
-                      <div class="popover__content popover__content--restrict">
-                        <div class="popover__choice-list">
-                          <button
-                            type="submit"
-                            name="country_code"
-                            value="AU"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Australia (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="AT"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Austria (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="BE"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Belgium (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="CA"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Canada (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="CZ"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Czechia (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="DK"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Denmark (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="FJ"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Fiji (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="FI"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Finland (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="FR"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >France (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="DE"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Germany (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="HK"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Hong Kong SAR (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="IN"
-                            class="popover__choice-item"
-                          >
-                            <span
-                              class="popover__choice-label"
-                              aria-current="true"
-                              >India (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="IE"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Ireland (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="IL"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Israel (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="IT"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Italy (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="JP"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Japan (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="KW"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Kuwait (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="MY"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Malaysia (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="MU"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Mauritius (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="NL"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Netherlands (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="NZ"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >New Zealand (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="NO"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Norway (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="PL"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Poland (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="PT"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Portugal (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="SA"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Saudi Arabia (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="SG"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Singapore (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="ZA"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >South Africa (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="KR"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >South Korea (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="ES"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Spain (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="LK"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Sri Lanka (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="SE"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Sweden (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="CH"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Switzerland (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="AE"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >United Arab Emirates (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="GB"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >United Kingdom (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="US"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >United States (INR ₹)
-                            </span>
-                          </button>
-                        </div>
-                      </div>
-                    </popover-content>
-                  </div>
+                  /><input type="hidden" name="return_to" value="/" />
+                  <div class="popover-container"></div>
                 </form>
               </div>
             </div>
@@ -3327,7 +3079,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-1"
                       aria-expanded="false"
                       >Collections</a
@@ -3341,21 +3093,21 @@ if(!isset($_SESSION)){
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           >New Arrivals</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           >Handbags</a
                         >
                       </li>
                       <li class="nav-dropdown__item has-dropdown">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           aria-controls="desktop-menu-1-3"
                           aria-expanded="false"
                           >Jewellery<svg
@@ -3382,35 +3134,35 @@ if(!isset($_SESSION)){
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.html"
+                              href="product.php"
                               >Earrings</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.html"
+                              href="product.php"
                               >Necklace</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.html"
+                              href="product.php"
                               >Rings</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.html"
+                              href="product.php"
                               >Bracelet</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.html"
+                              href="product.php"
                               >Maang Tika</a
                             >
                           </li>
@@ -3419,28 +3171,28 @@ if(!isset($_SESSION)){
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           >Bedsheets</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           >Exclusive</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           >Combo Packs</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           >Mens Kurta Pyjama</a
                         >
                       </li>
@@ -3452,7 +3204,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-2"
                       aria-expanded="false"
                       >Sarees</a
@@ -3463,73 +3215,73 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Cotton Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Art Silk Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chiffon Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Georgette Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Crepe Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Organza Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chanderi Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bhagalpuri Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Satin Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Linen Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Net Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kanjivaram</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Banarasi Silk</a
                                   >
                                 </li>
@@ -3537,38 +3289,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Print/Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Floral Print</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bandhani Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Embroidered</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Paithani</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Lucknowi / Chickankari</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Patola</a
                                   >
                                 </li>
@@ -3576,23 +3328,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Collection</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Half N Half Saree</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Authentic Drapes</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bollywood</a
                                   >
                                 </li>
@@ -3600,38 +3352,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -3639,63 +3391,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -3703,68 +3455,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -3796,7 +3548,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-3"
                       aria-expanded="false"
                       >Salwar Suits</a
@@ -3807,73 +3559,73 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Organza</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bhagalpuri Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Banarasi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chanderi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Tapetta Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Tussar Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Net</a
                                   >
                                 </li>
@@ -3881,43 +3633,43 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Style</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Sharara Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Anarkali Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Palazzo Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Patiala Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pakistani Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Straight Cut Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Indo western</a
                                   >
                                 </li>
@@ -3925,23 +3677,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Stitch Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Unstitched Salwar suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Readymade Salwar suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Semi Stitched</a
                                   >
                                 </li>
@@ -3949,28 +3701,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >3000 & above</a
                                   >
                                 </li>
@@ -3978,63 +3730,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -4042,68 +3794,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4135,7 +3887,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-4"
                       aria-expanded="false"
                       >Kurtis</a
@@ -4146,58 +3898,58 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chanderi Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Linen</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Muslin</a
                                   >
                                 </li>
@@ -4205,63 +3957,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Print/Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Floral print</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Solid</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bandhani</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Printed</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Embroidered</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Anarkali</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >A-Line</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Straight</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Short
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Long</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >High Low</a
                                   >
                                 </li>
@@ -4269,53 +4021,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Product Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kurti Pant Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kurti Palazzo Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kurti Dhoti Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kurti Skirt Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Palazzo Suit</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Top Bottom Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kurti</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kaftan</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kaftan Set</a
                                   >
                                 </li>
@@ -4323,28 +4075,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
@@ -4352,23 +4104,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >2000 & above</a
                                   >
                                 </li>
@@ -4376,68 +4128,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4469,7 +4221,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-5"
                       aria-expanded="false"
                       >Lehengas</a
@@ -4480,53 +4232,53 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Art Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Banarasi Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Organza</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Satin</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Velvet</a
                                   >
                                 </li>
@@ -4534,23 +4286,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Designer</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Digital</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Floral</a
                                   >
                                 </li>
@@ -4558,38 +4310,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -4597,53 +4349,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -4651,68 +4403,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Gold</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4720,23 +4472,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Style</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Ready to wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Unstiched</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Semi stitched</a
                                   >
                                 </li>
@@ -4768,7 +4520,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-6"
                       aria-expanded="false"
                       >Gowns</a
@@ -4779,53 +4531,53 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Satin</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chanderi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Net</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Tapetta Silk</a
                                   >
                                 </li>
@@ -4833,53 +4585,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -4887,38 +4639,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -4926,63 +4678,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4999,7 +4751,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-7"
                       aria-expanded="false"
                       >Western</a
@@ -5010,33 +4762,33 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
@@ -5044,28 +4796,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Tops</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Tunics</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Dresses</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Jumpsuit</a
                                   >
                                 </li>
@@ -5073,28 +4825,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
@@ -5102,23 +4854,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >2000 & above</a
                                   >
                                 </li>
@@ -5126,68 +4878,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -5201,14 +4953,14 @@ if(!isset($_SESSION)){
                   <li class="header__linklist-item" data-item-title="Live">
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       >Live</a
                     >
                   </li>
                   <li class="header__linklist-item" data-item-title="Sale">
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       >Sale</a
                     >
                   </li>
@@ -5384,7 +5136,7 @@ if(!isset($_SESSION)){
 
             <!-- LOGO PART -->
             <h1 class="header__logo">
-              <a class="header__logo-link" href="index.html"
+              <a class="header__logo-link" href="index.php"
                 ><span class="visually-hidden">Kalaajee</span>
                 <img
                   loading="lazy"
@@ -5671,7 +5423,7 @@ if(!isset($_SESSION)){
   }*/
                 </style>
                 <a
-                  href="login.html"
+                  href="login.php"
                   class="header__icon-wrapper tap-area hidden-phone hidden-desk"
                   aria-label="Login"
                   ><svg
@@ -5745,10 +5497,10 @@ if(!isset($_SESSION)){
               >
                 <li class="header__linklist-item"></li>
                 <li class="header__linklist-item">
-                  <a href="login.html">Login </a>
+                  <a href="login.php">Login </a>
                 </li>
                 <li class="header__linklist-item">
-                  <a href="account.html">My Account </a>
+                  <a href="account.php">My Account </a>
                 </li>
                 <li class="header__linklist-item">
                   <a
@@ -8565,7 +8317,7 @@ if(!isset($_SESSION)){
           class="drawer__footer drawer__footer--tight drawer__footer--bordered"
         >
           <div class="mobile-nav__footer">
-            <a class="icon-text" href="/account/login"
+            <a class="icon-text" href="/account"
               ><svg
                 focusable="false"
                 width="18"
@@ -8807,10 +8559,10 @@ if(!isset($_SESSION)){
           <p>Your cart is empty</p>
 
           <div class="button-wrapper">
-            <a href="index.html" class="button button--primary"
+            <a href="index.php" class="button button--primary"
               >Start shopping</a
             >
-            <a href="cart.html" class="button button--primary">View Cart</a>
+            <a href="cart.php" class="button button--primary">View Cart</a>
           </div>
         </div>
         <openable-element id="mini-cart-note" class="mini-cart__order-note">
@@ -8841,181 +8593,2215 @@ if(!isset($_SESSION)){
     </div>
     <div id="main" role="main" class="anchor">
       <div
-        id="shopify-section-template--15880464957661__main"
-        class="shopify-section shopify-section--main-customers-login"
+        id="shopify-section-template--15880464924893__main"
+        class="shopify-section shopify-section--main-customers-addresses"
       >
         <section>
-          <div class="container">
-            <div id="login-form-container">
-              <div class="page-header">
-                <div class="page-header__text-wrapper text-container">
-                  <h1 class="heading h2">Login</h1>
-                  <p>Please enter your e-mail and password:</p>
-                </div>
-              </div>
-
-              <div class="page-content page-content--small">
-                <div class="account__block-list">
-                  <div class="account__block-item">
-                    <form
-                      method="post"
-                      action="client-login.php"
-                      id="customer_login"
-                      accept-charset="UTF-8"
-                      data-login-with-shop-sign-in="true"
-                      name="login"
-                      class="form"
+          <div class="link-bar hidden-phone">
+            <div class="container">
+              <div class="link-bar__wrapper">
+                <ul class="link-bar__linklist list--unstyled" role="list">
+                  <li class="link-bar__link-item">
+                    <a
+                      href="profile.php"
+                      class="link-bar__link link--animated text--underlined"
+                      >My Profile</a
                     >
-                      <input
-                        type="hidden"
-                        name="form_type"
-                        value="customer_login"
-                      /><input type="hidden" name="utf8" value="✓" />
-                      <div class="input">
-                        <input
-                          type="email"
-                          id="customer[email]"
-                          autocomplete="email"
-                          class="input__field"
-                          name="customer_email"
-                          required="required"
-                        />
-                        <label for="customer_email" class="input__label"
-                          >E-mail</label
-                        >
-                      </div>
-
-                      <div class="input">
-                        <input
-                          type="password"
-                          id="customer[password]"
-                          class="input__field"
-                          name="customer_password"
-                          required="required"
-                          autocomplete="current-password"
-                        />
-                        <label for="customer[password]" class="input__label"
-                          >Password</label
-                        >
-
-                        <button
-                          type="button"
-                          class="input__field-link link text--xsmall text--subdued"
-                          data-action="switch-login-form"
-                        >
-                          Forgot password?
-                        </button>
-                      </div>
-                      <button
-                        type="submit"
-                        is="loader-button"
-                        class="form__submit button button--primary button--full"
-                      >
-                        Login
-                      </button>
-                      <a
-                        href="otp-login.html"
-                        class="mt-2 button button--secondary button--full"
-                        >Login via OTP</a
-                      >
-
-                      <span class="form__secondary-action text--subdued"
-                        >New customer?<a href="register.html" class="link"
-                          >Create an account</a
-                        >
-                      </span>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="recover-form-container" style="display: none">
-              <div class="page-header">
-                <div class="page-header__text-wrapper text-container">
-                  <h1 class="heading h2">Recover password</h1>
-                  <p>Please enter your e-mail:</p>
-                </div>
-              </div>
-
-              <div class="page-content page-content--small">
-                <form
-                  method="post"
-                  action="/account/recover"
-                  accept-charset="UTF-8"
-                  name="recover"
-                  class="form"
-                >
-                  <input
-                    type="hidden"
-                    name="form_type"
-                    value="recover_customer_password"
-                  /><input type="hidden" name="utf8" value="✓" />
-                  <div class="input">
-                    <input
-                      type="email"
-                      id="customer[recover_email]"
-                      class="input__field"
-                      name="email"
-                      required="required"
-                    />
-                    <label for="customer[recover_email]" class="input__label"
-                      >E-mail</label
+                  </li>
+                  <li class="link-bar__link-item">
+                    <a
+                      href="account.php"
+                      class="link-bar__link link--animated"
+                      >Orders</a
                     >
-                  </div>
+                  </li>
 
-                  <button
-                    type="submit"
-                    is="loader-button"
-                    class="form__submit button button--primary button--full"
-                  >
-                    Recover</button
-                  ><span class="form__secondary-action text--subdued"
-                    >Remember your password?<button
-                      type="button"
-                      class="link"
-                      data-action="switch-login-form"
+                  <li class="link-bar__link-item">
+                    <a href="address.php" class="link-bar__link link--animated"
+                      >Addresses</a
                     >
-                      Back to login
-                    </button>
-                  </span>
-                </form>
+                  </li>
+                  <li class="link-bar__link-item">
+                    <a
+                      href="track-order.php"
+                      class="link-bar__link link--animated"
+                      >Track Order</a
+                    >
+                  </li>
+
+                  <li class="link-bar__link-item">
+                    <a
+                      href="logout.php"
+                      class="link-bar__link link--animated text--subdued"
+                      data-no-instant
+                      >Logout</a
+                    >
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
 
-          <script>
-            // The script for this is very minimal so we just embed it here
-            window.addEventListener("DOMContentLoaded", () => {
-              const loginFormElement = document.getElementById(
-                  "login-form-container"
-                ),
-                recoverFormElement = document.getElementById(
-                  "recover-form-container"
-                );
+          <div class="mobile-toolbar hidden-tablet-and-up">
+            <button
+              is="toggle-button"
+              class="mobile-toolbar__item"
+              aria-expanded="false"
+              aria-controls="account-links-popover"
+            >
+              Addresses<svg
+                focusable="false"
+                width="12"
+                height="8"
+                class="icon icon--chevron"
+                viewBox="0 0 12 8"
+              >
+                <path
+                  fill="none"
+                  d="M1 1l5 5 5-5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                ></path>
+              </svg>
+            </button>
+          </div>
 
-              const switchForms = () => {
-                loginFormElement.style.display =
-                  window.getComputedStyle(loginFormElement).display === "block"
-                    ? "none"
-                    : "block";
-                recoverFormElement.style.display =
-                  window.getComputedStyle(recoverFormElement).display ===
-                  "block"
-                    ? "none"
-                    : "block";
-              };
+          <popover-content id="account-links-popover" class="popover">
+            <span class="popover__overlay"></span>
 
-              if (window.location.hash === "#recover") {
-                switchForms();
-              }
+            <header class="popover__header">
+              <span class="popover__title heading h6">My account</span>
 
-              Array.from(
-                document.querySelectorAll('[data-action="switch-login-form"]')
-              ).forEach((button) => {
-                button.addEventListener("click", () => switchForms());
-              });
-            });
-          </script>
+              <button
+                type="button"
+                class="popover__close-button tap-area tap-area--large"
+                data-action="close"
+                title="Close"
+              >
+                <svg
+                  focusable="false"
+                  width="14"
+                  height="14"
+                  class="icon icon--close"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    d="M13 13L1 1M13 1L1 13"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                  ></path>
+                </svg>
+              </button>
+            </header>
+
+            <div class="popover__content">
+              <div class="popover__choice-list">
+                <a href="profile.php" class="popover__choice-item">
+                  <span class="popover__choice-label" aria-current="true"
+                    >My Profile</span
+                  >
+                </a>
+                <a href="account.php" class="popover__choice-item">
+                  <span class="popover__choice-label">Orders</span>
+                </a>
+
+                <a href="address.php" class="popover__choice-item">
+                  <span class="popover__choice-label">Addresses</span>
+                </a>
+
+                <a
+                  href="login.php"
+                  class="popover__choice-item text--subdued"
+                  data-no-instant
+                >
+                  <span class="popover__choice-label">Logout</span>
+                </a>
+              </div>
+            </div>
+          </popover-content>
+
+          <div class="account account--addresses">
+            <div class="container container--small">
+              <div class="page-header page-header--small">
+                <div class="page-header__text-wrapper text-container">
+                  <h1 class="heading h4">Personal Information</h1>
+                </div>
+              </div>
+
+              <div class="page-content">
+                <div class="account__block-list">
+                  <div class="account__block-item">
+                    <div class="account__addresses-list">
+                      <div class="account__address">
+                        <span
+                          class="account__address-title heading heading--small"
+                          >Account Information</span
+                        >
+                         <?php echo $display_data; ?>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <drawer-content
+            id="drawer-new-address"
+            class="drawer drawer--large"
+            initial-focus-selector="[type='text']:first-child"
+          >
+            <span class="drawer__overlay"></span>
+
+            <header class="drawer__header">
+              <h3 class="drawer__title heading h6">Add a new address</h3>
+
+              <button
+                type="button"
+                class="drawer__close-button tap-area"
+                data-action="close"
+                title="Close"
+              >
+                <svg
+                  focusable="false"
+                  width="14"
+                  height="14"
+                  class="icon icon--close"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    d="M13 13L1 1M13 1L1 13"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                  ></path>
+                </svg>
+              </button>
+            </header>
+
+            <div class="drawer__content drawer__content--padded-start">
+              <form
+                method="post"
+                action="/account/addresses"
+                id="address_form_new"
+                accept-charset="UTF-8"
+                class="form"
+              >
+                <input
+                  type="hidden"
+                  name="form_type"
+                  value="customer_address"
+                /><input type="hidden" name="utf8" value="✓" />
+                <p class="form__info">Please fill in the fields below:</p>
+                <div class="input-row">
+                  <div class="input">
+                    <input
+                      id="address-new[first_name]"
+                      type="text"
+                      class="input__field input__field--text"
+                      name="address[first_name]"
+                      value=""
+                    />
+                    <label for="address-new[first_name]" class="input__label"
+                      >First name</label
+                    >
+                  </div>
+
+                  <div class="input">
+                    <input
+                      id="address-new[last_name]"
+                      type="text"
+                      class="input__field input__field--text"
+                      name="address[last_name]"
+                      value=""
+                    />
+                    <label for="address-new[last_name]" class="input__label"
+                      >Last name</label
+                    >
+                  </div>
+                </div>
+
+                <div class="input">
+                  <input
+                    id="address-new[phone]"
+                    type="text"
+                    class="input__field input__field--text"
+                    name="address[phone]"
+                    value=""
+                  />
+                  <label for="address-new[phone]" class="input__label"
+                    >E-Mail Address</label
+                  >
+                </div>
+
+                <div class="input">
+                  <input
+                    id="address-new[address1]"
+                    type="text"
+                    class="input__field input__field--text"
+                    name="address[address1]"
+                    value=""
+                  />
+                  <label for="address-new[address1]" class="input__label"
+                    >Mobile Number</label
+                  >
+                </div>
+
+                <div class="input">
+                  <input
+                    id="address-new[address2]"
+                    type="text"
+                    class="input__field input__field--text"
+                    name="address[address2]"
+                    value=""
+                  />
+                  <label for="address-new[address2]" class="input__label"
+                    >Address</label
+                  >
+                </div>
+
+                <div class="input-row">
+                  <div class="input">
+                    <input
+                      id="address-new[city]"
+                      type="text"
+                      class="input__field input__field--text"
+                      name="address[city]"
+                      value=""
+                    />
+                    <label for="address-new[city]" class="input__label"
+                      >City</label
+                    >
+                  </div>
+
+                  <div class="input">
+                    <input
+                      id="address-new[zip]"
+                      type="text"
+                      class="input__field input__field--text"
+                      name="address[zip]"
+                      value=""
+                    />
+                    <label for="address-new[zip]" class="input__label"
+                      >Zip code</label
+                    >
+                  </div>
+                </div>
+
+                <div class="input">
+                  <div class="select-wrapper is-filled">
+                    <select
+                      is="country-selector"
+                      class="select"
+                      name="address[country]"
+                      id="address-new[country]"
+                      aria-owns="address-new-province-container"
+                    >
+                      <option
+                        value="India"
+                        data-provinces='[["Andaman and Nicobar Islands","Andaman and Nicobar Islands"],["Andhra Pradesh","Andhra Pradesh"],["Arunachal Pradesh","Arunachal Pradesh"],["Assam","Assam"],["Bihar","Bihar"],["Chandigarh","Chandigarh"],["Chhattisgarh","Chhattisgarh"],["Dadra and Nagar Haveli","Dadra and Nagar Haveli"],["Daman and Diu","Daman and Diu"],["Delhi","Delhi"],["Goa","Goa"],["Gujarat","Gujarat"],["Haryana","Haryana"],["Himachal Pradesh","Himachal Pradesh"],["Jammu and Kashmir","Jammu and Kashmir"],["Jharkhand","Jharkhand"],["Karnataka","Karnataka"],["Kerala","Kerala"],["Ladakh","Ladakh"],["Lakshadweep","Lakshadweep"],["Madhya Pradesh","Madhya Pradesh"],["Maharashtra","Maharashtra"],["Manipur","Manipur"],["Meghalaya","Meghalaya"],["Mizoram","Mizoram"],["Nagaland","Nagaland"],["Odisha","Odisha"],["Puducherry","Puducherry"],["Punjab","Punjab"],["Rajasthan","Rajasthan"],["Sikkim","Sikkim"],["Tamil Nadu","Tamil Nadu"],["Telangana","Telangana"],["Tripura","Tripura"],["Uttar Pradesh","Uttar Pradesh"],["Uttarakhand","Uttarakhand"],["West Bengal","West Bengal"]]'
+                      >
+                        India
+                      </option>
+                      <option
+                        value="Australia"
+                        data-provinces='[["Australian Capital Territory","Australian Capital Territory"],["New South Wales","New South Wales"],["Northern Territory","Northern Territory"],["Queensland","Queensland"],["South Australia","South Australia"],["Tasmania","Tasmania"],["Victoria","Victoria"],["Western Australia","Western Australia"]]'
+                      >
+                        Australia
+                      </option>
+                      <option
+                        value="United States"
+                        data-provinces='[["Alabama","Alabama"],["Alaska","Alaska"],["American Samoa","American Samoa"],["Arizona","Arizona"],["Arkansas","Arkansas"],["Armed Forces Americas","Armed Forces Americas"],["Armed Forces Europe","Armed Forces Europe"],["Armed Forces Pacific","Armed Forces Pacific"],["California","California"],["Colorado","Colorado"],["Connecticut","Connecticut"],["Delaware","Delaware"],["District of Columbia","Washington DC"],["Federated States of Micronesia","Micronesia"],["Florida","Florida"],["Georgia","Georgia"],["Guam","Guam"],["Hawaii","Hawaii"],["Idaho","Idaho"],["Illinois","Illinois"],["Indiana","Indiana"],["Iowa","Iowa"],["Kansas","Kansas"],["Kentucky","Kentucky"],["Louisiana","Louisiana"],["Maine","Maine"],["Marshall Islands","Marshall Islands"],["Maryland","Maryland"],["Massachusetts","Massachusetts"],["Michigan","Michigan"],["Minnesota","Minnesota"],["Mississippi","Mississippi"],["Missouri","Missouri"],["Montana","Montana"],["Nebraska","Nebraska"],["Nevada","Nevada"],["New Hampshire","New Hampshire"],["New Jersey","New Jersey"],["New Mexico","New Mexico"],["New York","New York"],["North Carolina","North Carolina"],["North Dakota","North Dakota"],["Northern Mariana Islands","Northern Mariana Islands"],["Ohio","Ohio"],["Oklahoma","Oklahoma"],["Oregon","Oregon"],["Palau","Palau"],["Pennsylvania","Pennsylvania"],["Puerto Rico","Puerto Rico"],["Rhode Island","Rhode Island"],["South Carolina","South Carolina"],["South Dakota","South Dakota"],["Tennessee","Tennessee"],["Texas","Texas"],["Utah","Utah"],["Vermont","Vermont"],["Virgin Islands","U.S. Virgin Islands"],["Virginia","Virginia"],["Washington","Washington"],["West Virginia","West Virginia"],["Wisconsin","Wisconsin"],["Wyoming","Wyoming"]]'
+                      >
+                        United States
+                      </option>
+                      <option
+                        value="United Kingdom"
+                        data-provinces='[["British Forces","British Forces"],["England","England"],["Northern Ireland","Northern Ireland"],["Scotland","Scotland"],["Wales","Wales"]]'
+                      >
+                        United Kingdom
+                      </option>
+                      <option value="---" data-provinces="[]">---</option>
+                      <option value="Afghanistan" data-provinces="[]">
+                        Afghanistan
+                      </option>
+                      <option value="Aland Islands" data-provinces="[]">
+                        Åland Islands
+                      </option>
+                      <option value="Albania" data-provinces="[]">
+                        Albania
+                      </option>
+                      <option value="Algeria" data-provinces="[]">
+                        Algeria
+                      </option>
+                      <option value="Andorra" data-provinces="[]">
+                        Andorra
+                      </option>
+                      <option value="Angola" data-provinces="[]">Angola</option>
+                      <option value="Anguilla" data-provinces="[]">
+                        Anguilla
+                      </option>
+                      <option value="Antigua And Barbuda" data-provinces="[]">
+                        Antigua & Barbuda
+                      </option>
+                      <option
+                        value="Argentina"
+                        data-provinces='[["Buenos Aires","Buenos Aires Province"],["Catamarca","Catamarca"],["Chaco","Chaco"],["Chubut","Chubut"],["Ciudad Autónoma de Buenos Aires","Buenos Aires (Autonomous City)"],["Corrientes","Corrientes"],["Córdoba","Córdoba"],["Entre Ríos","Entre Ríos"],["Formosa","Formosa"],["Jujuy","Jujuy"],["La Pampa","La Pampa"],["La Rioja","La Rioja"],["Mendoza","Mendoza"],["Misiones","Misiones"],["Neuquén","Neuquén"],["Río Negro","Río Negro"],["Salta","Salta"],["San Juan","San Juan"],["San Luis","San Luis"],["Santa Cruz","Santa Cruz"],["Santa Fe","Santa Fe"],["Santiago Del Estero","Santiago del Estero"],["Tierra Del Fuego","Tierra del Fuego"],["Tucumán","Tucumán"]]'
+                      >
+                        Argentina
+                      </option>
+                      <option value="Armenia" data-provinces="[]">
+                        Armenia
+                      </option>
+                      <option value="Aruba" data-provinces="[]">Aruba</option>
+                      <option value="Ascension Island" data-provinces="[]">
+                        Ascension Island
+                      </option>
+                      <option
+                        value="Australia"
+                        data-provinces='[["Australian Capital Territory","Australian Capital Territory"],["New South Wales","New South Wales"],["Northern Territory","Northern Territory"],["Queensland","Queensland"],["South Australia","South Australia"],["Tasmania","Tasmania"],["Victoria","Victoria"],["Western Australia","Western Australia"]]'
+                      >
+                        Australia
+                      </option>
+                      <option value="Austria" data-provinces="[]">
+                        Austria
+                      </option>
+                      <option value="Azerbaijan" data-provinces="[]">
+                        Azerbaijan
+                      </option>
+                      <option value="Bahamas" data-provinces="[]">
+                        Bahamas
+                      </option>
+                      <option value="Bahrain" data-provinces="[]">
+                        Bahrain
+                      </option>
+                      <option value="Bangladesh" data-provinces="[]">
+                        Bangladesh
+                      </option>
+                      <option value="Barbados" data-provinces="[]">
+                        Barbados
+                      </option>
+                      <option value="Belarus" data-provinces="[]">
+                        Belarus
+                      </option>
+                      <option value="Belgium" data-provinces="[]">
+                        Belgium
+                      </option>
+                      <option value="Belize" data-provinces="[]">Belize</option>
+                      <option value="Benin" data-provinces="[]">Benin</option>
+                      <option value="Bermuda" data-provinces="[]">
+                        Bermuda
+                      </option>
+                      <option value="Bhutan" data-provinces="[]">Bhutan</option>
+                      <option value="Bolivia" data-provinces="[]">
+                        Bolivia
+                      </option>
+                      <option
+                        value="Bosnia And Herzegovina"
+                        data-provinces="[]"
+                      >
+                        Bosnia & Herzegovina
+                      </option>
+                      <option value="Botswana" data-provinces="[]">
+                        Botswana
+                      </option>
+                      <option
+                        value="Brazil"
+                        data-provinces='[["Acre","Acre"],["Alagoas","Alagoas"],["Amapá","Amapá"],["Amazonas","Amazonas"],["Bahia","Bahia"],["Ceará","Ceará"],["Distrito Federal","Federal District"],["Espírito Santo","Espírito Santo"],["Goiás","Goiás"],["Maranhão","Maranhão"],["Mato Grosso","Mato Grosso"],["Mato Grosso do Sul","Mato Grosso do Sul"],["Minas Gerais","Minas Gerais"],["Paraná","Paraná"],["Paraíba","Paraíba"],["Pará","Pará"],["Pernambuco","Pernambuco"],["Piauí","Piauí"],["Rio Grande do Norte","Rio Grande do Norte"],["Rio Grande do Sul","Rio Grande do Sul"],["Rio de Janeiro","Rio de Janeiro"],["Rondônia","Rondônia"],["Roraima","Roraima"],["Santa Catarina","Santa Catarina"],["Sergipe","Sergipe"],["São Paulo","São Paulo"],["Tocantins","Tocantins"]]'
+                      >
+                        Brazil
+                      </option>
+                      <option
+                        value="British Indian Ocean Territory"
+                        data-provinces="[]"
+                      >
+                        British Indian Ocean Territory
+                      </option>
+                      <option
+                        value="Virgin Islands, British"
+                        data-provinces="[]"
+                      >
+                        British Virgin Islands
+                      </option>
+                      <option value="Brunei" data-provinces="[]">Brunei</option>
+                      <option value="Bulgaria" data-provinces="[]">
+                        Bulgaria
+                      </option>
+                      <option value="Burkina Faso" data-provinces="[]">
+                        Burkina Faso
+                      </option>
+                      <option value="Burundi" data-provinces="[]">
+                        Burundi
+                      </option>
+                      <option value="Cambodia" data-provinces="[]">
+                        Cambodia
+                      </option>
+                      <option value="Republic of Cameroon" data-provinces="[]">
+                        Cameroon
+                      </option>
+                      <option
+                        value="Canada"
+                        data-provinces='[["Alberta","Alberta"],["British Columbia","British Columbia"],["Manitoba","Manitoba"],["New Brunswick","New Brunswick"],["Newfoundland and Labrador","Newfoundland and Labrador"],["Northwest Territories","Northwest Territories"],["Nova Scotia","Nova Scotia"],["Nunavut","Nunavut"],["Ontario","Ontario"],["Prince Edward Island","Prince Edward Island"],["Quebec","Quebec"],["Saskatchewan","Saskatchewan"],["Yukon","Yukon"]]'
+                      >
+                        Canada
+                      </option>
+                      <option value="Cape Verde" data-provinces="[]">
+                        Cape Verde
+                      </option>
+                      <option value="Caribbean Netherlands" data-provinces="[]">
+                        Caribbean Netherlands
+                      </option>
+                      <option value="Cayman Islands" data-provinces="[]">
+                        Cayman Islands
+                      </option>
+                      <option
+                        value="Central African Republic"
+                        data-provinces="[]"
+                      >
+                        Central African Republic
+                      </option>
+                      <option value="Chad" data-provinces="[]">Chad</option>
+                      <option
+                        value="Chile"
+                        data-provinces='[["Antofagasta","Antofagasta"],["Araucanía","Araucanía"],["Arica and Parinacota","Arica y Parinacota"],["Atacama","Atacama"],["Aysén","Aysén"],["Biobío","Bío Bío"],["Coquimbo","Coquimbo"],["Los Lagos","Los Lagos"],["Los Ríos","Los Ríos"],["Magallanes","Magallanes Region"],["Maule","Maule"],["O&#39;Higgins","Libertador General Bernardo O’Higgins"],["Santiago","Santiago Metropolitan"],["Tarapacá","Tarapacá"],["Valparaíso","Valparaíso"],["Ñuble","Ñuble"]]'
+                      >
+                        Chile
+                      </option>
+                      <option
+                        value="China"
+                        data-provinces='[["Anhui","Anhui"],["Beijing","Beijing"],["Chongqing","Chongqing"],["Fujian","Fujian"],["Gansu","Gansu"],["Guangdong","Guangdong"],["Guangxi","Guangxi"],["Guizhou","Guizhou"],["Hainan","Hainan"],["Hebei","Hebei"],["Heilongjiang","Heilongjiang"],["Henan","Henan"],["Hubei","Hubei"],["Hunan","Hunan"],["Inner Mongolia","Inner Mongolia"],["Jiangsu","Jiangsu"],["Jiangxi","Jiangxi"],["Jilin","Jilin"],["Liaoning","Liaoning"],["Ningxia","Ningxia"],["Qinghai","Qinghai"],["Shaanxi","Shaanxi"],["Shandong","Shandong"],["Shanghai","Shanghai"],["Shanxi","Shanxi"],["Sichuan","Sichuan"],["Tianjin","Tianjin"],["Xinjiang","Xinjiang"],["Xizang","Tibet"],["Yunnan","Yunnan"],["Zhejiang","Zhejiang"]]'
+                      >
+                        China
+                      </option>
+                      <option value="Christmas Island" data-provinces="[]">
+                        Christmas Island
+                      </option>
+                      <option
+                        value="Cocos (Keeling) Islands"
+                        data-provinces="[]"
+                      >
+                        Cocos (Keeling) Islands
+                      </option>
+                      <option
+                        value="Colombia"
+                        data-provinces='[["Amazonas","Amazonas"],["Antioquia","Antioquia"],["Arauca","Arauca"],["Atlántico","Atlántico"],["Bogotá, D.C.","Capital District"],["Bolívar","Bolívar"],["Boyacá","Boyacá"],["Caldas","Caldas"],["Caquetá","Caquetá"],["Casanare","Casanare"],["Cauca","Cauca"],["Cesar","Cesar"],["Chocó","Chocó"],["Cundinamarca","Cundinamarca"],["Córdoba","Córdoba"],["Guainía","Guainía"],["Guaviare","Guaviare"],["Huila","Huila"],["La Guajira","La Guajira"],["Magdalena","Magdalena"],["Meta","Meta"],["Nariño","Nariño"],["Norte de Santander","Norte de Santander"],["Putumayo","Putumayo"],["Quindío","Quindío"],["Risaralda","Risaralda"],["San Andrés, Providencia y Santa Catalina","San Andrés \u0026 Providencia"],["Santander","Santander"],["Sucre","Sucre"],["Tolima","Tolima"],["Valle del Cauca","Valle del Cauca"],["Vaupés","Vaupés"],["Vichada","Vichada"]]'
+                      >
+                        Colombia
+                      </option>
+                      <option value="Comoros" data-provinces="[]">
+                        Comoros
+                      </option>
+                      <option value="Congo" data-provinces="[]">
+                        Congo - Brazzaville
+                      </option>
+                      <option
+                        value="Congo, The Democratic Republic Of The"
+                        data-provinces="[]"
+                      >
+                        Congo - Kinshasa
+                      </option>
+                      <option value="Cook Islands" data-provinces="[]">
+                        Cook Islands
+                      </option>
+                      <option
+                        value="Costa Rica"
+                        data-provinces='[["Alajuela","Alajuela"],["Cartago","Cartago"],["Guanacaste","Guanacaste"],["Heredia","Heredia"],["Limón","Limón"],["Puntarenas","Puntarenas"],["San José","San José"]]'
+                      >
+                        Costa Rica
+                      </option>
+                      <option value="Croatia" data-provinces="[]">
+                        Croatia
+                      </option>
+                      <option value="Curaçao" data-provinces="[]">
+                        Curaçao
+                      </option>
+                      <option value="Cyprus" data-provinces="[]">Cyprus</option>
+                      <option value="Czech Republic" data-provinces="[]">
+                        Czechia
+                      </option>
+                      <option value="Côte d'Ivoire" data-provinces="[]">
+                        Côte d’Ivoire
+                      </option>
+                      <option value="Denmark" data-provinces="[]">
+                        Denmark
+                      </option>
+                      <option value="Djibouti" data-provinces="[]">
+                        Djibouti
+                      </option>
+                      <option value="Dominica" data-provinces="[]">
+                        Dominica
+                      </option>
+                      <option value="Dominican Republic" data-provinces="[]">
+                        Dominican Republic
+                      </option>
+                      <option value="Ecuador" data-provinces="[]">
+                        Ecuador
+                      </option>
+                      <option
+                        value="Egypt"
+                        data-provinces='[["6th of October","6th of October"],["Al Sharqia","Al Sharqia"],["Alexandria","Alexandria"],["Aswan","Aswan"],["Asyut","Asyut"],["Beheira","Beheira"],["Beni Suef","Beni Suef"],["Cairo","Cairo"],["Dakahlia","Dakahlia"],["Damietta","Damietta"],["Faiyum","Faiyum"],["Gharbia","Gharbia"],["Giza","Giza"],["Helwan","Helwan"],["Ismailia","Ismailia"],["Kafr el-Sheikh","Kafr el-Sheikh"],["Luxor","Luxor"],["Matrouh","Matrouh"],["Minya","Minya"],["Monufia","Monufia"],["New Valley","New Valley"],["North Sinai","North Sinai"],["Port Said","Port Said"],["Qalyubia","Qalyubia"],["Qena","Qena"],["Red Sea","Red Sea"],["Sohag","Sohag"],["South Sinai","South Sinai"],["Suez","Suez"]]'
+                      >
+                        Egypt
+                      </option>
+                      <option
+                        value="El Salvador"
+                        data-provinces='[["Ahuachapán","Ahuachapán"],["Cabañas","Cabañas"],["Chalatenango","Chalatenango"],["Cuscatlán","Cuscatlán"],["La Libertad","La Libertad"],["La Paz","La Paz"],["La Unión","La Unión"],["Morazán","Morazán"],["San Miguel","San Miguel"],["San Salvador","San Salvador"],["San Vicente","San Vicente"],["Santa Ana","Santa Ana"],["Sonsonate","Sonsonate"],["Usulután","Usulután"]]'
+                      >
+                        El Salvador
+                      </option>
+                      <option value="Equatorial Guinea" data-provinces="[]">
+                        Equatorial Guinea
+                      </option>
+                      <option value="Eritrea" data-provinces="[]">
+                        Eritrea
+                      </option>
+                      <option value="Estonia" data-provinces="[]">
+                        Estonia
+                      </option>
+                      <option value="Eswatini" data-provinces="[]">
+                        Eswatini
+                      </option>
+                      <option value="Ethiopia" data-provinces="[]">
+                        Ethiopia
+                      </option>
+                      <option
+                        value="Falkland Islands (Malvinas)"
+                        data-provinces="[]"
+                      >
+                        Falkland Islands
+                      </option>
+                      <option value="Faroe Islands" data-provinces="[]">
+                        Faroe Islands
+                      </option>
+                      <option value="Fiji" data-provinces="[]">Fiji</option>
+                      <option value="Finland" data-provinces="[]">
+                        Finland
+                      </option>
+                      <option value="France" data-provinces="[]">France</option>
+                      <option value="French Guiana" data-provinces="[]">
+                        French Guiana
+                      </option>
+                      <option value="French Polynesia" data-provinces="[]">
+                        French Polynesia
+                      </option>
+                      <option
+                        value="French Southern Territories"
+                        data-provinces="[]"
+                      >
+                        French Southern Territories
+                      </option>
+                      <option value="Gabon" data-provinces="[]">Gabon</option>
+                      <option value="Gambia" data-provinces="[]">Gambia</option>
+                      <option value="Georgia" data-provinces="[]">
+                        Georgia
+                      </option>
+                      <option value="Germany" data-provinces="[]">
+                        Germany
+                      </option>
+                      <option value="Ghana" data-provinces="[]">Ghana</option>
+                      <option value="Gibraltar" data-provinces="[]">
+                        Gibraltar
+                      </option>
+                      <option value="Greece" data-provinces="[]">Greece</option>
+                      <option value="Greenland" data-provinces="[]">
+                        Greenland
+                      </option>
+                      <option value="Grenada" data-provinces="[]">
+                        Grenada
+                      </option>
+                      <option value="Guadeloupe" data-provinces="[]">
+                        Guadeloupe
+                      </option>
+                      <option
+                        value="Guatemala"
+                        data-provinces='[["Alta Verapaz","Alta Verapaz"],["Baja Verapaz","Baja Verapaz"],["Chimaltenango","Chimaltenango"],["Chiquimula","Chiquimula"],["El Progreso","El Progreso"],["Escuintla","Escuintla"],["Guatemala","Guatemala"],["Huehuetenango","Huehuetenango"],["Izabal","Izabal"],["Jalapa","Jalapa"],["Jutiapa","Jutiapa"],["Petén","Petén"],["Quetzaltenango","Quetzaltenango"],["Quiché","Quiché"],["Retalhuleu","Retalhuleu"],["Sacatepéquez","Sacatepéquez"],["San Marcos","San Marcos"],["Santa Rosa","Santa Rosa"],["Sololá","Sololá"],["Suchitepéquez","Suchitepéquez"],["Totonicapán","Totonicapán"],["Zacapa","Zacapa"]]'
+                      >
+                        Guatemala
+                      </option>
+                      <option value="Guernsey" data-provinces="[]">
+                        Guernsey
+                      </option>
+                      <option value="Guinea" data-provinces="[]">Guinea</option>
+                      <option value="Guinea Bissau" data-provinces="[]">
+                        Guinea-Bissau
+                      </option>
+                      <option value="Guyana" data-provinces="[]">Guyana</option>
+                      <option value="Haiti" data-provinces="[]">Haiti</option>
+                      <option value="Honduras" data-provinces="[]">
+                        Honduras
+                      </option>
+                      <option
+                        value="Hong Kong"
+                        data-provinces='[["Hong Kong Island","Hong Kong Island"],["Kowloon","Kowloon"],["New Territories","New Territories"]]'
+                      >
+                        Hong Kong SAR
+                      </option>
+                      <option value="Hungary" data-provinces="[]">
+                        Hungary
+                      </option>
+                      <option value="Iceland" data-provinces="[]">
+                        Iceland
+                      </option>
+                      <option
+                        value="India"
+                        data-provinces='[["Andaman and Nicobar Islands","Andaman and Nicobar Islands"],["Andhra Pradesh","Andhra Pradesh"],["Arunachal Pradesh","Arunachal Pradesh"],["Assam","Assam"],["Bihar","Bihar"],["Chandigarh","Chandigarh"],["Chhattisgarh","Chhattisgarh"],["Dadra and Nagar Haveli","Dadra and Nagar Haveli"],["Daman and Diu","Daman and Diu"],["Delhi","Delhi"],["Goa","Goa"],["Gujarat","Gujarat"],["Haryana","Haryana"],["Himachal Pradesh","Himachal Pradesh"],["Jammu and Kashmir","Jammu and Kashmir"],["Jharkhand","Jharkhand"],["Karnataka","Karnataka"],["Kerala","Kerala"],["Ladakh","Ladakh"],["Lakshadweep","Lakshadweep"],["Madhya Pradesh","Madhya Pradesh"],["Maharashtra","Maharashtra"],["Manipur","Manipur"],["Meghalaya","Meghalaya"],["Mizoram","Mizoram"],["Nagaland","Nagaland"],["Odisha","Odisha"],["Puducherry","Puducherry"],["Punjab","Punjab"],["Rajasthan","Rajasthan"],["Sikkim","Sikkim"],["Tamil Nadu","Tamil Nadu"],["Telangana","Telangana"],["Tripura","Tripura"],["Uttar Pradesh","Uttar Pradesh"],["Uttarakhand","Uttarakhand"],["West Bengal","West Bengal"]]'
+                      >
+                        India
+                      </option>
+                      <option
+                        value="Indonesia"
+                        data-provinces='[["Aceh","Aceh"],["Bali","Bali"],["Bangka Belitung","Bangka–Belitung Islands"],["Banten","Banten"],["Bengkulu","Bengkulu"],["Gorontalo","Gorontalo"],["Jakarta","Jakarta"],["Jambi","Jambi"],["Jawa Barat","West Java"],["Jawa Tengah","Central Java"],["Jawa Timur","East Java"],["Kalimantan Barat","West Kalimantan"],["Kalimantan Selatan","South Kalimantan"],["Kalimantan Tengah","Central Kalimantan"],["Kalimantan Timur","East Kalimantan"],["Kalimantan Utara","North Kalimantan"],["Kepulauan Riau","Riau Islands"],["Lampung","Lampung"],["Maluku","Maluku"],["Maluku Utara","North Maluku"],["North Sumatra","North Sumatra"],["Nusa Tenggara Barat","West Nusa Tenggara"],["Nusa Tenggara Timur","East Nusa Tenggara"],["Papua","Papua"],["Papua Barat","West Papua"],["Riau","Riau"],["South Sumatra","South Sumatra"],["Sulawesi Barat","West Sulawesi"],["Sulawesi Selatan","South Sulawesi"],["Sulawesi Tengah","Central Sulawesi"],["Sulawesi Tenggara","Southeast Sulawesi"],["Sulawesi Utara","North Sulawesi"],["West Sumatra","West Sumatra"],["Yogyakarta","Yogyakarta"]]'
+                      >
+                        Indonesia
+                      </option>
+                      <option value="Iraq" data-provinces="[]">Iraq</option>
+                      <option
+                        value="Ireland"
+                        data-provinces='[["Carlow","Carlow"],["Cavan","Cavan"],["Clare","Clare"],["Cork","Cork"],["Donegal","Donegal"],["Dublin","Dublin"],["Galway","Galway"],["Kerry","Kerry"],["Kildare","Kildare"],["Kilkenny","Kilkenny"],["Laois","Laois"],["Leitrim","Leitrim"],["Limerick","Limerick"],["Longford","Longford"],["Louth","Louth"],["Mayo","Mayo"],["Meath","Meath"],["Monaghan","Monaghan"],["Offaly","Offaly"],["Roscommon","Roscommon"],["Sligo","Sligo"],["Tipperary","Tipperary"],["Waterford","Waterford"],["Westmeath","Westmeath"],["Wexford","Wexford"],["Wicklow","Wicklow"]]'
+                      >
+                        Ireland
+                      </option>
+                      <option value="Isle Of Man" data-provinces="[]">
+                        Isle of Man
+                      </option>
+                      <option value="Israel" data-provinces="[]">Israel</option>
+                      <option
+                        value="Italy"
+                        data-provinces='[["Agrigento","Agrigento"],["Alessandria","Alessandria"],["Ancona","Ancona"],["Aosta","Aosta Valley"],["Arezzo","Arezzo"],["Ascoli Piceno","Ascoli Piceno"],["Asti","Asti"],["Avellino","Avellino"],["Bari","Bari"],["Barletta-Andria-Trani","Barletta-Andria-Trani"],["Belluno","Belluno"],["Benevento","Benevento"],["Bergamo","Bergamo"],["Biella","Biella"],["Bologna","Bologna"],["Bolzano","South Tyrol"],["Brescia","Brescia"],["Brindisi","Brindisi"],["Cagliari","Cagliari"],["Caltanissetta","Caltanissetta"],["Campobasso","Campobasso"],["Carbonia-Iglesias","Carbonia-Iglesias"],["Caserta","Caserta"],["Catania","Catania"],["Catanzaro","Catanzaro"],["Chieti","Chieti"],["Como","Como"],["Cosenza","Cosenza"],["Cremona","Cremona"],["Crotone","Crotone"],["Cuneo","Cuneo"],["Enna","Enna"],["Fermo","Fermo"],["Ferrara","Ferrara"],["Firenze","Florence"],["Foggia","Foggia"],["Forlì-Cesena","Forlì-Cesena"],["Frosinone","Frosinone"],["Genova","Genoa"],["Gorizia","Gorizia"],["Grosseto","Grosseto"],["Imperia","Imperia"],["Isernia","Isernia"],["L&#39;Aquila","L’Aquila"],["La Spezia","La Spezia"],["Latina","Latina"],["Lecce","Lecce"],["Lecco","Lecco"],["Livorno","Livorno"],["Lodi","Lodi"],["Lucca","Lucca"],["Macerata","Macerata"],["Mantova","Mantua"],["Massa-Carrara","Massa and Carrara"],["Matera","Matera"],["Medio Campidano","Medio Campidano"],["Messina","Messina"],["Milano","Milan"],["Modena","Modena"],["Monza e Brianza","Monza and Brianza"],["Napoli","Naples"],["Novara","Novara"],["Nuoro","Nuoro"],["Ogliastra","Ogliastra"],["Olbia-Tempio","Olbia-Tempio"],["Oristano","Oristano"],["Padova","Padua"],["Palermo","Palermo"],["Parma","Parma"],["Pavia","Pavia"],["Perugia","Perugia"],["Pesaro e Urbino","Pesaro and Urbino"],["Pescara","Pescara"],["Piacenza","Piacenza"],["Pisa","Pisa"],["Pistoia","Pistoia"],["Pordenone","Pordenone"],["Potenza","Potenza"],["Prato","Prato"],["Ragusa","Ragusa"],["Ravenna","Ravenna"],["Reggio Calabria","Reggio Calabria"],["Reggio Emilia","Reggio Emilia"],["Rieti","Rieti"],["Rimini","Rimini"],["Roma","Rome"],["Rovigo","Rovigo"],["Salerno","Salerno"],["Sassari","Sassari"],["Savona","Savona"],["Siena","Siena"],["Siracusa","Syracuse"],["Sondrio","Sondrio"],["Taranto","Taranto"],["Teramo","Teramo"],["Terni","Terni"],["Torino","Turin"],["Trapani","Trapani"],["Trento","Trentino"],["Treviso","Treviso"],["Trieste","Trieste"],["Udine","Udine"],["Varese","Varese"],["Venezia","Venice"],["Verbano-Cusio-Ossola","Verbano-Cusio-Ossola"],["Vercelli","Vercelli"],["Verona","Verona"],["Vibo Valentia","Vibo Valentia"],["Vicenza","Vicenza"],["Viterbo","Viterbo"]]'
+                      >
+                        Italy
+                      </option>
+                      <option value="Jamaica" data-provinces="[]">
+                        Jamaica
+                      </option>
+                      <option
+                        value="Japan"
+                        data-provinces='[["Aichi","Aichi"],["Akita","Akita"],["Aomori","Aomori"],["Chiba","Chiba"],["Ehime","Ehime"],["Fukui","Fukui"],["Fukuoka","Fukuoka"],["Fukushima","Fukushima"],["Gifu","Gifu"],["Gunma","Gunma"],["Hiroshima","Hiroshima"],["Hokkaidō","Hokkaido"],["Hyōgo","Hyogo"],["Ibaraki","Ibaraki"],["Ishikawa","Ishikawa"],["Iwate","Iwate"],["Kagawa","Kagawa"],["Kagoshima","Kagoshima"],["Kanagawa","Kanagawa"],["Kumamoto","Kumamoto"],["Kyōto","Kyoto"],["Kōchi","Kochi"],["Mie","Mie"],["Miyagi","Miyagi"],["Miyazaki","Miyazaki"],["Nagano","Nagano"],["Nagasaki","Nagasaki"],["Nara","Nara"],["Niigata","Niigata"],["Okayama","Okayama"],["Okinawa","Okinawa"],["Saga","Saga"],["Saitama","Saitama"],["Shiga","Shiga"],["Shimane","Shimane"],["Shizuoka","Shizuoka"],["Tochigi","Tochigi"],["Tokushima","Tokushima"],["Tottori","Tottori"],["Toyama","Toyama"],["Tōkyō","Tokyo"],["Wakayama","Wakayama"],["Yamagata","Yamagata"],["Yamaguchi","Yamaguchi"],["Yamanashi","Yamanashi"],["Ōita","Oita"],["Ōsaka","Osaka"]]'
+                      >
+                        Japan
+                      </option>
+                      <option value="Jersey" data-provinces="[]">Jersey</option>
+                      <option value="Jordan" data-provinces="[]">Jordan</option>
+                      <option value="Kazakhstan" data-provinces="[]">
+                        Kazakhstan
+                      </option>
+                      <option value="Kenya" data-provinces="[]">Kenya</option>
+                      <option value="Kiribati" data-provinces="[]">
+                        Kiribati
+                      </option>
+                      <option value="Kosovo" data-provinces="[]">Kosovo</option>
+                      <option
+                        value="Kuwait"
+                        data-provinces='[["Al Ahmadi","Al Ahmadi"],["Al Asimah","Al Asimah"],["Al Farwaniyah","Al Farwaniyah"],["Al Jahra","Al Jahra"],["Hawalli","Hawalli"],["Mubarak Al-Kabeer","Mubarak Al-Kabeer"]]'
+                      >
+                        Kuwait
+                      </option>
+                      <option value="Kyrgyzstan" data-provinces="[]">
+                        Kyrgyzstan
+                      </option>
+                      <option
+                        value="Lao People's Democratic Republic"
+                        data-provinces="[]"
+                      >
+                        Laos
+                      </option>
+                      <option value="Latvia" data-provinces="[]">Latvia</option>
+                      <option value="Lebanon" data-provinces="[]">
+                        Lebanon
+                      </option>
+                      <option value="Lesotho" data-provinces="[]">
+                        Lesotho
+                      </option>
+                      <option value="Liberia" data-provinces="[]">
+                        Liberia
+                      </option>
+                      <option
+                        value="Libyan Arab Jamahiriya"
+                        data-provinces="[]"
+                      >
+                        Libya
+                      </option>
+                      <option value="Liechtenstein" data-provinces="[]">
+                        Liechtenstein
+                      </option>
+                      <option value="Lithuania" data-provinces="[]">
+                        Lithuania
+                      </option>
+                      <option value="Luxembourg" data-provinces="[]">
+                        Luxembourg
+                      </option>
+                      <option value="Macao" data-provinces="[]">
+                        Macao SAR
+                      </option>
+                      <option value="Madagascar" data-provinces="[]">
+                        Madagascar
+                      </option>
+                      <option value="Malawi" data-provinces="[]">Malawi</option>
+                      <option
+                        value="Malaysia"
+                        data-provinces='[["Johor","Johor"],["Kedah","Kedah"],["Kelantan","Kelantan"],["Kuala Lumpur","Kuala Lumpur"],["Labuan","Labuan"],["Melaka","Malacca"],["Negeri Sembilan","Negeri Sembilan"],["Pahang","Pahang"],["Penang","Penang"],["Perak","Perak"],["Perlis","Perlis"],["Putrajaya","Putrajaya"],["Sabah","Sabah"],["Sarawak","Sarawak"],["Selangor","Selangor"],["Terengganu","Terengganu"]]'
+                      >
+                        Malaysia
+                      </option>
+                      <option value="Maldives" data-provinces="[]">
+                        Maldives
+                      </option>
+                      <option value="Mali" data-provinces="[]">Mali</option>
+                      <option value="Malta" data-provinces="[]">Malta</option>
+                      <option value="Martinique" data-provinces="[]">
+                        Martinique
+                      </option>
+                      <option value="Mauritania" data-provinces="[]">
+                        Mauritania
+                      </option>
+                      <option value="Mauritius" data-provinces="[]">
+                        Mauritius
+                      </option>
+                      <option value="Mayotte" data-provinces="[]">
+                        Mayotte
+                      </option>
+                      <option
+                        value="Mexico"
+                        data-provinces='[["Aguascalientes","Aguascalientes"],["Baja California","Baja California"],["Baja California Sur","Baja California Sur"],["Campeche","Campeche"],["Chiapas","Chiapas"],["Chihuahua","Chihuahua"],["Ciudad de México","Ciudad de Mexico"],["Coahuila","Coahuila"],["Colima","Colima"],["Durango","Durango"],["Guanajuato","Guanajuato"],["Guerrero","Guerrero"],["Hidalgo","Hidalgo"],["Jalisco","Jalisco"],["Michoacán","Michoacán"],["Morelos","Morelos"],["México","Mexico State"],["Nayarit","Nayarit"],["Nuevo León","Nuevo León"],["Oaxaca","Oaxaca"],["Puebla","Puebla"],["Querétaro","Querétaro"],["Quintana Roo","Quintana Roo"],["San Luis Potosí","San Luis Potosí"],["Sinaloa","Sinaloa"],["Sonora","Sonora"],["Tabasco","Tabasco"],["Tamaulipas","Tamaulipas"],["Tlaxcala","Tlaxcala"],["Veracruz","Veracruz"],["Yucatán","Yucatán"],["Zacatecas","Zacatecas"]]'
+                      >
+                        Mexico
+                      </option>
+                      <option value="Moldova, Republic of" data-provinces="[]">
+                        Moldova
+                      </option>
+                      <option value="Monaco" data-provinces="[]">Monaco</option>
+                      <option value="Mongolia" data-provinces="[]">
+                        Mongolia
+                      </option>
+                      <option value="Montenegro" data-provinces="[]">
+                        Montenegro
+                      </option>
+                      <option value="Montserrat" data-provinces="[]">
+                        Montserrat
+                      </option>
+                      <option value="Morocco" data-provinces="[]">
+                        Morocco
+                      </option>
+                      <option value="Mozambique" data-provinces="[]">
+                        Mozambique
+                      </option>
+                      <option value="Myanmar" data-provinces="[]">
+                        Myanmar (Burma)
+                      </option>
+                      <option value="Namibia" data-provinces="[]">
+                        Namibia
+                      </option>
+                      <option value="Nauru" data-provinces="[]">Nauru</option>
+                      <option value="Nepal" data-provinces="[]">Nepal</option>
+                      <option value="Netherlands" data-provinces="[]">
+                        Netherlands
+                      </option>
+                      <option value="New Caledonia" data-provinces="[]">
+                        New Caledonia
+                      </option>
+                      <option
+                        value="New Zealand"
+                        data-provinces='[["Auckland","Auckland"],["Bay of Plenty","Bay of Plenty"],["Canterbury","Canterbury"],["Chatham Islands","Chatham Islands"],["Gisborne","Gisborne"],["Hawke&#39;s Bay","Hawke’s Bay"],["Manawatu-Wanganui","Manawatū-Whanganui"],["Marlborough","Marlborough"],["Nelson","Nelson"],["Northland","Northland"],["Otago","Otago"],["Southland","Southland"],["Taranaki","Taranaki"],["Tasman","Tasman"],["Waikato","Waikato"],["Wellington","Wellington"],["West Coast","West Coast"]]'
+                      >
+                        New Zealand
+                      </option>
+                      <option value="Nicaragua" data-provinces="[]">
+                        Nicaragua
+                      </option>
+                      <option value="Niger" data-provinces="[]">Niger</option>
+                      <option
+                        value="Nigeria"
+                        data-provinces='[["Abia","Abia"],["Abuja Federal Capital Territory","Federal Capital Territory"],["Adamawa","Adamawa"],["Akwa Ibom","Akwa Ibom"],["Anambra","Anambra"],["Bauchi","Bauchi"],["Bayelsa","Bayelsa"],["Benue","Benue"],["Borno","Borno"],["Cross River","Cross River"],["Delta","Delta"],["Ebonyi","Ebonyi"],["Edo","Edo"],["Ekiti","Ekiti"],["Enugu","Enugu"],["Gombe","Gombe"],["Imo","Imo"],["Jigawa","Jigawa"],["Kaduna","Kaduna"],["Kano","Kano"],["Katsina","Katsina"],["Kebbi","Kebbi"],["Kogi","Kogi"],["Kwara","Kwara"],["Lagos","Lagos"],["Nasarawa","Nasarawa"],["Niger","Niger"],["Ogun","Ogun"],["Ondo","Ondo"],["Osun","Osun"],["Oyo","Oyo"],["Plateau","Plateau"],["Rivers","Rivers"],["Sokoto","Sokoto"],["Taraba","Taraba"],["Yobe","Yobe"],["Zamfara","Zamfara"]]'
+                      >
+                        Nigeria
+                      </option>
+                      <option value="Niue" data-provinces="[]">Niue</option>
+                      <option value="Norfolk Island" data-provinces="[]">
+                        Norfolk Island
+                      </option>
+                      <option value="North Macedonia" data-provinces="[]">
+                        North Macedonia
+                      </option>
+                      <option value="Norway" data-provinces="[]">Norway</option>
+                      <option value="Oman" data-provinces="[]">Oman</option>
+                      <option value="Pakistan" data-provinces="[]">
+                        Pakistan
+                      </option>
+                      <option
+                        value="Palestinian Territory, Occupied"
+                        data-provinces="[]"
+                      >
+                        Palestinian Territories
+                      </option>
+                      <option
+                        value="Panama"
+                        data-provinces='[["Bocas del Toro","Bocas del Toro"],["Chiriquí","Chiriquí"],["Coclé","Coclé"],["Colón","Colón"],["Darién","Darién"],["Emberá","Emberá"],["Herrera","Herrera"],["Kuna Yala","Guna Yala"],["Los Santos","Los Santos"],["Ngöbe-Buglé","Ngöbe-Buglé"],["Panamá","Panamá"],["Panamá Oeste","West Panamá"],["Veraguas","Veraguas"]]'
+                      >
+                        Panama
+                      </option>
+                      <option value="Papua New Guinea" data-provinces="[]">
+                        Papua New Guinea
+                      </option>
+                      <option value="Paraguay" data-provinces="[]">
+                        Paraguay
+                      </option>
+                      <option
+                        value="Peru"
+                        data-provinces='[["Amazonas","Amazonas"],["Apurímac","Apurímac"],["Arequipa","Arequipa"],["Ayacucho","Ayacucho"],["Cajamarca","Cajamarca"],["Callao","El Callao"],["Cuzco","Cusco"],["Huancavelica","Huancavelica"],["Huánuco","Huánuco"],["Ica","Ica"],["Junín","Junín"],["La Libertad","La Libertad"],["Lambayeque","Lambayeque"],["Lima (departamento)","Lima (Department)"],["Lima (provincia)","Lima (Metropolitan)"],["Loreto","Loreto"],["Madre de Dios","Madre de Dios"],["Moquegua","Moquegua"],["Pasco","Pasco"],["Piura","Piura"],["Puno","Puno"],["San Martín","San Martín"],["Tacna","Tacna"],["Tumbes","Tumbes"],["Ucayali","Ucayali"],["Áncash","Ancash"]]'
+                      >
+                        Peru
+                      </option>
+                      <option
+                        value="Philippines"
+                        data-provinces='[["Abra","Abra"],["Agusan del Norte","Agusan del Norte"],["Agusan del Sur","Agusan del Sur"],["Aklan","Aklan"],["Albay","Albay"],["Antique","Antique"],["Apayao","Apayao"],["Aurora","Aurora"],["Basilan","Basilan"],["Bataan","Bataan"],["Batanes","Batanes"],["Batangas","Batangas"],["Benguet","Benguet"],["Biliran","Biliran"],["Bohol","Bohol"],["Bukidnon","Bukidnon"],["Bulacan","Bulacan"],["Cagayan","Cagayan"],["Camarines Norte","Camarines Norte"],["Camarines Sur","Camarines Sur"],["Camiguin","Camiguin"],["Capiz","Capiz"],["Catanduanes","Catanduanes"],["Cavite","Cavite"],["Cebu","Cebu"],["Cotabato","Cotabato"],["Davao Occidental","Davao Occidental"],["Davao Oriental","Davao Oriental"],["Davao de Oro","Compostela Valley"],["Davao del Norte","Davao del Norte"],["Davao del Sur","Davao del Sur"],["Dinagat Islands","Dinagat Islands"],["Eastern Samar","Eastern Samar"],["Guimaras","Guimaras"],["Ifugao","Ifugao"],["Ilocos Norte","Ilocos Norte"],["Ilocos Sur","Ilocos Sur"],["Iloilo","Iloilo"],["Isabela","Isabela"],["Kalinga","Kalinga"],["La Union","La Union"],["Laguna","Laguna"],["Lanao del Norte","Lanao del Norte"],["Lanao del Sur","Lanao del Sur"],["Leyte","Leyte"],["Maguindanao","Maguindanao"],["Marinduque","Marinduque"],["Masbate","Masbate"],["Metro Manila","Metro Manila"],["Misamis Occidental","Misamis Occidental"],["Misamis Oriental","Misamis Oriental"],["Mountain Province","Mountain"],["Negros Occidental","Negros Occidental"],["Negros Oriental","Negros Oriental"],["Northern Samar","Northern Samar"],["Nueva Ecija","Nueva Ecija"],["Nueva Vizcaya","Nueva Vizcaya"],["Occidental Mindoro","Occidental Mindoro"],["Oriental Mindoro","Oriental Mindoro"],["Palawan","Palawan"],["Pampanga","Pampanga"],["Pangasinan","Pangasinan"],["Quezon","Quezon"],["Quirino","Quirino"],["Rizal","Rizal"],["Romblon","Romblon"],["Samar","Samar"],["Sarangani","Sarangani"],["Siquijor","Siquijor"],["Sorsogon","Sorsogon"],["South Cotabato","South Cotabato"],["Southern Leyte","Southern Leyte"],["Sultan Kudarat","Sultan Kudarat"],["Sulu","Sulu"],["Surigao del Norte","Surigao del Norte"],["Surigao del Sur","Surigao del Sur"],["Tarlac","Tarlac"],["Tawi-Tawi","Tawi-Tawi"],["Zambales","Zambales"],["Zamboanga Sibugay","Zamboanga Sibugay"],["Zamboanga del Norte","Zamboanga del Norte"],["Zamboanga del Sur","Zamboanga del Sur"]]'
+                      >
+                        Philippines
+                      </option>
+                      <option value="Pitcairn" data-provinces="[]">
+                        Pitcairn Islands
+                      </option>
+                      <option value="Poland" data-provinces="[]">Poland</option>
+                      <option
+                        value="Portugal"
+                        data-provinces='[["Aveiro","Aveiro"],["Açores","Azores"],["Beja","Beja"],["Braga","Braga"],["Bragança","Bragança"],["Castelo Branco","Castelo Branco"],["Coimbra","Coimbra"],["Faro","Faro"],["Guarda","Guarda"],["Leiria","Leiria"],["Lisboa","Lisbon"],["Madeira","Madeira"],["Portalegre","Portalegre"],["Porto","Porto"],["Santarém","Santarém"],["Setúbal","Setúbal"],["Viana do Castelo","Viana do Castelo"],["Vila Real","Vila Real"],["Viseu","Viseu"],["Évora","Évora"]]'
+                      >
+                        Portugal
+                      </option>
+                      <option value="Qatar" data-provinces="[]">Qatar</option>
+                      <option value="Reunion" data-provinces="[]">
+                        Réunion
+                      </option>
+                      <option
+                        value="Romania"
+                        data-provinces='[["Alba","Alba"],["Arad","Arad"],["Argeș","Argeș"],["Bacău","Bacău"],["Bihor","Bihor"],["Bistrița-Năsăud","Bistriţa-Năsăud"],["Botoșani","Botoşani"],["Brașov","Braşov"],["Brăila","Brăila"],["București","Bucharest"],["Buzău","Buzău"],["Caraș-Severin","Caraș-Severin"],["Cluj","Cluj"],["Constanța","Constanța"],["Covasna","Covasna"],["Călărași","Călărași"],["Dolj","Dolj"],["Dâmbovița","Dâmbovița"],["Galați","Galați"],["Giurgiu","Giurgiu"],["Gorj","Gorj"],["Harghita","Harghita"],["Hunedoara","Hunedoara"],["Ialomița","Ialomița"],["Iași","Iași"],["Ilfov","Ilfov"],["Maramureș","Maramureş"],["Mehedinți","Mehedinți"],["Mureș","Mureş"],["Neamț","Neamţ"],["Olt","Olt"],["Prahova","Prahova"],["Satu Mare","Satu Mare"],["Sibiu","Sibiu"],["Suceava","Suceava"],["Sălaj","Sălaj"],["Teleorman","Teleorman"],["Timiș","Timiș"],["Tulcea","Tulcea"],["Vaslui","Vaslui"],["Vrancea","Vrancea"],["Vâlcea","Vâlcea"]]'
+                      >
+                        Romania
+                      </option>
+                      <option
+                        value="Russia"
+                        data-provinces='[["Altai Krai","Altai Krai"],["Altai Republic","Altai"],["Amur Oblast","Amur"],["Arkhangelsk Oblast","Arkhangelsk"],["Astrakhan Oblast","Astrakhan"],["Belgorod Oblast","Belgorod"],["Bryansk Oblast","Bryansk"],["Chechen Republic","Chechen"],["Chelyabinsk Oblast","Chelyabinsk"],["Chukotka Autonomous Okrug","Chukotka Okrug"],["Chuvash Republic","Chuvash"],["Irkutsk Oblast","Irkutsk"],["Ivanovo Oblast","Ivanovo"],["Jewish Autonomous Oblast","Jewish"],["Kabardino-Balkarian Republic","Kabardino-Balkar"],["Kaliningrad Oblast","Kaliningrad"],["Kaluga Oblast","Kaluga"],["Kamchatka Krai","Kamchatka Krai"],["Karachay–Cherkess Republic","Karachay-Cherkess"],["Kemerovo Oblast","Kemerovo"],["Khabarovsk Krai","Khabarovsk Krai"],["Khanty-Mansi Autonomous Okrug","Khanty-Mansi"],["Kirov Oblast","Kirov"],["Komi Republic","Komi"],["Kostroma Oblast","Kostroma"],["Krasnodar Krai","Krasnodar Krai"],["Krasnoyarsk Krai","Krasnoyarsk Krai"],["Kurgan Oblast","Kurgan"],["Kursk Oblast","Kursk"],["Leningrad Oblast","Leningrad"],["Lipetsk Oblast","Lipetsk"],["Magadan Oblast","Magadan"],["Mari El Republic","Mari El"],["Moscow","Moscow"],["Moscow Oblast","Moscow Province"],["Murmansk Oblast","Murmansk"],["Nizhny Novgorod Oblast","Nizhny Novgorod"],["Novgorod Oblast","Novgorod"],["Novosibirsk Oblast","Novosibirsk"],["Omsk Oblast","Omsk"],["Orenburg Oblast","Orenburg"],["Oryol Oblast","Oryol"],["Penza Oblast","Penza"],["Perm Krai","Perm Krai"],["Primorsky Krai","Primorsky Krai"],["Pskov Oblast","Pskov"],["Republic of Adygeya","Adygea"],["Republic of Bashkortostan","Bashkortostan"],["Republic of Buryatia","Buryat"],["Republic of Dagestan","Dagestan"],["Republic of Ingushetia","Ingushetia"],["Republic of Kalmykia","Kalmykia"],["Republic of Karelia","Karelia"],["Republic of Khakassia","Khakassia"],["Republic of Mordovia","Mordovia"],["Republic of North Ossetia–Alania","North Ossetia-Alania"],["Republic of Tatarstan","Tatarstan"],["Rostov Oblast","Rostov"],["Ryazan Oblast","Ryazan"],["Saint Petersburg","Saint Petersburg"],["Sakha Republic (Yakutia)","Sakha"],["Sakhalin Oblast","Sakhalin"],["Samara Oblast","Samara"],["Saratov Oblast","Saratov"],["Smolensk Oblast","Smolensk"],["Stavropol Krai","Stavropol Krai"],["Sverdlovsk Oblast","Sverdlovsk"],["Tambov Oblast","Tambov"],["Tomsk Oblast","Tomsk"],["Tula Oblast","Tula"],["Tver Oblast","Tver"],["Tyumen Oblast","Tyumen"],["Tyva Republic","Tuva"],["Udmurtia","Udmurt"],["Ulyanovsk Oblast","Ulyanovsk"],["Vladimir Oblast","Vladimir"],["Volgograd Oblast","Volgograd"],["Vologda Oblast","Vologda"],["Voronezh Oblast","Voronezh"],["Yamalo-Nenets Autonomous Okrug","Yamalo-Nenets Okrug"],["Yaroslavl Oblast","Yaroslavl"],["Zabaykalsky Krai","Zabaykalsky Krai"]]'
+                      >
+                        Russia
+                      </option>
+                      <option value="Rwanda" data-provinces="[]">Rwanda</option>
+                      <option value="Samoa" data-provinces="[]">Samoa</option>
+                      <option value="San Marino" data-provinces="[]">
+                        San Marino
+                      </option>
+                      <option value="Sao Tome And Principe" data-provinces="[]">
+                        São Tomé & Príncipe
+                      </option>
+                      <option value="Saudi Arabia" data-provinces="[]">
+                        Saudi Arabia
+                      </option>
+                      <option value="Senegal" data-provinces="[]">
+                        Senegal
+                      </option>
+                      <option value="Serbia" data-provinces="[]">Serbia</option>
+                      <option value="Seychelles" data-provinces="[]">
+                        Seychelles
+                      </option>
+                      <option value="Sierra Leone" data-provinces="[]">
+                        Sierra Leone
+                      </option>
+                      <option value="Singapore" data-provinces="[]">
+                        Singapore
+                      </option>
+                      <option value="Sint Maarten" data-provinces="[]">
+                        Sint Maarten
+                      </option>
+                      <option value="Slovakia" data-provinces="[]">
+                        Slovakia
+                      </option>
+                      <option value="Slovenia" data-provinces="[]">
+                        Slovenia
+                      </option>
+                      <option value="Solomon Islands" data-provinces="[]">
+                        Solomon Islands
+                      </option>
+                      <option value="Somalia" data-provinces="[]">
+                        Somalia
+                      </option>
+                      <option
+                        value="South Africa"
+                        data-provinces='[["Eastern Cape","Eastern Cape"],["Free State","Free State"],["Gauteng","Gauteng"],["KwaZulu-Natal","KwaZulu-Natal"],["Limpopo","Limpopo"],["Mpumalanga","Mpumalanga"],["North West","North West"],["Northern Cape","Northern Cape"],["Western Cape","Western Cape"]]'
+                      >
+                        South Africa
+                      </option>
+                      <option
+                        value="South Georgia And The South Sandwich Islands"
+                        data-provinces="[]"
+                      >
+                        South Georgia & South Sandwich Islands
+                      </option>
+                      <option
+                        value="South Korea"
+                        data-provinces='[["Busan","Busan"],["Chungbuk","North Chungcheong"],["Chungnam","South Chungcheong"],["Daegu","Daegu"],["Daejeon","Daejeon"],["Gangwon","Gangwon"],["Gwangju","Gwangju City"],["Gyeongbuk","North Gyeongsang"],["Gyeonggi","Gyeonggi"],["Gyeongnam","South Gyeongsang"],["Incheon","Incheon"],["Jeju","Jeju"],["Jeonbuk","North Jeolla"],["Jeonnam","South Jeolla"],["Sejong","Sejong"],["Seoul","Seoul"],["Ulsan","Ulsan"]]'
+                      >
+                        South Korea
+                      </option>
+                      <option value="South Sudan" data-provinces="[]">
+                        South Sudan
+                      </option>
+                      <option
+                        value="Spain"
+                        data-provinces='[["A Coruña","A Coruña"],["Albacete","Albacete"],["Alicante","Alicante"],["Almería","Almería"],["Asturias","Asturias Province"],["Badajoz","Badajoz"],["Balears","Balears Province"],["Barcelona","Barcelona"],["Burgos","Burgos"],["Cantabria","Cantabria Province"],["Castellón","Castellón"],["Ceuta","Ceuta"],["Ciudad Real","Ciudad Real"],["Cuenca","Cuenca"],["Cáceres","Cáceres"],["Cádiz","Cádiz"],["Córdoba","Córdoba"],["Girona","Girona"],["Granada","Granada"],["Guadalajara","Guadalajara"],["Guipúzcoa","Gipuzkoa"],["Huelva","Huelva"],["Huesca","Huesca"],["Jaén","Jaén"],["La Rioja","La Rioja Province"],["Las Palmas","Las Palmas"],["León","León"],["Lleida","Lleida"],["Lugo","Lugo"],["Madrid","Madrid Province"],["Melilla","Melilla"],["Murcia","Murcia"],["Málaga","Málaga"],["Navarra","Navarra"],["Ourense","Ourense"],["Palencia","Palencia"],["Pontevedra","Pontevedra"],["Salamanca","Salamanca"],["Santa Cruz de Tenerife","Santa Cruz de Tenerife"],["Segovia","Segovia"],["Sevilla","Seville"],["Soria","Soria"],["Tarragona","Tarragona"],["Teruel","Teruel"],["Toledo","Toledo"],["Valencia","Valencia"],["Valladolid","Valladolid"],["Vizcaya","Biscay"],["Zamora","Zamora"],["Zaragoza","Zaragoza"],["Álava","Álava"],["Ávila","Ávila"]]'
+                      >
+                        Spain
+                      </option>
+                      <option value="Sri Lanka" data-provinces="[]">
+                        Sri Lanka
+                      </option>
+                      <option value="Saint Barthélemy" data-provinces="[]">
+                        St. Barthélemy
+                      </option>
+                      <option value="Saint Helena" data-provinces="[]">
+                        St. Helena
+                      </option>
+                      <option value="Saint Kitts And Nevis" data-provinces="[]">
+                        St. Kitts & Nevis
+                      </option>
+                      <option value="Saint Lucia" data-provinces="[]">
+                        St. Lucia
+                      </option>
+                      <option value="Saint Martin" data-provinces="[]">
+                        St. Martin
+                      </option>
+                      <option
+                        value="Saint Pierre And Miquelon"
+                        data-provinces="[]"
+                      >
+                        St. Pierre & Miquelon
+                      </option>
+                      <option value="St. Vincent" data-provinces="[]">
+                        St. Vincent & Grenadines
+                      </option>
+                      <option value="Sudan" data-provinces="[]">Sudan</option>
+                      <option value="Suriname" data-provinces="[]">
+                        Suriname
+                      </option>
+                      <option
+                        value="Svalbard And Jan Mayen"
+                        data-provinces="[]"
+                      >
+                        Svalbard & Jan Mayen
+                      </option>
+                      <option value="Sweden" data-provinces="[]">Sweden</option>
+                      <option value="Switzerland" data-provinces="[]">
+                        Switzerland
+                      </option>
+                      <option value="Taiwan" data-provinces="[]">Taiwan</option>
+                      <option value="Tajikistan" data-provinces="[]">
+                        Tajikistan
+                      </option>
+                      <option
+                        value="Tanzania, United Republic Of"
+                        data-provinces="[]"
+                      >
+                        Tanzania
+                      </option>
+                      <option
+                        value="Thailand"
+                        data-provinces='[["Amnat Charoen","Amnat Charoen"],["Ang Thong","Ang Thong"],["Bangkok","Bangkok"],["Bueng Kan","Bueng Kan"],["Buriram","Buri Ram"],["Chachoengsao","Chachoengsao"],["Chai Nat","Chai Nat"],["Chaiyaphum","Chaiyaphum"],["Chanthaburi","Chanthaburi"],["Chiang Mai","Chiang Mai"],["Chiang Rai","Chiang Rai"],["Chon Buri","Chon Buri"],["Chumphon","Chumphon"],["Kalasin","Kalasin"],["Kamphaeng Phet","Kamphaeng Phet"],["Kanchanaburi","Kanchanaburi"],["Khon Kaen","Khon Kaen"],["Krabi","Krabi"],["Lampang","Lampang"],["Lamphun","Lamphun"],["Loei","Loei"],["Lopburi","Lopburi"],["Mae Hong Son","Mae Hong Son"],["Maha Sarakham","Maha Sarakham"],["Mukdahan","Mukdahan"],["Nakhon Nayok","Nakhon Nayok"],["Nakhon Pathom","Nakhon Pathom"],["Nakhon Phanom","Nakhon Phanom"],["Nakhon Ratchasima","Nakhon Ratchasima"],["Nakhon Sawan","Nakhon Sawan"],["Nakhon Si Thammarat","Nakhon Si Thammarat"],["Nan","Nan"],["Narathiwat","Narathiwat"],["Nong Bua Lam Phu","Nong Bua Lam Phu"],["Nong Khai","Nong Khai"],["Nonthaburi","Nonthaburi"],["Pathum Thani","Pathum Thani"],["Pattani","Pattani"],["Pattaya","Pattaya"],["Phangnga","Phang Nga"],["Phatthalung","Phatthalung"],["Phayao","Phayao"],["Phetchabun","Phetchabun"],["Phetchaburi","Phetchaburi"],["Phichit","Phichit"],["Phitsanulok","Phitsanulok"],["Phra Nakhon Si Ayutthaya","Phra Nakhon Si Ayutthaya"],["Phrae","Phrae"],["Phuket","Phuket"],["Prachin Buri","Prachin Buri"],["Prachuap Khiri Khan","Prachuap Khiri Khan"],["Ranong","Ranong"],["Ratchaburi","Ratchaburi"],["Rayong","Rayong"],["Roi Et","Roi Et"],["Sa Kaeo","Sa Kaeo"],["Sakon Nakhon","Sakon Nakhon"],["Samut Prakan","Samut Prakan"],["Samut Sakhon","Samut Sakhon"],["Samut Songkhram","Samut Songkhram"],["Saraburi","Saraburi"],["Satun","Satun"],["Sing Buri","Sing Buri"],["Sisaket","Si Sa Ket"],["Songkhla","Songkhla"],["Sukhothai","Sukhothai"],["Suphan Buri","Suphanburi"],["Surat Thani","Surat Thani"],["Surin","Surin"],["Tak","Tak"],["Trang","Trang"],["Trat","Trat"],["Ubon Ratchathani","Ubon Ratchathani"],["Udon Thani","Udon Thani"],["Uthai Thani","Uthai Thani"],["Uttaradit","Uttaradit"],["Yala","Yala"],["Yasothon","Yasothon"]]'
+                      >
+                        Thailand
+                      </option>
+                      <option value="Timor Leste" data-provinces="[]">
+                        Timor-Leste
+                      </option>
+                      <option value="Togo" data-provinces="[]">Togo</option>
+                      <option value="Tokelau" data-provinces="[]">
+                        Tokelau
+                      </option>
+                      <option value="Tonga" data-provinces="[]">Tonga</option>
+                      <option value="Trinidad and Tobago" data-provinces="[]">
+                        Trinidad & Tobago
+                      </option>
+                      <option value="Tristan da Cunha" data-provinces="[]">
+                        Tristan da Cunha
+                      </option>
+                      <option value="Tunisia" data-provinces="[]">
+                        Tunisia
+                      </option>
+                      <option value="Turkey" data-provinces="[]">Turkey</option>
+                      <option value="Turkmenistan" data-provinces="[]">
+                        Turkmenistan
+                      </option>
+                      <option
+                        value="Turks and Caicos Islands"
+                        data-provinces="[]"
+                      >
+                        Turks & Caicos Islands
+                      </option>
+                      <option value="Tuvalu" data-provinces="[]">Tuvalu</option>
+                      <option
+                        value="United States Minor Outlying Islands"
+                        data-provinces="[]"
+                      >
+                        U.S. Outlying Islands
+                      </option>
+                      <option value="Uganda" data-provinces="[]">Uganda</option>
+                      <option value="Ukraine" data-provinces="[]">
+                        Ukraine
+                      </option>
+                      <option
+                        value="United Arab Emirates"
+                        data-provinces='[["Abu Dhabi","Abu Dhabi"],["Ajman","Ajman"],["Dubai","Dubai"],["Fujairah","Fujairah"],["Ras al-Khaimah","Ras al-Khaimah"],["Sharjah","Sharjah"],["Umm al-Quwain","Umm al-Quwain"]]'
+                      >
+                        United Arab Emirates
+                      </option>
+                      <option
+                        value="United Kingdom"
+                        data-provinces='[["British Forces","British Forces"],["England","England"],["Northern Ireland","Northern Ireland"],["Scotland","Scotland"],["Wales","Wales"]]'
+                      >
+                        United Kingdom
+                      </option>
+                      <option
+                        value="United States"
+                        data-provinces='[["Alabama","Alabama"],["Alaska","Alaska"],["American Samoa","American Samoa"],["Arizona","Arizona"],["Arkansas","Arkansas"],["Armed Forces Americas","Armed Forces Americas"],["Armed Forces Europe","Armed Forces Europe"],["Armed Forces Pacific","Armed Forces Pacific"],["California","California"],["Colorado","Colorado"],["Connecticut","Connecticut"],["Delaware","Delaware"],["District of Columbia","Washington DC"],["Federated States of Micronesia","Micronesia"],["Florida","Florida"],["Georgia","Georgia"],["Guam","Guam"],["Hawaii","Hawaii"],["Idaho","Idaho"],["Illinois","Illinois"],["Indiana","Indiana"],["Iowa","Iowa"],["Kansas","Kansas"],["Kentucky","Kentucky"],["Louisiana","Louisiana"],["Maine","Maine"],["Marshall Islands","Marshall Islands"],["Maryland","Maryland"],["Massachusetts","Massachusetts"],["Michigan","Michigan"],["Minnesota","Minnesota"],["Mississippi","Mississippi"],["Missouri","Missouri"],["Montana","Montana"],["Nebraska","Nebraska"],["Nevada","Nevada"],["New Hampshire","New Hampshire"],["New Jersey","New Jersey"],["New Mexico","New Mexico"],["New York","New York"],["North Carolina","North Carolina"],["North Dakota","North Dakota"],["Northern Mariana Islands","Northern Mariana Islands"],["Ohio","Ohio"],["Oklahoma","Oklahoma"],["Oregon","Oregon"],["Palau","Palau"],["Pennsylvania","Pennsylvania"],["Puerto Rico","Puerto Rico"],["Rhode Island","Rhode Island"],["South Carolina","South Carolina"],["South Dakota","South Dakota"],["Tennessee","Tennessee"],["Texas","Texas"],["Utah","Utah"],["Vermont","Vermont"],["Virgin Islands","U.S. Virgin Islands"],["Virginia","Virginia"],["Washington","Washington"],["West Virginia","West Virginia"],["Wisconsin","Wisconsin"],["Wyoming","Wyoming"]]'
+                      >
+                        United States
+                      </option>
+                      <option
+                        value="Uruguay"
+                        data-provinces='[["Artigas","Artigas"],["Canelones","Canelones"],["Cerro Largo","Cerro Largo"],["Colonia","Colonia"],["Durazno","Durazno"],["Flores","Flores"],["Florida","Florida"],["Lavalleja","Lavalleja"],["Maldonado","Maldonado"],["Montevideo","Montevideo"],["Paysandú","Paysandú"],["Rivera","Rivera"],["Rocha","Rocha"],["Río Negro","Río Negro"],["Salto","Salto"],["San José","San José"],["Soriano","Soriano"],["Tacuarembó","Tacuarembó"],["Treinta y Tres","Treinta y Tres"]]'
+                      >
+                        Uruguay
+                      </option>
+                      <option value="Uzbekistan" data-provinces="[]">
+                        Uzbekistan
+                      </option>
+                      <option value="Vanuatu" data-provinces="[]">
+                        Vanuatu
+                      </option>
+                      <option
+                        value="Holy See (Vatican City State)"
+                        data-provinces="[]"
+                      >
+                        Vatican City
+                      </option>
+                      <option
+                        value="Venezuela"
+                        data-provinces='[["Amazonas","Amazonas"],["Anzoátegui","Anzoátegui"],["Apure","Apure"],["Aragua","Aragua"],["Barinas","Barinas"],["Bolívar","Bolívar"],["Carabobo","Carabobo"],["Cojedes","Cojedes"],["Delta Amacuro","Delta Amacuro"],["Dependencias Federales","Federal Dependencies"],["Distrito Capital","Capital"],["Falcón","Falcón"],["Guárico","Guárico"],["La Guaira","Vargas"],["Lara","Lara"],["Miranda","Miranda"],["Monagas","Monagas"],["Mérida","Mérida"],["Nueva Esparta","Nueva Esparta"],["Portuguesa","Portuguesa"],["Sucre","Sucre"],["Trujillo","Trujillo"],["Táchira","Táchira"],["Yaracuy","Yaracuy"],["Zulia","Zulia"]]'
+                      >
+                        Venezuela
+                      </option>
+                      <option value="Vietnam" data-provinces="[]">
+                        Vietnam
+                      </option>
+                      <option value="Wallis And Futuna" data-provinces="[]">
+                        Wallis & Futuna
+                      </option>
+                      <option value="Western Sahara" data-provinces="[]">
+                        Western Sahara
+                      </option>
+                      <option value="Yemen" data-provinces="[]">Yemen</option>
+                      <option value="Zambia" data-provinces="[]">Zambia</option>
+                      <option value="Zimbabwe" data-provinces="[]">
+                        Zimbabwe
+                      </option></select
+                    ><svg
+                      focusable="false"
+                      width="12"
+                      height="8"
+                      class="icon icon--chevron"
+                      viewBox="0 0 12 8"
+                    >
+                      <path
+                        fill="none"
+                        d="M1 1l5 5 5-5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      ></path>
+                    </svg>
+                  </div>
+
+                  <label for="address-new[country]" class="input__label"
+                    >Country</label
+                  >
+                </div>
+
+                <div id="address-new-province-container" class="input" hidden>
+                  <div class="select-wrapper is-filled">
+                    <select
+                      class="select"
+                      name="address[province]"
+                      id="address-new[province]"
+                    ></select
+                    ><svg
+                      focusable="false"
+                      width="12"
+                      height="8"
+                      class="icon icon--chevron"
+                      viewBox="0 0 12 8"
+                    >
+                      <path
+                        fill="none"
+                        d="M1 1l5 5 5-5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      ></path>
+                    </svg>
+                  </div>
+
+                  <label for="address-new[province]" class="input__label"
+                    >Province</label
+                  >
+                </div>
+                <div class="input input--checkbox"></div>
+              </form>
+            </div> </drawer-content
+          ><drawer-content
+            id="drawer-address-8302380974301"
+            class="drawer drawer--large"
+          >
+            <span class="drawer__overlay"></span>
+
+            <header class="drawer__header">
+              <h3 class="drawer__title heading h6">Edit</h3>
+
+              <button
+                type="button"
+                class="drawer__close-button tap-area"
+                data-action="close"
+                title="Close"
+              >
+                <svg
+                  focusable="false"
+                  width="14"
+                  height="14"
+                  class="icon icon--close"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    d="M13 13L1 1M13 1L1 13"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                  ></path>
+                </svg>
+              </button>
+            </header>
+
+            <div class="drawer__content drawer__content--padded-start">
+              <form
+                method="post"
+                action="profile-updation.php"
+                id="address_form_8302380974301"
+                accept-charset="UTF-8"
+                class="form"
+              >
+                <input
+                  type="hidden"
+                  name="form_type"
+                  value="customer_address"
+                /><input type="hidden" name="utf8" value="✓" />
+                <p class="form__info">Please fill in the fields below:</p>
+                <div class="input-row">
+                  <div class="input">
+                    <input
+                      id="address-8302380974301[first_name]"
+                      type="text"
+                      class="input__field input__field--text is-filled"
+                      name="update_first_name"
+                      value="<?php echo $row['name']; ?>"
+                    />
+                    <label
+                      for="address-8302380974301[first_name]"
+                      class="input__label"
+                      >First name</label
+                    >
+                  </div>
+
+                  <div class="input">
+                    <input
+                      id="address-8302380974301[last_name]"
+                      type="text"
+                      class="input__field input__field--text is-filled"
+                      name="update_last_name"
+                      value="<?php echo $row['last_name']; ?>"
+                    />
+                    <label
+                      for="address-8302380974301[last_name]"
+                      class="input__label"
+                      >Last name</label
+                    >
+                  </div>
+                </div>
+
+                <div class="input">
+                  <input
+                    id="address-8302380974301[company]"
+                    type="text"
+                    class="input__field input__field--text"
+                    name="update_company"
+                    value=""
+                  />
+                  <label
+                    for="address-8302380974301[company]"
+                    class="input__label"
+                    >Company</label
+                  >
+                </div>
+
+                <div class="input">
+                  <input
+                    id="address-8302380974301[phone]"
+                    type="text"
+                    class="input__field input__field--text is-filled"
+                    name="update_phone"
+                    value="<?php echo $row['telephone']; ?>"
+                  />
+                  <label for="address-8302380974301[phone]" class="input__label"
+                    >Phone number</label
+                  >
+                </div>
+
+                <div class="input">
+                  <input
+                    id="address-8302380974301[address1]"
+                    type="text"
+                    class="input__field input__field--text is-filled"
+                    name="update_address"
+                    value="<?php echo $row['address']; ?>"
+                  />
+                  <label
+                    for="address-8302380974301[address1]"
+                    class="input__label"
+                    >Address</label
+                  >
+                </div>
+
+                <div class="input-row">
+                  <div class="input">
+                    <input
+                      id="address-8302380974301[city]"
+                      type="text"
+                      class="input__field input__field--text is-filled"
+                      name="update_city"
+                      value="<?php echo $row['city']; ?>"
+                    />
+                    <label
+                      for="address-8302380974301[city]"
+                      class="input__label"
+                      >City</label
+                    >
+                  </div>
+
+                  <div class="input">
+                    <input
+                      id="address-8302380974301[zip]"
+                      type="text"
+                      class="input__field input__field--text is-filled"
+                      name="update_zip"
+                      value="<?php echo $row['postal_code']; ?>"
+                    />
+                    <label for="address-8302380974301[zip]" class="input__label"
+                      >Zip code</label
+                    >
+                  </div>
+                </div>
+
+                <div class="input">
+                  <div class="select-wrapper is-filled">
+                    <select
+                      is="country-selector"
+                      class="select"
+                      name="address[country]"
+                      id="address-8302380974301[country]"
+                      data-default="India"
+                      aria-owns="address-8302380974301-province-container"
+                    >
+                      <option
+                        value="India"
+                        data-provinces='[["Andaman and Nicobar Islands","Andaman and Nicobar Islands"],["Andhra Pradesh","Andhra Pradesh"],["Arunachal Pradesh","Arunachal Pradesh"],["Assam","Assam"],["Bihar","Bihar"],["Chandigarh","Chandigarh"],["Chhattisgarh","Chhattisgarh"],["Dadra and Nagar Haveli","Dadra and Nagar Haveli"],["Daman and Diu","Daman and Diu"],["Delhi","Delhi"],["Goa","Goa"],["Gujarat","Gujarat"],["Haryana","Haryana"],["Himachal Pradesh","Himachal Pradesh"],["Jammu and Kashmir","Jammu and Kashmir"],["Jharkhand","Jharkhand"],["Karnataka","Karnataka"],["Kerala","Kerala"],["Ladakh","Ladakh"],["Lakshadweep","Lakshadweep"],["Madhya Pradesh","Madhya Pradesh"],["Maharashtra","Maharashtra"],["Manipur","Manipur"],["Meghalaya","Meghalaya"],["Mizoram","Mizoram"],["Nagaland","Nagaland"],["Odisha","Odisha"],["Puducherry","Puducherry"],["Punjab","Punjab"],["Rajasthan","Rajasthan"],["Sikkim","Sikkim"],["Tamil Nadu","Tamil Nadu"],["Telangana","Telangana"],["Tripura","Tripura"],["Uttar Pradesh","Uttar Pradesh"],["Uttarakhand","Uttarakhand"],["West Bengal","West Bengal"]]'
+                      >
+                        India
+                      </option>
+                      <option
+                        value="Australia"
+                        data-provinces='[["Australian Capital Territory","Australian Capital Territory"],["New South Wales","New South Wales"],["Northern Territory","Northern Territory"],["Queensland","Queensland"],["South Australia","South Australia"],["Tasmania","Tasmania"],["Victoria","Victoria"],["Western Australia","Western Australia"]]'
+                      >
+                        Australia
+                      </option>
+                      <option
+                        value="United States"
+                        data-provinces='[["Alabama","Alabama"],["Alaska","Alaska"],["American Samoa","American Samoa"],["Arizona","Arizona"],["Arkansas","Arkansas"],["Armed Forces Americas","Armed Forces Americas"],["Armed Forces Europe","Armed Forces Europe"],["Armed Forces Pacific","Armed Forces Pacific"],["California","California"],["Colorado","Colorado"],["Connecticut","Connecticut"],["Delaware","Delaware"],["District of Columbia","Washington DC"],["Federated States of Micronesia","Micronesia"],["Florida","Florida"],["Georgia","Georgia"],["Guam","Guam"],["Hawaii","Hawaii"],["Idaho","Idaho"],["Illinois","Illinois"],["Indiana","Indiana"],["Iowa","Iowa"],["Kansas","Kansas"],["Kentucky","Kentucky"],["Louisiana","Louisiana"],["Maine","Maine"],["Marshall Islands","Marshall Islands"],["Maryland","Maryland"],["Massachusetts","Massachusetts"],["Michigan","Michigan"],["Minnesota","Minnesota"],["Mississippi","Mississippi"],["Missouri","Missouri"],["Montana","Montana"],["Nebraska","Nebraska"],["Nevada","Nevada"],["New Hampshire","New Hampshire"],["New Jersey","New Jersey"],["New Mexico","New Mexico"],["New York","New York"],["North Carolina","North Carolina"],["North Dakota","North Dakota"],["Northern Mariana Islands","Northern Mariana Islands"],["Ohio","Ohio"],["Oklahoma","Oklahoma"],["Oregon","Oregon"],["Palau","Palau"],["Pennsylvania","Pennsylvania"],["Puerto Rico","Puerto Rico"],["Rhode Island","Rhode Island"],["South Carolina","South Carolina"],["South Dakota","South Dakota"],["Tennessee","Tennessee"],["Texas","Texas"],["Utah","Utah"],["Vermont","Vermont"],["Virgin Islands","U.S. Virgin Islands"],["Virginia","Virginia"],["Washington","Washington"],["West Virginia","West Virginia"],["Wisconsin","Wisconsin"],["Wyoming","Wyoming"]]'
+                      >
+                        United States
+                      </option>
+                      <option
+                        value="United Kingdom"
+                        data-provinces='[["British Forces","British Forces"],["England","England"],["Northern Ireland","Northern Ireland"],["Scotland","Scotland"],["Wales","Wales"]]'
+                      >
+                        United Kingdom
+                      </option>
+                      <option value="---" data-provinces="[]">---</option>
+                      <option value="Afghanistan" data-provinces="[]">
+                        Afghanistan
+                      </option>
+                      <option value="Aland Islands" data-provinces="[]">
+                        Åland Islands
+                      </option>
+                      <option value="Albania" data-provinces="[]">
+                        Albania
+                      </option>
+                      <option value="Algeria" data-provinces="[]">
+                        Algeria
+                      </option>
+                      <option value="Andorra" data-provinces="[]">
+                        Andorra
+                      </option>
+                      <option value="Angola" data-provinces="[]">Angola</option>
+                      <option value="Anguilla" data-provinces="[]">
+                        Anguilla
+                      </option>
+                      <option value="Antigua And Barbuda" data-provinces="[]">
+                        Antigua & Barbuda
+                      </option>
+                      <option
+                        value="Argentina"
+                        data-provinces='[["Buenos Aires","Buenos Aires Province"],["Catamarca","Catamarca"],["Chaco","Chaco"],["Chubut","Chubut"],["Ciudad Autónoma de Buenos Aires","Buenos Aires (Autonomous City)"],["Corrientes","Corrientes"],["Córdoba","Córdoba"],["Entre Ríos","Entre Ríos"],["Formosa","Formosa"],["Jujuy","Jujuy"],["La Pampa","La Pampa"],["La Rioja","La Rioja"],["Mendoza","Mendoza"],["Misiones","Misiones"],["Neuquén","Neuquén"],["Río Negro","Río Negro"],["Salta","Salta"],["San Juan","San Juan"],["San Luis","San Luis"],["Santa Cruz","Santa Cruz"],["Santa Fe","Santa Fe"],["Santiago Del Estero","Santiago del Estero"],["Tierra Del Fuego","Tierra del Fuego"],["Tucumán","Tucumán"]]'
+                      >
+                        Argentina
+                      </option>
+                      <option value="Armenia" data-provinces="[]">
+                        Armenia
+                      </option>
+                      <option value="Aruba" data-provinces="[]">Aruba</option>
+                      <option value="Ascension Island" data-provinces="[]">
+                        Ascension Island
+                      </option>
+                      <option
+                        value="Australia"
+                        data-provinces='[["Australian Capital Territory","Australian Capital Territory"],["New South Wales","New South Wales"],["Northern Territory","Northern Territory"],["Queensland","Queensland"],["South Australia","South Australia"],["Tasmania","Tasmania"],["Victoria","Victoria"],["Western Australia","Western Australia"]]'
+                      >
+                        Australia
+                      </option>
+                      <option value="Austria" data-provinces="[]">
+                        Austria
+                      </option>
+                      <option value="Azerbaijan" data-provinces="[]">
+                        Azerbaijan
+                      </option>
+                      <option value="Bahamas" data-provinces="[]">
+                        Bahamas
+                      </option>
+                      <option value="Bahrain" data-provinces="[]">
+                        Bahrain
+                      </option>
+                      <option value="Bangladesh" data-provinces="[]">
+                        Bangladesh
+                      </option>
+                      <option value="Barbados" data-provinces="[]">
+                        Barbados
+                      </option>
+                      <option value="Belarus" data-provinces="[]">
+                        Belarus
+                      </option>
+                      <option value="Belgium" data-provinces="[]">
+                        Belgium
+                      </option>
+                      <option value="Belize" data-provinces="[]">Belize</option>
+                      <option value="Benin" data-provinces="[]">Benin</option>
+                      <option value="Bermuda" data-provinces="[]">
+                        Bermuda
+                      </option>
+                      <option value="Bhutan" data-provinces="[]">Bhutan</option>
+                      <option value="Bolivia" data-provinces="[]">
+                        Bolivia
+                      </option>
+                      <option
+                        value="Bosnia And Herzegovina"
+                        data-provinces="[]"
+                      >
+                        Bosnia & Herzegovina
+                      </option>
+                      <option value="Botswana" data-provinces="[]">
+                        Botswana
+                      </option>
+                      <option
+                        value="Brazil"
+                        data-provinces='[["Acre","Acre"],["Alagoas","Alagoas"],["Amapá","Amapá"],["Amazonas","Amazonas"],["Bahia","Bahia"],["Ceará","Ceará"],["Distrito Federal","Federal District"],["Espírito Santo","Espírito Santo"],["Goiás","Goiás"],["Maranhão","Maranhão"],["Mato Grosso","Mato Grosso"],["Mato Grosso do Sul","Mato Grosso do Sul"],["Minas Gerais","Minas Gerais"],["Paraná","Paraná"],["Paraíba","Paraíba"],["Pará","Pará"],["Pernambuco","Pernambuco"],["Piauí","Piauí"],["Rio Grande do Norte","Rio Grande do Norte"],["Rio Grande do Sul","Rio Grande do Sul"],["Rio de Janeiro","Rio de Janeiro"],["Rondônia","Rondônia"],["Roraima","Roraima"],["Santa Catarina","Santa Catarina"],["Sergipe","Sergipe"],["São Paulo","São Paulo"],["Tocantins","Tocantins"]]'
+                      >
+                        Brazil
+                      </option>
+                      <option
+                        value="British Indian Ocean Territory"
+                        data-provinces="[]"
+                      >
+                        British Indian Ocean Territory
+                      </option>
+                      <option
+                        value="Virgin Islands, British"
+                        data-provinces="[]"
+                      >
+                        British Virgin Islands
+                      </option>
+                      <option value="Brunei" data-provinces="[]">Brunei</option>
+                      <option value="Bulgaria" data-provinces="[]">
+                        Bulgaria
+                      </option>
+                      <option value="Burkina Faso" data-provinces="[]">
+                        Burkina Faso
+                      </option>
+                      <option value="Burundi" data-provinces="[]">
+                        Burundi
+                      </option>
+                      <option value="Cambodia" data-provinces="[]">
+                        Cambodia
+                      </option>
+                      <option value="Republic of Cameroon" data-provinces="[]">
+                        Cameroon
+                      </option>
+                      <option
+                        value="Canada"
+                        data-provinces='[["Alberta","Alberta"],["British Columbia","British Columbia"],["Manitoba","Manitoba"],["New Brunswick","New Brunswick"],["Newfoundland and Labrador","Newfoundland and Labrador"],["Northwest Territories","Northwest Territories"],["Nova Scotia","Nova Scotia"],["Nunavut","Nunavut"],["Ontario","Ontario"],["Prince Edward Island","Prince Edward Island"],["Quebec","Quebec"],["Saskatchewan","Saskatchewan"],["Yukon","Yukon"]]'
+                      >
+                        Canada
+                      </option>
+                      <option value="Cape Verde" data-provinces="[]">
+                        Cape Verde
+                      </option>
+                      <option value="Caribbean Netherlands" data-provinces="[]">
+                        Caribbean Netherlands
+                      </option>
+                      <option value="Cayman Islands" data-provinces="[]">
+                        Cayman Islands
+                      </option>
+                      <option
+                        value="Central African Republic"
+                        data-provinces="[]"
+                      >
+                        Central African Republic
+                      </option>
+                      <option value="Chad" data-provinces="[]">Chad</option>
+                      <option
+                        value="Chile"
+                        data-provinces='[["Antofagasta","Antofagasta"],["Araucanía","Araucanía"],["Arica and Parinacota","Arica y Parinacota"],["Atacama","Atacama"],["Aysén","Aysén"],["Biobío","Bío Bío"],["Coquimbo","Coquimbo"],["Los Lagos","Los Lagos"],["Los Ríos","Los Ríos"],["Magallanes","Magallanes Region"],["Maule","Maule"],["O&#39;Higgins","Libertador General Bernardo O’Higgins"],["Santiago","Santiago Metropolitan"],["Tarapacá","Tarapacá"],["Valparaíso","Valparaíso"],["Ñuble","Ñuble"]]'
+                      >
+                        Chile
+                      </option>
+                      <option
+                        value="China"
+                        data-provinces='[["Anhui","Anhui"],["Beijing","Beijing"],["Chongqing","Chongqing"],["Fujian","Fujian"],["Gansu","Gansu"],["Guangdong","Guangdong"],["Guangxi","Guangxi"],["Guizhou","Guizhou"],["Hainan","Hainan"],["Hebei","Hebei"],["Heilongjiang","Heilongjiang"],["Henan","Henan"],["Hubei","Hubei"],["Hunan","Hunan"],["Inner Mongolia","Inner Mongolia"],["Jiangsu","Jiangsu"],["Jiangxi","Jiangxi"],["Jilin","Jilin"],["Liaoning","Liaoning"],["Ningxia","Ningxia"],["Qinghai","Qinghai"],["Shaanxi","Shaanxi"],["Shandong","Shandong"],["Shanghai","Shanghai"],["Shanxi","Shanxi"],["Sichuan","Sichuan"],["Tianjin","Tianjin"],["Xinjiang","Xinjiang"],["Xizang","Tibet"],["Yunnan","Yunnan"],["Zhejiang","Zhejiang"]]'
+                      >
+                        China
+                      </option>
+                      <option value="Christmas Island" data-provinces="[]">
+                        Christmas Island
+                      </option>
+                      <option
+                        value="Cocos (Keeling) Islands"
+                        data-provinces="[]"
+                      >
+                        Cocos (Keeling) Islands
+                      </option>
+                      <option
+                        value="Colombia"
+                        data-provinces='[["Amazonas","Amazonas"],["Antioquia","Antioquia"],["Arauca","Arauca"],["Atlántico","Atlántico"],["Bogotá, D.C.","Capital District"],["Bolívar","Bolívar"],["Boyacá","Boyacá"],["Caldas","Caldas"],["Caquetá","Caquetá"],["Casanare","Casanare"],["Cauca","Cauca"],["Cesar","Cesar"],["Chocó","Chocó"],["Cundinamarca","Cundinamarca"],["Córdoba","Córdoba"],["Guainía","Guainía"],["Guaviare","Guaviare"],["Huila","Huila"],["La Guajira","La Guajira"],["Magdalena","Magdalena"],["Meta","Meta"],["Nariño","Nariño"],["Norte de Santander","Norte de Santander"],["Putumayo","Putumayo"],["Quindío","Quindío"],["Risaralda","Risaralda"],["San Andrés, Providencia y Santa Catalina","San Andrés \u0026 Providencia"],["Santander","Santander"],["Sucre","Sucre"],["Tolima","Tolima"],["Valle del Cauca","Valle del Cauca"],["Vaupés","Vaupés"],["Vichada","Vichada"]]'
+                      >
+                        Colombia
+                      </option>
+                      <option value="Comoros" data-provinces="[]">
+                        Comoros
+                      </option>
+                      <option value="Congo" data-provinces="[]">
+                        Congo - Brazzaville
+                      </option>
+                      <option
+                        value="Congo, The Democratic Republic Of The"
+                        data-provinces="[]"
+                      >
+                        Congo - Kinshasa
+                      </option>
+                      <option value="Cook Islands" data-provinces="[]">
+                        Cook Islands
+                      </option>
+                      <option
+                        value="Costa Rica"
+                        data-provinces='[["Alajuela","Alajuela"],["Cartago","Cartago"],["Guanacaste","Guanacaste"],["Heredia","Heredia"],["Limón","Limón"],["Puntarenas","Puntarenas"],["San José","San José"]]'
+                      >
+                        Costa Rica
+                      </option>
+                      <option value="Croatia" data-provinces="[]">
+                        Croatia
+                      </option>
+                      <option value="Curaçao" data-provinces="[]">
+                        Curaçao
+                      </option>
+                      <option value="Cyprus" data-provinces="[]">Cyprus</option>
+                      <option value="Czech Republic" data-provinces="[]">
+                        Czechia
+                      </option>
+                      <option value="Côte d'Ivoire" data-provinces="[]">
+                        Côte d’Ivoire
+                      </option>
+                      <option value="Denmark" data-provinces="[]">
+                        Denmark
+                      </option>
+                      <option value="Djibouti" data-provinces="[]">
+                        Djibouti
+                      </option>
+                      <option value="Dominica" data-provinces="[]">
+                        Dominica
+                      </option>
+                      <option value="Dominican Republic" data-provinces="[]">
+                        Dominican Republic
+                      </option>
+                      <option value="Ecuador" data-provinces="[]">
+                        Ecuador
+                      </option>
+                      <option
+                        value="Egypt"
+                        data-provinces='[["6th of October","6th of October"],["Al Sharqia","Al Sharqia"],["Alexandria","Alexandria"],["Aswan","Aswan"],["Asyut","Asyut"],["Beheira","Beheira"],["Beni Suef","Beni Suef"],["Cairo","Cairo"],["Dakahlia","Dakahlia"],["Damietta","Damietta"],["Faiyum","Faiyum"],["Gharbia","Gharbia"],["Giza","Giza"],["Helwan","Helwan"],["Ismailia","Ismailia"],["Kafr el-Sheikh","Kafr el-Sheikh"],["Luxor","Luxor"],["Matrouh","Matrouh"],["Minya","Minya"],["Monufia","Monufia"],["New Valley","New Valley"],["North Sinai","North Sinai"],["Port Said","Port Said"],["Qalyubia","Qalyubia"],["Qena","Qena"],["Red Sea","Red Sea"],["Sohag","Sohag"],["South Sinai","South Sinai"],["Suez","Suez"]]'
+                      >
+                        Egypt
+                      </option>
+                      <option
+                        value="El Salvador"
+                        data-provinces='[["Ahuachapán","Ahuachapán"],["Cabañas","Cabañas"],["Chalatenango","Chalatenango"],["Cuscatlán","Cuscatlán"],["La Libertad","La Libertad"],["La Paz","La Paz"],["La Unión","La Unión"],["Morazán","Morazán"],["San Miguel","San Miguel"],["San Salvador","San Salvador"],["San Vicente","San Vicente"],["Santa Ana","Santa Ana"],["Sonsonate","Sonsonate"],["Usulután","Usulután"]]'
+                      >
+                        El Salvador
+                      </option>
+                      <option value="Equatorial Guinea" data-provinces="[]">
+                        Equatorial Guinea
+                      </option>
+                      <option value="Eritrea" data-provinces="[]">
+                        Eritrea
+                      </option>
+                      <option value="Estonia" data-provinces="[]">
+                        Estonia
+                      </option>
+                      <option value="Eswatini" data-provinces="[]">
+                        Eswatini
+                      </option>
+                      <option value="Ethiopia" data-provinces="[]">
+                        Ethiopia
+                      </option>
+                      <option
+                        value="Falkland Islands (Malvinas)"
+                        data-provinces="[]"
+                      >
+                        Falkland Islands
+                      </option>
+                      <option value="Faroe Islands" data-provinces="[]">
+                        Faroe Islands
+                      </option>
+                      <option value="Fiji" data-provinces="[]">Fiji</option>
+                      <option value="Finland" data-provinces="[]">
+                        Finland
+                      </option>
+                      <option value="France" data-provinces="[]">France</option>
+                      <option value="French Guiana" data-provinces="[]">
+                        French Guiana
+                      </option>
+                      <option value="French Polynesia" data-provinces="[]">
+                        French Polynesia
+                      </option>
+                      <option
+                        value="French Southern Territories"
+                        data-provinces="[]"
+                      >
+                        French Southern Territories
+                      </option>
+                      <option value="Gabon" data-provinces="[]">Gabon</option>
+                      <option value="Gambia" data-provinces="[]">Gambia</option>
+                      <option value="Georgia" data-provinces="[]">
+                        Georgia
+                      </option>
+                      <option value="Germany" data-provinces="[]">
+                        Germany
+                      </option>
+                      <option value="Ghana" data-provinces="[]">Ghana</option>
+                      <option value="Gibraltar" data-provinces="[]">
+                        Gibraltar
+                      </option>
+                      <option value="Greece" data-provinces="[]">Greece</option>
+                      <option value="Greenland" data-provinces="[]">
+                        Greenland
+                      </option>
+                      <option value="Grenada" data-provinces="[]">
+                        Grenada
+                      </option>
+                      <option value="Guadeloupe" data-provinces="[]">
+                        Guadeloupe
+                      </option>
+                      <option
+                        value="Guatemala"
+                        data-provinces='[["Alta Verapaz","Alta Verapaz"],["Baja Verapaz","Baja Verapaz"],["Chimaltenango","Chimaltenango"],["Chiquimula","Chiquimula"],["El Progreso","El Progreso"],["Escuintla","Escuintla"],["Guatemala","Guatemala"],["Huehuetenango","Huehuetenango"],["Izabal","Izabal"],["Jalapa","Jalapa"],["Jutiapa","Jutiapa"],["Petén","Petén"],["Quetzaltenango","Quetzaltenango"],["Quiché","Quiché"],["Retalhuleu","Retalhuleu"],["Sacatepéquez","Sacatepéquez"],["San Marcos","San Marcos"],["Santa Rosa","Santa Rosa"],["Sololá","Sololá"],["Suchitepéquez","Suchitepéquez"],["Totonicapán","Totonicapán"],["Zacapa","Zacapa"]]'
+                      >
+                        Guatemala
+                      </option>
+                      <option value="Guernsey" data-provinces="[]">
+                        Guernsey
+                      </option>
+                      <option value="Guinea" data-provinces="[]">Guinea</option>
+                      <option value="Guinea Bissau" data-provinces="[]">
+                        Guinea-Bissau
+                      </option>
+                      <option value="Guyana" data-provinces="[]">Guyana</option>
+                      <option value="Haiti" data-provinces="[]">Haiti</option>
+                      <option value="Honduras" data-provinces="[]">
+                        Honduras
+                      </option>
+                      <option
+                        value="Hong Kong"
+                        data-provinces='[["Hong Kong Island","Hong Kong Island"],["Kowloon","Kowloon"],["New Territories","New Territories"]]'
+                      >
+                        Hong Kong SAR
+                      </option>
+                      <option value="Hungary" data-provinces="[]">
+                        Hungary
+                      </option>
+                      <option value="Iceland" data-provinces="[]">
+                        Iceland
+                      </option>
+                      <option
+                        value="India"
+                        data-provinces='[["Andaman and Nicobar Islands","Andaman and Nicobar Islands"],["Andhra Pradesh","Andhra Pradesh"],["Arunachal Pradesh","Arunachal Pradesh"],["Assam","Assam"],["Bihar","Bihar"],["Chandigarh","Chandigarh"],["Chhattisgarh","Chhattisgarh"],["Dadra and Nagar Haveli","Dadra and Nagar Haveli"],["Daman and Diu","Daman and Diu"],["Delhi","Delhi"],["Goa","Goa"],["Gujarat","Gujarat"],["Haryana","Haryana"],["Himachal Pradesh","Himachal Pradesh"],["Jammu and Kashmir","Jammu and Kashmir"],["Jharkhand","Jharkhand"],["Karnataka","Karnataka"],["Kerala","Kerala"],["Ladakh","Ladakh"],["Lakshadweep","Lakshadweep"],["Madhya Pradesh","Madhya Pradesh"],["Maharashtra","Maharashtra"],["Manipur","Manipur"],["Meghalaya","Meghalaya"],["Mizoram","Mizoram"],["Nagaland","Nagaland"],["Odisha","Odisha"],["Puducherry","Puducherry"],["Punjab","Punjab"],["Rajasthan","Rajasthan"],["Sikkim","Sikkim"],["Tamil Nadu","Tamil Nadu"],["Telangana","Telangana"],["Tripura","Tripura"],["Uttar Pradesh","Uttar Pradesh"],["Uttarakhand","Uttarakhand"],["West Bengal","West Bengal"]]'
+                      >
+                        India
+                      </option>
+                      <option
+                        value="Indonesia"
+                        data-provinces='[["Aceh","Aceh"],["Bali","Bali"],["Bangka Belitung","Bangka–Belitung Islands"],["Banten","Banten"],["Bengkulu","Bengkulu"],["Gorontalo","Gorontalo"],["Jakarta","Jakarta"],["Jambi","Jambi"],["Jawa Barat","West Java"],["Jawa Tengah","Central Java"],["Jawa Timur","East Java"],["Kalimantan Barat","West Kalimantan"],["Kalimantan Selatan","South Kalimantan"],["Kalimantan Tengah","Central Kalimantan"],["Kalimantan Timur","East Kalimantan"],["Kalimantan Utara","North Kalimantan"],["Kepulauan Riau","Riau Islands"],["Lampung","Lampung"],["Maluku","Maluku"],["Maluku Utara","North Maluku"],["North Sumatra","North Sumatra"],["Nusa Tenggara Barat","West Nusa Tenggara"],["Nusa Tenggara Timur","East Nusa Tenggara"],["Papua","Papua"],["Papua Barat","West Papua"],["Riau","Riau"],["South Sumatra","South Sumatra"],["Sulawesi Barat","West Sulawesi"],["Sulawesi Selatan","South Sulawesi"],["Sulawesi Tengah","Central Sulawesi"],["Sulawesi Tenggara","Southeast Sulawesi"],["Sulawesi Utara","North Sulawesi"],["West Sumatra","West Sumatra"],["Yogyakarta","Yogyakarta"]]'
+                      >
+                        Indonesia
+                      </option>
+                      <option value="Iraq" data-provinces="[]">Iraq</option>
+                      <option
+                        value="Ireland"
+                        data-provinces='[["Carlow","Carlow"],["Cavan","Cavan"],["Clare","Clare"],["Cork","Cork"],["Donegal","Donegal"],["Dublin","Dublin"],["Galway","Galway"],["Kerry","Kerry"],["Kildare","Kildare"],["Kilkenny","Kilkenny"],["Laois","Laois"],["Leitrim","Leitrim"],["Limerick","Limerick"],["Longford","Longford"],["Louth","Louth"],["Mayo","Mayo"],["Meath","Meath"],["Monaghan","Monaghan"],["Offaly","Offaly"],["Roscommon","Roscommon"],["Sligo","Sligo"],["Tipperary","Tipperary"],["Waterford","Waterford"],["Westmeath","Westmeath"],["Wexford","Wexford"],["Wicklow","Wicklow"]]'
+                      >
+                        Ireland
+                      </option>
+                      <option value="Isle Of Man" data-provinces="[]">
+                        Isle of Man
+                      </option>
+                      <option value="Israel" data-provinces="[]">Israel</option>
+                      <option
+                        value="Italy"
+                        data-provinces='[["Agrigento","Agrigento"],["Alessandria","Alessandria"],["Ancona","Ancona"],["Aosta","Aosta Valley"],["Arezzo","Arezzo"],["Ascoli Piceno","Ascoli Piceno"],["Asti","Asti"],["Avellino","Avellino"],["Bari","Bari"],["Barletta-Andria-Trani","Barletta-Andria-Trani"],["Belluno","Belluno"],["Benevento","Benevento"],["Bergamo","Bergamo"],["Biella","Biella"],["Bologna","Bologna"],["Bolzano","South Tyrol"],["Brescia","Brescia"],["Brindisi","Brindisi"],["Cagliari","Cagliari"],["Caltanissetta","Caltanissetta"],["Campobasso","Campobasso"],["Carbonia-Iglesias","Carbonia-Iglesias"],["Caserta","Caserta"],["Catania","Catania"],["Catanzaro","Catanzaro"],["Chieti","Chieti"],["Como","Como"],["Cosenza","Cosenza"],["Cremona","Cremona"],["Crotone","Crotone"],["Cuneo","Cuneo"],["Enna","Enna"],["Fermo","Fermo"],["Ferrara","Ferrara"],["Firenze","Florence"],["Foggia","Foggia"],["Forlì-Cesena","Forlì-Cesena"],["Frosinone","Frosinone"],["Genova","Genoa"],["Gorizia","Gorizia"],["Grosseto","Grosseto"],["Imperia","Imperia"],["Isernia","Isernia"],["L&#39;Aquila","L’Aquila"],["La Spezia","La Spezia"],["Latina","Latina"],["Lecce","Lecce"],["Lecco","Lecco"],["Livorno","Livorno"],["Lodi","Lodi"],["Lucca","Lucca"],["Macerata","Macerata"],["Mantova","Mantua"],["Massa-Carrara","Massa and Carrara"],["Matera","Matera"],["Medio Campidano","Medio Campidano"],["Messina","Messina"],["Milano","Milan"],["Modena","Modena"],["Monza e Brianza","Monza and Brianza"],["Napoli","Naples"],["Novara","Novara"],["Nuoro","Nuoro"],["Ogliastra","Ogliastra"],["Olbia-Tempio","Olbia-Tempio"],["Oristano","Oristano"],["Padova","Padua"],["Palermo","Palermo"],["Parma","Parma"],["Pavia","Pavia"],["Perugia","Perugia"],["Pesaro e Urbino","Pesaro and Urbino"],["Pescara","Pescara"],["Piacenza","Piacenza"],["Pisa","Pisa"],["Pistoia","Pistoia"],["Pordenone","Pordenone"],["Potenza","Potenza"],["Prato","Prato"],["Ragusa","Ragusa"],["Ravenna","Ravenna"],["Reggio Calabria","Reggio Calabria"],["Reggio Emilia","Reggio Emilia"],["Rieti","Rieti"],["Rimini","Rimini"],["Roma","Rome"],["Rovigo","Rovigo"],["Salerno","Salerno"],["Sassari","Sassari"],["Savona","Savona"],["Siena","Siena"],["Siracusa","Syracuse"],["Sondrio","Sondrio"],["Taranto","Taranto"],["Teramo","Teramo"],["Terni","Terni"],["Torino","Turin"],["Trapani","Trapani"],["Trento","Trentino"],["Treviso","Treviso"],["Trieste","Trieste"],["Udine","Udine"],["Varese","Varese"],["Venezia","Venice"],["Verbano-Cusio-Ossola","Verbano-Cusio-Ossola"],["Vercelli","Vercelli"],["Verona","Verona"],["Vibo Valentia","Vibo Valentia"],["Vicenza","Vicenza"],["Viterbo","Viterbo"]]'
+                      >
+                        Italy
+                      </option>
+                      <option value="Jamaica" data-provinces="[]">
+                        Jamaica
+                      </option>
+                      <option
+                        value="Japan"
+                        data-provinces='[["Aichi","Aichi"],["Akita","Akita"],["Aomori","Aomori"],["Chiba","Chiba"],["Ehime","Ehime"],["Fukui","Fukui"],["Fukuoka","Fukuoka"],["Fukushima","Fukushima"],["Gifu","Gifu"],["Gunma","Gunma"],["Hiroshima","Hiroshima"],["Hokkaidō","Hokkaido"],["Hyōgo","Hyogo"],["Ibaraki","Ibaraki"],["Ishikawa","Ishikawa"],["Iwate","Iwate"],["Kagawa","Kagawa"],["Kagoshima","Kagoshima"],["Kanagawa","Kanagawa"],["Kumamoto","Kumamoto"],["Kyōto","Kyoto"],["Kōchi","Kochi"],["Mie","Mie"],["Miyagi","Miyagi"],["Miyazaki","Miyazaki"],["Nagano","Nagano"],["Nagasaki","Nagasaki"],["Nara","Nara"],["Niigata","Niigata"],["Okayama","Okayama"],["Okinawa","Okinawa"],["Saga","Saga"],["Saitama","Saitama"],["Shiga","Shiga"],["Shimane","Shimane"],["Shizuoka","Shizuoka"],["Tochigi","Tochigi"],["Tokushima","Tokushima"],["Tottori","Tottori"],["Toyama","Toyama"],["Tōkyō","Tokyo"],["Wakayama","Wakayama"],["Yamagata","Yamagata"],["Yamaguchi","Yamaguchi"],["Yamanashi","Yamanashi"],["Ōita","Oita"],["Ōsaka","Osaka"]]'
+                      >
+                        Japan
+                      </option>
+                      <option value="Jersey" data-provinces="[]">Jersey</option>
+                      <option value="Jordan" data-provinces="[]">Jordan</option>
+                      <option value="Kazakhstan" data-provinces="[]">
+                        Kazakhstan
+                      </option>
+                      <option value="Kenya" data-provinces="[]">Kenya</option>
+                      <option value="Kiribati" data-provinces="[]">
+                        Kiribati
+                      </option>
+                      <option value="Kosovo" data-provinces="[]">Kosovo</option>
+                      <option
+                        value="Kuwait"
+                        data-provinces='[["Al Ahmadi","Al Ahmadi"],["Al Asimah","Al Asimah"],["Al Farwaniyah","Al Farwaniyah"],["Al Jahra","Al Jahra"],["Hawalli","Hawalli"],["Mubarak Al-Kabeer","Mubarak Al-Kabeer"]]'
+                      >
+                        Kuwait
+                      </option>
+                      <option value="Kyrgyzstan" data-provinces="[]">
+                        Kyrgyzstan
+                      </option>
+                      <option
+                        value="Lao People's Democratic Republic"
+                        data-provinces="[]"
+                      >
+                        Laos
+                      </option>
+                      <option value="Latvia" data-provinces="[]">Latvia</option>
+                      <option value="Lebanon" data-provinces="[]">
+                        Lebanon
+                      </option>
+                      <option value="Lesotho" data-provinces="[]">
+                        Lesotho
+                      </option>
+                      <option value="Liberia" data-provinces="[]">
+                        Liberia
+                      </option>
+                      <option
+                        value="Libyan Arab Jamahiriya"
+                        data-provinces="[]"
+                      >
+                        Libya
+                      </option>
+                      <option value="Liechtenstein" data-provinces="[]">
+                        Liechtenstein
+                      </option>
+                      <option value="Lithuania" data-provinces="[]">
+                        Lithuania
+                      </option>
+                      <option value="Luxembourg" data-provinces="[]">
+                        Luxembourg
+                      </option>
+                      <option value="Macao" data-provinces="[]">
+                        Macao SAR
+                      </option>
+                      <option value="Madagascar" data-provinces="[]">
+                        Madagascar
+                      </option>
+                      <option value="Malawi" data-provinces="[]">Malawi</option>
+                      <option
+                        value="Malaysia"
+                        data-provinces='[["Johor","Johor"],["Kedah","Kedah"],["Kelantan","Kelantan"],["Kuala Lumpur","Kuala Lumpur"],["Labuan","Labuan"],["Melaka","Malacca"],["Negeri Sembilan","Negeri Sembilan"],["Pahang","Pahang"],["Penang","Penang"],["Perak","Perak"],["Perlis","Perlis"],["Putrajaya","Putrajaya"],["Sabah","Sabah"],["Sarawak","Sarawak"],["Selangor","Selangor"],["Terengganu","Terengganu"]]'
+                      >
+                        Malaysia
+                      </option>
+                      <option value="Maldives" data-provinces="[]">
+                        Maldives
+                      </option>
+                      <option value="Mali" data-provinces="[]">Mali</option>
+                      <option value="Malta" data-provinces="[]">Malta</option>
+                      <option value="Martinique" data-provinces="[]">
+                        Martinique
+                      </option>
+                      <option value="Mauritania" data-provinces="[]">
+                        Mauritania
+                      </option>
+                      <option value="Mauritius" data-provinces="[]">
+                        Mauritius
+                      </option>
+                      <option value="Mayotte" data-provinces="[]">
+                        Mayotte
+                      </option>
+                      <option
+                        value="Mexico"
+                        data-provinces='[["Aguascalientes","Aguascalientes"],["Baja California","Baja California"],["Baja California Sur","Baja California Sur"],["Campeche","Campeche"],["Chiapas","Chiapas"],["Chihuahua","Chihuahua"],["Ciudad de México","Ciudad de Mexico"],["Coahuila","Coahuila"],["Colima","Colima"],["Durango","Durango"],["Guanajuato","Guanajuato"],["Guerrero","Guerrero"],["Hidalgo","Hidalgo"],["Jalisco","Jalisco"],["Michoacán","Michoacán"],["Morelos","Morelos"],["México","Mexico State"],["Nayarit","Nayarit"],["Nuevo León","Nuevo León"],["Oaxaca","Oaxaca"],["Puebla","Puebla"],["Querétaro","Querétaro"],["Quintana Roo","Quintana Roo"],["San Luis Potosí","San Luis Potosí"],["Sinaloa","Sinaloa"],["Sonora","Sonora"],["Tabasco","Tabasco"],["Tamaulipas","Tamaulipas"],["Tlaxcala","Tlaxcala"],["Veracruz","Veracruz"],["Yucatán","Yucatán"],["Zacatecas","Zacatecas"]]'
+                      >
+                        Mexico
+                      </option>
+                      <option value="Moldova, Republic of" data-provinces="[]">
+                        Moldova
+                      </option>
+                      <option value="Monaco" data-provinces="[]">Monaco</option>
+                      <option value="Mongolia" data-provinces="[]">
+                        Mongolia
+                      </option>
+                      <option value="Montenegro" data-provinces="[]">
+                        Montenegro
+                      </option>
+                      <option value="Montserrat" data-provinces="[]">
+                        Montserrat
+                      </option>
+                      <option value="Morocco" data-provinces="[]">
+                        Morocco
+                      </option>
+                      <option value="Mozambique" data-provinces="[]">
+                        Mozambique
+                      </option>
+                      <option value="Myanmar" data-provinces="[]">
+                        Myanmar (Burma)
+                      </option>
+                      <option value="Namibia" data-provinces="[]">
+                        Namibia
+                      </option>
+                      <option value="Nauru" data-provinces="[]">Nauru</option>
+                      <option value="Nepal" data-provinces="[]">Nepal</option>
+                      <option value="Netherlands" data-provinces="[]">
+                        Netherlands
+                      </option>
+                      <option value="New Caledonia" data-provinces="[]">
+                        New Caledonia
+                      </option>
+                      <option
+                        value="New Zealand"
+                        data-provinces='[["Auckland","Auckland"],["Bay of Plenty","Bay of Plenty"],["Canterbury","Canterbury"],["Chatham Islands","Chatham Islands"],["Gisborne","Gisborne"],["Hawke&#39;s Bay","Hawke’s Bay"],["Manawatu-Wanganui","Manawatū-Whanganui"],["Marlborough","Marlborough"],["Nelson","Nelson"],["Northland","Northland"],["Otago","Otago"],["Southland","Southland"],["Taranaki","Taranaki"],["Tasman","Tasman"],["Waikato","Waikato"],["Wellington","Wellington"],["West Coast","West Coast"]]'
+                      >
+                        New Zealand
+                      </option>
+                      <option value="Nicaragua" data-provinces="[]">
+                        Nicaragua
+                      </option>
+                      <option value="Niger" data-provinces="[]">Niger</option>
+                      <option
+                        value="Nigeria"
+                        data-provinces='[["Abia","Abia"],["Abuja Federal Capital Territory","Federal Capital Territory"],["Adamawa","Adamawa"],["Akwa Ibom","Akwa Ibom"],["Anambra","Anambra"],["Bauchi","Bauchi"],["Bayelsa","Bayelsa"],["Benue","Benue"],["Borno","Borno"],["Cross River","Cross River"],["Delta","Delta"],["Ebonyi","Ebonyi"],["Edo","Edo"],["Ekiti","Ekiti"],["Enugu","Enugu"],["Gombe","Gombe"],["Imo","Imo"],["Jigawa","Jigawa"],["Kaduna","Kaduna"],["Kano","Kano"],["Katsina","Katsina"],["Kebbi","Kebbi"],["Kogi","Kogi"],["Kwara","Kwara"],["Lagos","Lagos"],["Nasarawa","Nasarawa"],["Niger","Niger"],["Ogun","Ogun"],["Ondo","Ondo"],["Osun","Osun"],["Oyo","Oyo"],["Plateau","Plateau"],["Rivers","Rivers"],["Sokoto","Sokoto"],["Taraba","Taraba"],["Yobe","Yobe"],["Zamfara","Zamfara"]]'
+                      >
+                        Nigeria
+                      </option>
+                      <option value="Niue" data-provinces="[]">Niue</option>
+                      <option value="Norfolk Island" data-provinces="[]">
+                        Norfolk Island
+                      </option>
+                      <option value="North Macedonia" data-provinces="[]">
+                        North Macedonia
+                      </option>
+                      <option value="Norway" data-provinces="[]">Norway</option>
+                      <option value="Oman" data-provinces="[]">Oman</option>
+                      <option value="Pakistan" data-provinces="[]">
+                        Pakistan
+                      </option>
+                      <option
+                        value="Palestinian Territory, Occupied"
+                        data-provinces="[]"
+                      >
+                        Palestinian Territories
+                      </option>
+                      <option
+                        value="Panama"
+                        data-provinces='[["Bocas del Toro","Bocas del Toro"],["Chiriquí","Chiriquí"],["Coclé","Coclé"],["Colón","Colón"],["Darién","Darién"],["Emberá","Emberá"],["Herrera","Herrera"],["Kuna Yala","Guna Yala"],["Los Santos","Los Santos"],["Ngöbe-Buglé","Ngöbe-Buglé"],["Panamá","Panamá"],["Panamá Oeste","West Panamá"],["Veraguas","Veraguas"]]'
+                      >
+                        Panama
+                      </option>
+                      <option value="Papua New Guinea" data-provinces="[]">
+                        Papua New Guinea
+                      </option>
+                      <option value="Paraguay" data-provinces="[]">
+                        Paraguay
+                      </option>
+                      <option
+                        value="Peru"
+                        data-provinces='[["Amazonas","Amazonas"],["Apurímac","Apurímac"],["Arequipa","Arequipa"],["Ayacucho","Ayacucho"],["Cajamarca","Cajamarca"],["Callao","El Callao"],["Cuzco","Cusco"],["Huancavelica","Huancavelica"],["Huánuco","Huánuco"],["Ica","Ica"],["Junín","Junín"],["La Libertad","La Libertad"],["Lambayeque","Lambayeque"],["Lima (departamento)","Lima (Department)"],["Lima (provincia)","Lima (Metropolitan)"],["Loreto","Loreto"],["Madre de Dios","Madre de Dios"],["Moquegua","Moquegua"],["Pasco","Pasco"],["Piura","Piura"],["Puno","Puno"],["San Martín","San Martín"],["Tacna","Tacna"],["Tumbes","Tumbes"],["Ucayali","Ucayali"],["Áncash","Ancash"]]'
+                      >
+                        Peru
+                      </option>
+                      <option
+                        value="Philippines"
+                        data-provinces='[["Abra","Abra"],["Agusan del Norte","Agusan del Norte"],["Agusan del Sur","Agusan del Sur"],["Aklan","Aklan"],["Albay","Albay"],["Antique","Antique"],["Apayao","Apayao"],["Aurora","Aurora"],["Basilan","Basilan"],["Bataan","Bataan"],["Batanes","Batanes"],["Batangas","Batangas"],["Benguet","Benguet"],["Biliran","Biliran"],["Bohol","Bohol"],["Bukidnon","Bukidnon"],["Bulacan","Bulacan"],["Cagayan","Cagayan"],["Camarines Norte","Camarines Norte"],["Camarines Sur","Camarines Sur"],["Camiguin","Camiguin"],["Capiz","Capiz"],["Catanduanes","Catanduanes"],["Cavite","Cavite"],["Cebu","Cebu"],["Cotabato","Cotabato"],["Davao Occidental","Davao Occidental"],["Davao Oriental","Davao Oriental"],["Davao de Oro","Compostela Valley"],["Davao del Norte","Davao del Norte"],["Davao del Sur","Davao del Sur"],["Dinagat Islands","Dinagat Islands"],["Eastern Samar","Eastern Samar"],["Guimaras","Guimaras"],["Ifugao","Ifugao"],["Ilocos Norte","Ilocos Norte"],["Ilocos Sur","Ilocos Sur"],["Iloilo","Iloilo"],["Isabela","Isabela"],["Kalinga","Kalinga"],["La Union","La Union"],["Laguna","Laguna"],["Lanao del Norte","Lanao del Norte"],["Lanao del Sur","Lanao del Sur"],["Leyte","Leyte"],["Maguindanao","Maguindanao"],["Marinduque","Marinduque"],["Masbate","Masbate"],["Metro Manila","Metro Manila"],["Misamis Occidental","Misamis Occidental"],["Misamis Oriental","Misamis Oriental"],["Mountain Province","Mountain"],["Negros Occidental","Negros Occidental"],["Negros Oriental","Negros Oriental"],["Northern Samar","Northern Samar"],["Nueva Ecija","Nueva Ecija"],["Nueva Vizcaya","Nueva Vizcaya"],["Occidental Mindoro","Occidental Mindoro"],["Oriental Mindoro","Oriental Mindoro"],["Palawan","Palawan"],["Pampanga","Pampanga"],["Pangasinan","Pangasinan"],["Quezon","Quezon"],["Quirino","Quirino"],["Rizal","Rizal"],["Romblon","Romblon"],["Samar","Samar"],["Sarangani","Sarangani"],["Siquijor","Siquijor"],["Sorsogon","Sorsogon"],["South Cotabato","South Cotabato"],["Southern Leyte","Southern Leyte"],["Sultan Kudarat","Sultan Kudarat"],["Sulu","Sulu"],["Surigao del Norte","Surigao del Norte"],["Surigao del Sur","Surigao del Sur"],["Tarlac","Tarlac"],["Tawi-Tawi","Tawi-Tawi"],["Zambales","Zambales"],["Zamboanga Sibugay","Zamboanga Sibugay"],["Zamboanga del Norte","Zamboanga del Norte"],["Zamboanga del Sur","Zamboanga del Sur"]]'
+                      >
+                        Philippines
+                      </option>
+                      <option value="Pitcairn" data-provinces="[]">
+                        Pitcairn Islands
+                      </option>
+                      <option value="Poland" data-provinces="[]">Poland</option>
+                      <option
+                        value="Portugal"
+                        data-provinces='[["Aveiro","Aveiro"],["Açores","Azores"],["Beja","Beja"],["Braga","Braga"],["Bragança","Bragança"],["Castelo Branco","Castelo Branco"],["Coimbra","Coimbra"],["Faro","Faro"],["Guarda","Guarda"],["Leiria","Leiria"],["Lisboa","Lisbon"],["Madeira","Madeira"],["Portalegre","Portalegre"],["Porto","Porto"],["Santarém","Santarém"],["Setúbal","Setúbal"],["Viana do Castelo","Viana do Castelo"],["Vila Real","Vila Real"],["Viseu","Viseu"],["Évora","Évora"]]'
+                      >
+                        Portugal
+                      </option>
+                      <option value="Qatar" data-provinces="[]">Qatar</option>
+                      <option value="Reunion" data-provinces="[]">
+                        Réunion
+                      </option>
+                      <option
+                        value="Romania"
+                        data-provinces='[["Alba","Alba"],["Arad","Arad"],["Argeș","Argeș"],["Bacău","Bacău"],["Bihor","Bihor"],["Bistrița-Năsăud","Bistriţa-Năsăud"],["Botoșani","Botoşani"],["Brașov","Braşov"],["Brăila","Brăila"],["București","Bucharest"],["Buzău","Buzău"],["Caraș-Severin","Caraș-Severin"],["Cluj","Cluj"],["Constanța","Constanța"],["Covasna","Covasna"],["Călărași","Călărași"],["Dolj","Dolj"],["Dâmbovița","Dâmbovița"],["Galați","Galați"],["Giurgiu","Giurgiu"],["Gorj","Gorj"],["Harghita","Harghita"],["Hunedoara","Hunedoara"],["Ialomița","Ialomița"],["Iași","Iași"],["Ilfov","Ilfov"],["Maramureș","Maramureş"],["Mehedinți","Mehedinți"],["Mureș","Mureş"],["Neamț","Neamţ"],["Olt","Olt"],["Prahova","Prahova"],["Satu Mare","Satu Mare"],["Sibiu","Sibiu"],["Suceava","Suceava"],["Sălaj","Sălaj"],["Teleorman","Teleorman"],["Timiș","Timiș"],["Tulcea","Tulcea"],["Vaslui","Vaslui"],["Vrancea","Vrancea"],["Vâlcea","Vâlcea"]]'
+                      >
+                        Romania
+                      </option>
+                      <option
+                        value="Russia"
+                        data-provinces='[["Altai Krai","Altai Krai"],["Altai Republic","Altai"],["Amur Oblast","Amur"],["Arkhangelsk Oblast","Arkhangelsk"],["Astrakhan Oblast","Astrakhan"],["Belgorod Oblast","Belgorod"],["Bryansk Oblast","Bryansk"],["Chechen Republic","Chechen"],["Chelyabinsk Oblast","Chelyabinsk"],["Chukotka Autonomous Okrug","Chukotka Okrug"],["Chuvash Republic","Chuvash"],["Irkutsk Oblast","Irkutsk"],["Ivanovo Oblast","Ivanovo"],["Jewish Autonomous Oblast","Jewish"],["Kabardino-Balkarian Republic","Kabardino-Balkar"],["Kaliningrad Oblast","Kaliningrad"],["Kaluga Oblast","Kaluga"],["Kamchatka Krai","Kamchatka Krai"],["Karachay–Cherkess Republic","Karachay-Cherkess"],["Kemerovo Oblast","Kemerovo"],["Khabarovsk Krai","Khabarovsk Krai"],["Khanty-Mansi Autonomous Okrug","Khanty-Mansi"],["Kirov Oblast","Kirov"],["Komi Republic","Komi"],["Kostroma Oblast","Kostroma"],["Krasnodar Krai","Krasnodar Krai"],["Krasnoyarsk Krai","Krasnoyarsk Krai"],["Kurgan Oblast","Kurgan"],["Kursk Oblast","Kursk"],["Leningrad Oblast","Leningrad"],["Lipetsk Oblast","Lipetsk"],["Magadan Oblast","Magadan"],["Mari El Republic","Mari El"],["Moscow","Moscow"],["Moscow Oblast","Moscow Province"],["Murmansk Oblast","Murmansk"],["Nizhny Novgorod Oblast","Nizhny Novgorod"],["Novgorod Oblast","Novgorod"],["Novosibirsk Oblast","Novosibirsk"],["Omsk Oblast","Omsk"],["Orenburg Oblast","Orenburg"],["Oryol Oblast","Oryol"],["Penza Oblast","Penza"],["Perm Krai","Perm Krai"],["Primorsky Krai","Primorsky Krai"],["Pskov Oblast","Pskov"],["Republic of Adygeya","Adygea"],["Republic of Bashkortostan","Bashkortostan"],["Republic of Buryatia","Buryat"],["Republic of Dagestan","Dagestan"],["Republic of Ingushetia","Ingushetia"],["Republic of Kalmykia","Kalmykia"],["Republic of Karelia","Karelia"],["Republic of Khakassia","Khakassia"],["Republic of Mordovia","Mordovia"],["Republic of North Ossetia–Alania","North Ossetia-Alania"],["Republic of Tatarstan","Tatarstan"],["Rostov Oblast","Rostov"],["Ryazan Oblast","Ryazan"],["Saint Petersburg","Saint Petersburg"],["Sakha Republic (Yakutia)","Sakha"],["Sakhalin Oblast","Sakhalin"],["Samara Oblast","Samara"],["Saratov Oblast","Saratov"],["Smolensk Oblast","Smolensk"],["Stavropol Krai","Stavropol Krai"],["Sverdlovsk Oblast","Sverdlovsk"],["Tambov Oblast","Tambov"],["Tomsk Oblast","Tomsk"],["Tula Oblast","Tula"],["Tver Oblast","Tver"],["Tyumen Oblast","Tyumen"],["Tyva Republic","Tuva"],["Udmurtia","Udmurt"],["Ulyanovsk Oblast","Ulyanovsk"],["Vladimir Oblast","Vladimir"],["Volgograd Oblast","Volgograd"],["Vologda Oblast","Vologda"],["Voronezh Oblast","Voronezh"],["Yamalo-Nenets Autonomous Okrug","Yamalo-Nenets Okrug"],["Yaroslavl Oblast","Yaroslavl"],["Zabaykalsky Krai","Zabaykalsky Krai"]]'
+                      >
+                        Russia
+                      </option>
+                      <option value="Rwanda" data-provinces="[]">Rwanda</option>
+                      <option value="Samoa" data-provinces="[]">Samoa</option>
+                      <option value="San Marino" data-provinces="[]">
+                        San Marino
+                      </option>
+                      <option value="Sao Tome And Principe" data-provinces="[]">
+                        São Tomé & Príncipe
+                      </option>
+                      <option value="Saudi Arabia" data-provinces="[]">
+                        Saudi Arabia
+                      </option>
+                      <option value="Senegal" data-provinces="[]">
+                        Senegal
+                      </option>
+                      <option value="Serbia" data-provinces="[]">Serbia</option>
+                      <option value="Seychelles" data-provinces="[]">
+                        Seychelles
+                      </option>
+                      <option value="Sierra Leone" data-provinces="[]">
+                        Sierra Leone
+                      </option>
+                      <option value="Singapore" data-provinces="[]">
+                        Singapore
+                      </option>
+                      <option value="Sint Maarten" data-provinces="[]">
+                        Sint Maarten
+                      </option>
+                      <option value="Slovakia" data-provinces="[]">
+                        Slovakia
+                      </option>
+                      <option value="Slovenia" data-provinces="[]">
+                        Slovenia
+                      </option>
+                      <option value="Solomon Islands" data-provinces="[]">
+                        Solomon Islands
+                      </option>
+                      <option value="Somalia" data-provinces="[]">
+                        Somalia
+                      </option>
+                      <option
+                        value="South Africa"
+                        data-provinces='[["Eastern Cape","Eastern Cape"],["Free State","Free State"],["Gauteng","Gauteng"],["KwaZulu-Natal","KwaZulu-Natal"],["Limpopo","Limpopo"],["Mpumalanga","Mpumalanga"],["North West","North West"],["Northern Cape","Northern Cape"],["Western Cape","Western Cape"]]'
+                      >
+                        South Africa
+                      </option>
+                      <option
+                        value="South Georgia And The South Sandwich Islands"
+                        data-provinces="[]"
+                      >
+                        South Georgia & South Sandwich Islands
+                      </option>
+                      <option
+                        value="South Korea"
+                        data-provinces='[["Busan","Busan"],["Chungbuk","North Chungcheong"],["Chungnam","South Chungcheong"],["Daegu","Daegu"],["Daejeon","Daejeon"],["Gangwon","Gangwon"],["Gwangju","Gwangju City"],["Gyeongbuk","North Gyeongsang"],["Gyeonggi","Gyeonggi"],["Gyeongnam","South Gyeongsang"],["Incheon","Incheon"],["Jeju","Jeju"],["Jeonbuk","North Jeolla"],["Jeonnam","South Jeolla"],["Sejong","Sejong"],["Seoul","Seoul"],["Ulsan","Ulsan"]]'
+                      >
+                        South Korea
+                      </option>
+                      <option value="South Sudan" data-provinces="[]">
+                        South Sudan
+                      </option>
+                      <option
+                        value="Spain"
+                        data-provinces='[["A Coruña","A Coruña"],["Albacete","Albacete"],["Alicante","Alicante"],["Almería","Almería"],["Asturias","Asturias Province"],["Badajoz","Badajoz"],["Balears","Balears Province"],["Barcelona","Barcelona"],["Burgos","Burgos"],["Cantabria","Cantabria Province"],["Castellón","Castellón"],["Ceuta","Ceuta"],["Ciudad Real","Ciudad Real"],["Cuenca","Cuenca"],["Cáceres","Cáceres"],["Cádiz","Cádiz"],["Córdoba","Córdoba"],["Girona","Girona"],["Granada","Granada"],["Guadalajara","Guadalajara"],["Guipúzcoa","Gipuzkoa"],["Huelva","Huelva"],["Huesca","Huesca"],["Jaén","Jaén"],["La Rioja","La Rioja Province"],["Las Palmas","Las Palmas"],["León","León"],["Lleida","Lleida"],["Lugo","Lugo"],["Madrid","Madrid Province"],["Melilla","Melilla"],["Murcia","Murcia"],["Málaga","Málaga"],["Navarra","Navarra"],["Ourense","Ourense"],["Palencia","Palencia"],["Pontevedra","Pontevedra"],["Salamanca","Salamanca"],["Santa Cruz de Tenerife","Santa Cruz de Tenerife"],["Segovia","Segovia"],["Sevilla","Seville"],["Soria","Soria"],["Tarragona","Tarragona"],["Teruel","Teruel"],["Toledo","Toledo"],["Valencia","Valencia"],["Valladolid","Valladolid"],["Vizcaya","Biscay"],["Zamora","Zamora"],["Zaragoza","Zaragoza"],["Álava","Álava"],["Ávila","Ávila"]]'
+                      >
+                        Spain
+                      </option>
+                      <option value="Sri Lanka" data-provinces="[]">
+                        Sri Lanka
+                      </option>
+                      <option value="Saint Barthélemy" data-provinces="[]">
+                        St. Barthélemy
+                      </option>
+                      <option value="Saint Helena" data-provinces="[]">
+                        St. Helena
+                      </option>
+                      <option value="Saint Kitts And Nevis" data-provinces="[]">
+                        St. Kitts & Nevis
+                      </option>
+                      <option value="Saint Lucia" data-provinces="[]">
+                        St. Lucia
+                      </option>
+                      <option value="Saint Martin" data-provinces="[]">
+                        St. Martin
+                      </option>
+                      <option
+                        value="Saint Pierre And Miquelon"
+                        data-provinces="[]"
+                      >
+                        St. Pierre & Miquelon
+                      </option>
+                      <option value="St. Vincent" data-provinces="[]">
+                        St. Vincent & Grenadines
+                      </option>
+                      <option value="Sudan" data-provinces="[]">Sudan</option>
+                      <option value="Suriname" data-provinces="[]">
+                        Suriname
+                      </option>
+                      <option
+                        value="Svalbard And Jan Mayen"
+                        data-provinces="[]"
+                      >
+                        Svalbard & Jan Mayen
+                      </option>
+                      <option value="Sweden" data-provinces="[]">Sweden</option>
+                      <option value="Switzerland" data-provinces="[]">
+                        Switzerland
+                      </option>
+                      <option value="Taiwan" data-provinces="[]">Taiwan</option>
+                      <option value="Tajikistan" data-provinces="[]">
+                        Tajikistan
+                      </option>
+                      <option
+                        value="Tanzania, United Republic Of"
+                        data-provinces="[]"
+                      >
+                        Tanzania
+                      </option>
+                      <option
+                        value="Thailand"
+                        data-provinces='[["Amnat Charoen","Amnat Charoen"],["Ang Thong","Ang Thong"],["Bangkok","Bangkok"],["Bueng Kan","Bueng Kan"],["Buriram","Buri Ram"],["Chachoengsao","Chachoengsao"],["Chai Nat","Chai Nat"],["Chaiyaphum","Chaiyaphum"],["Chanthaburi","Chanthaburi"],["Chiang Mai","Chiang Mai"],["Chiang Rai","Chiang Rai"],["Chon Buri","Chon Buri"],["Chumphon","Chumphon"],["Kalasin","Kalasin"],["Kamphaeng Phet","Kamphaeng Phet"],["Kanchanaburi","Kanchanaburi"],["Khon Kaen","Khon Kaen"],["Krabi","Krabi"],["Lampang","Lampang"],["Lamphun","Lamphun"],["Loei","Loei"],["Lopburi","Lopburi"],["Mae Hong Son","Mae Hong Son"],["Maha Sarakham","Maha Sarakham"],["Mukdahan","Mukdahan"],["Nakhon Nayok","Nakhon Nayok"],["Nakhon Pathom","Nakhon Pathom"],["Nakhon Phanom","Nakhon Phanom"],["Nakhon Ratchasima","Nakhon Ratchasima"],["Nakhon Sawan","Nakhon Sawan"],["Nakhon Si Thammarat","Nakhon Si Thammarat"],["Nan","Nan"],["Narathiwat","Narathiwat"],["Nong Bua Lam Phu","Nong Bua Lam Phu"],["Nong Khai","Nong Khai"],["Nonthaburi","Nonthaburi"],["Pathum Thani","Pathum Thani"],["Pattani","Pattani"],["Pattaya","Pattaya"],["Phangnga","Phang Nga"],["Phatthalung","Phatthalung"],["Phayao","Phayao"],["Phetchabun","Phetchabun"],["Phetchaburi","Phetchaburi"],["Phichit","Phichit"],["Phitsanulok","Phitsanulok"],["Phra Nakhon Si Ayutthaya","Phra Nakhon Si Ayutthaya"],["Phrae","Phrae"],["Phuket","Phuket"],["Prachin Buri","Prachin Buri"],["Prachuap Khiri Khan","Prachuap Khiri Khan"],["Ranong","Ranong"],["Ratchaburi","Ratchaburi"],["Rayong","Rayong"],["Roi Et","Roi Et"],["Sa Kaeo","Sa Kaeo"],["Sakon Nakhon","Sakon Nakhon"],["Samut Prakan","Samut Prakan"],["Samut Sakhon","Samut Sakhon"],["Samut Songkhram","Samut Songkhram"],["Saraburi","Saraburi"],["Satun","Satun"],["Sing Buri","Sing Buri"],["Sisaket","Si Sa Ket"],["Songkhla","Songkhla"],["Sukhothai","Sukhothai"],["Suphan Buri","Suphanburi"],["Surat Thani","Surat Thani"],["Surin","Surin"],["Tak","Tak"],["Trang","Trang"],["Trat","Trat"],["Ubon Ratchathani","Ubon Ratchathani"],["Udon Thani","Udon Thani"],["Uthai Thani","Uthai Thani"],["Uttaradit","Uttaradit"],["Yala","Yala"],["Yasothon","Yasothon"]]'
+                      >
+                        Thailand
+                      </option>
+                      <option value="Timor Leste" data-provinces="[]">
+                        Timor-Leste
+                      </option>
+                      <option value="Togo" data-provinces="[]">Togo</option>
+                      <option value="Tokelau" data-provinces="[]">
+                        Tokelau
+                      </option>
+                      <option value="Tonga" data-provinces="[]">Tonga</option>
+                      <option value="Trinidad and Tobago" data-provinces="[]">
+                        Trinidad & Tobago
+                      </option>
+                      <option value="Tristan da Cunha" data-provinces="[]">
+                        Tristan da Cunha
+                      </option>
+                      <option value="Tunisia" data-provinces="[]">
+                        Tunisia
+                      </option>
+                      <option value="Turkey" data-provinces="[]">Turkey</option>
+                      <option value="Turkmenistan" data-provinces="[]">
+                        Turkmenistan
+                      </option>
+                      <option
+                        value="Turks and Caicos Islands"
+                        data-provinces="[]"
+                      >
+                        Turks & Caicos Islands
+                      </option>
+                      <option value="Tuvalu" data-provinces="[]">Tuvalu</option>
+                      <option
+                        value="United States Minor Outlying Islands"
+                        data-provinces="[]"
+                      >
+                        U.S. Outlying Islands
+                      </option>
+                      <option value="Uganda" data-provinces="[]">Uganda</option>
+                      <option value="Ukraine" data-provinces="[]">
+                        Ukraine
+                      </option>
+                      <option
+                        value="United Arab Emirates"
+                        data-provinces='[["Abu Dhabi","Abu Dhabi"],["Ajman","Ajman"],["Dubai","Dubai"],["Fujairah","Fujairah"],["Ras al-Khaimah","Ras al-Khaimah"],["Sharjah","Sharjah"],["Umm al-Quwain","Umm al-Quwain"]]'
+                      >
+                        United Arab Emirates
+                      </option>
+                      <option
+                        value="United Kingdom"
+                        data-provinces='[["British Forces","British Forces"],["England","England"],["Northern Ireland","Northern Ireland"],["Scotland","Scotland"],["Wales","Wales"]]'
+                      >
+                        United Kingdom
+                      </option>
+                      <option
+                        value="United States"
+                        data-provinces='[["Alabama","Alabama"],["Alaska","Alaska"],["American Samoa","American Samoa"],["Arizona","Arizona"],["Arkansas","Arkansas"],["Armed Forces Americas","Armed Forces Americas"],["Armed Forces Europe","Armed Forces Europe"],["Armed Forces Pacific","Armed Forces Pacific"],["California","California"],["Colorado","Colorado"],["Connecticut","Connecticut"],["Delaware","Delaware"],["District of Columbia","Washington DC"],["Federated States of Micronesia","Micronesia"],["Florida","Florida"],["Georgia","Georgia"],["Guam","Guam"],["Hawaii","Hawaii"],["Idaho","Idaho"],["Illinois","Illinois"],["Indiana","Indiana"],["Iowa","Iowa"],["Kansas","Kansas"],["Kentucky","Kentucky"],["Louisiana","Louisiana"],["Maine","Maine"],["Marshall Islands","Marshall Islands"],["Maryland","Maryland"],["Massachusetts","Massachusetts"],["Michigan","Michigan"],["Minnesota","Minnesota"],["Mississippi","Mississippi"],["Missouri","Missouri"],["Montana","Montana"],["Nebraska","Nebraska"],["Nevada","Nevada"],["New Hampshire","New Hampshire"],["New Jersey","New Jersey"],["New Mexico","New Mexico"],["New York","New York"],["North Carolina","North Carolina"],["North Dakota","North Dakota"],["Northern Mariana Islands","Northern Mariana Islands"],["Ohio","Ohio"],["Oklahoma","Oklahoma"],["Oregon","Oregon"],["Palau","Palau"],["Pennsylvania","Pennsylvania"],["Puerto Rico","Puerto Rico"],["Rhode Island","Rhode Island"],["South Carolina","South Carolina"],["South Dakota","South Dakota"],["Tennessee","Tennessee"],["Texas","Texas"],["Utah","Utah"],["Vermont","Vermont"],["Virgin Islands","U.S. Virgin Islands"],["Virginia","Virginia"],["Washington","Washington"],["West Virginia","West Virginia"],["Wisconsin","Wisconsin"],["Wyoming","Wyoming"]]'
+                      >
+                        United States
+                      </option>
+                      <option
+                        value="Uruguay"
+                        data-provinces='[["Artigas","Artigas"],["Canelones","Canelones"],["Cerro Largo","Cerro Largo"],["Colonia","Colonia"],["Durazno","Durazno"],["Flores","Flores"],["Florida","Florida"],["Lavalleja","Lavalleja"],["Maldonado","Maldonado"],["Montevideo","Montevideo"],["Paysandú","Paysandú"],["Rivera","Rivera"],["Rocha","Rocha"],["Río Negro","Río Negro"],["Salto","Salto"],["San José","San José"],["Soriano","Soriano"],["Tacuarembó","Tacuarembó"],["Treinta y Tres","Treinta y Tres"]]'
+                      >
+                        Uruguay
+                      </option>
+                      <option value="Uzbekistan" data-provinces="[]">
+                        Uzbekistan
+                      </option>
+                      <option value="Vanuatu" data-provinces="[]">
+                        Vanuatu
+                      </option>
+                      <option
+                        value="Holy See (Vatican City State)"
+                        data-provinces="[]"
+                      >
+                        Vatican City
+                      </option>
+                      <option
+                        value="Venezuela"
+                        data-provinces='[["Amazonas","Amazonas"],["Anzoátegui","Anzoátegui"],["Apure","Apure"],["Aragua","Aragua"],["Barinas","Barinas"],["Bolívar","Bolívar"],["Carabobo","Carabobo"],["Cojedes","Cojedes"],["Delta Amacuro","Delta Amacuro"],["Dependencias Federales","Federal Dependencies"],["Distrito Capital","Capital"],["Falcón","Falcón"],["Guárico","Guárico"],["La Guaira","Vargas"],["Lara","Lara"],["Miranda","Miranda"],["Monagas","Monagas"],["Mérida","Mérida"],["Nueva Esparta","Nueva Esparta"],["Portuguesa","Portuguesa"],["Sucre","Sucre"],["Trujillo","Trujillo"],["Táchira","Táchira"],["Yaracuy","Yaracuy"],["Zulia","Zulia"]]'
+                      >
+                        Venezuela
+                      </option>
+                      <option value="Vietnam" data-provinces="[]">
+                        Vietnam
+                      </option>
+                      <option value="Wallis And Futuna" data-provinces="[]">
+                        Wallis & Futuna
+                      </option>
+                      <option value="Western Sahara" data-provinces="[]">
+                        Western Sahara
+                      </option>
+                      <option value="Yemen" data-provinces="[]">Yemen</option>
+                      <option value="Zambia" data-provinces="[]">Zambia</option>
+                      <option value="Zimbabwe" data-provinces="[]">
+                        Zimbabwe
+                      </option></select
+                    ><svg
+                      focusable="false"
+                      width="12"
+                      height="8"
+                      class="icon icon--chevron"
+                      viewBox="0 0 12 8"
+                    >
+                      <path
+                        fill="none"
+                        d="M1 1l5 5 5-5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      ></path>
+                    </svg>
+                  </div>
+
+                  <label
+                    for="address-8302380974301[country]"
+                    class="input__label"
+                    >Country</label
+                  >
+                </div>
+
+                <div
+                  id="address-8302380974301-province-container"
+                  class="input"
+                  hidden
+                >
+                  <div class="select-wrapper is-filled">
+                    <select
+                      class="select"
+                      name="update_province"
+                      id="address-8302380974301[province]"
+                      data-default="<?php echo $row['state']; ?>"
+                    ></select
+                    ><svg
+                      focusable="false"
+                      width="12"
+                      height="8"
+                      class="icon icon--chevron"
+                      viewBox="0 0 12 8"
+                    >
+                      <path
+                        fill="none"
+                        d="M1 1l5 5 5-5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      ></path>
+                    </svg>
+                  </div>
+
+                  <label
+                    for="address-8302380974301[province]"
+                    class="input__label"
+                    >Province</label
+                  >
+                </div>
+                <div class="input input--checkbox">
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      class="checkbox"
+                      id="address-8302380974301[default]"
+                      name="address[default]"
+                      value="1"
+                      checked
+                    />
+                    <label
+                      for="address-8302380974301[default]"
+                      class="text--subdued"
+                      >Set as default</label
+                    >
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  name="update_data"
+                  is="loader-button"
+                  class="form__submit button button--primary button--full"
+                >
+                  Save
+                </button>
+                <input type="hidden" name="_method" value="put" />
+              </form>
+            </div>
+          </drawer-content>
         </section>
       </div>
       <div
@@ -9193,6 +10979,7 @@ if(!isset($_SESSION)){
           --border-color: 240, 93, 123;
         }
       </style>
+
       <footer class="footer" style="background-color: #13becf">
         <div class="container">
           <div class="footer__inner">
@@ -9207,35 +10994,35 @@ if(!isset($_SESSION)){
                 <div class="footer__item-content hidden-phone">
                   <ul class="linklist list--unstyled" role="list">
                     <li class="linklist__item">
-                      <a href="terms.html" class="link--faded"
+                      <a href="terms.php" class="link--faded"
                         >Terms & Condition</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="shipping.html" class="link--faded"
+                      <a href="shipping.php" class="link--faded"
                         >Shipping & Delivery</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="good.html" class="link--faded"
+                      <a href="good.php" class="link--faded"
                         >Goods & Services Tax</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="refund.html" class="link--faded"
+                      <a href="refund.php" class="link--faded"
                         >Refund and Cancellation</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="privacy.html" class="link--faded"
+                      <a href="privacy.php" class="link--faded"
                         >Privacy Policies</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="faq.html" class="link--faded">FAQs</a>
+                      <a href="faq.php" class="link--faded">FAQs</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="contact.html" class="link--faded">Contact us</a>
+                      <a href="contact.php" class="link--faded">Contact us</a>
                     </li>
                   </ul>
                 </div>
@@ -9274,40 +11061,40 @@ if(!isset($_SESSION)){
                       <div class="spr-reviews">
                         <ul class="linklist list--unstyled" role="list">
                           <li class="linklist__item">
-                            <a href="terms.html" class="link--faded"
+                            <a href="terms.php" class="link--faded"
                               >Terms & Condition</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="shipping.html" class="link--faded"
+                            <a href="shipping.php" class="link--faded"
                               >Shipping & Delivery</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="good.html" class="link--faded"
+                            <a href="good.php" class="link--faded"
                               >Goods & Services Tax</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="refund.html" class="link--faded"
+                            <a href="refund.php" class="link--faded"
                               >Refund and Cancellation</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="privacy.html" class="link--faded"
+                            <a href="privacy.php" class="link--faded"
                               >Privacy Policies</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="reedem.html" class="link--faded"
+                            <a href="reedem.php" class="link--faded"
                               >Reedem Gift Card</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="faq.html" class="link--faded">FAQs</a>
+                            <a href="faq.php" class="link--faded">FAQs</a>
                           </li>
                           <li class="linklist__item">
-                            <a href="contact.html" class="link--faded"
+                            <a href="contact.php" class="link--faded"
                               >Contact us</a
                             >
                           </li>
@@ -9327,30 +11114,30 @@ if(!isset($_SESSION)){
                 <div class="footer__item-content hidden-phone">
                   <ul class="linklist list--unstyled" role="list">
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Collections</a>
+                      <a href="product.php" class="link--faded">Collections</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Sarees</a>
+                      <a href="product.php" class="link--faded">Sarees</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded"
+                      <a href="product.php" class="link--faded"
                         >Salwar Suits</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Kurtis</a>
+                      <a href="product.php" class="link--faded">Kurtis</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Lehengas</a>
+                      <a href="product.php" class="link--faded">Lehengas</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Gowns</a>
+                      <a href="product.php" class="link--faded">Gowns</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Western</a>
+                      <a href="product.php" class="link--faded">Western</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Live</a>
+                      <a href="product.php" class="link--faded">Live</a>
                     </li>
                     <li class="linklist__item">
                       <a href="/collections/sale" class="link--faded">Sale</a>
@@ -9676,7 +11463,7 @@ if(!isset($_SESSION)){
             <div class="footer__aside">
               <span class="footer__copyright text--xsmall text--subdued"
                 >Copyright &copy; 2023
-                <a href="index.html">&nbsp; Kalaajee Fashions</a>. All rights
+                <a href="index.php">&nbsp; Kalaajee Fashions</a>. All rights
                 reserved And Proudly Powered By<a
                   href="https://www.successinnovativetechnologiespvtltd.com/"
                 >

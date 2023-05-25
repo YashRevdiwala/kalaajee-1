@@ -1,15 +1,3 @@
-<?php 
-include("components/connection.php");
-if(!isset($_SESSION)){
-  session_start();
-  if(isset($_SESSION['client_email'])){
-    $client_email = $_SESSION['client_email'];
-    header("Location:index.php");
-    exit();
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
@@ -241,10 +229,11 @@ if(!isset($_SESSION)){
         config: {
           currency: "INR",
           meta: {
-            title: "Account",
-            template: "customers/login",
-            url: "https://peachmode.com/account/login",
-            type: "customers/login",
+            title:
+              "Women Clothing-Buy Designer Ethnic Wear, Ethnic Suits, Bottoms Online",
+            template: "index",
+            url: "https://peachmode.com/",
+            type: "index",
           },
           routes: {
             customer: {
@@ -296,8 +285,14 @@ if(!isset($_SESSION)){
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Account</title>
-    <link rel="canonical" href="https://peachmode.com/account/login" />
+    <title>
+      Women Clothing-Buy Designer Ethnic Wear, Ethnic Suits, Bottoms Online
+    </title>
+    <meta
+      name="description"
+      content="Peachmode is your one stop online shopping destination for designer ethnic wear. Browse through our handpicked designs of sarees, anarkalis, lehengas, kurtis, etc at best price."
+    />
+    <link rel="canonical" href="https://peachmode.com/" />
     <link rel="shortcut icon" href="img/1.png" />
     <link rel="preconnect" href="https://cdn.shopify.com" />
     <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com" />
@@ -324,7 +319,10 @@ if(!isset($_SESSION)){
     </script>
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Account" />
+    <meta
+      property="og:title"
+      content="Women Clothing-Buy Designer Ethnic Wear, Ethnic Suits, Bottoms Online"
+    />
     <meta
       property="og:image"
       content="http://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo.png?v=1649671323"
@@ -335,11 +333,21 @@ if(!isset($_SESSION)){
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
-    <meta property="og:url" content="https://peachmode.com/account/login" />
+    <meta
+      property="og:description"
+      content="Peachmode is your one stop online shopping destination for designer ethnic wear. Browse through our handpicked designs of sarees, anarkalis, lehengas, kurtis, etc at best price."
+    />
+    <meta property="og:url" content="https://peachmode.com/" />
     <meta property="og:site_name" content="Peachmode" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Account" />
-    <meta name="twitter:description" content="Account" />
+    <meta
+      name="twitter:title"
+      content="Women Clothing-Buy Designer Ethnic Wear, Ethnic Suits, Bottoms Online"
+    />
+    <meta
+      name="twitter:description"
+      content="Peachmode is your one stop online shopping destination for designer ethnic wear. Browse through our handpicked designs of sarees, anarkalis, lehengas, kurtis, etc at best price."
+    />
     <meta
       name="twitter:image"
       content="https://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo_1200x1200_crop_center.png?v=1649671323"
@@ -631,7 +639,7 @@ if(!isset($_SESSION)){
       window.themeVariables = {
         settings: {
           direction: "ltr",
-          pageType: "customers\/login",
+          pageType: "index",
           cartCount: 0,
           moneyFormat:
             '\u003cspan class="money"\u003e₹{{amount}}\u003c\/span\u003e',
@@ -931,9 +939,10 @@ if(!isset($_SESSION)){
       var __st = {
         a: 63748341981,
         offset: 19800,
-        reqid: "2330405b-4527-42cd-9054-c0c3b5cae26f",
-        pageurl: "peachmode.com\/account\/login",
-        u: "bbc3098db7c7",
+        reqid: "14c00321-ae25-4477-b9b9-f399f47be979",
+        pageurl: "peachmode.com\/",
+        u: "fe63756cdaed",
+        p: "home",
       };
     </script>
     <script>
@@ -997,6 +1006,74 @@ if(!isset($_SESSION)){
       crossorigin="anonymous"
     ></script>
 
+    <style id="shopify-dynamic-checkout">
+      .shopify-payment-button__button--hidden {
+        visibility: hidden;
+      }
+
+      .shopify-payment-button__button {
+        border-radius: 4px;
+        border: none;
+        box-shadow: 0 0 0 0 transparent;
+        color: white;
+        cursor: pointer;
+        display: block;
+        font-size: 1em;
+        font-weight: 500;
+        line-height: 1;
+        text-align: center;
+        width: 100%;
+        transition: background 0.2s ease-in-out;
+      }
+
+      .shopify-payment-button__button[disabled] {
+        opacity: 0.6;
+        cursor: default;
+      }
+
+      .shopify-payment-button__button--unbranded {
+        background-color: #1990c6;
+        padding: 1em 2em;
+      }
+
+      .shopify-payment-button__button--unbranded:hover:not([disabled]) {
+        background-color: #136f99;
+      }
+
+      .shopify-payment-button__more-options {
+        background: transparent;
+        border: 0 none;
+        cursor: pointer;
+        display: block;
+        font-size: 1em;
+        margin-top: 1em;
+        text-align: center;
+        width: 100%;
+      }
+
+      .shopify-payment-button__more-options:hover:not([disabled]) {
+        text-decoration: underline;
+      }
+
+      .shopify-payment-button__more-options[disabled] {
+        opacity: 0.6;
+        cursor: default;
+      }
+
+      .shopify-payment-button__button--branded {
+        display: flex;
+        flex-direction: column;
+        min-height: 44px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .shopify-payment-button__button--branded .shopify-cleanslate {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+    </style>
     <script>
       window.performance &&
         window.performance.mark &&
@@ -1004,7 +1081,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script>
-      var loox_global_hash = "1681114762701";
+      var loox_global_hash = "1681094666627";
     </script>
     <style>
       .loox-reviews-default {
@@ -1690,247 +1767,6 @@ if(!isset($_SESSION)){
     </style>
 
     <script>
-      window.baCurr = window.baCurr || {};
-      window.baCurr.config = {};
-      window.baCurr.rePeat = function () {};
-      Object.assign(
-        window.baCurr.config,
-        {
-          enabled: true,
-          manual_placement: "",
-          night_time: false,
-          round_by_default: false,
-          display_position: "bottom_left",
-          display_position_type: "floating",
-          custom_code: { css: "" },
-          flag_type: "countryandmoney",
-          flag_design: "modern",
-          round_style: "none",
-          round_dec: "0.99",
-          chosen_cur: [
-            { USD: "US Dollar (USD)" },
-            { EUR: "Euro (EUR)" },
-            { GBP: "British Pound (GBP)" },
-            { CAD: "Canadian Dollar (CAD)" },
-            { AED: "United Arab Emirates Dirham (AED)" },
-            { ALL: "Albanian Lek (ALL)" },
-            { AFN: "Afghan Afghani (AFN)" },
-            { AMD: "Armenian Dram (AMD)" },
-            { AOA: "Angolan Kwanza (AOA)" },
-            { ARS: "Argentine Peso (ARS)" },
-            { AUD: "Australian Dollar (AUD)" },
-            { AWG: "Aruban Florin (AWG)" },
-            { AZN: "Azerbaijani Manat (AZN)" },
-            { BIF: "Burundian Franc (BIF)" },
-            { BBD: "Barbadian Dollar (BBD)" },
-            { BDT: "Bangladeshi Taka (BDT)" },
-            { BSD: "Bahamian Dollar (BSD)" },
-            { BHD: "Bahraini Dinar (BHD)" },
-            { BMD: "Bermudan Dollar (BMD)" },
-            { BYN: "Belarusian Ruble (BYN)" },
-            { BZD: "Belize Dollar (BZD)" },
-            { BTN: "Bhutanese Ngultrum (BTN)" },
-            { BAM: "Bosnia-Herzegovina Convertible Mark (BAM)" },
-            { BRL: "Brazilian Real (BRL)" },
-            { BOB: "Bolivian Boliviano (BOB)" },
-            { BWP: "Botswanan Pula (BWP)" },
-            { BND: "Brunei Dollar (BND)" },
-            { BGN: "Bulgarian Lev (BGN)" },
-            { CDF: "Congolese Franc (CDF)" },
-            { CHF: "Swiss Franc (CHF)" },
-            { CLP: "Chilean Peso (CLP)" },
-            { CNY: "Chinese Yuan (CNY)" },
-            { COP: "Colombian Peso (COP)" },
-            { CRC: "Costa Rican Colon (CRC)" },
-            { CZK: "Czech Republic Koruna (CZK)" },
-            { DJF: "Djiboutian Franc (DJF)" },
-            { DKK: "Danish Krone (DKK)" },
-            { DOP: "Dominican Peso (DOP)" },
-            { DZD: "Algerian Dinar (DZD)" },
-            { EGP: "Egyptian Pound (EGP)" },
-            { ETB: "Ethiopian Birr (ETB)" },
-            { FJD: "Fijian Dollar (FJD)" },
-            { FKP: "Falkland Islands Pound (FKP)" },
-            { GIP: "Gibraltar Pound (GIP)" },
-            { GHS: "Ghanaian Cedi (GHS)" },
-            { GMD: "Gambian Dalasi (GMD)" },
-            { GNF: "Guinean Franc (GNF)" },
-            { GTQ: "Guatemalan Quetzal (GTQ)" },
-            { GEL: "Georgian Lari (GEL)" },
-            { HRK: "Croatian Kuna (HRK)" },
-            { HNL: "Honduran Lempira (HNL)" },
-            { HKD: "Hong Kong Dollar (HKD)" },
-            { HTG: "Haitian Gourde (HTG)" },
-            { HUF: "Hungarian Forint (HUF)" },
-            { IDR: "Indonesian Rupiah (IDR)" },
-            { ILS: "Israeli New Shekel (ILS)" },
-            { ISK: "Icelandic Krona (ISK)" },
-            { INR: "Indian Rupee (INR)" },
-            { IQD: "Iraqi Dinar (IQD)" },
-            { IRR: "Iranian Rial (IRR)" },
-            { JMD: "Jamaican Dollar (JMD)" },
-            { JPY: "Japanese Yen (JPY)" },
-            { JOD: "Jordanian Dinar (JOD)" },
-            { KES: "Kenyan Shilling (KES)" },
-            { KGS: "Kyrgystani Som (KGS)" },
-            { KHR: "Cambodian Riel (KHR)" },
-            { KMF: "Comorian Franc (KMF)" },
-            { KRW: "South Korean Won (KRW)" },
-            { KWD: "Kuwaiti Dinar (KWD)" },
-            { KYD: "Cayman Islands Dollar (KYD)" },
-            { KZT: "Kazakhstani Tenge (KZT)" },
-            { LBP: "Lebanese Pound (LBP)" },
-            { LKR: "Sri Lankan Rupee (LKR)" },
-            { LRD: "Liberian Dollar (LRD)" },
-            { LSL: "Lesotho Loti (LSL)" },
-            { LYD: "Libyan Dinar (LYD)" },
-            { MAD: "Moroccan Dirham (MAD)" },
-            { MDL: "Moldovan Leu (MDL)" },
-            { MGA: "Malagasy Ariary (MGA)" },
-            { MMK: "Myanmar Kyat (MMK)" },
-            { MKD: "Macedonian Denar (MKD)" },
-            { MOP: "Macanese Pataca (MOP)" },
-            { MUR: "Mauritian Rupee (MUR)" },
-            { MVR: "Maldivian Rufiyaa (MVR)" },
-            { MWK: "Malawian Kwacha (MWK)" },
-            { MXN: "Mexican Peso (MXN)" },
-            { MYR: "Malaysian Ringgit (MYR)" },
-            { MZN: "Mozambican Metical (MZN)" },
-            { NAD: "Namibian Dollar (NAD)" },
-            { NPR: "Nepalese Rupee (NPR)" },
-            { NZD: "New Zealand Dollar (NZD)" },
-            { NIO: "Nicaraguan Cordoba (NIO)" },
-            { NOK: "Norwegian Krone (NOK)" },
-            { OMR: "Omani Rial (OMR)" },
-            { PAB: "Panamanian Balboa (PAB)" },
-            { PKR: "Pakistani Rupee (PKR)" },
-            { PGK: "Papua New Guinean Kina (PGK)" },
-            { PEN: "Peruvian Nuevo Sol (PEN)" },
-            { PHP: "Philippine Peso (PHP)" },
-            { PLN: "Polish Zloty (PLN)" },
-            { QAR: "Qatari Rial (QAR)" },
-            { RON: "Romanian Leu (RON)" },
-            { RUB: "Russian Ruble (RUB)" },
-            { RWF: "Rwandan Franc (RWF)" },
-            { SAR: "Saudi Riyal (SAR)" },
-            { STD: "Sao Tome and Principe Dobra (STD)" },
-            { RSD: "Serbian Dinar (RSD)" },
-            { SCR: "Seychellois Rupee (SCR)" },
-            { SGD: "Singapore Dollar (SGD)" },
-            { SYP: "Syrian Pound (SYP)" },
-            { SEK: "Swedish Krona (SEK)" },
-            { TWD: "New Taiwan Dollar (TWD)" },
-            { THB: "Thai Baht (THB)" },
-            { TZS: "Tanzanian Shilling (TZS)" },
-            { TTD: "Trinidad and Tobago Dollar (TTD)" },
-            { TND: "Tunisian Dinar (TND)" },
-            { TRY: "Turkish Lira (TRY)" },
-            { SBD: "Solomon Islands Dollar (SBD)" },
-            { SDG: "Sudanese Pound (SDG)" },
-            { SLL: "Sierra Leonean Leone (SLL)" },
-            { SRD: "Surinamese Dollar (SRD)" },
-            { SZL: "Swazi Lilangeni (SZL)" },
-            { TJS: "Tajikistani Somoni (TJS)" },
-            { TOP: "Tongan Paʻanga (TOP)" },
-            { TMT: "Turkmenistani Manat (TMT)" },
-            { UAH: "Ukrainian Hryvnia (UAH)" },
-            { UGX: "Ugandan Shilling (UGX)" },
-            { UYU: "Uruguayan Peso (UYU)" },
-            { UZS: "Uzbekistan Som (UZS)" },
-            { VEF: "Venezuelan Bolivar (VEF)" },
-            { VND: "Vietnamese Dong (VND)" },
-            { VUV: "Vanuatu Vatu (VUV)" },
-            { WST: "Samoan Tala (WST)" },
-            { XAF: "Central African CFA Franc (XAF)" },
-            { XPF: "CFP Franc (XPF)" },
-            { YER: "Yemeni Rial (YER)" },
-            { ZAR: "South African Rand (ZAR)" },
-          ],
-          desktop_visible: true,
-          mob_visible: true,
-          money_mouse_show: false,
-          textColor: "#1e1e1e",
-          flag_theme: "default",
-          selector_hover_hex: "#ffffff",
-          lightning: true,
-          mob_manual_placement: "",
-          mob_placement: "bottom_left",
-          mob_placement_type: "floating",
-          moneyWithCurrencyFormat: false,
-          ui_style: "default",
-          user_curr: "",
-          auto_loc: true,
-          auto_pref: false,
-          selector_bg_hex: "#ffffff",
-          selector_border_type: "boxShadow",
-          cart_alert_bg_hex: "#fbf5f5",
-          cart_alert_note:
-            "All orders are processed in [checkout_currency], using the latest exchange rates.",
-          cart_alert_state: true,
-          cart_alert_font_hex: "#1e1e1e",
-        },
-        {
-          money_format:
-            '\u003cspan class="money"\u003e₹{{amount}}\u003c\/span\u003e',
-          money_with_currency_format:
-            '\u003cspan class="money"\u003e₹{{amount}}\u003c\/span\u003e',
-          user_curr: "INR",
-        }
-      );
-      window.baCurr.config.multi_curr = [];
-
-      window.baCurr.config.final_currency = "INR" || "";
-      window.baCurr.config.multi_curr = "INR".split(",") || "";
-
-      (function (window, document) {
-        "use strict";
-        function onload() {
-          function insertPopupMessageJs() {
-            var head = document.getElementsByTagName("head")[0];
-            var script = document.createElement("script");
-            script.src =
-              ("https:" == document.location.protocol
-                ? "https://"
-                : "http://") + "currency.boosterapps.com/preview_curr.js";
-            script.type = "text/javascript";
-            head.appendChild(script);
-          }
-
-          if (document.location.search.indexOf("preview_cur=1") > -1) {
-            setTimeout(function () {
-              window.currency_preview_result =
-                document.getElementById("baCurrSelector").length > 0
-                  ? "success"
-                  : "error";
-              insertPopupMessageJs();
-            }, 1000);
-          }
-        }
-
-        var head = document.getElementsByTagName("head")[0];
-        var script = document.createElement("script");
-        script.src =
-          ("https:" == document.location.protocol ? "https://" : "http://") +
-          "";
-        script.type = "text/javascript";
-        script.onload = script.onreadystatechange = function () {
-          if (script.readyState) {
-            if (
-              script.readyState === "complete" ||
-              script.readyState === "loaded"
-            ) {
-              script.onreadystatechange = null;
-              onload();
-            }
-          } else {
-            onload();
-          }
-        };
-        head.appendChild(script);
-      })(window, document);
-    </script>
-
-    <script>
       // FaceBook Pixel
       !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
@@ -2034,7 +1870,7 @@ if(!isset($_SESSION)){
                   session_token && session_token.length === 2
                     ? session_token[1]
                     : "",
-                page_type: "customers/login",
+                page_type: "index",
               };
               window.navigator.sendBeacon(
                 "https://monorail-edge.shopifysvc.com/v1/produce",
@@ -2057,7 +1893,7 @@ if(!isset($_SESSION)){
       window.ShopifyAnalytics = window.ShopifyAnalytics || {};
       window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
       window.ShopifyAnalytics.meta.currency = "INR";
-      var meta = { page: {} };
+      var meta = { page: { pageType: "home" } };
       for (var attr in meta) {
         window.ShopifyAnalytics.meta[attr] = meta[attr];
       }
@@ -2251,7 +2087,7 @@ if(!isset($_SESSION)){
           } catch (error) {}
           document.write = originalDocumentWrite;
 
-          window.ShopifyAnalytics.lib.page(null, {});
+          window.ShopifyAnalytics.lib.page(null, { pageType: "home" });
 
           var match = window.location.pathname.match(
             /checkouts\/(.+)\/(thank_you|post_purchase)/
@@ -2288,7 +2124,7 @@ if(!isset($_SESSION)){
         window.BOOMR.themeVersion = "8.8.1";
         window.BOOMR.shopId = 63748341981;
         window.BOOMR.themeId = 131960242397;
-        window.BOOMR.renderRegion = "gcp-us-east1";
+        window.BOOMR.renderRegion = "gcp-europe-west1";
         window.BOOMR.url =
           "https://cdn.shopify.com/shopifycloud/boomerang/shopify-boomerang-1.0.0.min.js";
         var where =
@@ -2595,7 +2431,7 @@ if(!isset($_SESSION)){
     </script>
   </head>
   <body
-    class="no-focus-outline features--image-zoom template-login"
+    class="no-focus-outline features--image-zoom template-index"
     data-instant-allow-query-string
   >
     <!-- Google Tag Manager (noscript) -->
@@ -2609,12 +2445,8 @@ if(!isset($_SESSION)){
     ></noscript>
     <!-- End Google Tag Manager (noscript) --><svg class="visually-hidden">
       <linearGradient id="rating-star-gradient-half">
-        <stop offset="50%" stop-color="rgb(var(--product-star-rating))" />
-        <stop
-          offset="50%"
-          stop-color="rgb(var(--product-star-rating))"
-          stop-opacity="0.4"
-        />
+        <stop offset="50%" stop-color="#f7921c" />
+        <stop offset="50%" stop-color="#f7921c" stop-opacity="0.4" />
       </linearGradient>
     </svg>
 
@@ -2685,10 +2517,6 @@ if(!isset($_SESSION)){
             ><announcement-bar-item hidden class="announcement-bar__item"
               ><div class="announcement-bar__message text--xsmall">
                 <p>7 Day no questions asked return policy.</p>
-              </div></announcement-bar-item
-            ><announcement-bar-item hidden class="announcement-bar__item"
-              ><div class="announcement-bar__message text--xsmall">
-                <p>Free Shipping in India. COD Available.</p>
               </div></announcement-bar-item
             >
           </div>
@@ -2889,14 +2717,14 @@ if(!isset($_SESSION)){
                   <li class="header__linklist-item">
                     <a
                       class="header__linklist-link link--animated"
-                      href="track-order.html"
+                      href="track-order.php"
                       >Track Order</a
                     >
                   </li>
                   <li class="header__linklist-item">
                     <a
                       class="header__linklist-link link--animated"
-                      href="contact.html"
+                      href="contact.php"
                       >Contact Us</a
                     >
                   </li>
@@ -2917,396 +2745,8 @@ if(!isset($_SESSION)){
                     type="hidden"
                     name="_method"
                     value="put"
-                  /><input
-                    type="hidden"
-                    name="return_to"
-                    value="/account/login"
-                  />
-                  <div class="popover-container">
-                    <input type="hidden" name="country_code" value="IN" />
-                    <span class="visually-hidden">Country/region</span>
-
-                    <button
-                      type="button"
-                      is="toggle-button"
-                      class="popover-button text--small"
-                      aria-expanded="false"
-                      aria-controls="header-localization-form-currency"
-                    >
-                      India (INR ₹)<svg
-                        focusable="false"
-                        width="9"
-                        height="6"
-                        class="icon icon--chevron icon--inline"
-                        viewBox="0 0 12 8"
-                      >
-                        <path
-                          fill="none"
-                          d="M1 1l5 5 5-5"
-                          stroke="currentColor"
-                          stroke-width="2"
-                        ></path>
-                      </svg>
-                    </button>
-
-                    <popover-content
-                      id="header-localization-form-currency"
-                      class="popover"
-                    >
-                      <span class="popover__overlay"></span>
-
-                      <header class="popover__header">
-                        <span class="popover__title heading h6"
-                          >Country/region</span
-                        >
-
-                        <button
-                          type="button"
-                          class="popover__close-button tap-area tap-area--large"
-                          data-action="close"
-                          title="Close"
-                        >
-                          <svg
-                            focusable="false"
-                            width="14"
-                            height="14"
-                            class="icon icon--close"
-                            viewBox="0 0 14 14"
-                          >
-                            <path
-                              d="M13 13L1 1M13 1L1 13"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              fill="none"
-                            ></path>
-                          </svg>
-                        </button>
-                      </header>
-
-                      <div class="popover__content popover__content--restrict">
-                        <div class="popover__choice-list">
-                          <button
-                            type="submit"
-                            name="country_code"
-                            value="AU"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Australia (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="AT"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Austria (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="BE"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Belgium (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="CA"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Canada (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="CZ"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Czechia (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="DK"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Denmark (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="FJ"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Fiji (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="FI"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Finland (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="FR"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >France (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="DE"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Germany (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="HK"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Hong Kong SAR (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="IN"
-                            class="popover__choice-item"
-                          >
-                            <span
-                              class="popover__choice-label"
-                              aria-current="true"
-                              >India (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="IE"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Ireland (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="IL"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Israel (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="IT"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Italy (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="JP"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Japan (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="KW"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Kuwait (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="MY"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Malaysia (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="MU"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Mauritius (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="NL"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Netherlands (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="NZ"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >New Zealand (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="NO"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Norway (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="PL"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Poland (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="PT"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Portugal (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="SA"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Saudi Arabia (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="SG"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Singapore (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="ZA"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >South Africa (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="KR"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >South Korea (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="ES"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Spain (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="LK"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Sri Lanka (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="SE"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Sweden (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="CH"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >Switzerland (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="AE"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >United Arab Emirates (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="GB"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >United Kingdom (INR ₹)
-                            </span></button
-                          ><button
-                            type="submit"
-                            name="country_code"
-                            value="US"
-                            class="popover__choice-item"
-                          >
-                            <span class="popover__choice-label"
-                              >United States (INR ₹)
-                            </span>
-                          </button>
-                        </div>
-                      </div>
-                    </popover-content>
-                  </div>
+                  /><input type="hidden" name="return_to" value="/" />
+                  <div class="popover-container"></div>
                 </form>
               </div>
             </div>
@@ -3327,7 +2767,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-1"
                       aria-expanded="false"
                       >Collections</a
@@ -3341,21 +2781,21 @@ if(!isset($_SESSION)){
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           >New Arrivals</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           >Handbags</a
                         >
                       </li>
                       <li class="nav-dropdown__item has-dropdown">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           aria-controls="desktop-menu-1-3"
                           aria-expanded="false"
                           >Jewellery<svg
@@ -3382,35 +2822,35 @@ if(!isset($_SESSION)){
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.html"
+                              href="product.php"
                               >Earrings</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.html"
+                              href="product.php"
                               >Necklace</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.html"
+                              href="product.php"
                               >Rings</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.html"
+                              href="product.php"
                               >Bracelet</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.html"
+                              href="product.php"
                               >Maang Tika</a
                             >
                           </li>
@@ -3419,28 +2859,28 @@ if(!isset($_SESSION)){
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           >Bedsheets</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           >Exclusive</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           >Combo Packs</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.html"
+                          href="product.php"
                           >Mens Kurta Pyjama</a
                         >
                       </li>
@@ -3452,7 +2892,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-2"
                       aria-expanded="false"
                       >Sarees</a
@@ -3463,73 +2903,73 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Cotton Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Art Silk Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chiffon Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Georgette Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Crepe Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Organza Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chanderi Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bhagalpuri Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Satin Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Linen Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Net Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kanjivaram</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Banarasi Silk</a
                                   >
                                 </li>
@@ -3537,38 +2977,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Print/Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Floral Print</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bandhani Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Embroidered</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Paithani</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Lucknowi / Chickankari</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Patola</a
                                   >
                                 </li>
@@ -3576,23 +3016,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Collection</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Half N Half Saree</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Authentic Drapes</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bollywood</a
                                   >
                                 </li>
@@ -3600,38 +3040,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -3639,63 +3079,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -3703,68 +3143,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -3796,7 +3236,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-3"
                       aria-expanded="false"
                       >Salwar Suits</a
@@ -3807,73 +3247,73 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Organza</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bhagalpuri Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Banarasi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chanderi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Tapetta Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Tussar Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Net</a
                                   >
                                 </li>
@@ -3881,43 +3321,43 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Style</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Sharara Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Anarkali Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Palazzo Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Patiala Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pakistani Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Straight Cut Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Indo western</a
                                   >
                                 </li>
@@ -3925,23 +3365,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Stitch Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Unstitched Salwar suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Readymade Salwar suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Semi Stitched</a
                                   >
                                 </li>
@@ -3949,28 +3389,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >3000 & above</a
                                   >
                                 </li>
@@ -3978,63 +3418,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -4042,68 +3482,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4135,7 +3575,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-4"
                       aria-expanded="false"
                       >Kurtis</a
@@ -4146,58 +3586,58 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chanderi Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Linen</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Muslin</a
                                   >
                                 </li>
@@ -4205,63 +3645,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Print/Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Floral print</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Solid</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bandhani</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Printed</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Embroidered</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Anarkali</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >A-Line</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Straight</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Short
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Long</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >High Low</a
                                   >
                                 </li>
@@ -4269,53 +3709,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Product Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kurti Pant Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kurti Palazzo Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kurti Dhoti Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kurti Skirt Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Palazzo Suit</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Top Bottom Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kurti</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kaftan</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Kaftan Set</a
                                   >
                                 </li>
@@ -4323,28 +3763,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
@@ -4352,23 +3792,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >2000 & above</a
                                   >
                                 </li>
@@ -4376,68 +3816,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4469,7 +3909,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-5"
                       aria-expanded="false"
                       >Lehengas</a
@@ -4480,53 +3920,53 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Art Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Banarasi Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Organza</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Satin</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Velvet</a
                                   >
                                 </li>
@@ -4534,23 +3974,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Designer</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Digital</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Floral</a
                                   >
                                 </li>
@@ -4558,38 +3998,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -4597,53 +4037,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -4651,68 +4091,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Gold</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4720,23 +4160,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Style</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Ready to wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Unstiched</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Semi stitched</a
                                   >
                                 </li>
@@ -4768,7 +4208,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-6"
                       aria-expanded="false"
                       >Gowns</a
@@ -4779,53 +4219,53 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Satin</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chanderi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Net</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Tapetta Silk</a
                                   >
                                 </li>
@@ -4833,53 +4273,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -4887,38 +4327,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -4926,63 +4366,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4999,7 +4439,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       aria-controls="desktop-menu-7"
                       aria-expanded="false"
                       >Western</a
@@ -5010,33 +4450,33 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
@@ -5044,28 +4484,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Tops</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Tunics</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Dresses</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Jumpsuit</a
                                   >
                                 </li>
@@ -5073,28 +4513,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
@@ -5102,23 +4542,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >2000 & above</a
                                   >
                                 </li>
@@ -5126,68 +4566,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.html"
+                                href="product.php"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.html" class="link--faded"
+                                  <a href="product.php" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -5201,14 +4641,14 @@ if(!isset($_SESSION)){
                   <li class="header__linklist-item" data-item-title="Live">
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       >Live</a
                     >
                   </li>
                   <li class="header__linklist-item" data-item-title="Sale">
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.html"
+                      href="product.php"
                       >Sale</a
                     >
                   </li>
@@ -5381,10 +4821,9 @@ if(!isset($_SESSION)){
                 >
               </div>
             </nav>
-
             <!-- LOGO PART -->
             <h1 class="header__logo">
-              <a class="header__logo-link" href="index.html"
+              <a class="header__logo-link" href="index.php"
                 ><span class="visually-hidden">Kalaajee</span>
                 <img
                   loading="lazy"
@@ -5671,7 +5110,7 @@ if(!isset($_SESSION)){
   }*/
                 </style>
                 <a
-                  href="login.html"
+                  href="login.php"
                   class="header__icon-wrapper tap-area hidden-phone hidden-desk"
                   aria-label="Login"
                   ><svg
@@ -5745,10 +5184,10 @@ if(!isset($_SESSION)){
               >
                 <li class="header__linklist-item"></li>
                 <li class="header__linklist-item">
-                  <a href="login.html">Login </a>
+                  <a href="login.php">Login </a>
                 </li>
                 <li class="header__linklist-item">
-                  <a href="account.html">My Account </a>
+                  <a href="account.php">My Account </a>
                 </li>
                 <li class="header__linklist-item">
                   <a
@@ -8735,6 +8174,19 @@ if(!isset($_SESSION)){
           "url": "https:\/\/peachmode.com"
         }
       </script>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Peachmode",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https:\/\/peachmode.com\/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          },
+          "url": "https:\/\/peachmode.com"
+        }
+      </script>
     </div>
     <div
       id="shopify-section-mini-cart"
@@ -8807,10 +8259,10 @@ if(!isset($_SESSION)){
           <p>Your cart is empty</p>
 
           <div class="button-wrapper">
-            <a href="index.html" class="button button--primary"
+            <a href="index.php" class="button button--primary"
               >Start shopping</a
             >
-            <a href="cart.html" class="button button--primary">View Cart</a>
+            <a href="cart.php" class="button button--primary">View Cart</a>
           </div>
         </div>
         <openable-element id="mini-cart-note" class="mini-cart__order-note">
@@ -8841,207 +8293,6118 @@ if(!isset($_SESSION)){
     </div>
     <div id="main" role="main" class="anchor">
       <div
-        id="shopify-section-template--15880464957661__main"
-        class="shopify-section shopify-section--main-customers-login"
+        id="shopify-section-template--15880464466141__slideshow"
+        class="shopify-section shopify-section--slideshow"
       >
-        <section>
-          <div class="container">
-            <div id="login-form-container">
-              <div class="page-header">
-                <div class="page-header__text-wrapper text-container">
-                  <h1 class="heading h2">Login</h1>
-                  <p>Please enter your e-mail and password:</p>
+        <style>
+          #shopify-section-template--15880464466141__slideshow {
+            --progress-bar-color: 26, 26, 26;
+            --section-autoplay-duration: 5s;
+            --section-animation-play-state: paused;
+            background-color: #000000; /* Allows to set a placeholder color while loading */
+          }
+          #block-template--15880464466141__slideshow-d300bc8e-c9c9-4ba5-89ab-90caef6bdd97 {
+            --heading-color: 26, 26, 26;
+            --text-color: 26, 26, 26;
+            --primary-button-background: 255, 255, 255;
+            --primary-button-text-color: 0, 0, 0;
+
+            --section-blocks-alignment: center;
+            --section-blocks-overlay-color: 0, 0, 0;
+            --section-blocks-overlay-opacity: 0;
+          }
+          #block-template--15880464466141__slideshow-96fb9b8e-5524-4873-afe5-6d86e053434e {
+            --heading-color: 255, 255, 255;
+            --text-color: 255, 255, 255;
+            --primary-button-background: 255, 255, 255;
+            --primary-button-text-color: 0, 0, 0;
+
+            --section-blocks-alignment: center;
+            --section-blocks-overlay-color: 0, 0, 0;
+            --section-blocks-overlay-opacity: 0.09;
+          }
+          #block-template--15880464466141__slideshow-d072197a-16d4-4d96-9715-b20ef7baba4f {
+            --heading-color: 26, 26, 26;
+            --text-color: 26, 26, 26;
+            --primary-button-background: 255, 255, 255;
+            --primary-button-text-color: 0, 0, 0;
+
+            --section-blocks-alignment: center;
+            --section-blocks-overlay-color: 0, 0, 0;
+            --section-blocks-overlay-opacity: 0.3;
+          }
+        </style>
+
+        <section class="section section--flush">
+          <slide-show
+            reveal-on-scroll
+            auto-play
+            transition-type="fade"
+            class="slideshow slideshow--auto"
+          >
+            <div class="slideshow__slide-list">
+              <slide-show-item
+                reveal-visibility
+                id="block-template--15880464466141__slideshow-d300bc8e-c9c9-4ba5-89ab-90caef6bdd97"
+                class="slideshow__slide"
+                style="
+                  --image-aspect-ratio: 2.16;
+                  --mobile-image-aspect-ratio: 0.7142857142857143;
+                "
+                ><a
+                  class="slideshow__slide-inner"
+                  href="/collections/eid-collection-2023"
+                  ><div class="slideshow__image-wrapper hidden-pocket">
+                    <img
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=3000"
+                      alt=""
+                      srcset="
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=600   600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=700   700w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=800   800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=1000 1000w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=1200 1200w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=1400 1400w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=1600 1600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=1800 1800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=2000 2000w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=2200 2200w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=2400 2400w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=2600 2600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=2800 2800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-1_05.04.2023.jpg?v=1680847637&amp;width=3000 3000w
+                      "
+                      width="3000"
+                      height="1389"
+                      loading="eager"
+                      draggable="false"
+                      class="slideshow__image"
+                    />
+                  </div>
+                  <div class="slideshow__image-wrapper hidden-lap-and-up">
+                    <img
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=3000"
+                      alt=""
+                      srcset="
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=600   600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=700   700w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=800   800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=1000 1000w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=1200 1200w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=1400 1400w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=1600 1600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=1800 1800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=2000 2000w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=2200 2200w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=2400 2400w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=2600 2600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=2800 2800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-1_05.04.2023.jpg?v=1680776482&amp;width=3000 3000w
+                      "
+                      width="3000"
+                      height="4200"
+                      loading="eager"
+                      draggable="false"
+                      class="slideshow__image"
+                      sizes="100vw"
+                    /></div></a></slide-show-item
+              ><slide-show-item
+                reveal-visibility
+                id="block-template--15880464466141__slideshow-96fb9b8e-5524-4873-afe5-6d86e053434e"
+                class="slideshow__slide"
+                hidden
+                style="
+                  --image-aspect-ratio: 2.16;
+                  --mobile-image-aspect-ratio: 0.7142857142857143;
+                "
+                ><a class="slideshow__slide-inner" href="/collections/sarees"
+                  ><div class="slideshow__image-wrapper hidden-pocket">
+                    <img
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=3000"
+                      alt=""
+                      srcset="
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=600   600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=700   700w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=800   800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=1000 1000w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=1200 1200w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=1400 1400w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=1600 1600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=1800 1800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=2000 2000w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=2200 2200w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=2400 2400w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=2600 2600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=2800 2800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-2_05.04.2023.jpg?v=1680847637&amp;width=3000 3000w
+                      "
+                      width="3000"
+                      height="1389"
+                      loading="eager"
+                      draggable="false"
+                      class="slideshow__image"
+                    />
+                  </div>
+                  <div class="slideshow__image-wrapper hidden-lap-and-up">
+                    <img
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=3000"
+                      alt=""
+                      srcset="
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=600   600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=700   700w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=800   800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=1000 1000w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=1200 1200w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=1400 1400w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=1600 1600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=1800 1800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=2000 2000w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=2200 2200w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=2400 2400w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=2600 2600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=2800 2800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-2_05.04.2023.jpg?v=1680776618&amp;width=3000 3000w
+                      "
+                      width="3000"
+                      height="4200"
+                      loading="eager"
+                      draggable="false"
+                      class="slideshow__image"
+                      sizes="100vw"
+                    /></div></a></slide-show-item
+              ><slide-show-item
+                reveal-visibility
+                id="block-template--15880464466141__slideshow-d072197a-16d4-4d96-9715-b20ef7baba4f"
+                class="slideshow__slide"
+                hidden
+                style="
+                  --image-aspect-ratio: 2.16;
+                  --mobile-image-aspect-ratio: 0.7142857142857143;
+                "
+                ><a class="slideshow__slide-inner" href="/collections/sale"
+                  ><div class="slideshow__image-wrapper hidden-pocket">
+                    <img
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=3000"
+                      alt=""
+                      srcset="
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=600   600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=700   700w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=800   800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=1000 1000w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=1200 1200w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=1400 1400w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=1600 1600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=1800 1800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=2000 2000w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=2200 2200w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=2400 2400w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=2600 2600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=2800 2800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/Slider-3_05.04.2023.jpg?v=1680847637&amp;width=3000 3000w
+                      "
+                      width="3000"
+                      height="1389"
+                      loading="lazy"
+                      draggable="false"
+                      class="slideshow__image"
+                    />
+                  </div>
+                  <div class="slideshow__image-wrapper hidden-lap-and-up">
+                    <img
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=3000"
+                      alt=""
+                      srcset="
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=600   600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=700   700w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=800   800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=1000 1000w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=1200 1200w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=1400 1400w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=1600 1600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=1800 1800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=2000 2000w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=2200 2200w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=2400 2400w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=2600 2600w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=2800 2800w,
+                        //cdn.shopify.com/s/files/1/0637/4834/1981/files/mobile-Slider-3_05.04.2023.jpg?v=1680776627&amp;width=3000 3000w
+                      "
+                      width="3000"
+                      height="4200"
+                      loading="lazy"
+                      draggable="false"
+                      class="slideshow__image"
+                      sizes="100vw"
+                    /></div></a
+              ></slide-show-item>
+            </div>
+            <page-dots animation-timer class="slideshow__nav container"
+              ><button
+                class="slideshow__progress-bar"
+                aria-controls="block-template--15880464466141__slideshow-d300bc8e-c9c9-4ba5-89ab-90caef6bdd97"
+                aria-current="true"
+              >
+                <span class="visually-hidden">Go to slide 1</span></button
+              ><button
+                class="slideshow__progress-bar"
+                aria-controls="block-template--15880464466141__slideshow-96fb9b8e-5524-4873-afe5-6d86e053434e"
+              >
+                <span class="visually-hidden">Go to slide 2</span></button
+              ><button
+                class="slideshow__progress-bar"
+                aria-controls="block-template--15880464466141__slideshow-d072197a-16d4-4d96-9715-b20ef7baba4f"
+              >
+                <span class="visually-hidden">Go to slide 3</span>
+              </button></page-dots
+            ></slide-show
+          >
+        </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f"
+        class="shopify-section shopify-section--featured-collections"
+      >
+        <style>
+          #shopify-section-template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+            --primary-button-background: 241, 63, 98;
+            --primary-button-text-color: 255, 255, 255;
+
+            --prev-next-button-background: 255, 255, 255;
+            --prev-next-button-color: 34, 34, 34;
+
+            --section-background: 255, 255, 255;
+            --section-products-per-row: 2;
+          }
+
+          @media screen and (min-width: 741px) {
+            #shopify-section-template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f {
+              --section-products-per-row: 3;
+            }
+          }
+
+          @media screen and (min-width: 1000px) {
+            #shopify-section-template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f {
+              --section-products-per-row: 4;
+            }
+          }
+
+          @media screen and (min-width: 1200px) {
+            #shopify-section-template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f {
+              --section-products-per-row: 4;
+            }
+          }
+        </style>
+
+        <section class="section">
+          <div class="section__color-wrapper">
+            <div class="container">
+              <header class="section__header">
+                <div class="text-container">
+                  <h3 class="heading h2">New Arrivals</h3>
                 </div>
-              </div>
+              </header>
+              <div class="featured-collections">
+                <product-list
+                  id="block-template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0"
+                  class="product-list product-list--center"
+                >
+                  <div>
+                    <div class="product-list__inner">
+                      <product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 50%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31626795843805" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Pink Printed
+                            Georgette Saree With Tassels"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_002c2ee4-d534-43d2-af31-83230b46dc6c.jpg?v=1680870105"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="1200"
+                            width="1200" alt="Pink Printed Georgette Saree With
+                            Tassels"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_d4cc35ef-2ff2-4720-971d-ad81416a1b11.jpg?v=1680870105"
+                            "></a
+                          >
+                          <form
+                            method="post"
+                            action="/cart/add"
+                            id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530808541_0"
+                            accept-charset="UTF-8"
+                            class="product-item__quick-form"
+                            enctype="multipart/form-data"
+                            is="product-form"
+                          >
+                            <input
+                              type="hidden"
+                              name="form_type"
+                              value="product"
+                            /><input
+                              type="hidden"
+                              name="utf8"
+                              value="✓"
+                            /><input type="hidden" name="quantity" value="1" />
+                            <input
+                              type="hidden"
+                              name="id"
+                              value="43795228786909"
+                            />
+                            <button
+                              is="loader-button"
+                              type="submit"
+                              class="button button--outline button--text button--full hidden-touch"
+                            >
+                              + Add to cart
+                            </button>
+                            <button
+                              type="submit"
+                              class="product-item__quick-buy-button hidden-no-touch"
+                            >
+                              <span class="visually-hidden">+ Add to cart</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </form>
+                        </div>
 
-              <div class="page-content page-content--small">
-                <div class="account__block-list">
-                  <div class="account__block-item">
-                    <form
-                      method="post"
-                      action="client-login.php"
-                      id="customer_login"
-                      accept-charset="UTF-8"
-                      data-login-with-shop-sign-in="true"
-                      name="login"
-                      class="form"
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Pink Printed Georgette Saree With Tas...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹849.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹1,699.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 50%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31626795385053" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Mustard
+                            Printed Georgette Saree With Tassels"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_d8eaabe7-11c4-46a5-8e67-e14be1428f97.jpg?v=1680870095"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="1200"
+                            width="1200" alt="Mustard Printed Georgette Saree
+                            With Tassels"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_7e3e8c3f-b28a-4a30-a834-a6731a43d11b.jpg?v=1680870095"
+                            "></a
+                          >
+                          <form
+                            method="post"
+                            action="/cart/add"
+                            id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530611933_0"
+                            accept-charset="UTF-8"
+                            class="product-item__quick-form"
+                            enctype="multipart/form-data"
+                            is="product-form"
+                          >
+                            <input
+                              type="hidden"
+                              name="form_type"
+                              value="product"
+                            /><input
+                              type="hidden"
+                              name="utf8"
+                              value="✓"
+                            /><input type="hidden" name="quantity" value="1" />
+                            <input
+                              type="hidden"
+                              name="id"
+                              value="43795228524765"
+                            />
+                            <button
+                              is="loader-button"
+                              type="submit"
+                              class="button button--outline button--text button--full hidden-touch"
+                            >
+                              + Add to cart
+                            </button>
+                            <button
+                              type="submit"
+                              class="product-item__quick-buy-button hidden-no-touch"
+                            >
+                              <span class="visually-hidden">+ Add to cart</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </form>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Mustard Printed Georgette Saree With ...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹849.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹1,699.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 50%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31626794893533" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Teal Blue
+                            Printed Georgette Saree With Tassels"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_a7d3f774-094d-46f5-aa27-4df69f0da0f3.jpg?v=1680870086"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="1200"
+                            width="1200" alt="Teal Blue Printed Georgette Saree
+                            With Tassels"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_99957081-f148-4861-8aa5-301f292a412a.jpg?v=1680870086"
+                            "></a
+                          >
+                          <form
+                            method="post"
+                            action="/cart/add"
+                            id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530120413_0"
+                            accept-charset="UTF-8"
+                            class="product-item__quick-form"
+                            enctype="multipart/form-data"
+                            is="product-form"
+                          >
+                            <input
+                              type="hidden"
+                              name="form_type"
+                              value="product"
+                            /><input
+                              type="hidden"
+                              name="utf8"
+                              value="✓"
+                            /><input type="hidden" name="quantity" value="1" />
+                            <input
+                              type="hidden"
+                              name="id"
+                              value="43795227771101"
+                            />
+                            <button
+                              is="loader-button"
+                              type="submit"
+                              class="button button--outline button--text button--full hidden-touch"
+                            >
+                              + Add to cart
+                            </button>
+                            <button
+                              type="submit"
+                              class="product-item__quick-buy-button hidden-no-touch"
+                            >
+                              <span class="visually-hidden">+ Add to cart</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </form>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Teal Blue Printed Georgette Saree Wit...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹849.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹1,699.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 50%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31626793844957" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Dark Pink
+                            Printed Georgette Saree With Tassels"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_261d38ec-973b-47b9-b2bc-7f3bb839e145.jpg?v=1680870077"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="1200"
+                            width="1200" alt="Dark Pink Printed Georgette Saree
+                            With Tassels"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_86ced709-bc6d-414c-92a4-294d4a6a8cd3.jpg?v=1680870077"
+                            "></a
+                          >
+                          <form
+                            method="post"
+                            action="/cart/add"
+                            id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530022109_0"
+                            accept-charset="UTF-8"
+                            class="product-item__quick-form"
+                            enctype="multipart/form-data"
+                            is="product-form"
+                          >
+                            <input
+                              type="hidden"
+                              name="form_type"
+                              value="product"
+                            /><input
+                              type="hidden"
+                              name="utf8"
+                              value="✓"
+                            /><input type="hidden" name="quantity" value="1" />
+                            <input
+                              type="hidden"
+                              name="id"
+                              value="43795227672797"
+                            />
+                            <button
+                              is="loader-button"
+                              type="submit"
+                              class="button button--outline button--text button--full hidden-touch"
+                            >
+                              + Add to cart
+                            </button>
+                            <button
+                              type="submit"
+                              class="product-item__quick-buy-button hidden-no-touch"
+                            >
+                              <span class="visually-hidden">+ Add to cart</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </form>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Dark Pink Printed Georgette Saree Wit...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹849.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹1,699.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </product-item>
+                    </div>
+                  </div>
+                  <div class="section__footer">
+                    <a class="button button--primary" href="product.php"
+                      >View All</a
                     >
-                      <input
-                        type="hidden"
-                        name="form_type"
-                        value="customer_login"
-                      /><input type="hidden" name="utf8" value="✓" />
-                      <div class="input">
-                        <input
-                          type="email"
-                          id="customer[email]"
-                          autocomplete="email"
-                          class="input__field"
-                          name="customer_email"
-                          required="required"
-                        />
-                        <label for="customer_email" class="input__label"
-                          >E-mail</label
-                        >
-                      </div>
+                  </div></product-list
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc"
+        class="shopify-section shopify-section--featured-collections"
+      >
+        <style>
+          #shopify-section-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+            --primary-button-background: 241, 63, 98;
+            --primary-button-text-color: 255, 255, 255;
 
-                      <div class="input">
-                        <input
-                          type="password"
-                          id="customer[password]"
-                          class="input__field"
-                          name="customer_password"
-                          required="required"
-                          autocomplete="current-password"
-                        />
-                        <label for="customer[password]" class="input__label"
-                          >Password</label
-                        >
+            --prev-next-button-background: 255, 255, 255;
+            --prev-next-button-color: 34, 34, 34;
 
+            --section-background: 255, 255, 255;
+            --section-products-per-row: 2;
+          }
+
+          @media screen and (min-width: 741px) {
+            #shopify-section-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc {
+              --section-products-per-row: 3;
+            }
+          }
+
+          @media screen and (min-width: 1000px) {
+            #shopify-section-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc {
+              --section-products-per-row: 4;
+            }
+          }
+
+          @media screen and (min-width: 1200px) {
+            #shopify-section-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc {
+              --section-products-per-row: 4;
+            }
+          }
+        </style>
+
+        <section class="section">
+          <div class="section__color-wrapper">
+            <div class="container">
+              <header class="section__header">
+                <div class="text-container">
+                  <h3 class="heading h2">Latest Collection</h3>
+                </div>
+                <tabs-nav class="tabs-nav tabs-nav--center tabs-nav--edge2edge">
+                  <scrollable-content class="tabs-nav__scroller hide-scrollbar">
+                    <div class="tabs-nav__scroller-inner">
+                      <div class="tabs-nav__item-list">
                         <button
                           type="button"
-                          class="input__field-link link text--xsmall text--subdued"
-                          data-action="switch-login-form"
+                          class="tabs-nav__item heading heading--small"
+                          aria-expanded="true"
+                          aria-controls="block-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b"
                         >
-                          Forgot password?
+                          Gowns</button
+                        ><button
+                          type="button"
+                          class="tabs-nav__item heading heading--small"
+                          aria-expanded="false"
+                          aria-controls="block-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-16676330054fc1c17a-0"
+                        >
+                          Special Eid Suits</button
+                        ><button
+                          type="button"
+                          class="tabs-nav__item heading heading--small"
+                          aria-expanded="false"
+                          aria-controls="block-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3"
+                        >
+                          Sharara Suits</button
+                        ><button
+                          type="button"
+                          class="tabs-nav__item heading heading--small"
+                          aria-expanded="false"
+                          aria-controls="block-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237"
+                        >
+                          Palazo Suits
                         </button>
                       </div>
-                      <button
-                        type="submit"
-                        is="loader-button"
-                        class="form__submit button button--primary button--full"
+                    </div>
+                  </scrollable-content>
+                </tabs-nav>
+              </header>
+              <div class="featured-collections">
+                <product-list
+                  id="block-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b"
+                  class="product-list product-list--center"
+                >
+                  <div>
+                    <div class="product-list__inner">
+                      <product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 73%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31014891258077" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Maroon
+                            Lucknowi Chikankari Rayon Partywear Gown -
+                            Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/maroon-lucknowi-chikankari-rayon-partywear-gown-peachmode-1.jpg?v=1669036948"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Maroon Lucknowi Chikankari Rayon
+                            Partywear Gown - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/maroon-lucknowi-chikankari-rayon-partywear-gown-peachmode-2.jpg?v=1669036950"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7727460679901-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7727460679901-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7727460679901-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7727460679901-popover"
+                            href="/products/maroon-lucknowi-chikankari-rayon-partywear-gown-132066?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7727460679901-drawer"
+                            href="/products/maroon-lucknowi-chikankari-rayon-partywear-gown-132066?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Red Lucknowi Chikankari Rayon Partywe...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,999.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹7,399.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 72%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31012759568605" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Royal Blue
+                            Woven Jacquard Gown - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/royal-blue-woven-jacquard-gown-peachmode-1.jpg?v=1669018820"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Royal Blue Woven Jacquard Gown -
+                            Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/royal-blue-woven-jacquard-gown-peachmode-2.jpg?v=1669018822"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7715767517405-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7715767517405-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7715767517405-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7715767517405-popover"
+                            href="/products/royal-blue-designer-partywear-jacquard-gown-119151?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7715767517405-drawer"
+                            href="/products/royal-blue-designer-partywear-jacquard-gown-119151?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Royal Blue Woven Jacquard Gown</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,699.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹5,999.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 73%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31014891192541" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Blue Lucknowi
+                            Chikankari Rayon Partywear Gown - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/blue-lucknowi-chikankari-rayon-partywear-gown-peachmode-1.jpg?v=1669036947"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Blue Lucknowi Chikankari Rayon
+                            Partywear Gown - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/blue-lucknowi-chikankari-rayon-partywear-gown-peachmode-2.jpg?v=1669036950"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7727460843741-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7727460843741-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7727460843741-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7727460843741-popover"
+                            href="/products/blue-lucknowi-chikankari-rayon-partywear-gown-132067?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7727460843741-drawer"
+                            href="/products/blue-lucknowi-chikankari-rayon-partywear-gown-132067?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Blue Lucknowi Chikankari Rayon Partyw...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,999.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹7,399.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 71%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31013873058013" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Black Floral
+                            Embroidered Flared Floor Touch Georgette Partywear
+                            Gown - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/black-floral-embroidered-flared-floor-touch-georgette-partywear-gown-peachmode-1.jpg?v=1669028918"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Black Floral Embroidered Flared
+                            Floor Touch Georgette Partywear Gown - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/black-floral-embroidered-flared-floor-touch-georgette-partywear-gown-peachmode-2.jpg?v=1669028921"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7719886913757-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7719886913757-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7719886913757-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7719886913757-popover"
+                            href="/products/black-floral-embroidered-flared-floor-touch-georgette-partywear-gown-138218?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-76b3ada9-b40f-4040-a94a-a85a8fe6191b-7719886913757-drawer"
+                            href="/products/black-floral-embroidered-flared-floor-touch-georgette-partywear-gown-138218?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Black Floral Embroidered Flared Floor...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,649.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹5,599.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </product-item>
+                    </div>
+                  </div></product-list
+                ><product-list
+                  hidden
+                  id="block-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-16676330054fc1c17a-0"
+                  class="product-list product-list--center"
+                >
+                  <div>
+                    <div class="product-list__inner">
+                      <product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 57%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31012452565213" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Wine Floral
+                            Embroidered Work Net Pakistani Suit - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/wine-floral-embroidered-work-net-pakistani-suit-peachmode-1.jpg?v=1669015711"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Wine Floral Embroidered Work Net
+                            Pakistani Suit - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/wine-floral-embroidered-work-net-pakistani-suit-peachmode-2.jpg?v=1669015713"
+                            "></a
+                          >
+                          <form
+                            method="post"
+                            action="/cart/add"
+                            id="product_form_template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc_template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-16676330054fc1c17a-0_7715611934941_0"
+                            accept-charset="UTF-8"
+                            class="product-item__quick-form"
+                            enctype="multipart/form-data"
+                            is="product-form"
+                          >
+                            <input
+                              type="hidden"
+                              name="form_type"
+                              value="product"
+                            /><input
+                              type="hidden"
+                              name="utf8"
+                              value="✓"
+                            /><input type="hidden" name="quantity" value="1" />
+                            <input
+                              type="hidden"
+                              name="id"
+                              value="42817522368733"
+                            />
+                            <button
+                              is="loader-button"
+                              type="submit"
+                              class="button button--outline button--text button--full hidden-touch"
+                            >
+                              + Add to cart
+                            </button>
+                            <button
+                              type="submit"
+                              class="product-item__quick-buy-button hidden-no-touch"
+                            >
+                              <span class="visually-hidden">+ Add to cart</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </form>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Wine Floral Embroidered Work Net Paki...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹2,149.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹4,999.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 52%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31017279193309" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="White
+                            Embroidered Netted Palazzo Suit - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/white-embroidered-netted-palazzo-suit-peachmode-1.jpg?v=1669058958"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="White Embroidered Netted Palazzo
+                            Suit - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/white-embroidered-netted-palazzo-suit-peachmode-2.jpg?v=1669058960"
+                            "></a
+                          >
+                          <form
+                            method="post"
+                            action="/cart/add"
+                            id="product_form_template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc_template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-16676330054fc1c17a-0_7807648399581_0"
+                            accept-charset="UTF-8"
+                            class="product-item__quick-form"
+                            enctype="multipart/form-data"
+                            is="product-form"
+                          >
+                            <input
+                              type="hidden"
+                              name="form_type"
+                              value="product"
+                            /><input
+                              type="hidden"
+                              name="utf8"
+                              value="✓"
+                            /><input type="hidden" name="quantity" value="1" />
+                            <input
+                              type="hidden"
+                              name="id"
+                              value="43142773932253"
+                            />
+                            <button
+                              is="loader-button"
+                              type="submit"
+                              class="button button--outline button--text button--full hidden-touch"
+                            >
+                              + Add to cart
+                            </button>
+                            <button
+                              type="submit"
+                              class="product-item__quick-buy-button hidden-no-touch"
+                            >
+                              <span class="visually-hidden">+ Add to cart</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </form>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >White Embroidered Netted Pakistani Suit</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹2,149.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹4,499.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 53%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31016557445341" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Pink Sequence
+                            With Floral Embroidered Net Pakistani Suit -
+                            Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/pink-sequence-with-floral-embroidered-net-pakistani-suit-peachmode-1.jpg?v=1669051516"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Pink Sequence With Floral
+                            Embroidered Net Pakistani Suit - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/pink-sequence-with-floral-embroidered-net-pakistani-suit-peachmode-2.jpg?v=1669051519"
+                            "></a
+                          >
+                          <form
+                            method="post"
+                            action="/cart/add"
+                            id="product_form_template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc_template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-16676330054fc1c17a-0_7764650295517_0"
+                            accept-charset="UTF-8"
+                            class="product-item__quick-form"
+                            enctype="multipart/form-data"
+                            is="product-form"
+                          >
+                            <input
+                              type="hidden"
+                              name="form_type"
+                              value="product"
+                            /><input
+                              type="hidden"
+                              name="utf8"
+                              value="✓"
+                            /><input type="hidden" name="quantity" value="1" />
+                            <input
+                              type="hidden"
+                              name="id"
+                              value="42966697509085"
+                            />
+                            <button
+                              is="loader-button"
+                              type="submit"
+                              class="button button--outline button--text button--full hidden-touch"
+                            >
+                              + Add to cart
+                            </button>
+                            <button
+                              type="submit"
+                              class="product-item__quick-buy-button hidden-no-touch"
+                            >
+                              <span class="visually-hidden">+ Add to cart</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </form>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Pink Sequins With Floral Embroidered ...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,699.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹3,599.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 52%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31017276342493" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Violet
+                            Embroidered Netted Palazzo Suit - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/violet-embroidered-netted-palazzo-suit-peachmode-1.jpg?v=1669058917"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Violet Embroidered Netted Palazzo
+                            Suit - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/violet-embroidered-netted-palazzo-suit-peachmode-2.jpg?v=1669058920"
+                            "></a
+                          >
+                          <form
+                            method="post"
+                            action="/cart/add"
+                            id="product_form_template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc_template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-16676330054fc1c17a-0_7807635587293_0"
+                            accept-charset="UTF-8"
+                            class="product-item__quick-form"
+                            enctype="multipart/form-data"
+                            is="product-form"
+                          >
+                            <input
+                              type="hidden"
+                              name="form_type"
+                              value="product"
+                            /><input
+                              type="hidden"
+                              name="utf8"
+                              value="✓"
+                            /><input type="hidden" name="quantity" value="1" />
+                            <input
+                              type="hidden"
+                              name="id"
+                              value="43142752796893"
+                            />
+                            <button
+                              is="loader-button"
+                              type="submit"
+                              class="button button--outline button--text button--full hidden-touch"
+                            >
+                              + Add to cart
+                            </button>
+                            <button
+                              type="submit"
+                              class="product-item__quick-buy-button hidden-no-touch"
+                            >
+                              <span class="visually-hidden">+ Add to cart</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </form>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Violet Embroidered Netted Pakistani Suit</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹2,149.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹4,499.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </product-item>
+                    </div>
+                  </div></product-list
+                ><product-list
+                  hidden
+                  id="block-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3"
+                  class="product-list product-list--center"
+                >
+                  <div>
+                    <div class="product-list__inner">
+                      <product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 33%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31015210418397" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="White
+                            Partywear Sequence Embroidered Georgette Sharara
+                            Suit - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/white-partywear-sequence-embroidered-georgette-sharara-suit-peachmode-1.jpg?v=1669040143"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="White Partywear Sequence
+                            Embroidered Georgette Sharara Suit - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/white-partywear-sequence-embroidered-georgette-sharara-suit-peachmode-2.jpg?v=1669040146"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7737332465885-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7737332465885-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7737332465885-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7737332465885-popover"
+                            href="/products/white-partywear-sequence-embroidered-georgette-sharara-suit-with-dupatta-135704?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7737332465885-drawer"
+                            href="/products/white-partywear-sequence-embroidered-georgette-sharara-suit-with-dupatta-135704?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >White Partywear Sequins Embroidered G...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,999.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹2,999.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 54%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31016241692893" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Black
+                            Embroidered Georgette Sharara Suit - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/black-embroidered-georgette-sharara-suit-peachmode-1.jpg?v=1669049407"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Black Embroidered Georgette
+                            Sharara Suit - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/black-embroidered-georgette-sharara-suit-peachmode-2.jpg?v=1669049410"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7746362573021-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7746362573021-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7746362573021-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7746362573021-popover"
+                            href="/products/black-embroidered-georgette-sharara-suit-144756?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7746362573021-drawer"
+                            href="/products/black-embroidered-georgette-sharara-suit-144756?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Black Embroidered Georgette Sharara Suit</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,999.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹4,299.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 50%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31127585554653" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Lemon Yellow
+                            Sequins Embroidered Georgette Sharara Suit"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/1_VIRAH-Z21-PEACHMODE.jpg?v=1670909696"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Lemon Yellow Sequins Embroidered
+                            Georgette Sharara Suit"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/2_VIRAH-Z21-PEACHMODE.jpg?v=1670909701"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7959420797149-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7959420797149-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7959420797149-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7959420797149-popover"
+                            href="/products/lemon-yellow-sequence-embroidered-georgette-sharara-suit?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7959420797149-drawer"
+                            href="/products/lemon-yellow-sequence-embroidered-georgette-sharara-suit?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Lemon Yellow Sequins Embroidered Geor...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,649.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹3,299.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 51%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31017053225181" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Teal Blue
+                            Sequence Embroidered Georgette Sharara Suit -
+                            Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/teal-blue-sequence-embroidered-georgette-sharara-suit-peachmode-1.jpg?v=1669056002"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="1200"
+                            width="1200" alt="Teal Blue Sequence Embroidered
+                            Georgette Sharara Suit - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/teal-blue-sequence-embroidered-georgette-sharara-suit-peachmode-2.jpg?v=1669056005"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7798561407197-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7798561407197-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7798561407197-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7798561407197-popover"
+                            href="/products/teal-blue-sequence-embroidered-georgette-sharara-suit?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-1fee8344-a163-4a14-b2f4-6705b5a2f4c3-7798561407197-drawer"
+                            href="/products/teal-blue-sequence-embroidered-georgette-sharara-suit?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Teal Blue Sequins Embroidered Georget...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹2,049.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹4,199.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </product-item>
+                    </div>
+                  </div></product-list
+                ><product-list
+                  hidden
+                  id="block-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237"
+                  class="product-list product-list--center"
+                >
+                  <div>
+                    <div class="product-list__inner">
+                      <product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 50%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31225026019549" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Navy Blue
+                            Lucknowi Embroidered Georgette Kurti Palazzo Set"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_50ec74a3-0b71-4f4a-9e48-c525ee4e9688.jpg?v=1672657581"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Navy Blue Lucknowi Embroidered
+                            Georgette Kurti Palazzo Set"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_f6283327-fe75-404b-b3a0-fa55a2a14d86.jpg?v=1672657589"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975678214365-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975678214365-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975678214365-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975678214365-popover"
+                            href="/products/navy-blue-lucknowi-embroidered-georgette-kurti-palazzo-set?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975678214365-drawer"
+                            href="/products/navy-blue-lucknowi-embroidered-georgette-kurti-palazzo-set?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Navy Blue Lucknowi Embroidered George...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,149.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹2,299.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 50%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31225028444381" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Mauve
+                            Lucknowi Embroidered Georgette Kurti Palazzo Set"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_8fcbdd60-8d68-4553-a011-e60d7b894ff2.jpg?v=1672657621"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Mauve Lucknowi Embroidered
+                            Georgette Kurti Palazzo Set"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_67f5aeb0-30bd-4b6f-a47d-69a3e07bf247.jpg?v=1672657628"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975683358941-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975683358941-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975683358941-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975683358941-popover"
+                            href="/products/mauve-lucknowi-embroidered-georgette-kurti-palazzo-set?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975683358941-drawer"
+                            href="/products/mauve-lucknowi-embroidered-georgette-kurti-palazzo-set?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Mauve Lucknowi Embroidered Georgette ...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,149.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹2,299.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 50%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31225033556189" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Grey Lucknowi
+                            Embroidered Georgette Kurti Palazzo Set"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_2b70e607-c927-4fd8-b220-d1a2700a71b2.jpg?v=1672657685"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Grey Lucknowi Embroidered
+                            Georgette Kurti Palazzo Set"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_fcee5714-4257-410f-8745-fe7f3342305c.jpg?v=1672657691"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975685685469-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975685685469-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975685685469-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975685685469-popover"
+                            href="/products/grey-lucknowi-embroidered-georgette-kurti-palazzo-set?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7975685685469-drawer"
+                            href="/products/grey-lucknowi-embroidered-georgette-kurti-palazzo-set?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Grey Lucknowi Embroidered Georgette K...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,149.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹2,299.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 72%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31011246145757" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Surpassing
+                            Light Aqua Green Colored Casual Digital Printed
+                            Muslin Blend Kurti-Palazzo Set - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/surpassing-light-aqua-green-colored-casual-digital-printed-muslin-blend-kurti-palazzo-set-peachmode-1.jpg?v=1669001235"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Surpassing Light Aqua Green
+                            Colored Casual Digital Printed Muslin Blend
+                            Kurti-Palazzo Set - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/surpassing-light-aqua-green-colored-casual-digital-printed-muslin-blend-kurti-palazzo-set-peachmode-2.jpg?v=1669001237"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7710747787485-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7710747787485-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7710747787485-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7710747787485-popover"
+                            href="/products/surpassing-light-aqua-green-colored-casual-digital-printed-pure-muslin-kurti-palazzo-set-44559?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__4ac6e977-9b0d-47cb-b70d-6f3769f464dc-530319ee-a20a-4100-9051-65ff0c2ee237-7710747787485-drawer"
+                            href="/products/surpassing-light-aqua-green-colored-casual-digital-printed-pure-muslin-kurti-palazzo-set-44559?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Surpassing Light Aqua Green Colored C...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,699.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹6,099.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </product-item>
+                    </div>
+                  </div></product-list
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464466141__728da195-2413-415f-b745-18762cf940d9"
+        class="shopify-section shopify-section--rich-text"
+      >
+        <style>
+          #shopify-section-template--15880464466141__728da195-2413-415f-b745-18762cf940d9 {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+            --primary-button-background: 241, 63, 98;
+            --primary-button-text-color: 255, 255, 255;
+
+            --section-background: 255, 255, 255;
+          }
+        </style>
+      </div>
+      <div
+        id="shopify-section-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a"
+        class="shopify-section shopify-section--featured-collections"
+      >
+        <style>
+          #shopify-section-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+            --primary-button-background: 241, 63, 98;
+            --primary-button-text-color: 255, 255, 255;
+
+            --prev-next-button-background: 255, 255, 255;
+            --prev-next-button-color: 34, 34, 34;
+
+            --section-background: 255, 255, 255;
+            --section-products-per-row: 2;
+          }
+
+          @media screen and (min-width: 741px) {
+            #shopify-section-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a {
+              --section-products-per-row: 3;
+            }
+          }
+
+          @media screen and (min-width: 1000px) {
+            #shopify-section-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a {
+              --section-products-per-row: 4;
+            }
+          }
+
+          @media screen and (min-width: 1200px) {
+            #shopify-section-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a {
+              --section-products-per-row: 4;
+            }
+          }
+        </style>
+
+        <section class="section">
+          <div class="section__color-wrapper">
+            <div class="container">
+              <header class="section__header section__header--tight">
+                <div class="text-container">
+                  <h3 class="heading h2">Sale</h3>
+                </div>
+              </header>
+              <div class="featured-collections">
+                <product-list
+                  id="block-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-167998712217971383-0"
+                  class="product-list product-list--center"
+                >
+                  <div>
+                    <div class="product-list__inner">
+                      <product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 64%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31018225139933" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="1200" width="1200" alt="Navy Blue
+                            Printed Queen Sized Bed Sheet With 2 Pillow Covers -
+                            Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/navy-blue-printed-queen-sized-bed-sheet-with-2-pillow-covers-peachmode-1.jpg?v=1669069244"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Navy Blue Printed Queen Sized Bed
+                            Sheet With 2 Pillow Covers - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/navy-blue-printed-queen-sized-bed-sheet-with-2-pillow-covers-peachmode-2.jpg?v=1669069247"
+                            "></a
+                          >
+                          <form
+                            method="post"
+                            action="/cart/add"
+                            id="product_form_template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a_template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-167998712217971383-0_7914970022109_0"
+                            accept-charset="UTF-8"
+                            class="product-item__quick-form"
+                            enctype="multipart/form-data"
+                            is="product-form"
+                          >
+                            <input
+                              type="hidden"
+                              name="form_type"
+                              value="product"
+                            /><input
+                              type="hidden"
+                              name="utf8"
+                              value="✓"
+                            /><input type="hidden" name="quantity" value="1" />
+                            <input
+                              type="hidden"
+                              name="id"
+                              value="43485801644253"
+                            />
+                            <button
+                              is="loader-button"
+                              type="submit"
+                              class="button button--outline button--text button--full hidden-touch"
+                            >
+                              + Add to cart
+                            </button>
+                            <button
+                              type="submit"
+                              class="product-item__quick-buy-button hidden-no-touch"
+                            >
+                              <span class="visually-hidden">+ Add to cart</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </form>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Navy Blue Printed Queen Sized Bed She...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹399.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹1,099.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 58%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31016134312157" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Maroon
+                            Sequence Embroidered Cotton Silk Top - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/maroon-sequence-embroidered-cotton-silk-top-peachmode-1.jpg?v=1669048826"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="1200"
+                            width="1200" alt="Maroon Sequence Embroidered Cotton
+                            Silk Top - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/maroon-sequence-embroidered-cotton-silk-top-peachmode-2.jpg?v=1669048828"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-167998712217971383-0-7741562618077-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-167998712217971383-0-7741562618077-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-167998712217971383-0-7741562618077-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-167998712217971383-0-7741562618077-popover"
+                            href="/products/maroon-sequence-embroidered-cotton-silk-top?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-167998712217971383-0-7741562618077-drawer"
+                            href="/products/maroon-sequence-embroidered-cotton-silk-top?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Maroon Sequins Embroidered Cotton Sil...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  >From
+                                  <span class="money" style="color: #13becf"
+                                    >₹749.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹1,799.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item product-item--sold-out"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span class="label label--subdued">Sold out</span>
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31273537667293" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Beige Woven
+                            Jacquard Silk Lehenga Choli"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/1_SVC-15041-PEACHMODE.jpg?v=1673525492"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="1200"
+                            width="1200" alt="Beige Woven Jacquard Silk Lehenga
+                            Choli"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/2_SVC-15041-PEACHMODE.jpg?v=1673525493"
+                            "></a
+                          >
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Beige Woven Jacquard Silk Lehenga Choli</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹649.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹1,849.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 58%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img
+                              loading="lazy"
+                              class="product-item__primary-image"
+                              data-media-id="31016134377693"
+                              sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                              height="2000"
+                              width="2000"
+                              alt="Wine Sequence Embroidered Cotton Silk Top - Peachmode"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/wine-sequence-embroidered-cotton-silk-top-peachmode-1.jpg?v=1669048826" /><img
+                              loading="lazy"
+                              class="product-item__secondary-image"
+                              sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                              height="1200"
+                              width="1200"
+                              alt="Wine Sequence Embroidered Cotton Silk Top - Peachmode"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/wine-sequence-embroidered-cotton-silk-top-peachmode-2.jpg?v=1669048829"
+                          /></a>
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-167998712217971383-0-7741561635037-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-167998712217971383-0-7741561635037-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-167998712217971383-0-7741561635037-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-167998712217971383-0-7741561635037-popover"
+                            href="/products/wine-sequence-embroidered-cotton-silk-top?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-template--15880464466141__1d3bfca3-c043-492c-92b1-13a17dc3b33a-167998712217971383-0-7741561635037-drawer"
+                            href="/products/wine-sequence-embroidered-cotton-silk-top?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Wine Sequins Embroidered Cotton Silk Top</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  >From
+                                  <span class="money" style="color: #13becf"
+                                    >₹749.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹1,799.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </product-item>
+                    </div>
+                  </div>
+                  <div class="section__footer">
+                    <a class="button button--primary" href="product.php"
+                      >View All</a
+                    >
+                  </div></product-list
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5"
+        class="shopify-section shopify-section--collection-list"
+      >
+        <style>
+          #shopify-section-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5 {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+            --prev-next-button-background: var(--text-color);
+            --prev-next-button-color: var(--section-background);
+
+            --section-background: 255, 255, 255;
+          }
+          #block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-1667559845a0357dbe-0 {
+            --heading-color: 255, 255, 255;
+            --text-color: 255, 255, 255;
+            --section-block-overlay: 0, 0, 0;
+            --section-block-overlay-opacity: 0.25;
+          }
+          #block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-1667559845a0357dbe-1 {
+            --heading-color: 255, 255, 255;
+            --text-color: 255, 255, 255;
+            --section-block-overlay: 0, 0, 0;
+            --section-block-overlay-opacity: 0.3;
+          }
+          #block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-1667559845a0357dbe-2 {
+            --heading-color: 255, 255, 255;
+            --text-color: 255, 255, 255;
+            --section-block-overlay: 0, 0, 0;
+            --section-block-overlay-opacity: 0.3;
+          }
+          #block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-6ca66ac6-17a2-4cdc-8d64-0ddd74674e36 {
+            --heading-color: 255, 255, 255;
+            --text-color: 255, 255, 255;
+            --section-block-overlay: 0, 0, 0;
+            --section-block-overlay-opacity: 0.3;
+          }
+          #block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-914d89a7-6260-48da-b108-93ef9bdf4343 {
+            --heading-color: 255, 255, 255;
+            --text-color: 255, 255, 255;
+            --section-block-overlay: 0, 0, 0;
+            --section-block-overlay-opacity: 0.3;
+          }
+          #block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-8c0c071c-7e17-407a-abc2-7e05c06a8ef1 {
+            --heading-color: 255, 255, 255;
+            --text-color: 255, 255, 255;
+            --section-block-overlay: 0, 0, 0;
+            --section-block-overlay-opacity: 0.3;
+          }
+        </style>
+
+        <section class="section">
+          <div class="section__color-wrapper">
+            <div class="">
+              <header class="section__header container text-container">
+                <h3 class="heading h2">Summer Arrivals</h3>
+              </header>
+              <collection-list class="list-collections list-collections--grid">
+                <div class="container">
+                  <div class="list-collections__item-list">
+                    <a
+                      id="block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-1667559845a0357dbe-0"
+                      href="product.php"
+                      class="list-collections__item has-overlay image-zoom"
+                    >
+                      <div class="list-collections__item-image-wrapper">
+                        <img
+                          loading="lazy"
+                          class="list-collections__item-image"
+                          sizes="(max-width: 740px) calc(100vw - 48px), (max-width: 999px) calc(50vw - 60px), 480px"
+                          height="2000"
+                          width="2000"
+                          alt="Innovative Rama Colored lining Pattern Casual Wear Cotton Saree - Peachmode"
+                          src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/innovative-rama-colored-lining-pattern-casual-wear-cotton-saree-peachmode-1.jpg?v=1669011587"
+                        />
+                      </div>
+                      <div class="list-collections__item-info text-container">
+                        <p class="heading h3">Cotton Sarees</p>
+                      </div></a
+                    ><a
+                      id="block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-1667559845a0357dbe-1"
+                      href="product.php"
+                      class="list-collections__item has-overlay image-zoom"
+                    >
+                      <div class="list-collections__item-image-wrapper">
+                        <img
+                          loading="lazy"
+                          class="list-collections__item-image"
+                          sizes="(max-width: 740px) calc(100vw - 48px), (max-width: 999px) calc(50vw - 60px), 480px"
+                          height="2000"
+                          width="2000"
+                          alt="Blue Casual Wear Embroidered Cotton Kurti - Peachmode"
+                          src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/blue-casual-wear-embroidered-cotton-kurti-peachmode-1.jpg?v=1669033856"
+                        />
+                      </div>
+                      <div class="list-collections__item-info text-container">
+                        <p class="heading h3">Cotton Kurtis</p>
+                      </div></a
+                    ><a
+                      id="block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-1667559845a0357dbe-2"
+                      href="product.php"
+                      class="list-collections__item has-overlay image-zoom"
+                    >
+                      <div class="list-collections__item-image-wrapper">
+                        <img
+                          loading="lazy"
+                          class="list-collections__item-image"
+                          sizes="(max-width: 740px) calc(100vw - 48px), (max-width: 999px) calc(50vw - 60px), 480px"
+                          height="2000"
+                          width="2000"
+                          alt="Grey Printed Poly Cotton Dress Material - Peachmode"
+                          src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/grey-printed-poly-cotton-dress-material-peachmode-1_4496ee44-1032-488d-9235-807a07974df9.jpg?v=1669043693"
+                        />
+                      </div>
+                      <div class="list-collections__item-info text-container">
+                        <p class="heading h3">Cotton Salwar Suits</p>
+                      </div></a
+                    ><a
+                      id="block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-6ca66ac6-17a2-4cdc-8d64-0ddd74674e36"
+                      href="product.php"
+                      class="list-collections__item has-overlay image-zoom"
+                    >
+                      <div class="list-collections__item-image-wrapper">
+                        <img
+                          loading="lazy"
+                          class="list-collections__item-image"
+                          sizes="(max-width: 740px) calc(100vw - 48px), (max-width: 999px) calc(50vw - 60px), 480px"
+                          height="2000"
+                          width="2000"
+                          alt="Beige Embroidered Art Silk Mens&#39;s Kurta Pyjama Set - Peachmode"
+                          src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/beige-embroidered-art-silk-mens-s-kurta-pyjama-set-peachmode-1.jpg?v=1669056724"
+                        />
+                      </div>
+                      <div class="list-collections__item-info text-container">
+                        <p class="heading h3">Mens Kurta Pyjama</p>
+                      </div></a
+                    ><a
+                      id="block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-914d89a7-6260-48da-b108-93ef9bdf4343"
+                      href="product.php"
+                      class="list-collections__item has-overlay image-zoom"
+                    >
+                      <div class="list-collections__item-image-wrapper">
+                        <img
+                          loading="lazy"
+                          class="list-collections__item-image"
+                          sizes="(max-width: 740px) calc(100vw - 48px), (max-width: 999px) calc(50vw - 60px), 480px"
+                          height="2000"
+                          width="2000"
+                          alt=""
+                          src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_d8d4c078-979c-4365-b86a-154a5de3a59a.jpg?v=1676116753"
+                        />
+                      </div>
+                      <div class="list-collections__item-info text-container">
+                        <p class="heading h3">Jewellery</p>
+                      </div></a
+                    ><a
+                      id="block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-8c0c071c-7e17-407a-abc2-7e05c06a8ef1"
+                      href="product.php"
+                      class="list-collections__item has-overlay image-zoom"
+                    >
+                      <div class="list-collections__item-image-wrapper">
+                        <img
+                          loading="lazy"
+                          class="list-collections__item-image"
+                          sizes="(max-width: 740px) calc(100vw - 48px), (max-width: 999px) calc(50vw - 60px), 480px"
+                          height="2000"
+                          width="2000"
+                          alt=""
+                          src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/1_PEACHMODE_e588c929-aa0a-459d-a7ca-69c1f8b60ac3.jpg?v=1669026284"
+                        />
+                      </div>
+                      <div class="list-collections__item-info text-container">
+                        <p class="heading h3">Handbags</p>
+                      </div></a
+                    >
+                  </div>
+                </div>
+              </collection-list>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464466141__1651295720d6d36989"
+        class="shopify-section shopify-section--featured-product"
+      >
+        <style>
+          #shopify-section-template--15880464466141__1651295720d6d36989 {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+
+            --primary-button-background: 241, 63, 98;
+            --primary-button-text-color: 255, 255, 255;
+            --secondary-button-background: 247, 174, 166;
+            --secondary-button-text-color: 255, 255, 255;
+            --section-background: 255, 255, 255;
+            --background: 255, 255, 255;
+            --secondary-background: 245, 241, 236;
+          }
+        </style>
+
+        <section class="section">
+          <div class="section__color-wrapper">
+            <div class="container">
+              <header class="section__header text-container">
+                <h2 class="heading heading--small">Just for you</h2>
+              </header>
+              <div class="product product--featured product--thumbnails-bottom">
+                <product-media
+                  form-id="product-form-template--15880464466141__1651295720d6d36989-8036890083549"
+                  autoplay-video
+                  thumbnails-position="bottom"
+                  reveal-on-scroll
+                  product-handle="peach-printed-pure-cotton-salwar-suit"
+                  class="product__media"
+                  style="--largest-image-aspect-ratio: 1"
+                >
+                  <div
+                    class="product__media-list-wrapper"
+                    style="max-width: 2000px"
+                  >
+                    <flickity-carousel
+                      click-nav
+                      flickity-config='{
+        "adaptiveHeight": true,
+        "dragThreshold": 10,
+        "initialIndex": ".is-initial-selected",
+        "fade": false,
+        "draggable": "&gt;1",
+        "contain": true,
+        "cellSelector": ".product__media-item:not(.is-filtered)",
+        "percentPosition": false,
+        "pageDots": false,
+        "prevNextButtons": false
+      }'
+                      id="product-template--15880464466141__1651295720d6d36989-8036890083549-media-list"
+                      class="product__media-list"
+                      ><div
+                        id="product-template--15880464466141__1651295720d6d36989-31580871295197"
+                        class="product__media-item is-initial-selected is-selected"
+                        data-media-type="image"
+                        data-media-id="31580871295197"
+                        data-original-position="0"
                       >
-                        Login
+                        <div
+                          class="product__media-image-wrapper aspect-ratio aspect-ratio--natural"
+                          style="padding-bottom: 100%; --aspect-ratio: 1"
+                        >
+                          <img loading="lazy" reveal loading="lazy"
+                          sizes="(max-width: 999px) calc(100vw - 48px), 640px"
+                          height="2000" width="2000" alt="Peach Printed Pure
+                          Cotton Salwar Suit"
+                          src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_ee741aff-e0df-4ff5-aa13-f703e5e73e0b.jpg?v=1679570674"
+                          ">
+                        </div>
+                      </div>
+                      <div
+                        id="product-template--15880464466141__1651295720d6d36989-31580871327965"
+                        class="product__media-item"
+                        data-media-type="image"
+                        data-media-id="31580871327965"
+                        data-original-position="1"
+                      >
+                        <div
+                          class="product__media-image-wrapper aspect-ratio aspect-ratio--natural"
+                          style="padding-bottom: 100%; --aspect-ratio: 1"
+                        >
+                          <img loading="lazy" loading="lazy" sizes="(max-width:
+                          999px) calc(100vw - 48px), 640px" height="1200"
+                          width="1200" alt="Peach Printed Pure Cotton Salwar
+                          Suit"
+                          src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_69e3d65e-f8a1-4ab7-b8e5-a9a2929858b3.jpg?v=1679570674"
+                          ">
+                        </div>
+                      </div>
+                      <div
+                        id="product-template--15880464466141__1651295720d6d36989-31580871360733"
+                        class="product__media-item"
+                        data-media-type="image"
+                        data-media-id="31580871360733"
+                        data-original-position="2"
+                      >
+                        <div
+                          class="product__media-image-wrapper aspect-ratio aspect-ratio--natural"
+                          style="padding-bottom: 100%; --aspect-ratio: 1"
+                        >
+                          <img loading="lazy" loading="lazy" sizes="(max-width:
+                          999px) calc(100vw - 48px), 640px" height="2000"
+                          width="2000" alt="Peach Printed Pure Cotton Salwar
+                          Suit"
+                          src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_eb62bc71-e920-40b7-a529-9b16fc5d96b2.jpg?v=1679570674"
+                          ">
+                        </div>
+                      </div></flickity-carousel
+                    ><button
+                      is="toggle-button"
+                      aria-controls="product-template--15880464466141__1651295720d6d36989-8036890083549-zoom"
+                      aria-expanded="false"
+                      class="tap-area product__zoom-button"
+                    >
+                      <span class="visually-hidden">Zoom</span
+                      ><svg
+                        fill="none"
+                        focusable="false"
+                        width="14"
+                        height="14"
+                        class="icon icon--image-zoom"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          d="M9.50184 9.50184C11.4777 7.52595 11.5133 4.358 9.58134 2.42602C7.64936 0.494037 4.48141 0.529632 2.50552 2.50552C0.529632 4.48141 0.494037 7.64936 2.42602 9.58134C4.358 11.5133 7.52595 11.4777 9.50184 9.50184ZM9.50184 9.50184L13 13"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <flickity-controls
+                    controls="product-template--15880464466141__1651295720d6d36989-8036890083549-media-list"
+                    class="product__media-nav"
+                  >
+                    <button
+                      class="product__media-prev-next hidden-lap-and-up tap-area tap-area--large"
+                      aria-label="Previous"
+                      data-action="prev"
+                    >
+                      <svg
+                        focusable="false"
+                        width="17"
+                        height="14"
+                        class="icon icon--nav-arrow-left icon--direction-aware"
+                        viewBox="0 0 17 14"
+                      >
+                        <path
+                          d="M17 7H2M8 1L2 7l6 6"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          fill="none"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div class="dots-nav dots-nav--centered hidden-lap-and-up">
+                      <button
+                        type="button"
+                        tabindex="-1"
+                        class="dots-nav__item tap-area"
+                        aria-current="true"
+                        aria-controls="product-template--15880464466141__1651295720d6d36989-31580871295197"
+                        data-media-id="31580871295197"
+                        data-action="select"
+                      >
+                        <span class="visually-hidden"
+                          >Go to slide 1</span
+                        ></button
+                      ><button
+                        type="button"
+                        tabindex="-1"
+                        class="dots-nav__item tap-area"
+                        aria-controls="product-template--15880464466141__1651295720d6d36989-31580871327965"
+                        data-media-id="31580871327965"
+                        data-action="select"
+                      >
+                        <span class="visually-hidden"
+                          >Go to slide 2</span
+                        ></button
+                      ><button
+                        type="button"
+                        tabindex="-1"
+                        class="dots-nav__item tap-area"
+                        aria-controls="product-template--15880464466141__1651295720d6d36989-31580871360733"
+                        data-media-id="31580871360733"
+                        data-action="select"
+                      >
+                        <span class="visually-hidden">Go to slide 3</span>
                       </button>
+                    </div>
+                    <scroll-shadow
+                      class="product__thumbnail-scroll-shadow hidden-pocket"
+                    >
+                      <div class="product__thumbnail-list hide-scrollbar">
+                        <div class="product__thumbnail-list-inner">
+                          <button
+                            type="button"
+                            tabindex="-1"
+                            reveal
+                            class="product__thumbnail-item hidden-pocket"
+                            aria-current="true"
+                            aria-controls="product-template--15880464466141__1651295720d6d36989-31580871295197"
+                            data-media-id="31580871295197"
+                            data-action="select"
+                          >
+                            <div class="product__thumbnail">
+                              <img loading="lazy" sizes="(max-width: 999px)
+                              72px, 60px" height="2000" width="2000" alt="Peach
+                              Printed Pure Cotton Salwar Suit"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_ee741aff-e0df-4ff5-aa13-f703e5e73e0b.jpg?v=1679570674"
+                              ">
+                            </div></button
+                          ><button
+                            type="button"
+                            tabindex="-1"
+                            reveal
+                            class="product__thumbnail-item hidden-pocket"
+                            aria-controls="product-template--15880464466141__1651295720d6d36989-31580871327965"
+                            data-media-id="31580871327965"
+                            data-action="select"
+                          >
+                            <div class="product__thumbnail">
+                              <img loading="lazy" sizes="(max-width: 999px)
+                              72px, 60px" height="1200" width="1200" alt="Peach
+                              Printed Pure Cotton Salwar Suit"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_69e3d65e-f8a1-4ab7-b8e5-a9a2929858b3.jpg?v=1679570674"
+                              ">
+                            </div></button
+                          ><button
+                            type="button"
+                            tabindex="-1"
+                            reveal
+                            class="product__thumbnail-item hidden-pocket"
+                            aria-controls="product-template--15880464466141__1651295720d6d36989-31580871360733"
+                            data-media-id="31580871360733"
+                            data-action="select"
+                          >
+                            <div class="product__thumbnail">
+                              <img loading="lazy" sizes="(max-width: 999px)
+                              72px, 60px" height="2000" width="2000" alt="Peach
+                              Printed Pure Cotton Salwar Suit"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_eb62bc71-e920-40b7-a529-9b16fc5d96b2.jpg?v=1679570674"
+                              ">
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+                    </scroll-shadow>
+
+                    <button
+                      class="product__media-prev-next hidden-lap-and-up tap-area tap-aera--large"
+                      aria-label="Next"
+                      data-action="next"
+                    >
+                      <svg
+                        focusable="false"
+                        width="17"
+                        height="14"
+                        class="icon icon--nav-arrow-right icon--direction-aware"
+                        viewBox="0 0 17 14"
+                      >
+                        <path
+                          d="M0 7h15M9 1l6 6-6 6"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          fill="none"
+                        ></path>
+                      </svg>
+                    </button> </flickity-controls
+                  ><product-image-zoom
+                    product-handle="peach-printed-pure-cotton-salwar-suit"
+                    id="product-template--15880464466141__1651295720d6d36989-8036890083549-zoom"
+                    class="pswp"
+                    tabindex="-1"
+                    role="dialog"
+                  >
+                    <div class="pswp__bg"></div>
+
+                    <div class="pswp__scroll-wrap">
+                      <div class="pswp__container">
+                        <div class="pswp__item"></div>
+                        <div class="pswp__item"></div>
+                        <div class="pswp__item"></div>
+                      </div>
+
+                      <div class="pswp__ui pswp__ui--hidden">
+                        <div class="pswp__top-bar">
+                          <button
+                            class="pswp__button pswp__button--close prev-next-button"
+                            data-action="pswp-close"
+                            title="Close"
+                          >
+                            <svg
+                              focusable="false"
+                              width="14"
+                              height="14"
+                              class="icon icon--close"
+                              viewBox="0 0 14 14"
+                            >
+                              <path
+                                d="M13 13L1 1M13 1L1 13"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+
+                        <div class="pswp__prev-next-buttons hidden-pocket">
+                          <button
+                            class="pswp__button prev-next-button prev-next-button--prev"
+                            data-action="pswp-prev"
+                            title="Previous"
+                          >
+                            <svg
+                              focusable="false"
+                              width="17"
+                              height="14"
+                              class="icon icon--nav-arrow-left icon--direction-aware"
+                              viewBox="0 0 17 14"
+                            >
+                              <path
+                                d="M17 7H2M8 1L2 7l6 6"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                              ></path>
+                            </svg>
+                          </button>
+                          <button
+                            class="pswp__button prev-next-button prev-next-button--next"
+                            data-action="pswp-next"
+                            title="Next"
+                          >
+                            <svg
+                              focusable="false"
+                              width="17"
+                              height="14"
+                              class="icon icon--nav-arrow-right icon--direction-aware"
+                              viewBox="0 0 17 14"
+                            >
+                              <path
+                                d="M0 7h15M9 1l6 6-6 6"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+
+                        <div class="pswp__dots-nav-wrapper hidden-lap-and-up">
+                          <button
+                            class="tap-area tap-area--large"
+                            data-action="pswp-prev"
+                          >
+                            <span class="visually-hidden">Previous</span
+                            ><svg
+                              focusable="false"
+                              width="17"
+                              height="14"
+                              class="icon icon--nav-arrow-left icon--direction-aware"
+                              viewBox="0 0 17 14"
+                            >
+                              <path
+                                d="M17 7H2M8 1L2 7l6 6"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                              ></path>
+                            </svg>
+                          </button>
+
+                          <div class="dots-nav dots-nav--centered">
+                            <!-- This will be fill at runtime as the number of items will be dynamic -->
+                          </div>
+
+                          <button
+                            class="tap-area tap-area--large"
+                            data-action="pswp-next"
+                          >
+                            <span class="visually-hidden">Next</span
+                            ><svg
+                              focusable="false"
+                              width="17"
+                              height="14"
+                              class="icon icon--nav-arrow-right icon--direction-aware"
+                              viewBox="0 0 17 14"
+                            >
+                              <path
+                                d="M0 7h15M9 1l6 6-6 6"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div> </product-image-zoom
+                ></product-media>
+                <div class="product__info">
+                  <!-- PRODUCT META -->
+                  <product-meta
+                    form-id="product-form-template--15880464466141__1651295720d6d36989-8036890083549"
+                    price-class="price--large"
+                    class="product-meta"
+                  >
+                    <h2 class="product-meta__title heading h4">
+                      <a href="product-detail.php"
+                        >Peach Printed Pure Cotton Salwar Suit</a
+                      >
+                    </h2>
+
+                    <div
+                      class="product-meta__price-list-container"
+                      role="region"
+                      aria-live="polite"
+                    >
+                      <div class="price-list" data-product-price-list>
+                        <span class="price price--highlight price--large">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹899.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,799.00</span></span
+                        >
+                      </div>
+
+                      <div
+                        class="product-meta__label-list label-list"
+                        data-product-label-list
+                      >
+                        <span
+                          class="label label--highlight"
+                          style="background-color: #13becf"
+                          >Save 50%</span
+                        >
+                      </div>
+                    </div>
+                    <p class="product-meta__taxes-included text--small">
+                      <span>Inclusive of all taxes</span>
+                      <span class="stock true"> In Stock </span>
+                    </p>
+                    <product-payment-terms
+                      form-id="product-form-template--15880464466141__1651295720d6d36989-8036890083549"
+                      ><form
+                        method="post"
+                        action="/cart/add"
+                        id="product-installment-form-template--15880464466141__1651295720d6d36989-8036890083549"
+                        accept-charset="UTF-8"
+                        class="shopify-product-form"
+                        enctype="multipart/form-data"
+                      >
+                        <input
+                          type="hidden"
+                          name="form_type"
+                          value="product"
+                        /><input type="hidden" name="utf8" value="✓" /><input
+                          type="hidden"
+                          name="id"
+                          value="43775632310493"
+                        /></form
+                    ></product-payment-terms>
+                    <div class="product-meta__reference">
                       <a
-                        href="otp-login.html"
-                        class="mt-2 button button--secondary button--full"
-                        >Login via OTP</a
+                        href="/products/peach-printed-pure-cotton-salwar-suit#product-8036890083549-reviews-pocket"
+                        is="review-link"
+                        onclick="document.querySelector('#product-8036890083549-reviews-pocket').click()"
+                        data-smooth-scroll
+                        class="product-meta__reviews-badge hidden-lap-and-up"
+                      >
+                      </a>
+                      <a
+                        href="/products/peach-printed-pure-cotton-salwar-suit#product-8036890083549-tabs"
+                        is="review-link"
+                        onclick="document.querySelector('#product-8036890083549-reviews-desktop').click()"
+                        data-smooth-scroll
+                        class="product-meta__reviews-badge hidden-pocket"
+                      >
+                      </a></div
+                  ></product-meta>
+                  <script>
+                    var productSKU = "ZULFT-DINAAZ2-481-003";
+                  </script>
+                  <div class="product-form">
+                    <div
+                      class="product-form__option-info"
+                      style="margin-bottom: 0"
+                    >
+                      <span class="product-form__option-name">Color:</span>
+                      <span id="option-e" class="product-form__option-value"
+                        >Peach</span
+                      >
+                    </div>
+                    <div class="variant-swatch-list" style="margin-top: -15px">
+                      <a href="product-detail.php">
+                        <div class="variant-swatch">
+                          <label
+                            class="variant-swatch__item"
+                            for="8036890116317-1"
+                          >
+                            <img
+                              loading="lazy"
+                              class="variant-swatch__image"
+                              sizes="(max-width: 740px) 64px, 72px"
+                              height="2000"
+                              width="2000"
+                              alt="Green Printed Pure Cotton Salwar Suit"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_9e3f4275-b064-43c7-a5ad-1c2b008c0b29.jpg?v=1679570683"
+                            />
+                          </label>
+                        </div>
+                      </a>
+
+                      <a href="product-detail.php">
+                        <div class="variant-swatch">
+                          <label
+                            class="variant-swatch__item"
+                            for="8036890968285-2"
+                          >
+                            <img
+                              loading="lazy"
+                              class="variant-swatch__image"
+                              sizes="(max-width: 740px) 64px, 72px"
+                              height="2000"
+                              width="2000"
+                              alt="Chikoo Printed Pure Cotton Salwar Suit"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_1afed723-9f3b-4223-a7c9-acfb4013cd70.jpg?v=1679570744"
+                            />
+                          </label>
+                        </div>
+                      </a>
+
+                      <a href="product-detail.php">
+                        <div class="variant-swatch">
+                          <label
+                            class="variant-swatch__item"
+                            for="8036890050781-3"
+                          >
+                            <img
+                              loading="lazy"
+                              class="variant-swatch__image"
+                              sizes="(max-width: 740px) 64px, 72px"
+                              height="2000"
+                              width="2000"
+                              alt="Blue Printed Pure Cotton Salwar Suit"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_24fd46da-1b56-43c9-957a-344957c2c7fc.jpg?v=1679570665"
+                            />
+                          </label>
+                        </div>
+                      </a>
+
+                      <a href="product-detail.php">
+                        <div class="variant-swatch">
+                          <label
+                            class="variant-swatch__item"
+                            for="8036890411229-4"
+                          >
+                            <img
+                              loading="lazy"
+                              class="variant-swatch__image"
+                              sizes="(max-width: 740px) 64px, 72px"
+                              height="2000"
+                              width="2000"
+                              alt="Grey Printed Pure Cotton Salwar Suit"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_9af00259-9f0a-4bb1-8ede-2129e77d4589.jpg?v=1679570703"
+                            />
+                          </label>
+                        </div>
+                      </a>
+
+                      <a href="product-detail.php">
+                        <div class="variant-swatch">
+                          <label
+                            class="variant-swatch__item"
+                            for="8036889985245-5"
+                          >
+                            <img
+                              loading="lazy"
+                              class="variant-swatch__image"
+                              sizes="(max-width: 740px) 64px, 72px"
+                              height="2000"
+                              width="2000"
+                              alt="Pink Printed Pure Cotton Salwar Suit"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_70b7e898-2502-4e4e-854b-35b2d324b758.jpg?v=1679570656"
+                            />
+                          </label>
+                        </div>
+                      </a>
+
+                      <a href="product-detail.php">
+                        <div class="variant-swatch">
+                          <label
+                            class="variant-swatch__item"
+                            for="8036890247389-6"
+                          >
+                            <img
+                              loading="lazy"
+                              class="variant-swatch__image"
+                              sizes="(max-width: 740px) 64px, 72px"
+                              height="2000"
+                              width="2000"
+                              alt="Pink Printed Pure Cotton Salwar Suit"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_d37483ca-0371-4a80-ae99-613159b0b314.jpg?v=1679570693"
+                            />
+                          </label>
+                        </div>
+                      </a>
+
+                      <a href="product-detail.php">
+                        <div class="variant-swatch">
+                          <label
+                            class="variant-swatch__item"
+                            for="8036890575069-8"
+                          >
+                            <img
+                              loading="lazy"
+                              class="variant-swatch__image"
+                              sizes="(max-width: 740px) 64px, 72px"
+                              height="2000"
+                              width="2000"
+                              alt="Yellow Printed Pure Cotton Salwar Suit"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_2e82bdbd-2489-46e0-a88c-df3a9b313066.jpg?v=1679570715"
+                            />
+                          </label>
+                        </div>
+                      </a>
+
+                      <a href="product-detail.php">
+                        <div class="variant-swatch">
+                          <label
+                            class="variant-swatch__item"
+                            for="8036890673373-9"
+                          >
+                            <img
+                              loading="lazy"
+                              class="variant-swatch__image"
+                              sizes="(max-width: 740px) 64px, 72px"
+                              height="2000"
+                              width="2000"
+                              alt="Turquoise Printed Pure Cotton Salwar Suit"
+                              src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_f6a8d2d2-27b2-423d-8aaf-0e09511b2eca.jpg?v=1679570725"
+                            />
+                          </label>
+                        </div>
+                      </a>
+                    </div>
+
+                    <div class="product-form__quantity">
+                      <span class="product-form__quantity-label"
+                        >Quantity:</span
                       >
 
-                      <span class="form__secondary-action text--subdued"
-                        >New customer?<a href="register.html" class="link"
-                          >Create an account</a
+                      <quantity-selector class="quantity-selector">
+                        <button type="button" class="quantity-selector__button">
+                          <span class="visually-hidden">Decrease quantity</span
+                          ><svg
+                            focusable="false"
+                            width="10"
+                            height="2"
+                            class="icon icon--minus-big"
+                            viewBox="0 0 10 2"
+                          >
+                            <path fill="currentColor" d="M0 0h10v2H0z"></path>
+                          </svg>
+                        </button>
+
+                        <input
+                          type="text"
+                          form="product-form-template--15880464466141__1651295720d6d36989-8036890083549"
+                          is="input-number"
+                          class="quantity-selector__input"
+                          inputmode="numeric"
+                          name="quantity"
+                          autocomplete="off"
+                          min="1"
+                          value="1"
+                          size="2"
+                          aria-label="Quantity"
+                        />
+
+                        <button type="button" class="quantity-selector__button">
+                          <span class="visually-hidden">Increase quantity</span
+                          ><svg
+                            focusable="false"
+                            width="10"
+                            height="10"
+                            class="icon icon--plus-big"
+                            viewBox="0 0 10 10"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M4 6v4h2V6h4V4H6V0H4v4H0v2h4z"
+                              fill="currentColor"
+                            ></path>
+                          </svg>
+                        </button>
+                      </quantity-selector>
+                    </div>
+                    <div class="product-form__buy-buttons">
+                      <form
+                        method="post"
+                        action="/cart/add"
+                        id="product-form-template--15880464466141__1651295720d6d36989-8036890083549"
+                        accept-charset="UTF-8"
+                        class="shopify-product-form"
+                        enctype="multipart/form-data"
+                        is="product-form"
+                      >
+                        <input
+                          type="hidden"
+                          name="form_type"
+                          value="product"
+                        /><input type="hidden" name="utf8" value="✓" /><input
+                          type="hidden"
+                          disabled
+                          name="id"
+                          value="43775632310493"
+                        />
+
+                        <product-payment-container
+                          form-id="product-form-template--15880464466141__1651295720d6d36989-8036890083549"
+                          class="product-form__payment-container"
                         >
-                      </span>
-                    </form>
+                          <button
+                            id="AddToCart"
+                            type="submit"
+                            is="loader-button"
+                            data-product-add-to-cart-button
+                            data-button-content="Add to cart"
+                            class="product-form__add-button button button--secondary button--full"
+                          >
+                            Add to cart
+                          </button>
+                          <div
+                            data-shopify="payment-button"
+                            data-has-selling-plan="false"
+                            data-has-fixed-selling-plan="false"
+                            class="shopify-payment-button"
+                          >
+                            <button
+                              class="shopify-payment-button__button shopify-payment-button__button--unbranded shopify-payment-button__button--hidden"
+                              disabled="disabled"
+                              aria-hidden="true"
+                            ></button
+                            ><button
+                              class="shopify-payment-button__more-options shopify-payment-button__button--hidden"
+                              disabled="disabled"
+                              aria-hidden="true"
+                            ></button>
+                          </div>
+                        </product-payment-container>
+                      </form>
+                    </div>
+                    <store-pickup
+                      form-id="product-form-template--15880464466141__1651295720d6d36989-8036890083549"
+                      class="product-form__store-availability-container"
+                    ></store-pickup>
+                  </div>
+                  <div class="product-meta__aside">
+                    <div class="product-meta__share text--subdued">
+                      <div class="product-meta__share-label">Share</div>
+
+                      <div class="product-meta__share-button-list">
+                        <a
+                          class="product-meta__share-button-item product-meta__share-button-item--facebook link tap-area"
+                          href="https://www.facebook.com/sharer.php?u=https://peachmode.com/products/peach-printed-pure-cotton-salwar-suit"
+                          target="_blank"
+                          rel="noopener"
+                          aria-label="Share on Facebook"
+                          ><svg
+                            focusable="false"
+                            width="8"
+                            height="14"
+                            class="icon icon--facebook"
+                            viewBox="0 0 9 17"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M2.486 16.2084L2.486 8.81845H0L0 5.93845L2.486 5.93845L2.486 3.81845C2.38483 2.79982 2.73793 1.78841 3.45107 1.05407C4.16421 0.319722 5.16485 -0.0628415 6.186 0.00844868C6.9284 0.00408689 7.67039 0.0441585 8.408 0.128449V2.69845L6.883 2.69845C6.4898 2.61523 6.08104 2.73438 5.79414 3.01585C5.50724 3.29732 5.3803 3.70373 5.456 4.09845L5.456 5.93845H8.308L7.936 8.81845H5.46L5.46 16.2084H2.486Z"
+                              fill="currentColor"
+                            ></path></svg
+                        ></a>
+                        <a
+                          class="product-meta__share-button-item product-meta__share-button-item--facebook link tap-area"
+                          href="https://api.whatsapp.com/send?text=https://peachmode.com/products/peach-printed-pure-cotton-salwar-suit"
+                          target="_blank"
+                          rel="noopener"
+                          aria-label="Share on Whatsapp"
+                          ><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="13"
+                            height="13"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              fill="currentColor"
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                            /></svg
+                        ></a>
+
+                        <a
+                          class="product-meta__share-button-item product-meta__share-button-item--pinterest link tap-area"
+                          href="https://pinterest.com/pin/create/button/?url=https://peachmode.com/products/peach-printed-pure-cotton-salwar-suit&media=https://cdn.shopify.com/s/files/1/0637/4834/1981/products/file_ee741aff-e0df-4ff5-aa13-f703e5e73e0b_800x.jpg?v=1679570674&description=Peach%20colored%20suit%20is%20prettified%20with%20print%20work%20as%20shown%20which%20makes%20it%20appear%20classy...."
+                          target="_blank"
+                          rel="noopener"
+                          aria-label="Pin on Pinterest"
+                          ><svg
+                            focusable="false"
+                            width="10"
+                            height="14"
+                            class="icon icon--pinterest"
+                            viewBox="0 0 12 16"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M5.8042 0.00123531C8.79537 -0.0442356 10.6685 1.16769 11.5498 3.29299C11.8407 3.99433 12.1516 5.28439 11.9181 6.35474C11.825 6.78208 11.7985 7.22812 11.6726 7.63086C11.4163 8.4496 11.0829 9.17441 10.6413 9.79945C10.0418 10.6486 9.13196 11.2212 7.98951 11.5091C6.97899 11.7637 6.04959 11.3826 5.50954 10.9732C5.33747 10.843 5.10674 10.6728 5.04304 10.4377C5.03488 10.4377 5.0267 10.4377 5.01853 10.4377C4.97972 10.8669 4.81532 11.3224 4.69924 11.7135C4.53858 12.2545 4.50733 12.8146 4.3064 13.3208C4.08349 13.8828 3.81274 14.3978 3.52072 14.8776C3.36739 15.1292 2.94427 15.9904 2.63675 16C2.60311 15.9354 2.58964 15.9105 2.58761 15.796C2.48858 15.6383 2.55757 15.3724 2.51393 15.1578C2.44604 14.8236 2.39317 14.2217 2.46491 13.8824C2.46491 13.7038 2.46491 13.5248 2.46491 13.3465C2.54397 12.9786 2.54085 12.6015 2.63675 12.2494C2.84537 11.4824 2.96145 10.6699 3.17692 9.87611C3.38398 9.11352 3.57396 8.27939 3.74172 7.50321C3.77957 7.32789 3.56652 6.82389 3.52072 6.63572C3.37628 6.04186 3.48624 5.21874 3.66805 4.77269C3.89698 4.21111 4.56717 3.3535 5.43589 3.57359C6.13407 3.75039 6.57846 4.50528 6.34437 5.46192C6.09862 6.46589 5.7798 7.3653 5.5587 8.37035C5.50173 8.62933 5.59968 8.90442 5.65687 9.05958C5.86357 9.61934 6.49037 10.163 7.32652 9.95278C8.59396 9.63365 9.15431 8.48627 9.53645 7.24791C9.63981 6.91302 9.62743 6.59647 9.70831 6.22709C9.87894 5.44763 9.80648 4.28411 9.56098 3.67556C9.16753 2.70023 8.43329 2.07518 7.42471 1.73624C7.1465 1.68526 6.86819 1.63427 6.58988 1.58329C6.12397 1.47655 5.23532 1.63685 4.92023 1.73624C3.51171 2.18156 2.63952 2.92544 2.09658 4.26247C1.91177 4.71767 1.81046 5.17911 1.77741 5.81884C1.76913 5.8955 1.76094 5.97217 1.75278 6.04883C1.86153 6.62068 1.87259 6.99959 2.09658 7.42657C2.20715 7.63711 2.46971 7.8029 2.51393 8.06444C2.54001 8.2185 2.42705 8.45105 2.39125 8.57467C2.33705 8.76137 2.35676 8.97522 2.26844 9.13625C2.10873 9.42678 1.67383 9.20852 1.48275 9.08491C0.489307 8.44373 -0.329526 6.5895 0.132284 4.79837C0.20342 4.5218 0.206915 4.28118 0.304126 4.03285C0.906661 2.49554 1.80565 1.55101 3.10325 0.741098C3.58947 0.437749 4.24511 0.287354 4.84657 0.128885C5.16574 0.0863481 5.48503 0.0437917 5.8042 0.00123531Z"
+                              fill="currentColor"
+                            ></path></svg
+                        ></a>
+
+                        <a
+                          class="product-meta__share-button-item product-meta__share-button-item--twitter link tap-area"
+                          href="https://twitter.com/share?text=Peach%20Printed%20Pure%20Cotton%20Salwar%20Suit&url=https://peachmode.com/products/peach-printed-pure-cotton-salwar-suit"
+                          target="_blank"
+                          rel="noopener"
+                          aria-label="Tweet on Twitter"
+                          ><svg
+                            focusable="false"
+                            width="17"
+                            height="14"
+                            class="icon icon--twitter"
+                            viewBox="0 0 20 16"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M12.845 2.13398C14.0997 2.11363 14.7676 2.53229 15.4054 3.06445C15.9468 3.02216 16.6505 2.74528 17.065 2.55232C17.1993 2.48493 17.3337 2.41786 17.468 2.35046C17.2312 2.93602 16.9103 3.39474 16.417 3.74251C16.3074 3.81976 16.1987 3.92434 16.0613 3.97362C16.0613 3.97584 16.0613 3.97838 16.0613 3.98061C16.7643 3.97394 17.3441 3.6837 17.8947 3.52603C17.8947 3.52856 17.8947 3.5311 17.8947 3.53365C17.6055 3.95454 17.214 4.38147 16.7963 4.6876C16.6277 4.8103 16.4591 4.93301 16.2905 5.05571C16.2997 5.73696 16.2795 6.38704 16.1404 6.95989C15.3314 10.2888 13.1878 12.5491 9.7945 13.517C8.5761 13.8648 6.60702 14.0075 5.21102 13.6903C4.51872 13.5329 3.89334 13.3552 3.30644 13.1203C2.98052 12.9896 2.67854 12.8485 2.38972 12.6876C2.29496 12.6346 2.2001 12.5818 2.10522 12.5287C2.42018 12.5376 2.78846 12.6168 3.14052 12.5649C3.45896 12.5179 3.77128 12.53 4.06514 12.4712C4.79794 12.324 5.4486 12.1294 6.00916 11.829C6.2809 11.6834 6.69324 11.5124 6.88634 11.3026C6.52248 11.3083 6.19256 11.2311 5.9223 11.144C4.87436 10.8051 4.26436 10.1824 3.86752 9.2468C4.1851 9.27827 5.09982 9.35394 5.31368 9.18894C4.91398 9.16891 4.52956 8.95688 4.25478 8.7992C3.41184 8.31634 2.72438 7.50634 2.72954 6.26021C2.84022 6.30821 2.9509 6.35653 3.06148 6.40453C3.27324 6.48622 3.48848 6.52978 3.74112 6.57778C3.8478 6.59781 4.06114 6.65534 4.18362 6.6137C4.17836 6.6137 4.17308 6.6137 4.16782 6.6137C4.00476 6.43982 3.73902 6.32411 3.57512 6.1375C3.03438 5.52206 2.52758 4.57507 2.84812 3.44686C2.9294 3.16077 3.05842 2.90805 3.19586 2.67502C3.20114 2.67757 3.2064 2.67979 3.21168 2.68234C3.2746 2.80282 3.415 2.89152 3.50408 2.99229C3.78024 3.30573 4.1209 3.5877 4.46812 3.83629C5.65108 4.68347 6.71642 5.20386 8.42738 5.58946C8.86134 5.68706 9.36308 5.76176 9.88146 5.76238C9.73578 5.37424 9.78258 4.7461 9.89726 4.37035C10.1856 3.42557 10.8119 2.74402 11.7307 2.37907C11.9504 2.29197 12.1941 2.22838 12.4498 2.17722C12.5815 2.16291 12.7133 2.14861 12.845 2.13398Z"
+                              fill="currentColor"
+                            ></path></svg
+                        ></a>
+
+                        <a
+                          class="product-meta__share-button-item product-meta__share-button-item--mail link tap-area"
+                          href="mailto:?&subject=Peach Printed Pure Cotton Salwar Suit&body=https://peachmode.com/products/peach-printed-pure-cotton-salwar-suit"
+                          aria-label="Share by e-mail"
+                          ><svg
+                            focusable="false"
+                            width="13"
+                            height="13"
+                            class="icon icon--share"
+                            viewBox="0 0 18 18"
+                          >
+                            <path
+                              d="M17 1l-5.6 16-3.2-7.2M17 1L1 6.6l7.2 3.2M17 1L8.2 9.8"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path></svg
+                        ></a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div id="recover-form-container" style="display: none">
-              <div class="page-header">
-                <div class="page-header__text-wrapper text-container">
-                  <h1 class="heading h2">Recover password</h1>
-                  <p>Please enter your e-mail:</p>
+          </div>
+        </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2"
+        class="shopify-section shopify-section--featured-collections"
+      >
+        <style>
+          #shopify-section-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2 {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+            --primary-button-background: 241, 63, 98;
+            --primary-button-text-color: 255, 255, 255;
+
+            --prev-next-button-background: 255, 255, 255;
+            --prev-next-button-color: 34, 34, 34;
+
+            --section-background: 255, 255, 255;
+            --section-products-per-row: 2;
+          }
+
+          @media screen and (min-width: 741px) {
+            #shopify-section-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2 {
+              --section-products-per-row: 3;
+            }
+          }
+
+          @media screen and (min-width: 1000px) {
+            #shopify-section-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2 {
+              --section-products-per-row: 4;
+            }
+          }
+
+          @media screen and (min-width: 1200px) {
+            #shopify-section-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2 {
+              --section-products-per-row: 4;
+            }
+          }
+        </style>
+
+        <section class="section">
+          <div class="section__color-wrapper">
+            <div class="container">
+              <header class="section__header">
+                <div class="text-container">
+                  <h3 class="heading h2">Jaipuri Kurti Sets</h3>
+                </div>
+              </header>
+              <div class="featured-collections">
+                <product-list
+                  id="block-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0"
+                  class="product-list product-list--center"
+                >
+                  <div>
+                    <div class="product-list__inner">
+                      <product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 50%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31609845579997" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Plum Violet
+                            Printed With Embroidered Rayon Kurti With Dhoti Set"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_f5327d0d-3d6a-4208-bb34-ed260776135f.jpg?v=1680345086"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Plum Violet Printed With
+                            Embroidered Rayon Kurti With Dhoti Set"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_520df737-338f-4385-b762-cf518cd9130c.jpg?v=1680345092"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041673654493-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041673654493-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041673654493-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041673654493-popover"
+                            href="/products/purple-printed-with-embroidered-rayon-kurti-with-dhoti-set?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041673654493-drawer"
+                            href="/products/purple-printed-with-embroidered-rayon-kurti-with-dhoti-set?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Plum Violet Printed With Embroidered ...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,399.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹2,799.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 50%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31609823101149" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Yellow
+                            Printed Pure Cotton Salwar Suit"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_333184ac-63e4-45d3-8161-1ab81b345eb1.jpg?v=1680344643"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Yellow Printed Pure Cotton Salwar
+                            Suit"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_88726a04-a860-4960-9da6-0c0485eee8d7.jpg?v=1680344649"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041673097437-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041673097437-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041673097437-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041673097437-popover"
+                            href="/products/yellow-printed-pure-cotton-salwar-suit-1?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041673097437-drawer"
+                            href="/products/yellow-printed-pure-cotton-salwar-suit-1?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Yellow Printed Pure Cotton Salwar Suit</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹1,499.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹2,999.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 50%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31609818874077" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Blue Printed
+                            Pure Cotton Top"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_57027bd9-ebb5-44a0-805f-8c155eea30e7.jpg?v=1680343972"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Blue Printed Pure Cotton Top"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_2c64f7c7-7dbe-43ae-942f-d82174b1f274.jpg?v=1680343977"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041672573149-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041672573149-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041672573149-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041672573149-popover"
+                            href="/products/blue-printed-pure-cotton-top?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8041672573149-drawer"
+                            href="/products/blue-printed-pure-cotton-top?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Blue Printed Pure Cotton Top</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹599.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹1,199.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div> </product-item
+                      ><product-item class="product-item"
+                        ><div
+                          class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                        >
+                          <div class="product-item__label-list label-list">
+                            <span
+                              class="label label--highlight"
+                              style="background-color: #13becf"
+                              >Save 50%</span
+                            >
+                          </div>
+                          <a
+                            href="product-detail.php"
+                            class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                            style="padding-bottom: 100%; --aspect-ratio: 1"
+                          >
+                            <img loading="lazy"
+                            class="product-item__primary-image"
+                            data-media-id="31604869660893" sizes="(max-width:
+                            740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 -
+                            18px)" height="2000" width="2000" alt="Mustard
+                            Floral Printed Pure Cotton Salwar Suit"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/1_AARD-NAMAH-1499-MUSTRD-PEACHMODE.jpg?v=1680172771"
+                            "><img loading="lazy"
+                            class="product-item__secondary-image"
+                            sizes="(max-width: 740px) 52vw, calc(min(100vw -
+                            80px, 1520px) / 4 - 18px)" height="2000"
+                            width="2000" alt="Mustard Floral Printed Pure Cotton
+                            Salwar Suit"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/2_AARD-NAMAH-1499-MUSTRD-PEACHMODE.jpg?v=1680172772"
+                            "></a
+                          >
+                          <div class="product-item__quick-form">
+                            <button
+                              is="toggle-button"
+                              loader
+                              aria-controls="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8039739162845-drawer"
+                              aria-expanded="false"
+                              class="button button--outline button--text button--full hidden-touch hidden-phone"
+                            >
+                              Quick view
+                            </button>
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8039739162845-drawer"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-no-touch hidden-phone"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+
+                            <button
+                              is="toggle-button"
+                              aria-controls="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8039739162845-popover"
+                              aria-expanded="false"
+                              class="product-item__quick-buy-button hidden-tablet-and-up"
+                            >
+                              <span class="visually-hidden">Quick view</span
+                              ><svg
+                                focusable="false"
+                                width="24"
+                                height="24"
+                                class="icon icon--quick-buy-shopping-cart"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M1 3H5L6 13H18L20 6H18"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                                <circle
+                                  cx="7"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <circle
+                                  cx="17"
+                                  cy="19"
+                                  r="2"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></circle>
+                                <path
+                                  d="M12 2V10M8 6H16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <quick-buy-popover
+                            id="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8039739162845-popover"
+                            href="/products/mustard-floral-printed-pure-cotton-salwar-suit?view=quick-buy-popover"
+                            class="popover popover--quick-buy hidden-tablet-and-up"
+                          ></quick-buy-popover>
+                          <quick-buy-drawer
+                            id="product-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-template--15880464466141__e32645d3-fcef-4ce0-8f64-4f0b8c94b1d2-166745958805805e9f-0-8039739162845-drawer"
+                            href="/products/mustard-floral-printed-pure-cotton-salwar-suit?view=quick-buy-drawer"
+                            class="drawer drawer--large drawer--quick-buy hidden-phone"
+                          ></quick-buy-drawer>
+                        </div>
+
+                        <div class="product-item__info">
+                          <div class="product-item-meta">
+                            <a
+                              href="product-detail.php"
+                              class="product-item-meta__title"
+                              >Mustard Floral Printed Pure Cotton Sa...</a
+                            >
+
+                            <div
+                              class="product-item-meta__price-list-container"
+                            >
+                              <div class="price-list price-list--centered">
+                                <span class="price price--highlight">
+                                  <span class="visually-hidden">Sale price</span
+                                  ><span class="money" style="color: #13becf"
+                                    >₹999.00</span
+                                  ></span
+                                >
+
+                                <span class="price price--compare">
+                                  <span class="visually-hidden"
+                                    >Regular price</span
+                                  ><span class="money">₹1,999.00</span></span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </product-item>
+                    </div>
+                  </div>
+                  <div class="section__footer">
+                    <a class="button button--primary" href="product.php"
+                      >View All</a
+                    >
+                  </div></product-list
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464466141__8a4f17bc-f5be-42c2-a249-f34d83dd5511"
+        class="shopify-section shopify-section--rich-text"
+      >
+        <style>
+          #shopify-section-template--15880464466141__8a4f17bc-f5be-42c2-a249-f34d83dd5511 {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+            --primary-button-background: 241, 63, 98;
+            --primary-button-text-color: 255, 255, 255;
+
+            --section-background: 255, 255, 255;
+          }
+        </style>
+
+        <section class="section">
+          <div>
+            <div class="section__color-wrapper" style="color: #13becf">
+              <div class="container">
+                <div
+                  class="content-box content-box--medium content-box--text-center content-box--center text-container"
+                >
+                  <h3 class="heading h2">Happy Customers</h3>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464466141__1652853782fd2055cb"
+        class="shopify-section shopify-section--apps"
+      >
+        <div class=" ">
+          <div
+            id="shopify-block-b50961f1-c2a6-4366-ba4e-29d4973e26dd"
+            class="shopify-block shopify-app-block"
+          >
+            <div
+              class="loox-v2-carousel-container"
+              id="LOOX-V2_CAROUSEL-b50961f1-c2a6-4366-ba4e-29d4973e26dd"
+              data-widget="carousel"
+              data-slide-type="gallery"
+              data-max-width="1600"
+              data-border-radius="24"
+              data-items-per-view="5"
+              data-image-ratio="1.25"
+              data-reviewer-name-color="ffffff"
+              data-stars-color="ffffff"
+              data-arrows_background-color="ffffff"
+              data-arrows_icon-color="9a9a9a"
+              data-shadow="basic"
+              data-border_active="no"
+              data-border_width="2"
+              data-border_color="000000"
+              data-product-ids=""
+              data-customer-locale="en"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="shopify-section-template--15880464466141__newsletter"
+        class="shopify-section shopify-section--newsletter"
+      >
+        <style>
+          #shopify-section-template--15880464466141__newsletter {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+            --primary-button-background: 241, 63, 98;
+            --primary-button-text-color: 255, 255, 255;
+            --section-block-background: 247, 247, 247;
+          }
+        </style>
 
-              <div class="page-content page-content--small">
+        <section class="section section--flush">
+          <image-with-text-block
+            reveal-on-scroll
+            class="image-with-text-block image-with-text-block--small image-with-text-block--cover"
+          >
+            <div class="image-with-text-block__image-wrapper">
+              <img
+                loading="lazy"
+                class="image-with-text-block__image"
+                reveal
+                sizes="100vw"
+                height="1200"
+                width="1200"
+                alt=""
+                src="//cdn.shopify.com/s/files/1/0637/4834/1981/files/AI2527C5-profile.jpg?v=1652242536"
+              />
+            </div>
+
+            <div class="container container--flush">
+              <div
+                reveal
+                class="image-with-text-block__content image-with-text-block__content--tight content-box content-box--small content-box--text-center content-box--center text-container"
+              >
+                <h2 class="heading heading--small">
+                  Subscribe to our Newsletter
+                </h2>
                 <form
                   method="post"
-                  action="/account/recover"
+                  action="/contact#newsletter-template--15880464466141__newsletter"
+                  id="newsletter-template--15880464466141__newsletter"
                   accept-charset="UTF-8"
-                  name="recover"
-                  class="form"
+                  class="form newsletter__form"
                 >
                   <input
                     type="hidden"
                     name="form_type"
-                    value="recover_customer_password"
-                  /><input type="hidden" name="utf8" value="✓" />
-                  <div class="input">
-                    <input
-                      type="email"
-                      id="customer[recover_email]"
-                      class="input__field"
-                      name="email"
-                      required="required"
-                    />
-                    <label for="customer[recover_email]" class="input__label"
-                      >E-mail</label
-                    >
-                  </div>
+                    value="customer"
+                  /><input type="hidden" name="utf8" value="✓" /><input
+                    type="hidden"
+                    name="contact[tags]"
+                    value="newsletter"
+                  />
+                  <input
+                    type="hidden"
+                    name="contact[context]"
+                    value="newsletter-template--15880464466141__newsletter"
+                  />
 
-                  <button
-                    type="submit"
-                    is="loader-button"
-                    class="form__submit button button--primary button--full"
-                  >
-                    Recover</button
-                  ><span class="form__secondary-action text--subdued"
-                    >Remember your password?<button
-                      type="button"
-                      class="link"
-                      data-action="switch-login-form"
-                    >
-                      Back to login
-                    </button>
-                  </span>
+                  <div class="input-row">
+                    <div class="input">
+                      <input
+                        type="email"
+                        id="newsletter[template--15880464466141__newsletter][contact][email]"
+                        name="contact[email]"
+                        class="input__field"
+                        required
+                      />
+                      <label
+                        for="newsletter[template--15880464466141__newsletter][contact][email]"
+                        class="input__label"
+                        >Your e-mail</label
+                      >
+                    </div>
+
+                    <div class="input">
+                      <button
+                        type="submit"
+                        is="loader-button"
+                        class="button button--primary"
+                      >
+                        Subscribe
+                      </button>
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
-          </div>
-
-          <script>
-            // The script for this is very minimal so we just embed it here
-            window.addEventListener("DOMContentLoaded", () => {
-              const loginFormElement = document.getElementById(
-                  "login-form-container"
-                ),
-                recoverFormElement = document.getElementById(
-                  "recover-form-container"
-                );
-
-              const switchForms = () => {
-                loginFormElement.style.display =
-                  window.getComputedStyle(loginFormElement).display === "block"
-                    ? "none"
-                    : "block";
-                recoverFormElement.style.display =
-                  window.getComputedStyle(recoverFormElement).display ===
-                  "block"
-                    ? "none"
-                    : "block";
-              };
-
-              if (window.location.hash === "#recover") {
-                switchForms();
-              }
-
-              Array.from(
-                document.querySelectorAll('[data-action="switch-login-form"]')
-              ).forEach((button) => {
-                button.addEventListener("click", () => switchForms());
-              });
-            });
-          </script>
+          </image-with-text-block>
         </section>
       </div>
       <div
-        id="shopify-section-static-newsletter"
-        class="shopify-section shopify-section--newsletter"
-      ></div>
-      <div
-        id="shopify-section-static-text-with-icons"
+        id="shopify-section-template--15880464466141__text-with-icons"
         class="shopify-section shopify-section--text-with-icons"
       >
         <style>
-          #shopify-section-static-text-with-icons {
+          #shopify-section-template--15880464466141__text-with-icons {
             --heading-color: 255, 255, 255;
             --text-color: 255, 255, 255;
             --section-background: 245, 127, 127;
             --vertical-breather: 40px; /* Inner spacing is smaller on this section */
           }
         </style>
-
         <section class="section section--flush">
           <div class="section__color-wrapper" style="background-color: #f7921c">
             <div class="container vertical-breather">
               <native-carousel class="text-with-icons">
                 <div class="text-with-icons__list hide-scrollbar">
                   <native-carousel-item
-                    id="block-static-text-with-icons-static-text-with-icons-0"
+                    id="block-template--15880464466141__text-with-icons-item-1"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9061,12 +14424,12 @@ if(!isset($_SESSION)){
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">Free shipping</p>
+                      <p class="heading heading--small">FREE SHIPPING</p>
                       <p>Free shipping in India</p>
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-static-text-with-icons-static-text-with-icons-1"
+                    id="block-template--15880464466141__text-with-icons-item-2"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9097,7 +14460,7 @@ if(!isset($_SESSION)){
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-static-text-with-icons-static-text-with-icons-2"
+                    id="block-template--15880464466141__text-with-icons-33a9f141-c31d-4001-ba8e-e05bb9bde209"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9128,12 +14491,12 @@ if(!isset($_SESSION)){
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">Secure payment</p>
+                      <p class="heading heading--small">SECURE PAYMENT</p>
                       <p>Your payment information is processed securely.</p>
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-static-text-with-icons-static-text-with-icons-3"
+                    id="block-template--15880464466141__text-with-icons-item-3"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9142,23 +14505,21 @@ if(!isset($_SESSION)){
                         focusable="false"
                         width="24"
                         height="24"
-                        class="icon icon--picto-email"
+                        class="icon icon--picto-send"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M21 8V5H3V8M21 8V19H3V8M21 8L12 12.5L3 8"
+                          d="M21.913 2L15.3391 20L11.5826 11.9M21.913 2L3.13043 8.3L11.5826 11.9M21.913 2L11.5826 11.9"
                           stroke="currentColor"
                           stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
                         ></path>
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">Contact us</p>
+                      <p class="heading heading--small">Contact Us</p>
                       <p>
-                        Need to contact us ? Just send us an e-mail at
-                        contact@peachmode.com
+                        Need to contact us ? Just send us an e-mail to
+                        contact@kalaajee.com
                       </p>
                     </div></native-carousel-item
                   >
@@ -9193,6 +14554,7 @@ if(!isset($_SESSION)){
           --border-color: 240, 93, 123;
         }
       </style>
+
       <footer class="footer" style="background-color: #13becf">
         <div class="container">
           <div class="footer__inner">
@@ -9207,35 +14569,35 @@ if(!isset($_SESSION)){
                 <div class="footer__item-content hidden-phone">
                   <ul class="linklist list--unstyled" role="list">
                     <li class="linklist__item">
-                      <a href="terms.html" class="link--faded"
+                      <a href="terms.php" class="link--faded"
                         >Terms & Condition</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="shipping.html" class="link--faded"
+                      <a href="shipping.php" class="link--faded"
                         >Shipping & Delivery</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="good.html" class="link--faded"
+                      <a href="good.php" class="link--faded"
                         >Goods & Services Tax</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="refund.html" class="link--faded"
+                      <a href="refund.php" class="link--faded"
                         >Refund and Cancellation</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="privacy.html" class="link--faded"
+                      <a href="privacy.php" class="link--faded"
                         >Privacy Policies</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="faq.html" class="link--faded">FAQs</a>
+                      <a href="faq.php" class="link--faded">FAQs</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="contact.html" class="link--faded">Contact us</a>
+                      <a href="contact.php" class="link--faded">Contact us</a>
                     </li>
                   </ul>
                 </div>
@@ -9274,40 +14636,40 @@ if(!isset($_SESSION)){
                       <div class="spr-reviews">
                         <ul class="linklist list--unstyled" role="list">
                           <li class="linklist__item">
-                            <a href="terms.html" class="link--faded"
+                            <a href="terms.php" class="link--faded"
                               >Terms & Condition</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="shipping.html" class="link--faded"
+                            <a href="shipping.php" class="link--faded"
                               >Shipping & Delivery</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="good.html" class="link--faded"
+                            <a href="good.php" class="link--faded"
                               >Goods & Services Tax</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="refund.html" class="link--faded"
+                            <a href="refund.php" class="link--faded"
                               >Refund and Cancellation</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="privacy.html" class="link--faded"
+                            <a href="privacy.php" class="link--faded"
                               >Privacy Policies</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="reedem.html" class="link--faded"
+                            <a href="reedem.php" class="link--faded"
                               >Reedem Gift Card</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="faq.html" class="link--faded">FAQs</a>
+                            <a href="faq.php" class="link--faded">FAQs</a>
                           </li>
                           <li class="linklist__item">
-                            <a href="contact.html" class="link--faded"
+                            <a href="contact.php" class="link--faded"
                               >Contact us</a
                             >
                           </li>
@@ -9327,30 +14689,30 @@ if(!isset($_SESSION)){
                 <div class="footer__item-content hidden-phone">
                   <ul class="linklist list--unstyled" role="list">
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Collections</a>
+                      <a href="product.php" class="link--faded">Collections</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Sarees</a>
+                      <a href="product.php" class="link--faded">Sarees</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded"
+                      <a href="product.php" class="link--faded"
                         >Salwar Suits</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Kurtis</a>
+                      <a href="product.php" class="link--faded">Kurtis</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Lehengas</a>
+                      <a href="product.php" class="link--faded">Lehengas</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Gowns</a>
+                      <a href="product.php" class="link--faded">Gowns</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Western</a>
+                      <a href="product.php" class="link--faded">Western</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.html" class="link--faded">Live</a>
+                      <a href="product.php" class="link--faded">Live</a>
                     </li>
                     <li class="linklist__item">
                       <a href="/collections/sale" class="link--faded">Sale</a>
@@ -9676,7 +15038,7 @@ if(!isset($_SESSION)){
             <div class="footer__aside">
               <span class="footer__copyright text--xsmall text--subdued"
                 >Copyright &copy; 2023
-                <a href="index.html">&nbsp; Kalaajee Fashions</a>. All rights
+                <a href="index.php">&nbsp; Kalaajee Fashions</a>. All rights
                 reserved And Proudly Powered By<a
                   href="https://www.successinnovativetechnologiespvtltd.com/"
                 >
@@ -10566,7 +15928,7 @@ if(!isset($_SESSION)){
                           xml:space="preserve"
                         >
                           <circle
-                            fill="#ee3d63"
+                            fill="#f7921c"
                             stroke="none"
                             cx="6"
                             cy="50"
@@ -10582,7 +15944,7 @@ if(!isset($_SESSION)){
                             />
                           </circle>
                           <circle
-                            fill="#ee3d63"
+                            fill="#f7921c"
                             stroke="none"
                             cx="30"
                             cy="50"
@@ -10598,7 +15960,7 @@ if(!isset($_SESSION)){
                             />
                           </circle>
                           <circle
-                            fill="#ee3d63"
+                            fill="#f7921c"
                             stroke="none"
                             cx="54"
                             cy="50"
@@ -11133,258 +16495,6 @@ if(!isset($_SESSION)){
     <div
       id="shopify-block-6048552914641687618"
       class="shopify-block shopify-app-block"
-    >
-      <script>
-        var wsShop = "peachm.myshopify.com";
-        window.wscc_markets = [];
-
-        window.wscc_markets = [];
-
-        window.wscc_markets.push({
-          country_code: "AU",
-          country: "Australia",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "AT",
-          country: "Austria",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "BE",
-          country: "Belgium",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "CA",
-          country: "Canada",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "CZ",
-          country: "Czechia",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "DK",
-          country: "Denmark",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "FJ",
-          country: "Fiji",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "FI",
-          country: "Finland",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "FR",
-          country: "France",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "DE",
-          country: "Germany",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "HK",
-          country: "Hong Kong SAR",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "IN",
-          country: "India",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "IE",
-          country: "Ireland",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "IL",
-          country: "Israel",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "IT",
-          country: "Italy",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "JP",
-          country: "Japan",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "KW",
-          country: "Kuwait",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "MY",
-          country: "Malaysia",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "MU",
-          country: "Mauritius",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "NL",
-          country: "Netherlands",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "NZ",
-          country: "New Zealand",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "NO",
-          country: "Norway",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "PL",
-          country: "Poland",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "PT",
-          country: "Portugal",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "SA",
-          country: "Saudi Arabia",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "SG",
-          country: "Singapore",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "ZA",
-          country: "South Africa",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "KR",
-          country: "South Korea",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "ES",
-          country: "Spain",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "LK",
-          country: "Sri Lanka",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "SE",
-          country: "Sweden",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "CH",
-          country: "Switzerland",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "AE",
-          country: "United Arab Emirates",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "GB",
-          country: "United Kingdom",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "US",
-          country: "United States",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-      </script>
-    </div>
+    ></div>
   </body>
 </html>
