@@ -1,292 +1,6 @@
-<?php
-include("components/connection.php");
-
-if(!isset($_SESSION)){
-  session_start();
-  if(isset($_SESSION['client_email'])){
-    $client_email = $_SESSION['client_email'];
-    $login_display = '<li class="header__linklist-item">
-                  <a href="account.php">My Account </a>
-                </li>';
-  }else{
-    $login_display = '<li class="header__linklist-item">
-                  <a href="login.php">Login </a>
-                </li>
-                <li class="header__linklist-item">
-                  <a href="register.php">Register </a>
-                </li>';
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
-    <!-- Added by AVADA SEO Suite -->
-
-    <script>
-      window.FPConfig = {};
-      window.FPConfig.ignoreKeywords = ["/cart", "/account"];
-    </script>
-
-    <script>
-      const lightJsExclude = [];
-    </script>
-
-    <script>
-      class LightJsLoader {
-        constructor(e) {
-          (this.jQs = []),
-            (this.listener = this.handleListener.bind(this, e)),
-            (this.scripts = ["default", "defer", "async"].reduce(
-              (e, t) => ({ ...e, [t]: [] }),
-              {}
-            ));
-          const t = this;
-          e.forEach((e) =>
-            window.addEventListener(e, t.listener, { passive: !0 })
-          );
-        }
-        handleListener(e) {
-          const t = this;
-          return (
-            e.forEach((e) => window.removeEventListener(e, t.listener)),
-            "complete" === document.readyState
-              ? this.handleDOM()
-              : document.addEventListener("readystatechange", (e) => {
-                  if ("complete" === e.target.readyState)
-                    return setTimeout(t.handleDOM.bind(t), 1);
-                })
-          );
-        }
-        async handleDOM() {
-          this.suspendEvent(),
-            this.suspendJQuery(),
-            this.findScripts(),
-            this.preloadScripts();
-          for (const e of Object.keys(this.scripts))
-            await this.replaceScripts(this.scripts[e]);
-          for (const e of ["DOMContentLoaded", "readystatechange"])
-            await this.requestRepaint(),
-              document.dispatchEvent(new Event("lightJS-" + e));
-          document.lightJSonreadystatechange &&
-            document.lightJSonreadystatechange();
-          for (const e of ["DOMContentLoaded", "load"])
-            await this.requestRepaint(),
-              window.dispatchEvent(new Event("lightJS-" + e));
-          await this.requestRepaint(),
-            window.lightJSonload && window.lightJSonload(),
-            await this.requestRepaint(),
-            this.jQs.forEach((e) => e(window).trigger("lightJS-jquery-load")),
-            window.dispatchEvent(new Event("lightJS-pageshow")),
-            await this.requestRepaint(),
-            window.lightJSonpageshow && window.lightJSonpageshow();
-        }
-        async requestRepaint() {
-          return new Promise((e) => requestAnimationFrame(e));
-        }
-        findScripts() {
-          document.querySelectorAll("script[type=lightJs]").forEach((e) => {
-            e.hasAttribute("src")
-              ? e.hasAttribute("async") && e.async
-                ? this.scripts.async.push(e)
-                : e.hasAttribute("defer") && e.defer
-                ? this.scripts.defer.push(e)
-                : this.scripts.default.push(e)
-              : this.scripts.default.push(e);
-          });
-        }
-        preloadScripts() {
-          const e = this,
-            t = Object.keys(this.scripts).reduce(
-              (t, n) => [...t, ...e.scripts[n]],
-              []
-            ),
-            n = document.createDocumentFragment();
-          t.forEach((e) => {
-            const t = e.getAttribute("src");
-            if (!t) return;
-            const s = document.createElement("link");
-            (s.href = t),
-              (s.rel = "preload"),
-              (s.as = "script"),
-              n.appendChild(s);
-          }),
-            document.head.appendChild(n);
-        }
-        async replaceScripts(e) {
-          let t;
-          for (; (t = e.shift()); )
-            await this.requestRepaint(),
-              new Promise((e) => {
-                const n = document.createElement("script");
-                [...t.attributes].forEach((e) => {
-                  "type" !== e.nodeName &&
-                    n.setAttribute(e.nodeName, e.nodeValue);
-                }),
-                  t.hasAttribute("src")
-                    ? (n.addEventListener("load", e),
-                      n.addEventListener("error", e))
-                    : ((n.text = t.text), e()),
-                  t.parentNode.replaceChild(n, t);
-              });
-        }
-        suspendEvent() {
-          const e = {};
-          [
-            { obj: document, name: "DOMContentLoaded" },
-            { obj: window, name: "DOMContentLoaded" },
-            { obj: window, name: "load" },
-            { obj: window, name: "pageshow" },
-            { obj: document, name: "readystatechange" },
-          ].map((t) =>
-            (function (t, n) {
-              function s(n) {
-                return e[t].list.indexOf(n) >= 0 ? "lightJS-" + n : n;
-              }
-              e[t] ||
-                ((e[t] = {
-                  list: [n],
-                  add: t.addEventListener,
-                  remove: t.removeEventListener,
-                }),
-                (t.addEventListener = (...n) => {
-                  (n[0] = s(n[0])), e[t].add.apply(t, n);
-                }),
-                (t.removeEventListener = (...n) => {
-                  (n[0] = s(n[0])), e[t].remove.apply(t, n);
-                }));
-            })(t.obj, t.name)
-          ),
-            [
-              { obj: document, name: "onreadystatechange" },
-              { obj: window, name: "onpageshow" },
-            ].map((e) =>
-              (function (e, t) {
-                let n = e[t];
-                Object.defineProperty(e, t, {
-                  get: () => n || function () {},
-                  set: (s) => {
-                    e["lightJS" + t] = n = s;
-                  },
-                });
-              })(e.obj, e.name)
-            );
-        }
-        suspendJQuery() {
-          const e = this;
-          let t = window.jQuery;
-          Object.defineProperty(window, "jQuery", {
-            get: () => t,
-            set(n) {
-              if (!n || !n.fn || !e.jQs.includes(n)) return void (t = n);
-              n.fn.ready = n.fn.init.prototype.ready = (e) => {
-                e.bind(document)(n);
-              };
-              const s = n.fn.on;
-              (n.fn.on = n.fn.init.prototype.on =
-                function (...e) {
-                  if (window !== this[0]) return s.apply(this, e), this;
-                  const t = (e) =>
-                    e
-                      .split(" ")
-                      .map((e) =>
-                        "load" === e || 0 === e.indexOf("load.")
-                          ? "lightJS-jquery-load"
-                          : e
-                      )
-                      .join(" ");
-                  return "string" == typeof e[0] || e[0] instanceof String
-                    ? ((e[0] = t(e[0])), s.apply(this, e), this)
-                    : ("object" == typeof e[0] &&
-                        Object.keys(e[0]).forEach((n) => {
-                          delete Object.assign(e[0], { [t(n)]: e[0][n] })[n];
-                        }),
-                      s.apply(this, e),
-                      this);
-                }),
-                e.jQs.push(n),
-                (t = n);
-            },
-          });
-        }
-      }
-      new LightJsLoader([
-        "keydown",
-        "mousemove",
-        "touchend",
-        "touchmove",
-        "touchstart",
-        "wheel",
-      ]);
-    </script>
-
-    <!-- /Added by AVADA SEO Suite -->
-    <script>
-      window.KiwiSizing =
-        window.KiwiSizing === undefined ? {} : window.KiwiSizing;
-      KiwiSizing.shop = "peachm.myshopify.com";
-    </script>
-    <script type="text/javascript">
-      var __wzrk_account_id = "44K-Z6K-6Z5Z";
-      var __wzrk_region = "";
-      var __wzrk_version = 2;
-      var __wzrk_web_push_enabled = true;
-      var __wzrk_webhook_enabled = "true";
-      var __wzrk_variables =
-        "shop_url,shop_domain,shop_email,shop_money_format,product_json,product_title,product_price,cart_json,cart_item_count,cart_total_price";
-      var __wzrk_shop_url = "https://peachmode.com";
-      var __wzrk_shop_domain = "peachmode.com";
-      var __wzrk_shop_email = "contact@peachmode.com";
-      var __wzrk_shop_money_format = '<span class="money">₹{{amount}}</span>';
-      var __wzrk_shop_name = "Peachmode";
-      var __wzrk_charged_currency = "INR";
-      var __wzrk_customer_name = "";
-      var __wzrk_customer_identity = "";
-      var __wzrk_customer_email = "";
-      var __wzrk_customer_phone = "";
-
-      window.clevertapApp = {
-        config: {
-          currency: "INR",
-          meta: {
-            title: "Track your order",
-            template: "page.track-your-order",
-            url: "https://peachmode.com/pages/track-your-order",
-            type: "page",
-          },
-          routes: {
-            customer: {
-              account: "/account",
-              login: "/account/login",
-              logout: "/account/logout",
-              register: "/account/register",
-            },
-            cart: {
-              list: "/cart",
-              add: "/cart/add",
-              clear: "/cart/clear",
-              update: "/cart/change",
-              change: "/cart/change",
-            },
-          },
-        },
-      };
-
-      clevertapApp.frame = {
-        hide: function () {
-          window.document.body.style.overflow = "unset";
-          window.document.getElementById("clevertap-frame").style.display =
-            "none";
-        },
-      };
-      if (localStorage) {
-        localStorage.setItem(
-          "WZRK_SHOP_INFO",
-          '{ "acct_id" : "44K-Z6K-6Z5Z" , "region" : "" , "webPushEnabled" : true , "webhookEnabled" : true}'
-        );
-      }
-    </script>
     <style>
       #clevertap-frame {
         position: fixed;
@@ -305,13 +19,12 @@ if(!isset($_SESSION)){
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Track your order</title>
-    <meta
-      name="description"
-      content='To track your order please enter your Order ID and Email/Phone in the box below and press the "Track" button. These were given to you on your receipt and in the confirmation email you should have received.'
-    />
-    <link rel="canonical" href="https://peachmode.com/pages/track-your-order" />
+    <title>Designer Lehengas</title>
     <link rel="shortcut icon" href="img/1.png" />
+    <link
+      rel="canonical"
+      href="https://peachmode.com/collections/designer-lehenga"
+    />
     <link rel="preconnect" href="https://cdn.shopify.com" />
     <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
@@ -331,13 +44,9 @@ if(!isset($_SESSION)){
       as="script"
       href="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/theme.aio.min.js?v=67881326845666540201669276710"
     />
-    <script>
-      // Google Tag Manager
-      window.dataLayer = window.dataLayer || [];
-    </script>
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Track your order" />
+    <meta property="og:title" content="Designer Lehengas" />
     <meta
       property="og:image"
       content="http://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo.png?v=1649671323"
@@ -349,46 +58,18 @@ if(!isset($_SESSION)){
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
     <meta
-      property="og:description"
-      content='To track your order please enter your Order ID and Email/Phone in the box below and press the "Track" button. These were given to you on your receipt and in the confirmation email you should have received.'
-    />
-    <meta
       property="og:url"
-      content="https://peachmode.com/pages/track-your-order"
+      content="https://peachmode.com/collections/designer-lehenga"
     />
     <meta property="og:site_name" content="Peachmode" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Track your order" />
-    <meta
-      name="twitter:description"
-      content='To track your order please enter your Order ID and Email/Phone in the box below and press the "Track" button. These were given to you on your receipt and in the confirmation email you should have received.'
-    />
+    <meta name="twitter:title" content="Designer Lehengas" />
+    <meta name="twitter:description" content="" />
     <meta
       name="twitter:image"
       content="https://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo_1200x1200_crop_center.png?v=1649671323"
     />
     <meta name="twitter:image:alt" content="peachmode.com" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://peachmode.com"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Track your order",
-            "item": "https://peachmode.com/pages/track-your-order"
-          }
-        ]
-      }
-    </script>
 
     <link
       rel="preload"
@@ -660,7 +341,7 @@ if(!isset($_SESSION)){
       window.themeVariables = {
         settings: {
           direction: "ltr",
-          pageType: "page",
+          pageType: "collection",
           cartCount: 0,
           moneyFormat:
             '\u003cspan class="money"\u003e₹{{amount}}\u003c\/span\u003e',
@@ -825,24 +506,35 @@ if(!isset($_SESSION)){
       data-paypal-v4="true"
       data-currency="INR"
     />
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="Feed"
+      href="/collections/designer-lehenga.atom"
+    />
+    <link
+      rel="alternate"
+      type="application/json+oembed"
+      href="https://peachmode.com/collections/designer-lehenga.oembed"
+    />
     <script>
       (function () {
         var scripts = [
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.96fe0b7abf48419e7469.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_checkout-react-html_src_hooks_title_ts.latest.en.3457953d3abd1b694aa5.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_shopify_verdict_build_esm_runtimes_browser_index_mts_js.latest.en.f6f2083a5fb187836a1f.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app_components_AddressForm_AddressForm_tsx-app_components_Step_Step_tsx-app_utilities_receipt-224401.latest.en.91b3bf74b8a9635d2c0a.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.94b7d1c1c7ab40c6eac2.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.d63d03b3b69c11f9e6aa.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.0ca662c669b41a356f6a.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_card-fields-react_src_hook_ts-packages_checkout-graphql_src_in-92a386.latest.en.b39452fcc8039fc140d1.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.aaa897dd9c534f7f99ac.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.8645d252f07ec25fdbc6.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages~Information~NoAddressLocation~Payment~PostPurchase~Review~Shipping~ShopPay~Sho~cf13f96e.latest.en.04837ae4ff5a8e949953.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information~Payment~ShopPay.latest.en.84ff9c0024faf7f72c14.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.900911b3d82c82309ebf.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui~app.latest.en.86cd9328cdcd6cd3a58f.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors~app.latest.en.b4546f9bffad10b3673b.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages~app.latest.en.f5154093d2604596d084.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.931851b1b02f1bcae42a.js",
         ];
         var styles = [
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.5196d587d3de2d2fbc8a.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.4e93eb2ccac793a61d40.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.90bde523bde67a4067f2.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.f987e50a37d7171c2810.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui~app.latest.en.9f2a5e9ec696775e2217.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors~app.latest.en.e788719f193b49c039a3.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.6b4c79ead7042980b29d.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information~Payment~ShopPay.latest.en.da9f06164a980bf8e7ea.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.9a0274ab07be120c1902.css",
         ];
 
         function prefetch(url, as, callback) {
@@ -960,13 +652,12 @@ if(!isset($_SESSION)){
       var __st = {
         a: 63748341981,
         offset: 19800,
-        reqid: "ed5e77cb-fd9a-495e-a811-ad66b93fbc25",
-        pageurl: "peachmode.com\/pages\/track-your-order",
-        s: "pages-97773682909",
-        u: "6f9a5d2673f7",
-        p: "page",
-        rtyp: "page",
-        rid: 97773682909,
+        reqid: "5a213575-7327-4e5a-9389-82956b87c632",
+        pageurl: "peachmode.com\/collections\/designer-lehenga",
+        u: "2050dd5c4858",
+        p: "collection",
+        rtyp: "collection",
+        rid: 405904654557,
       };
     </script>
     <script>
@@ -1037,7 +728,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script>
-      var loox_global_hash = "1681094666627";
+      var loox_global_hash = "1681302278380";
     </script>
     <style>
       .loox-reviews-default {
@@ -1051,6 +742,15 @@ if(!isset($_SESSION)){
     <script>
       var loox_rating_icons_enabled = true;
     </script>
+
+    <style>
+      .pagination {
+        display: none;
+      }
+      .product-list__inner.paused {
+        display: none;
+      }
+    </style>
 
     <style type="text/css">
       .baCountry {
@@ -2041,7 +1741,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script
-      src="https://cdn.shopify.com/extensions/cece2cc8-741a-4309-94ee-04a78984c575/1.59.0/assets/ws-currencyconverter.js"
+      src="https://cdn.shopify.com/extensions/c4e8e215-0970-4d3a-ac7b-2e25bea3398b/2.0.0/assets/ws-currencyconverter.js"
       type="text/javascript"
       defer="defer"
     ></script>
@@ -2067,7 +1767,7 @@ if(!isset($_SESSION)){
                   session_token && session_token.length === 2
                     ? session_token[1]
                     : "",
-                page_type: "page",
+                page_type: "collection",
               };
               window.navigator.sendBeacon(
                 "https://monorail-edge.shopifysvc.com/v1/produce",
@@ -2086,15 +1786,1259 @@ if(!isset($_SESSION)){
         }
       })();
     </script>
+    <script id="evids-setup">
+      (function () {
+        let t, e;
+        function n() {
+          (t = {
+            page_viewed: {},
+            collection_viewed: {},
+            product_viewed: {},
+            product_variant_viewed: {},
+            search_submitted: {},
+            product_added_to_cart: {},
+            checkout_started: {},
+            checkout_completed: {},
+            payment_info_submitted: {},
+          }),
+            (e = { wpm: {}, trekkie: {} });
+        }
+        function o(t) {
+          return `${t || "sh"}-${(function () {
+            const t = "xxxx-4xxx-xxxx-xxxxxxxxxxxx";
+            let e = "";
+            try {
+              const n = window.crypto,
+                o = new Uint16Array(31);
+              n.getRandomValues(o);
+              let r = 0;
+              e = t
+                .replace(/[x]/g, (t) => {
+                  const e = o[r] % 16;
+                  return r++, ("x" === t ? e : (3 & e) | 8).toString(16);
+                })
+                .toUpperCase();
+            } catch (n) {
+              e = t
+                .replace(/[x]/g, (t) => {
+                  const e = (16 * Math.random()) | 0;
+                  return ("x" === t ? e : (3 & e) | 8).toString(16);
+                })
+                .toUpperCase();
+            }
+            return `${(function () {
+              let t = 0,
+                e = 0;
+              t = new Date().getTime() >>> 0;
+              try {
+                e = performance.now() >>> 0;
+              } catch (t) {
+                e = 0;
+              }
+              const n = Math.abs(t + e)
+                .toString(16)
+                .toLowerCase();
+              return "00000000".substr(0, 8 - n.length) + n;
+            })()}-${e}`;
+          })()}`;
+        }
+        function r(n, r) {
+          if (
+            !t[n] ||
+            ("trekkie" !== (null == r ? void 0 : r.analyticsFramework) &&
+              "wpm" !== (null == r ? void 0 : r.analyticsFramework))
+          )
+            return o("shu");
+          const i = "string" == typeof (c = r.cacheKey) && c ? c : "default";
+          var c;
+          const a = (function (t, n, o) {
+            const r = e[n];
+            return (
+              void 0 === r[t] && (r[t] = {}),
+              void 0 === r[t][o] ? (r[t][o] = 0) : (r[t][o] += 1),
+              r[t][o]
+            );
+          })(n, r.analyticsFramework, i);
+          return (function (e, n, r) {
+            const i = t[e];
+            if (void 0 === i[r]) {
+              const t = o();
+              i[r] = [t];
+            } else if (void 0 === i[r][n]) {
+              const t = o();
+              i[r].push(t);
+            }
+            return i[r][n];
+          })(n, a, i);
+        }
+        function i() {
+          (window.Shopify = window.Shopify || {}),
+            n(),
+            (window.Shopify.evids = (t, e) => r(t, e));
+        }
+        i();
+      })();
+    </script>
     <script>
       window.ShopifyAnalytics = window.ShopifyAnalytics || {};
       window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
       window.ShopifyAnalytics.meta.currency = "INR";
       var meta = {
+        products: [
+          {
+            id: 7971756605661,
+            gid: "gid:\/\/shopify\/Product\/7971756605661",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43612694806749,
+                price: 209900,
+                name: "Red Lucknowi With Sequins Work Rayon Lehenga Choli - S",
+                public_title: "S",
+                sku: "PRNEA-W336-S",
+              },
+              {
+                id: 43612694839517,
+                price: 209900,
+                name: "Red Lucknowi With Sequins Work Rayon Lehenga Choli - M",
+                public_title: "M",
+                sku: "PRNEA-W336-M",
+              },
+              {
+                id: 43612694872285,
+                price: 209900,
+                name: "Red Lucknowi With Sequins Work Rayon Lehenga Choli - L",
+                public_title: "L",
+                sku: "PRNEA-W336-L",
+              },
+              {
+                id: 43612694905053,
+                price: 209900,
+                name: "Red Lucknowi With Sequins Work Rayon Lehenga Choli - XL",
+                public_title: "XL",
+                sku: "PRNEA-W336-XL",
+              },
+              {
+                id: 43612694937821,
+                price: 209900,
+                name: "Red Lucknowi With Sequins Work Rayon Lehenga Choli - XXL",
+                public_title: "XXL",
+                sku: "PRNEA-W336-XXL",
+              },
+            ],
+          },
+          {
+            id: 7971762438365,
+            gid: "gid:\/\/shopify\/Product\/7971762438365",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43612702474461,
+                price: 209900,
+                name: "Blue Lucknowi With Sequins Work Rayon Lehenga Choli - S",
+                public_title: "S",
+                sku: "PRNEA-W336A-S",
+              },
+              {
+                id: 43612702507229,
+                price: 209900,
+                name: "Blue Lucknowi With Sequins Work Rayon Lehenga Choli - M",
+                public_title: "M",
+                sku: "PRNEA-W336A-M",
+              },
+              {
+                id: 43612702539997,
+                price: 209900,
+                name: "Blue Lucknowi With Sequins Work Rayon Lehenga Choli - L",
+                public_title: "L",
+                sku: "PRNEA-W336A-L",
+              },
+              {
+                id: 43612702572765,
+                price: 209900,
+                name: "Blue Lucknowi With Sequins Work Rayon Lehenga Choli - XL",
+                public_title: "XL",
+                sku: "PRNEA-W336A-XL",
+              },
+              {
+                id: 43612702605533,
+                price: 209900,
+                name: "Blue Lucknowi With Sequins Work Rayon Lehenga Choli - XXL",
+                public_title: "XXL",
+                sku: "PRNEA-W336A-XXL",
+              },
+            ],
+          },
+          {
+            id: 7737303564509,
+            gid: "gid:\/\/shopify\/Product\/7737303564509",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42885472223453,
+                price: 279900,
+                name: "Multicolored Wedding Wear Designer Floral Prined Chanderi Designer Lehenga Choli",
+                public_title: null,
+                sku: "NLFS-ALFAAZ-4003",
+              },
+            ],
+          },
+          {
+            id: 7727480144093,
+            gid: "gid:\/\/shopify\/Product\/7727480144093",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42843252392157,
+                price: 394900,
+                name: "Multicolor Party Wear Digital Printed \u0026 Embroidered Satin Lehenga Choli",
+                public_title: null,
+                sku: "GRWN-GW-1032",
+              },
+            ],
+          },
+          {
+            id: 7720308736221,
+            gid: "gid:\/\/shopify\/Product\/7720308736221",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42826244227293,
+                price: 519900,
+                name: "Peach \u0026 Red Party Wear Embroidered \u0026 embellished Silk Lehenga Choli - SEMI STITCHED",
+                public_title: "SEMI STITCHED",
+                sku: "JNX-MNDKN-103",
+              },
+            ],
+          },
+          {
+            id: 7716032479453,
+            gid: "gid:\/\/shopify\/Product\/7716032479453",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42818613543133,
+                price: 409900,
+                name: "Dove Blue Partywear Floral Print With Sequin Zari Embroidered Organza Lehenga Choli",
+                public_title: null,
+                sku: "ZECL-7614",
+              },
+            ],
+          },
+          {
+            id: 7972798038237,
+            gid: "gid:\/\/shopify\/Product\/7972798038237",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43615095750877,
+                price: 239900,
+                name: "Maroon Lucknowi Chikankari Work Rayon Lehenga Choli - S",
+                public_title: "S",
+                sku: "PRNEA-W365-S",
+              },
+              {
+                id: 43615095783645,
+                price: 239900,
+                name: "Maroon Lucknowi Chikankari Work Rayon Lehenga Choli - M",
+                public_title: "M",
+                sku: "PRNEA-W365-M",
+              },
+              {
+                id: 43615095816413,
+                price: 239900,
+                name: "Maroon Lucknowi Chikankari Work Rayon Lehenga Choli - L",
+                public_title: "L",
+                sku: "PRNEA-W365-L",
+              },
+              {
+                id: 43615095849181,
+                price: 239900,
+                name: "Maroon Lucknowi Chikankari Work Rayon Lehenga Choli - XL",
+                public_title: "XL",
+                sku: "PRNEA-W365-XL",
+              },
+              {
+                id: 43626541580509,
+                price: 239900,
+                name: "Maroon Lucknowi Chikankari Work Rayon Lehenga Choli - XXL",
+                public_title: "XXL",
+                sku: "PRNEA-W365-XXL",
+              },
+            ],
+          },
+          {
+            id: 7716196745437,
+            gid: "gid:\/\/shopify\/Product\/7716196745437",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42818941157597,
+                price: 259900,
+                name: "Green Partywear Embroidered Heavy Faux Georgette Lehenga Choli - SEMI STITCHED",
+                public_title: "SEMI STITCHED",
+                sku: "NLFS-LTNITYA7002",
+              },
+            ],
+          },
+          {
+            id: 7715775873245,
+            gid: "gid:\/\/shopify\/Product\/7715775873245",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42818030010589,
+                price: 369900,
+                name: "Deep Pink Festive Wear Thread with Sequins Embroidered Georgette Lehenga Choli",
+                public_title: null,
+                sku: "JNX-KUSHBO-BRID12-1723",
+              },
+            ],
+          },
+          {
+            id: 7972797284573,
+            gid: "gid:\/\/shopify\/Product\/7972797284573",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43615094112477,
+                price: 229900,
+                name: "Red Lucknowi Chikankari Work Georgette Lehenga Choli - S",
+                public_title: "S",
+                sku: "PRNEA-W265-S",
+              },
+              {
+                id: 43615094145245,
+                price: 229900,
+                name: "Red Lucknowi Chikankari Work Georgette Lehenga Choli - M",
+                public_title: "M",
+                sku: "PRNEA-W265-M",
+              },
+              {
+                id: 43615094178013,
+                price: 229900,
+                name: "Red Lucknowi Chikankari Work Georgette Lehenga Choli - L",
+                public_title: "L",
+                sku: "PRNEA-W265-L",
+              },
+              {
+                id: 43615094210781,
+                price: 229900,
+                name: "Red Lucknowi Chikankari Work Georgette Lehenga Choli - XL",
+                public_title: "XL",
+                sku: "PRNEA-W265-XL",
+              },
+              {
+                id: 43626544726237,
+                price: 229900,
+                name: "Red Lucknowi Chikankari Work Georgette Lehenga Choli - XXL",
+                public_title: "XXL",
+                sku: "PRNEA-W265-XXL",
+              },
+            ],
+          },
+          {
+            id: 7714819637469,
+            gid: "gid:\/\/shopify\/Product\/7714819637469",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42815655739613,
+                price: 499900,
+                name: "Ethnic Peach Colored Party Wear Embroidered Silk Lehenga Choli",
+                public_title: null,
+                sku: "JNX-KUSHBO-GRLY3-1057",
+              },
+            ],
+          },
+          {
+            id: 7918374617309,
+            gid: "gid:\/\/shopify\/Product\/7918374617309",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43495468597469,
+                price: 329900,
+                name: "Bottle Green Gota Work Georgette Lehenga - M",
+                public_title: "M",
+                sku: "JNX-ZAVERI-HEZAL-1063-M",
+              },
+              {
+                id: 43495468630237,
+                price: 329900,
+                name: "Bottle Green Gota Work Georgette Lehenga - L",
+                public_title: "L",
+                sku: "JNX-ZAVERI-HEZAL-1063-L",
+              },
+              {
+                id: 43495468663005,
+                price: 329900,
+                name: "Bottle Green Gota Work Georgette Lehenga - XL",
+                public_title: "XL",
+                sku: "JNX-ZAVERI-HEZAL-1063-XL",
+              },
+              {
+                id: 43495468695773,
+                price: 329900,
+                name: "Bottle Green Gota Work Georgette Lehenga - XXL",
+                public_title: "XXL",
+                sku: "JNX-ZAVERI-HEZAL-1063-XXL",
+              },
+              {
+                id: 43500191613149,
+                price: 329900,
+                name: "Bottle Green Gota Work Georgette Lehenga - 3XL",
+                public_title: "3XL",
+                sku: "JNX-ZAVERI-HEZAL-1063-3XL",
+              },
+            ],
+          },
+          {
+            id: 7972797808861,
+            gid: "gid:\/\/shopify\/Product\/7972797808861",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43615094767837,
+                price: 219900,
+                name: "Dark Red Lucknowi Chikankari Work Georgette Lehenga Choli - S",
+                public_title: "S",
+                sku: "PRNEA-W361-S",
+              },
+              {
+                id: 43615094800605,
+                price: 219900,
+                name: "Dark Red Lucknowi Chikankari Work Georgette Lehenga Choli - M",
+                public_title: "M",
+                sku: "PRNEA-W361-M",
+              },
+              {
+                id: 43615094833373,
+                price: 219900,
+                name: "Dark Red Lucknowi Chikankari Work Georgette Lehenga Choli - L",
+                public_title: "L",
+                sku: "PRNEA-W361-L",
+              },
+              {
+                id: 43615094866141,
+                price: 219900,
+                name: "Dark Red Lucknowi Chikankari Work Georgette Lehenga Choli - XL",
+                public_title: "XL",
+                sku: "PRNEA-W361-XL",
+              },
+              {
+                id: 43620261789917,
+                price: 219900,
+                name: "Dark Red Lucknowi Chikankari Work Georgette Lehenga Choli - XXL",
+                public_title: "XXL",
+                sku: "PRNEA-W361-XXL",
+              },
+            ],
+          },
+          {
+            id: 7777567277277,
+            gid: "gid:\/\/shopify\/Product\/7777567277277",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43015219773661,
+                price: 584900,
+                name: "Pink Sequins Embroidered Chiffon Lehenga Choli",
+                public_title: null,
+                sku: "JNX-KHUSHBO-PARAMPA2-1962",
+              },
+            ],
+          },
+          {
+            id: 7882614997213,
+            gid: "gid:\/\/shopify\/Product\/7882614997213",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43383183048925,
+                price: 429900,
+                name: "Aqua Blue Embroidered Chiffon Lehenga Choli",
+                public_title: null,
+                sku: "JNX-KAVIRA-VRINDA-509",
+              },
+            ],
+          },
+          {
+            id: 7715673931997,
+            gid: "gid:\/\/shopify\/Product\/7715673931997",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42817688240349,
+                price: 384900,
+                name: "Peach Festive Wear Mirror Zari Sequins Work Georgette Lehenga Choli",
+                public_title: null,
+                sku: "JNX-ARYA-FRLS2-2006",
+              },
+            ],
+          },
+          {
+            id: 7738049855709,
+            gid: "gid:\/\/shopify\/Product\/7738049855709",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42886943801565,
+                price: 444900,
+                name: "Pink Partywear Multi Sequins Embroidered Net Lehenga Choli - SEMI STITCHED",
+                public_title: "SEMI STITCHED",
+                sku: "JNX-MRUDANGI-MARANI-1003D",
+              },
+            ],
+          },
+          {
+            id: 7963580858589,
+            gid: "gid:\/\/shopify\/Product\/7963580858589",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43599118139613,
+                price: 304900,
+                name: "Pink Floral Sequins Embroidered Georgette Lehenga Choli - Unstitched",
+                public_title: "Unstitched",
+                sku: "GRWN-GW-1044",
+              },
+            ],
+          },
+          {
+            id: 7716029071581,
+            gid: "gid:\/\/shopify\/Product\/7716029071581",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42818610200797,
+                price: 569900,
+                name: "White Wedding Wear Designer Embroidered Organza Lahenga Choli - SEMI STITCHED",
+                public_title: "SEMI STITCHED",
+                sku: "NLFS-BASANT-1002",
+              },
+            ],
+          },
+          {
+            id: 7973277204701,
+            gid: "gid:\/\/shopify\/Product\/7973277204701",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43624591327453,
+                price: 199900,
+                name: "Teal Blue Sequins Embroidered Georgette Lehenga Choli With Shrug - S",
+                public_title: "S",
+                sku: "VMIK-ATTRACTION-1101D-S",
+              },
+              {
+                id: 43616940556509,
+                price: 199900,
+                name: "Teal Blue Sequins Embroidered Georgette Lehenga Choli With Shrug - M",
+                public_title: "M",
+                sku: "VMIK-ATTRACTION-1101D-M",
+              },
+              {
+                id: 43616940589277,
+                price: 199900,
+                name: "Teal Blue Sequins Embroidered Georgette Lehenga Choli With Shrug - L",
+                public_title: "L",
+                sku: "VMIK-ATTRACTION-1101D-L",
+              },
+              {
+                id: 43616940622045,
+                price: 199900,
+                name: "Teal Blue Sequins Embroidered Georgette Lehenga Choli With Shrug - XL",
+                public_title: "XL",
+                sku: "VMIK-ATTRACTION-1101D-XL",
+              },
+              {
+                id: 43616940654813,
+                price: 199900,
+                name: "Teal Blue Sequins Embroidered Georgette Lehenga Choli With Shrug - XXL",
+                public_title: "XXL",
+                sku: "VMIK-ATTRACTION-1101D-XXL",
+              },
+              {
+                id: 43616940687581,
+                price: 199900,
+                name: "Teal Blue Sequins Embroidered Georgette Lehenga Choli With Shrug - 3XL",
+                public_title: "3XL",
+                sku: "VMIK-ATTRACTION-1101D-3XL",
+              },
+            ],
+          },
+          {
+            id: 7860015104221,
+            gid: "gid:\/\/shopify\/Product\/7860015104221",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43319942578397,
+                price: 389900,
+                name: "Blue Kalamkari Printed Art Silk Lehenga Choli",
+                public_title: null,
+                sku: "JNX-KAVIRA-RNGT-406",
+              },
+            ],
+          },
+          {
+            id: 7902680350941,
+            gid: "gid:\/\/shopify\/Product\/7902680350941",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43448364368093,
+                price: 159900,
+                name: "Yellow Floral Printed Georgette Lehenga Choli - S",
+                public_title: "S",
+                sku: "AARD-SAJ-1316-S",
+              },
+              {
+                id: 43448364400861,
+                price: 159900,
+                name: "Yellow Floral Printed Georgette Lehenga Choli - M",
+                public_title: "M",
+                sku: "AARD-SAJ-1316-M",
+              },
+              {
+                id: 43448364433629,
+                price: 159900,
+                name: "Yellow Floral Printed Georgette Lehenga Choli - L",
+                public_title: "L",
+                sku: "AARD-SAJ-1316-L",
+              },
+              {
+                id: 43448364466397,
+                price: 159900,
+                name: "Yellow Floral Printed Georgette Lehenga Choli - XL",
+                public_title: "XL",
+                sku: "AARD-SAJ-1316-XL",
+              },
+              {
+                id: 43448364499165,
+                price: 159900,
+                name: "Yellow Floral Printed Georgette Lehenga Choli - XXL",
+                public_title: "XXL",
+                sku: "AARD-SAJ-1316-XXL",
+              },
+            ],
+          },
+          {
+            id: 7716209197277,
+            gid: "gid:\/\/shopify\/Product\/7716209197277",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42818981888221,
+                price: 359900,
+                name: "Yellow Festive Wear Embroidered Mono Net Lehenga Choli - SEMI STITCHED",
+                public_title: "SEMI STITCHED",
+                sku: "JNX-NARYA-FSHKLYA1-2104",
+              },
+            ],
+          },
+          {
+            id: 7715866345693,
+            gid: "gid:\/\/shopify\/Product\/7715866345693",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42818256044253,
+                price: 454900,
+                name: "Rani Pink Festive Wear Floral Emboidered With Diamond Net Lehenga Choli - UNSTITCHED",
+                public_title: "UNSTITCHED",
+                sku: "JNX-LEO-ARKHI3-1705",
+              },
+            ],
+          },
+          {
+            id: 7716289904861,
+            gid: "gid:\/\/shopify\/Product\/7716289904861",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42819163324637,
+                price: 109900,
+                name: "Green-Red Festive Wear Floral Woven Jacquard Lehenga Choli",
+                public_title: null,
+                sku: "SVC-15230-GREEN",
+              },
+            ],
+          },
+          {
+            id: 7882613915869,
+            gid: "gid:\/\/shopify\/Product\/7882613915869",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43383181902045,
+                price: 429900,
+                name: "Aqua Blue Embroidered Chiffon Lehenga Choli",
+                public_title: null,
+                sku: "JNX-KAVIRA-VRINDA-505",
+              },
+            ],
+          },
+          {
+            id: 7716289577181,
+            gid: "gid:\/\/shopify\/Product\/7716289577181",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42819162833117,
+                price: 109900,
+                name: "Green-Red Festive Wear Floral Woven Jacquard Lehenga Choli",
+                public_title: null,
+                sku: "SVC-15226-GREEN",
+              },
+            ],
+          },
+          {
+            id: 7714825994461,
+            gid: "gid:\/\/shopify\/Product\/7714825994461",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42815666585821,
+                price: 554900,
+                name: "Eye-catching Green Colored Party Wear Foil Printed Thai Silk Lehenga Choli",
+                public_title: null,
+                sku: "JNX-KUSHBO-RASAM2-1116",
+              },
+            ],
+          },
+          {
+            id: 7714818064605,
+            gid: "gid:\/\/shopify\/Product\/7714818064605",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42815654101213,
+                price: 414900,
+                name: "Glowing White-Yellow Colored Party Wear Foil Print Silk Lehenga Choli",
+                public_title: null,
+                sku: "JNX-KUSHBO-GRLY2-1049",
+              },
+            ],
+          },
+          {
+            id: 7737396035805,
+            gid: "gid:\/\/shopify\/Product\/7737396035805",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42885730009309,
+                price: 1249900,
+                name: "Multicolor Wedding Wear Woven-Embellished Banarasi Silk Lehenga Choli - SEMI STITCHED",
+                public_title: "SEMI STITCHED",
+                sku: "JNX-TATHASTU-ANARA-5009",
+              },
+            ],
+          },
+          {
+            id: 7990543876317,
+            gid: "gid:\/\/shopify\/Product\/7990543876317",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43659634082013,
+                price: 274900,
+                name: "Purple Sequins Embroidered Georgette Lehenga Choli - Semi Stitched",
+                public_title: "Semi Stitched",
+                sku: "AAHVAN4-1302",
+              },
+            ],
+          },
+          {
+            id: 7720247656669,
+            gid: "gid:\/\/shopify\/Product\/7720247656669",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42826120134877,
+                price: 489900,
+                name: "Purple Partywear Zari Sequins Embroidered Organza Lehenga Choli - SEMI STITCHED",
+                public_title: "SEMI STITCHED",
+                sku: "JNX-KAVIRA-MAAYA2-201",
+              },
+            ],
+          },
+          {
+            id: 7972797448413,
+            gid: "gid:\/\/shopify\/Product\/7972797448413",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43615094341853,
+                price: 209900,
+                name: "White Lucknowi Chikankari Work Rayon Lehenga Choli - S",
+                public_title: "S",
+                sku: "PRNEA-W352-S",
+              },
+              {
+                id: 43615094374621,
+                price: 209900,
+                name: "White Lucknowi Chikankari Work Rayon Lehenga Choli - M",
+                public_title: "M",
+                sku: "PRNEA-W352-M",
+              },
+              {
+                id: 43615094407389,
+                price: 209900,
+                name: "White Lucknowi Chikankari Work Rayon Lehenga Choli - L",
+                public_title: "L",
+                sku: "PRNEA-W352-L",
+              },
+              {
+                id: 43615094440157,
+                price: 209900,
+                name: "White Lucknowi Chikankari Work Rayon Lehenga Choli - XL",
+                public_title: "XL",
+                sku: "PRNEA-W352-XL",
+              },
+            ],
+          },
+          {
+            id: 7973277171933,
+            gid: "gid:\/\/shopify\/Product\/7973277171933",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43624588148957,
+                price: 199900,
+                name: "Wine Sequins Embroidered Georgette Lehenga Choli With Shrug - S",
+                public_title: "S",
+                sku: "VMIK-ATTRACTION-1101C-S",
+              },
+              {
+                id: 43616940392669,
+                price: 199900,
+                name: "Wine Sequins Embroidered Georgette Lehenga Choli With Shrug - M",
+                public_title: "M",
+                sku: "VMIK-ATTRACTION-1101C-M",
+              },
+              {
+                id: 43616940425437,
+                price: 199900,
+                name: "Wine Sequins Embroidered Georgette Lehenga Choli With Shrug - L",
+                public_title: "L",
+                sku: "VMIK-ATTRACTION-1101C-L",
+              },
+              {
+                id: 43616940458205,
+                price: 199900,
+                name: "Wine Sequins Embroidered Georgette Lehenga Choli With Shrug - XL",
+                public_title: "XL",
+                sku: "VMIK-ATTRACTION-1101C-XL",
+              },
+              {
+                id: 43616940490973,
+                price: 199900,
+                name: "Wine Sequins Embroidered Georgette Lehenga Choli With Shrug - XXL",
+                public_title: "XXL",
+                sku: "VMIK-ATTRACTION-1101C-XXL",
+              },
+              {
+                id: 43616940523741,
+                price: 199900,
+                name: "Wine Sequins Embroidered Georgette Lehenga Choli With Shrug - 3XL",
+                public_title: "3XL",
+                sku: "VMIK-ATTRACTION-1101C-3XL",
+              },
+            ],
+          },
+          {
+            id: 7930479771869,
+            gid: "gid:\/\/shopify\/Product\/7930479771869",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43538421579997,
+                price: 369900,
+                name: "Pink Embroidered Georgette Lehenga Choli With Jacket - M",
+                public_title: "M",
+                sku: "SAJ-NAKSH3-773-M",
+              },
+              {
+                id: 43538421612765,
+                price: 369900,
+                name: "Pink Embroidered Georgette Lehenga Choli With Jacket - L",
+                public_title: "L",
+                sku: "SAJ-NAKSH3-773-L",
+              },
+              {
+                id: 43538421645533,
+                price: 369900,
+                name: "Pink Embroidered Georgette Lehenga Choli With Jacket - XL",
+                public_title: "XL",
+                sku: "SAJ-NAKSH3-773-XL",
+              },
+              {
+                id: 43538421678301,
+                price: 369900,
+                name: "Pink Embroidered Georgette Lehenga Choli With Jacket - XXL",
+                public_title: "XXL",
+                sku: "SAJ-NAKSH3-773-XXL",
+              },
+            ],
+          },
+          {
+            id: 7882613096669,
+            gid: "gid:\/\/shopify\/Product\/7882613096669",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43383181017309,
+                price: 429900,
+                name: "Beige Embroidered Chiffon Lehenga Choli",
+                public_title: null,
+                sku: "JNX-KAVIRA-VRINDA-502",
+              },
+            ],
+          },
+          {
+            id: 7716289413341,
+            gid: "gid:\/\/shopify\/Product\/7716289413341",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42819162702045,
+                price: 109900,
+                name: "Red-Blue Festive Wear Woven Jacquard Lehenga Choli",
+                public_title: null,
+                sku: "SVC-15224-RED",
+              },
+            ],
+          },
+          {
+            id: 7726550221021,
+            gid: "gid:\/\/shopify\/Product\/7726550221021",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42839797760221,
+                price: 224900,
+                name: "Green Festive Wear Woven Brocade Lehenga Choli - SEMI STITCHED",
+                public_title: "SEMI STITCHED",
+                sku: "SAREX-EVL-8145",
+              },
+            ],
+          },
+          {
+            id: 7720260567261,
+            gid: "gid:\/\/shopify\/Product\/7720260567261",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42826151264477,
+                price: 409900,
+                name: "Baby-Pink Party Wear Sequins Embroidered Silk Lehenga Choli",
+                public_title: null,
+                sku: "GRWN-GW-1008",
+              },
+            ],
+          },
+          {
+            id: 7715699163357,
+            gid: "gid:\/\/shopify\/Product\/7715699163357",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42817756102877,
+                price: 334900,
+                name: "Red Wedding Wear Sequins Embroidered Net Lehenga Choli",
+                public_title: null,
+                sku: "JNX-SUBHKLA-GIRLSH1-123",
+              },
+            ],
+          },
+          {
+            id: 7973277008093,
+            gid: "gid:\/\/shopify\/Product\/7973277008093",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43624593391837,
+                price: 199900,
+                name: "Mehendi Green Sequins Embroidered Georgette Lehenga Choli With Shrug - S",
+                public_title: "S",
+                sku: "VMIK-ATTRACTION-1101A-S",
+              },
+              {
+                id: 43616940064989,
+                price: 199900,
+                name: "Mehendi Green Sequins Embroidered Georgette Lehenga Choli With Shrug - M",
+                public_title: "M",
+                sku: "VMIK-ATTRACTION-1101A-M",
+              },
+              {
+                id: 43616940097757,
+                price: 199900,
+                name: "Mehendi Green Sequins Embroidered Georgette Lehenga Choli With Shrug - L",
+                public_title: "L",
+                sku: "VMIK-ATTRACTION-1101A-L",
+              },
+              {
+                id: 43616940130525,
+                price: 199900,
+                name: "Mehendi Green Sequins Embroidered Georgette Lehenga Choli With Shrug - XL",
+                public_title: "XL",
+                sku: "VMIK-ATTRACTION-1101A-XL",
+              },
+              {
+                id: 43616940163293,
+                price: 199900,
+                name: "Mehendi Green Sequins Embroidered Georgette Lehenga Choli With Shrug - XXL",
+                public_title: "XXL",
+                sku: "VMIK-ATTRACTION-1101A-XXL",
+              },
+              {
+                id: 43616940196061,
+                price: 199900,
+                name: "Mehendi Green Sequins Embroidered Georgette Lehenga Choli With Shrug - 3XL",
+                public_title: "3XL",
+                sku: "VMIK-ATTRACTION-1101A-3XL",
+              },
+            ],
+          },
+          {
+            id: 7799845912797,
+            gid: "gid:\/\/shopify\/Product\/7799845912797",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43121799495901,
+                price: 159900,
+                name: "Gray-Hot Pink Printed Art Silk Lehenga Choli With Koti - S",
+                public_title: "S",
+                sku: "ARIT-AAROHI-24007-S",
+              },
+              {
+                id: 43121799528669,
+                price: 159900,
+                name: "Gray-Hot Pink Printed Art Silk Lehenga Choli With Koti - M",
+                public_title: "M",
+                sku: "ARIT-AAROHI-24007-M",
+              },
+              {
+                id: 43121799561437,
+                price: 159900,
+                name: "Gray-Hot Pink Printed Art Silk Lehenga Choli With Koti - L",
+                public_title: "L",
+                sku: "ARIT-AAROHI-24007-L",
+              },
+              {
+                id: 43121799594205,
+                price: 159900,
+                name: "Gray-Hot Pink Printed Art Silk Lehenga Choli With Koti - XL",
+                public_title: "XL",
+                sku: "ARIT-AAROHI-24007-XL",
+              },
+              {
+                id: 43420513599709,
+                price: 159900,
+                name: "Gray-Hot Pink Printed Art Silk Lehenga Choli With Koti - XXL",
+                public_title: "XXL",
+                sku: "ARIT-AAROHI-24007-XXL",
+              },
+            ],
+          },
+          {
+            id: 7882614735069,
+            gid: "gid:\/\/shopify\/Product\/7882614735069",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43383182852317,
+                price: 429900,
+                name: "Beige Embroidered Chiffon Lehenga Choli",
+                public_title: null,
+                sku: "JNX-KAVIRA-VRINDA-508",
+              },
+            ],
+          },
+          {
+            id: 7737695535325,
+            gid: "gid:\/\/shopify\/Product\/7737695535325",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42886249808093,
+                price: 424900,
+                name: "Green Sequins Embroidered Georgette Lehenga With Top - M",
+                public_title: "M",
+                sku: "GRAMO-VIHANA-COLOUR1-51-C-M",
+              },
+              {
+                id: 42886249840861,
+                price: 424900,
+                name: "Green Sequins Embroidered Georgette Lehenga With Top - L",
+                public_title: "L",
+                sku: "GRAMO-VIHANA-COLOUR1-51-C-L",
+              },
+              {
+                id: 42886249873629,
+                price: 424900,
+                name: "Green Sequins Embroidered Georgette Lehenga With Top - XL",
+                public_title: "XL",
+                sku: "GRAMO-VIHANA-COLOUR1-51-C-XL",
+              },
+              {
+                id: 42886249906397,
+                price: 424900,
+                name: "Green Sequins Embroidered Georgette Lehenga With Top - XXL",
+                public_title: "XXL",
+                sku: "GRAMO-VIHANA-COLOUR1-51-C-XXL",
+              },
+              {
+                id: 42886249939165,
+                price: 424900,
+                name: "Green Sequins Embroidered Georgette Lehenga With Top - 3XL",
+                public_title: "3XL",
+                sku: "GRAMO-VIHANA-COLOUR1-51-C-3XL",
+              },
+            ],
+          },
+          {
+            id: 7715673374941,
+            gid: "gid:\/\/shopify\/Product\/7715673374941",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42817686601949,
+                price: 574900,
+                name: "Sky Blue Festive Wear Sequins Thread Work Soft Net Lehenga Choli",
+                public_title: null,
+                sku: "JNX-ARYA-FRLS2-2001",
+              },
+            ],
+          },
+          {
+            id: 7990544171229,
+            gid: "gid:\/\/shopify\/Product\/7990544171229",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43659634278621,
+                price: 364900,
+                name: "Dark Green Sequins Embroidered Georgette Lehenga Choli - Semi Stitched",
+                public_title: "Semi Stitched",
+                sku: "AAHVAN5-1701",
+              },
+            ],
+          },
+          {
+            id: 7957118255325,
+            gid: "gid:\/\/shopify\/Product\/7957118255325",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43586956919005,
+                price: 214900,
+                name: "Blue Floral Embroidered Net Lehenga Choli",
+                public_title: null,
+                sku: "GJI-ZIRR-7401-B",
+              },
+            ],
+          },
+          {
+            id: 7716289741021,
+            gid: "gid:\/\/shopify\/Product\/7716289741021",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42819163226333,
+                price: 109900,
+                name: "Pink-Blue Festive Wear Woven Jacquard Lehenga Choli",
+                public_title: null,
+                sku: "SVC-15229-PINK",
+              },
+            ],
+          },
+          {
+            id: 7726150090973,
+            gid: "gid:\/\/shopify\/Product\/7726150090973",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 42838789325021,
+                price: 359900,
+                name: "Green Party Wear Sequins Embroidered Georgette Lehenga Choli",
+                public_title: null,
+                sku: "GRWN-GW-1019",
+              },
+            ],
+          },
+          {
+            id: 7990480535773,
+            gid: "gid:\/\/shopify\/Product\/7990480535773",
+            vendor: "Peachmode",
+            type: "Lehenga",
+            variants: [
+              {
+                id: 43659645026525,
+                price: 449900,
+                name: "Lavender Sequins Embroidered Netted Lehenga Choli - Semi Stitched",
+                public_title: "Semi Stitched",
+                sku: "AAHVAN-RAJWADA-2001",
+              },
+            ],
+          },
+        ],
         page: {
-          pageType: "page",
-          resourceType: "page",
-          resourceId: 97773682909,
+          pageType: "collection",
+          resourceType: "collection",
+          resourceId: 405904654557,
         },
       };
       for (var attr in meta) {
@@ -2240,18 +3184,18 @@ if(!isset($_SESSION)){
                   app_name: "storefront",
                   context_url: window.location.href,
                   source_url:
-                    "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js",
+                    "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js",
                 }
               );
             };
             scriptFallback.async = true;
             scriptFallback.src =
-              "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js";
+              "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js";
             first.parentNode.insertBefore(scriptFallback, first);
           };
           script.async = true;
           script.src =
-            "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js";
+            "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js";
           first.parentNode.insertBefore(script, first);
         };
         trekkie.load({
@@ -2291,9 +3235,9 @@ if(!isset($_SESSION)){
           document.write = originalDocumentWrite;
 
           window.ShopifyAnalytics.lib.page(null, {
-            pageType: "page",
-            resourceType: "page",
-            resourceId: 97773682909,
+            pageType: "collection",
+            resourceType: "collection",
+            resourceId: 405904654557,
           });
 
           var match = window.location.pathname.match(
@@ -2302,6 +3246,13 @@ if(!isset($_SESSION)){
           var token = match ? match[1] : undefined;
           if (!hasLoggedConversion(token)) {
             setCookieIfConversion(token);
+            window.ShopifyAnalytics.lib.track("Viewed Product Category", {
+              currency: "INR",
+              category: "Collection: designer-lehenga",
+              collectionName: "designer-lehenga",
+              collectionId: 405904654557,
+              nonInteraction: true,
+            });
           }
         });
 
@@ -2629,16 +3580,19 @@ if(!isset($_SESSION)){
         },
         function pageEvents(webPixelsManagerAPI) {
           webPixelsManagerAPI.publish("page_viewed");
+          webPixelsManagerAPI.publish("collection_viewed", {
+            collection: { id: "405904654557", title: "Designer Lehengas" },
+          });
         },
         "https://cdn.shopify.com",
         "browser",
-        "0.0.279",
-        "518c152fw00918cf1pc7ca055am99284242"
+        "0.0.284",
+        "c97e0465wdda688adp96a29162mdee74fa4"
       );
     </script>
   </head>
   <body
-    class="no-focus-outline features--image-zoom template-page page-track-your-order"
+    class="no-focus-outline features--image-zoom template-collection"
     data-instant-allow-query-string
   >
     <!-- Google Tag Manager (noscript) -->
@@ -2728,10 +3682,6 @@ if(!isset($_SESSION)){
             ><announcement-bar-item hidden class="announcement-bar__item"
               ><div class="announcement-bar__message text--xsmall">
                 <p>7 Day no questions asked return policy.</p>
-              </div></announcement-bar-item
-            ><announcement-bar-item hidden class="announcement-bar__item"
-              ><div class="announcement-bar__message text--xsmall">
-                <p>Free Shipping in India. COD Available.</p>
               </div></announcement-bar-item
             >
           </div>
@@ -2932,14 +3882,14 @@ if(!isset($_SESSION)){
                   <li class="header__linklist-item">
                     <a
                       class="header__linklist-link link--animated"
-                      href="track-order.php"
+                      href="track-order.html"
                       >Track Order</a
                     >
                   </li>
                   <li class="header__linklist-item">
                     <a
                       class="header__linklist-link link--animated"
-                      href="contact.php"
+                      href="contact.html"
                       >Contact Us</a
                     >
                   </li>
@@ -2982,7 +3932,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-1"
                       aria-expanded="false"
                       >Collections</a
@@ -2996,21 +3946,21 @@ if(!isset($_SESSION)){
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >New Arrivals</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Handbags</a
                         >
                       </li>
                       <li class="nav-dropdown__item has-dropdown">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           aria-controls="desktop-menu-1-3"
                           aria-expanded="false"
                           >Jewellery<svg
@@ -3037,35 +3987,35 @@ if(!isset($_SESSION)){
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Earrings</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Necklace</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Rings</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Bracelet</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Maang Tika</a
                             >
                           </li>
@@ -3074,28 +4024,28 @@ if(!isset($_SESSION)){
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Bedsheets</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Exclusive</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Combo Packs</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Mens Kurta Pyjama</a
                         >
                       </li>
@@ -3107,7 +4057,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-2"
                       aria-expanded="false"
                       >Sarees</a
@@ -3118,73 +4068,73 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Art Silk Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chiffon Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Crepe Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Organza Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chanderi Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bhagalpuri Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Satin Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Linen Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Net Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kanjivaram</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Banarasi Silk</a
                                   >
                                 </li>
@@ -3192,38 +4142,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Print/Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Floral Print</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bandhani Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Embroidered</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Paithani</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Lucknowi / Chickankari</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Patola</a
                                   >
                                 </li>
@@ -3231,23 +4181,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Collection</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Half N Half Saree</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Authentic Drapes</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bollywood</a
                                   >
                                 </li>
@@ -3255,38 +4205,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -3294,63 +4244,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -3358,68 +4308,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -3451,7 +4401,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-3"
                       aria-expanded="false"
                       >Salwar Suits</a
@@ -3462,73 +4412,73 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Organza</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bhagalpuri Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Banarasi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chanderi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tapetta Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tussar Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Net</a
                                   >
                                 </li>
@@ -3536,43 +4486,43 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Style</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sharara Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Anarkali Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Palazzo Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Patiala Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pakistani Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Straight Cut Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Indo western</a
                                   >
                                 </li>
@@ -3580,23 +4530,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Stitch Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Unstitched Salwar suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Readymade Salwar suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Semi Stitched</a
                                   >
                                 </li>
@@ -3604,28 +4554,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >3000 & above</a
                                   >
                                 </li>
@@ -3633,63 +4583,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -3697,68 +4647,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -3790,7 +4740,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-4"
                       aria-expanded="false"
                       >Kurtis</a
@@ -3801,58 +4751,58 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chanderi Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Linen</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Muslin</a
                                   >
                                 </li>
@@ -3860,63 +4810,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Print/Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Floral print</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Solid</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bandhani</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Printed</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Embroidered</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Anarkali</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >A-Line</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Straight</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Short
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Long</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >High Low</a
                                   >
                                 </li>
@@ -3924,53 +4874,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Product Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti Pant Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti Palazzo Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti Dhoti Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti Skirt Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Palazzo Suit</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Top Bottom Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kaftan</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kaftan Set</a
                                   >
                                 </li>
@@ -3978,28 +4928,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
@@ -4007,23 +4957,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000 & above</a
                                   >
                                 </li>
@@ -4031,68 +4981,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4124,7 +5074,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-5"
                       aria-expanded="false"
                       >Lehengas</a
@@ -4135,53 +5085,53 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Art Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Banarasi Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Organza</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Satin</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Velvet</a
                                   >
                                 </li>
@@ -4189,23 +5139,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Designer</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Digital</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Floral</a
                                   >
                                 </li>
@@ -4213,38 +5163,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -4252,53 +5202,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -4306,68 +5256,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Gold</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4375,23 +5325,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Style</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Ready to wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Unstiched</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Semi stitched</a
                                   >
                                 </li>
@@ -4423,7 +5373,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-6"
                       aria-expanded="false"
                       >Gowns</a
@@ -4434,53 +5384,53 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Satin</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chanderi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Net</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tapetta Silk</a
                                   >
                                 </li>
@@ -4488,53 +5438,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -4542,38 +5492,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -4581,63 +5531,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4654,7 +5604,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-7"
                       aria-expanded="false"
                       >Western</a
@@ -4665,33 +5615,33 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
@@ -4699,28 +5649,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tops</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tunics</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Dresses</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jumpsuit</a
                                   >
                                 </li>
@@ -4728,28 +5678,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
@@ -4757,23 +5707,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000 & above</a
                                   >
                                 </li>
@@ -4781,68 +5731,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4856,14 +5806,14 @@ if(!isset($_SESSION)){
                   <li class="header__linklist-item" data-item-title="Live">
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       >Live</a
                     >
                   </li>
                   <li class="header__linklist-item" data-item-title="Sale">
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       >Sale</a
                     >
                   </li>
@@ -5036,9 +5986,10 @@ if(!isset($_SESSION)){
                 >
               </div>
             </nav>
+
             <!-- LOGO PART -->
             <h1 class="header__logo">
-              <a class="header__logo-link" href="index.php"
+              <a class="header__logo-link" href="index.html"
                 ><span class="visually-hidden">Kalaajee</span>
                 <img
                   loading="lazy"
@@ -5325,7 +6276,7 @@ if(!isset($_SESSION)){
   }*/
                 </style>
                 <a
-                  href="login.php"
+                  href="login.html"
                   class="header__icon-wrapper tap-area hidden-phone hidden-desk"
                   aria-label="Login"
                   ><svg
@@ -5398,7 +6349,12 @@ if(!isset($_SESSION)){
                 role="list"
               >
                 <li class="header__linklist-item"></li>
-                <?php echo $login_display; ?>
+                <li class="header__linklist-item">
+                  <a href="login.html">Login </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a href="account.html">My Account </a>
+                </li>
                 <li class="header__linklist-item">
                   <a
                     href="/cart"
@@ -5527,8 +6483,8 @@ if(!isset($_SESSION)){
         global
         hidden
         class="cart-notification"
-      ></cart-notification>
-      <mobile-navigation
+      ></cart-notification
+      ><mobile-navigation
         append-body
         id="mobile-menu-drawer"
         class="drawer drawer--from-left"
@@ -8381,7 +9337,7 @@ if(!isset($_SESSION)){
 
           "logo": "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/files\/280x80_d20e9ddd-ae15-43c9-9dc7-142b6b7c30e1_280x.png?v=1676437272",
 
-          "url": "https:\/\/peachmode.com\/pages\/track-your-order"
+          "url": "https:\/\/peachmode.com"
         }
       </script>
     </div>
@@ -8490,9 +9446,20 @@ if(!isset($_SESSION)){
     </div>
     <div id="main" role="main" class="anchor">
       <div
-        id="shopify-section-template--16029305176285__main"
-        class="shopify-section shopify-section--main-page"
+        id="shopify-section-template--15880464433373__collection-banner"
+        class="shopify-section shopify-section--collection-banner"
       >
+        <style>
+          #shopify-section-template--15880464433373__collection-banner
+            .image-overlay {
+            --heading-color: 255, 255, 255;
+            --text-color: 255, 255, 255;
+            --section-items-alignment: center;
+            --section-overlay-color: 0, 0, 0;
+            --section-overlay-opacity: 0.3;
+          }
+        </style>
+
         <section>
           <div class="container">
             <div class="page-header">
@@ -8502,226 +9469,2661 @@ if(!isset($_SESSION)){
               >
                 <ol class="breadcrumb__list" role="list">
                   <li class="breadcrumb__item">
-                    <a class="breadcrumb__link" href="index.php">Home</a>
+                    <a class="breadcrumb__link" href="/">Home</a>
                   </li>
 
                   <li class="breadcrumb__item">
                     <span class="breadcrumb__link" aria-current="page"
-                      >Track your order</span
+                      >Designer Lehengas</span
                     >
                   </li>
                 </ol>
               </nav>
-
               <div class="page-header__text-wrapper text-container">
-                <h1 class="heading h2">Track your order</h1>
+                <h1 class="heading h1">Designer Lehengas</h1>
               </div>
             </div>
-            <div class="page-content page-content--medium rte">
-              <span
-                >To track your order please enter your Order ID and Email/Phone
-                in the box below and press the "Track" button. These were given
-                to you on your receipt and in the confirmation email you should
-                have received.</span
-              >
-              <p id="trackerError"></p>
-              <form id="return-and-track-order-form" method="post" class="mt-4">
-                <div class="input">
-                  <input
-                    id="orderid"
-                    type="text"
-                    class="input__field"
-                    name="orderid"
-                    aria-label="orderid"
-                    required
-                  />
-                  <label for="orderid" class="input__label"
-                    >Order ID*
-                    <small
-                      >(Found in your order confirmation email.)</small
-                    ></label
-                  >
-                </div>
-                <div class="input">
-                  <input
-                    id="billing_email"
-                    type="email"
-                    class="input__field"
-                    name="billing_email"
-                    aria-label="billing_email"
-                  />
-                  <label for="billing_email" class="input__label"
-                    >Billing Email
-                    <small>(Email you used during checkout.)</small></label
-                  >
-                </div>
-                <div class="input">
-                  <h6>OR</h6>
-                </div>
-                <div class="input">
-                  <input
-                    id="billing_phone"
-                    type="number"
-                    class="input__field"
-                    name="billing_phone"
-                    aria-label="billing_phone"
-                  />
-                  <label for="billing_phone" class="input__label"
-                    >Billing Phone
-                    <small
-                      >(Phone number you used during checkout.)</small
-                    ></label
-                  >
-                </div>
-                <button
-                  is="loader-button"
-                  type="submit"
-                  class="form__submit button button--primary button--full"
-                >
-                  Track Order
-                </button>
-              </form>
-            </div>
-            <div class="account account--order">
-              <div class="container container--small">
-                <div class="page-header page-header--small">
-                  <div class="page-header__text-wrapper text-container">
-                    <h1 class="heading h4 order_name">
-                      <img
-                        loading="lazy"
-                        style="height: 50px; margin: auto"
-                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/loading.gif?v=135655685998696985211654153040"
-                      />
-                    </h1>
-                    <span class="account__order-date text--subdued order_date"
-                      >---</span
-                    >
-                  </div>
-                </div>
-                <div class="page-content">
-                  <div class="account__block-list">
-                    <div class="account__block-item">
-                      <div class="account__order-details">
-                        <div class="order_table"></div>
+          </div>
+        </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464433373__main"
+        class="shopify-section shopify-section--main-collection"
+      >
+        <script>
+          //   if(location.hash.indexOf("page-") > -1 ){
+          //   const curPage = Number(location.hash.split("page-")[1]);
+          //   if(Number(curPage) > 1)
+          //       location.hash = "page-1";
 
-                        <div class="account__order-addresses line-item-table">
-                          <h2 class="heading h5">Addresses</h2>
-                          <div
-                            class="account__addresses-list account__addresses-list--wide"
+          //   }
+        </script>
+        <style>
+          #shopify-section-template--15880464433373__main {
+            --section-products-per-row: 2;
+          }
+
+          @media screen and (min-width: 741px) {
+            #shopify-section-template--15880464433373__main {
+              --section-products-per-row: 4;
+            }
+          }
+          @media screen and (min-width: 1400px) {
+            #shopify-section-template--15880464433373__main {
+              --section-products-per-row: 4;
+            }
+          } /*
+    IMPLEMENTATION NOTE: due to design requirements, the mobile toolbar (with filters and sort by) had to be moved to the
+    layout file. However as section settings cannot be accessed outside the section itself, we simply hide them in CSS.
+   */
+          .mobile-toolbar__item--filters {
+            display: flex !important;
+          }
+          .mobile-toolbar__item--sort {
+            display: flex !important;
+          }
+          @media screen and (max-width: 999px) {
+            :root {
+              --anchor-offset: 60px;
+            }
+          }
+        </style>
+        <style>
+          * {
+            box-sizing: border-box;
+          }
+
+          /* Create two equal columns that floats next to each other */
+          .column1 {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            height: 100%; /* Should be removed. Only for demonstration */
+          }
+          .column2 {
+            float: left;
+            width: 80%;
+            padding: 10px;
+            height: 100%; /* Should be removed. Only for demonstration */
+          }
+
+          /* Clear floats after the columns */
+          .row:after {
+            content: "";
+            display: table;
+            clear: both;
+          }
+        </style>
+
+        <div class="row">
+          <div class="column1">
+            <section class="section section--tight">
+              <div class="section__color-wrapper">
+                <div class="container">
+                  <div class="">
+                    <div class="faq">
+                      <div
+                        class="faq__wrapper"
+                        itemscope
+                        itemtype="https://schema.org/FAQPage"
+                        style="margin-left: -45px; width: 272px"
+                      >
+                        <div
+                          class="faq__item"
+                          itemscope
+                          itemprop="mainEntity"
+                          itemtype="https://schema.org/Question"
+                        >
+                          <button
+                            is="toggle-button"
+                            class="collapsible-toggle text--strong"
+                            aria-controls="block-template--15880464564445__faq-04b21433-f143-446a-8d74-d65992b9e3db"
+                            aria-expanded="false"
+                            itemprop="name"
                           >
-                            <div
-                              class="account__address account__address--auto"
-                            >
-                              <span
-                                class="account__address-title heading heading--small"
-                                >Billing address</span
-                              >
-                              <div
-                                class="account__address-details billing_address"
-                              >
-                                <p></p>
-                              </div>
-                            </div>
-                            <div
-                              class="account__address account__address--auto"
-                            >
-                              <span
-                                class="account__address-title heading heading--small"
-                                >Shipping address</span
-                              >
-                              <div
-                                class="account__address-details shipping_address"
-                              >
-                                <p></p>
-                              </div>
-                            </div>
-                          </div>
+                            Filter
+                          </button>
                         </div>
-                        <div class="account__order-addresses">
-                          <h2 class="heading h5">Shipments:</h2>
-                          <p id="shipmentError"></p>
-                          <div
-                            class="account__addresses-list shipment_details account__addresses-list--wide"
-                            style="
-                              grid-template-columns: repeat(auto-fit, 100%);
-                            "
+                        <div
+                          class="faq__item"
+                          itemscope
+                          itemprop="mainEntity"
+                          itemtype="https://schema.org/Question"
+                        >
+                          <button
+                            is="toggle-button"
+                            class="collapsible-toggle text--strong"
+                            aria-controls="block-template--15880464564445__faq-1d2a9a0c-454e-40ee-87ff-e666a6e4fcef"
+                            aria-expanded="false"
+                            itemprop="name"
+                          >
+                            Product Type<span class="animated-plus"></span>
+                          </button>
+
+                          <collapsible-content
+                            id="block-template--15880464564445__faq-1d2a9a0c-454e-40ee-87ff-e666a6e4fcef"
+                            class="collapsible anchor"
+                            itemscope
+                            itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer"
                           >
                             <div
-                              class="account__address account__address--auto"
+                              class="collapsible__content text-container"
+                              itemprop="text"
                             >
-                              <ul
-                                class="tracking_details d-flex flex-1 flex-wrap"
-                              >
-                                <li>
-                                  <strong>Tracking No:</strong><span>NA</span>
-                                </li>
-                                <li>
-                                  <strong>Courier Company:</strong
-                                  ><span>NA</span>
-                                </li>
-                                <li>
-                                  <strong>Shipment Status:</strong
-                                  ><span>NA</span>
-                                </li>
-                                <li>
-                                  <strong>Payment Mode:</strong><span>NA</span>
-                                </li>
-                                <li><strong>Amount:</strong><span>NA</span></li>
-                              </ul>
-                              <div class="tracking_slider mt-4">
-                                <div class="track_bar">
-                                  <span class="in_transit"></span>
-                                  <span></span>
-                                </div>
-                                <div
-                                  class="d-flex flex-wrap flex-1 justify-between align-center"
-                                >
-                                  <span>Shipment Created</span>
-                                  <span>In Transit</span>
-                                  <span>Delivered</span>
-                                </div>
-                              </div>
-                              <div class="mt-4">
-                                <a
-                                  href=""
-                                  class="button button--primary button--small track_url"
-                                  target="_blank"
-                                  >GET DETAILED SCAN</a
-                                >
-                              </div>
-                              <table
-                                class="line-item-table table table-shipment mt-4 mb-1"
-                              >
-                                <thead
-                                  class="line-item-table__header-group hidden-phone"
-                                >
-                                  <tr>
-                                    <th>
-                                      <span class="">Shipment Items</span>
-                                    </th>
-                                    <th>
-                                      <span class="text--center">Size</span>
-                                    </th>
-                                    <th>
-                                      <span class="text--center">Quantity</span>
-                                    </th>
-                                  </tr>
-                                </thead>
-                                <tbody
-                                  class="line-item-table__list shipment_html"
-                                ></tbody>
-                              </table>
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1"> Saree</label>
                             </div>
-                          </div>
+                          </collapsible-content>
+                        </div>
+                        <div
+                          class="faq__item"
+                          itemscope
+                          itemprop="mainEntity"
+                          itemtype="https://schema.org/Question"
+                        >
+                          <button
+                            is="toggle-button"
+                            class="collapsible-toggle text--strong"
+                            aria-controls="block-template--15880464564445__faq-f5fe71ea-d058-4188-9e6e-df456a368c88"
+                            aria-expanded="false"
+                            itemprop="name"
+                          >
+                            Occasion<span class="animated-plus"></span>
+                          </button>
+
+                          <collapsible-content
+                            id="block-template--15880464564445__faq-f5fe71ea-d058-4188-9e6e-df456a368c88"
+                            class="collapsible anchor"
+                            itemscope
+                            itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer"
+                          >
+                            <div
+                              class="collapsible__content text-container"
+                              itemprop="text"
+                            >
+                              <p>
+                                <input
+                                  type="checkbox"
+                                  id="vehicle1"
+                                  name="vehicle1"
+                                  value="Bike"
+                                />
+                                <label for="vehicle1"> Casual</label><br />
+                                <input
+                                  type="checkbox"
+                                  id="vehicle1"
+                                  name="vehicle1"
+                                  value="Bike"
+                                />
+                                <label for="vehicle1"> Daily</label><br />
+                                <input
+                                  type="checkbox"
+                                  id="vehicle1"
+                                  name="vehicle1"
+                                  value="Bike"
+                                />
+                                <label for="vehicle1"> Festive</label><br />
+                                <input
+                                  type="checkbox"
+                                  id="vehicle1"
+                                  name="vehicle1"
+                                  value="Bike"
+                                />
+                                <label for="vehicle1"> Haldi</label><br />
+                                <input
+                                  type="checkbox"
+                                  id="vehicle1"
+                                  name="vehicle1"
+                                  value="Bike"
+                                />
+                                <label for="vehicle1"> Mehendi</label><br />
+                                <input
+                                  type="checkbox"
+                                  id="vehicle1"
+                                  name="vehicle1"
+                                  value="Bike"
+                                />
+                                <label for="vehicle1"> Office Wear</label><br />
+                                <input
+                                  type="checkbox"
+                                  id="vehicle1"
+                                  name="vehicle1"
+                                  value="Bike"
+                                />
+                                <label for="vehicle1"> Party</label><br />
+                              </p>
+                            </div>
+                          </collapsible-content>
+                        </div>
+                        <div
+                          class="faq__item"
+                          itemscope
+                          itemprop="mainEntity"
+                          itemtype="https://schema.org/Question"
+                        >
+                          <button
+                            is="toggle-button"
+                            class="collapsible-toggle text--strong"
+                            aria-controls="block-template--15880464564445__faq-0be46b72-6b8c-4787-a77d-f7c9c4eb9349"
+                            aria-expanded="false"
+                            itemprop="name"
+                          >
+                            Color<span class="animated-plus"></span>
+                          </button>
+
+                          <collapsible-content
+                            id="block-template--15880464564445__faq-0be46b72-6b8c-4787-a77d-f7c9c4eb9349"
+                            class="collapsible anchor"
+                            itemscope
+                            itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer"
+                          >
+                            <div
+                              class="collapsible__content text-container"
+                              itemprop="text"
+                            >
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">Blue</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">Black</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1"> Yellow</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1"> Green</label><br />
+                            </div>
+                          </collapsible-content>
+                        </div>
+                        <div
+                          class="faq__item"
+                          itemscope
+                          itemprop="mainEntity"
+                          itemtype="https://schema.org/Question"
+                        >
+                          <button
+                            is="toggle-button"
+                            class="collapsible-toggle text--strong"
+                            aria-controls="block-template--15880464564445__faq-7d8c0080-cc75-4f1a-bd08-3fe509416763"
+                            aria-expanded="false"
+                            itemprop="name"
+                          >
+                            Stich Type<span class="animated-plus"></span>
+                          </button>
+
+                          <collapsible-content
+                            id="block-template--15880464564445__faq-7d8c0080-cc75-4f1a-bd08-3fe509416763"
+                            class="collapsible anchor"
+                            itemscope
+                            itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer"
+                          >
+                            <div
+                              class="collapsible__content text-container"
+                              itemprop="text"
+                            >
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1"> Unstiched</label>
+                            </div>
+                          </collapsible-content>
+                        </div>
+                        <div
+                          class="faq__item"
+                          itemscope
+                          itemprop="mainEntity"
+                          itemtype="https://schema.org/Question"
+                        >
+                          <button
+                            is="toggle-button"
+                            class="collapsible-toggle text--strong"
+                            aria-controls="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e1"
+                            aria-expanded="false"
+                            itemprop="name"
+                          >
+                            Print Pattern<span class="animated-plus"></span>
+                          </button>
+
+                          <collapsible-content
+                            id="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e1"
+                            class="collapsible anchor"
+                            itemscope
+                            itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer"
+                          >
+                            <div
+                              class="collapsible__content text-container"
+                              itemprop="text"
+                            >
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">Abstract print</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">Bandhni</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1"> Checked</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1"> Foil Print</label><br />
+                            </div>
+                          </collapsible-content>
+                        </div>
+                        <div
+                          class="faq__item"
+                          itemscope
+                          itemprop="mainEntity"
+                          itemtype="https://schema.org/Question"
+                        >
+                          <button
+                            is="toggle-button"
+                            class="collapsible-toggle text--strong"
+                            aria-controls="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e16"
+                            aria-expanded="false"
+                            itemprop="name"
+                          >
+                            Style<span class="animated-plus"></span>
+                          </button>
+
+                          <collapsible-content
+                            id="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e16"
+                            class="collapsible anchor"
+                            itemscope
+                            itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer"
+                          >
+                            <div
+                              class="collapsible__content text-container"
+                              itemprop="text"
+                            >
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1"> Half N Half</label><br />
+                            </div>
+                          </collapsible-content>
+                        </div>
+                        <div
+                          class="faq__item"
+                          itemscope
+                          itemprop="mainEntity"
+                          itemtype="https://schema.org/Question"
+                        >
+                          <button
+                            is="toggle-button"
+                            class="collapsible-toggle text--strong"
+                            aria-controls="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e15"
+                            aria-expanded="false"
+                            itemprop="name"
+                          >
+                            Material<span class="animated-plus"></span>
+                          </button>
+
+                          <collapsible-content
+                            id="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e15"
+                            class="collapsible anchor"
+                            itemscope
+                            itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer"
+                          >
+                            <div
+                              class="collapsible__content text-container"
+                              itemprop="text"
+                            >
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">Pure Cotton</label><br />
+                            </div>
+                          </collapsible-content>
+                        </div>
+                        <div
+                          class="faq__item"
+                          itemscope
+                          itemprop="mainEntity"
+                          itemtype="https://schema.org/Question"
+                        >
+                          <button
+                            is="toggle-button"
+                            class="collapsible-toggle text--strong"
+                            aria-controls="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e14"
+                            aria-expanded="false"
+                            itemprop="name"
+                          >
+                            Work<span class="animated-plus"></span>
+                          </button>
+
+                          <collapsible-content
+                            id="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e14"
+                            class="collapsible anchor"
+                            itemscope
+                            itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer"
+                          >
+                            <div
+                              class="collapsible__content text-container"
+                              itemprop="text"
+                            >
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">Embroidred</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">Handloom</label><br />
+                            </div>
+                          </collapsible-content>
+                        </div>
+                        <div
+                          class="faq__item"
+                          itemscope
+                          itemprop="mainEntity"
+                          itemtype="https://schema.org/Question"
+                        >
+                          <button
+                            is="toggle-button"
+                            class="collapsible-toggle text--strong"
+                            aria-controls="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e13"
+                            aria-expanded="false"
+                            itemprop="name"
+                          >
+                            Price<span class="animated-plus"></span>
+                          </button>
+
+                          <collapsible-content
+                            id="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e13"
+                            class="collapsible anchor"
+                            itemscope
+                            itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer"
+                          >
+                            <div
+                              class="collapsible__content text-container"
+                              itemprop="text"
+                            >
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">501 - 1000</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">1001 - 1500</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">1501 - 2000</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">2001 - 3000</label><br />
+                            </div>
+                          </collapsible-content>
+                        </div>
+                        <div
+                          class="faq__item"
+                          itemscope
+                          itemprop="mainEntity"
+                          itemtype="https://schema.org/Question"
+                        >
+                          <button
+                            is="toggle-button"
+                            class="collapsible-toggle text--strong"
+                            aria-controls="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e12"
+                            aria-expanded="false"
+                            itemprop="name"
+                          >
+                            Discount<span class="animated-plus"></span>
+                          </button>
+
+                          <collapsible-content
+                            id="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e12"
+                            class="collapsible anchor"
+                            itemscope
+                            itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer"
+                          >
+                            <div
+                              class="collapsible__content text-container"
+                              itemprop="text"
+                            >
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">40% - 50%</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">50% - 60%</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">60% - 70%</label><br />
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">70% - 80%</label><br />
+                            </div>
+                          </collapsible-content>
+                        </div>
+                        <div
+                          class="faq__item"
+                          itemscope
+                          itemprop="mainEntity"
+                          itemtype="https://schema.org/Question"
+                        >
+                          <button
+                            is="toggle-button"
+                            class="collapsible-toggle text--strong"
+                            aria-controls="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e11"
+                            aria-expanded="false"
+                            itemprop="name"
+                          >
+                            Availability<span class="animated-plus"></span>
+                          </button>
+
+                          <collapsible-content
+                            id="block-template--15880464564445__faq-81d7499e-be3a-447a-ab0d-a811a8ccf5e11"
+                            class="collapsible anchor"
+                            itemscope
+                            itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer"
+                          >
+                            <div
+                              class="collapsible__content text-container"
+                              itemprop="text"
+                            >
+                              <input
+                                type="checkbox"
+                                id="vehicle1"
+                                name="vehicle1"
+                                value="Bike"
+                              />
+                              <label for="vehicle1">Exclude Out Of Stock</label
+                              ><br />
+                            </div>
+                          </collapsible-content>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </section>
+          </div>
+          <br /><br /><br />
+          <div class="column2">
+            <div class="product-list__inner">
+              <product-item class="product-item">
+                <div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img
+                      loading="lazy"
+                      class="product-item__primary-image"
+                      data-media-id="31626795843805"
+                      sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                      height="2000"
+                      width="2000"
+                      alt="Pink Printed Georgette Saree With Tassels"
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_002c2ee4-d534-43d2-af31-83230b46dc6c.jpg?v=1680870105" /><img
+                      loading="lazy"
+                      class="product-item__secondary-image"
+                      sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                      height="1200"
+                      width="1200"
+                      alt="Pink Printed Georgette Saree With Tassels"
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_d4cc35ef-2ff2-4720-971d-ad81416a1b11.jpg?v=1680870105"
+                  /></a>
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530808541_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795228786909" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Pink Printed Georgette Saree With Tas...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item"
+                ><div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img loading="lazy" class="product-item__primary-image"
+                    data-media-id="31626795385053" sizes="(max-width: 740px)
+                    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                    height="2000" width="2000" alt="Mustard Printed Georgette
+                    Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_d8eaabe7-11c4-46a5-8e67-e14be1428f97.jpg?v=1680870095"
+                    "><img loading="lazy" class="product-item__secondary-image"
+                    sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px,
+                    1520px) / 4 - 18px)" height="1200" width="1200" alt="Mustard
+                    Printed Georgette Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_7e3e8c3f-b28a-4a30-a834-a6731a43d11b.jpg?v=1680870095"
+                    "></a
+                  >
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530611933_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795228524765" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Mustard Printed Georgette Saree With ...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item"
+                ><div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img loading="lazy" class="product-item__primary-image"
+                    data-media-id="31626794893533" sizes="(max-width: 740px)
+                    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                    height="2000" width="2000" alt="Teal Blue Printed Georgette
+                    Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_a7d3f774-094d-46f5-aa27-4df69f0da0f3.jpg?v=1680870086"
+                    "><img loading="lazy" class="product-item__secondary-image"
+                    sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px,
+                    1520px) / 4 - 18px)" height="1200" width="1200" alt="Teal
+                    Blue Printed Georgette Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_99957081-f148-4861-8aa5-301f292a412a.jpg?v=1680870086"
+                    "></a
+                  >
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530120413_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795227771101" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Teal Blue Printed Georgette Saree Wit...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item"
+                ><div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img loading="lazy" class="product-item__primary-image"
+                    data-media-id="31626793844957" sizes="(max-width: 740px)
+                    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                    height="2000" width="2000" alt="Dark Pink Printed Georgette
+                    Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_261d38ec-973b-47b9-b2bc-7f3bb839e145.jpg?v=1680870077"
+                    "><img loading="lazy" class="product-item__secondary-image"
+                    sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px,
+                    1520px) / 4 - 18px)" height="1200" width="1200" alt="Dark
+                    Pink Printed Georgette Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_86ced709-bc6d-414c-92a4-294d4a6a8cd3.jpg?v=1680870077"
+                    "></a
+                  >
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530022109_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795227672797" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Dark Pink Printed Georgette Saree Wit...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item">
+                <div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img
+                      loading="lazy"
+                      class="product-item__primary-image"
+                      data-media-id="31626795843805"
+                      sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                      height="2000"
+                      width="2000"
+                      alt="Pink Printed Georgette Saree With Tassels"
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_002c2ee4-d534-43d2-af31-83230b46dc6c.jpg?v=1680870105" /><img
+                      loading="lazy"
+                      class="product-item__secondary-image"
+                      sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                      height="1200"
+                      width="1200"
+                      alt="Pink Printed Georgette Saree With Tassels"
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_d4cc35ef-2ff2-4720-971d-ad81416a1b11.jpg?v=1680870105"
+                  /></a>
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530808541_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795228786909" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Pink Printed Georgette Saree With Tas...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item"
+                ><div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img loading="lazy" class="product-item__primary-image"
+                    data-media-id="31626795385053" sizes="(max-width: 740px)
+                    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                    height="2000" width="2000" alt="Mustard Printed Georgette
+                    Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_d8eaabe7-11c4-46a5-8e67-e14be1428f97.jpg?v=1680870095"
+                    "><img loading="lazy" class="product-item__secondary-image"
+                    sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px,
+                    1520px) / 4 - 18px)" height="1200" width="1200" alt="Mustard
+                    Printed Georgette Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_7e3e8c3f-b28a-4a30-a834-a6731a43d11b.jpg?v=1680870095"
+                    "></a
+                  >
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530611933_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795228524765" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Mustard Printed Georgette Saree With ...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item"
+                ><div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img loading="lazy" class="product-item__primary-image"
+                    data-media-id="31626794893533" sizes="(max-width: 740px)
+                    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                    height="2000" width="2000" alt="Teal Blue Printed Georgette
+                    Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_a7d3f774-094d-46f5-aa27-4df69f0da0f3.jpg?v=1680870086"
+                    "><img loading="lazy" class="product-item__secondary-image"
+                    sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px,
+                    1520px) / 4 - 18px)" height="1200" width="1200" alt="Teal
+                    Blue Printed Georgette Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_99957081-f148-4861-8aa5-301f292a412a.jpg?v=1680870086"
+                    "></a
+                  >
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530120413_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795227771101" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Teal Blue Printed Georgette Saree Wit...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item"
+                ><div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img loading="lazy" class="product-item__primary-image"
+                    data-media-id="31626793844957" sizes="(max-width: 740px)
+                    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                    height="2000" width="2000" alt="Dark Pink Printed Georgette
+                    Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_261d38ec-973b-47b9-b2bc-7f3bb839e145.jpg?v=1680870077"
+                    "><img loading="lazy" class="product-item__secondary-image"
+                    sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px,
+                    1520px) / 4 - 18px)" height="1200" width="1200" alt="Dark
+                    Pink Printed Georgette Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_86ced709-bc6d-414c-92a4-294d4a6a8cd3.jpg?v=1680870077"
+                    "></a
+                  >
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530022109_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795227672797" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Dark Pink Printed Georgette Saree Wit...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item">
+                <div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img
+                      loading="lazy"
+                      class="product-item__primary-image"
+                      data-media-id="31626795843805"
+                      sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                      height="2000"
+                      width="2000"
+                      alt="Pink Printed Georgette Saree With Tassels"
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_002c2ee4-d534-43d2-af31-83230b46dc6c.jpg?v=1680870105" /><img
+                      loading="lazy"
+                      class="product-item__secondary-image"
+                      sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                      height="1200"
+                      width="1200"
+                      alt="Pink Printed Georgette Saree With Tassels"
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_d4cc35ef-2ff2-4720-971d-ad81416a1b11.jpg?v=1680870105"
+                  /></a>
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530808541_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795228786909" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Pink Printed Georgette Saree With Tas...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item"
+                ><div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img loading="lazy" class="product-item__primary-image"
+                    data-media-id="31626795385053" sizes="(max-width: 740px)
+                    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                    height="2000" width="2000" alt="Mustard Printed Georgette
+                    Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_d8eaabe7-11c4-46a5-8e67-e14be1428f97.jpg?v=1680870095"
+                    "><img loading="lazy" class="product-item__secondary-image"
+                    sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px,
+                    1520px) / 4 - 18px)" height="1200" width="1200" alt="Mustard
+                    Printed Georgette Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_7e3e8c3f-b28a-4a30-a834-a6731a43d11b.jpg?v=1680870095"
+                    "></a
+                  >
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530611933_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795228524765" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Mustard Printed Georgette Saree With ...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item"
+                ><div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img loading="lazy" class="product-item__primary-image"
+                    data-media-id="31626794893533" sizes="(max-width: 740px)
+                    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                    height="2000" width="2000" alt="Teal Blue Printed Georgette
+                    Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_a7d3f774-094d-46f5-aa27-4df69f0da0f3.jpg?v=1680870086"
+                    "><img loading="lazy" class="product-item__secondary-image"
+                    sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px,
+                    1520px) / 4 - 18px)" height="1200" width="1200" alt="Teal
+                    Blue Printed Georgette Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_99957081-f148-4861-8aa5-301f292a412a.jpg?v=1680870086"
+                    "></a
+                  >
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530120413_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795227771101" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Teal Blue Printed Georgette Saree Wit...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item"
+                ><div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img loading="lazy" class="product-item__primary-image"
+                    data-media-id="31626793844957" sizes="(max-width: 740px)
+                    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                    height="2000" width="2000" alt="Dark Pink Printed Georgette
+                    Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_261d38ec-973b-47b9-b2bc-7f3bb839e145.jpg?v=1680870077"
+                    "><img loading="lazy" class="product-item__secondary-image"
+                    sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px,
+                    1520px) / 4 - 18px)" height="1200" width="1200" alt="Dark
+                    Pink Printed Georgette Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_86ced709-bc6d-414c-92a4-294d4a6a8cd3.jpg?v=1680870077"
+                    "></a
+                  >
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530022109_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795227672797" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Dark Pink Printed Georgette Saree Wit...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item">
+                <div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img
+                      loading="lazy"
+                      class="product-item__primary-image"
+                      data-media-id="31626795843805"
+                      sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                      height="2000"
+                      width="2000"
+                      alt="Pink Printed Georgette Saree With Tassels"
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_002c2ee4-d534-43d2-af31-83230b46dc6c.jpg?v=1680870105" /><img
+                      loading="lazy"
+                      class="product-item__secondary-image"
+                      sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                      height="1200"
+                      width="1200"
+                      alt="Pink Printed Georgette Saree With Tassels"
+                      src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_d4cc35ef-2ff2-4720-971d-ad81416a1b11.jpg?v=1680870105"
+                  /></a>
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530808541_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795228786909" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Pink Printed Georgette Saree With Tas...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item"
+                ><div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img loading="lazy" class="product-item__primary-image"
+                    data-media-id="31626795385053" sizes="(max-width: 740px)
+                    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                    height="2000" width="2000" alt="Mustard Printed Georgette
+                    Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_d8eaabe7-11c4-46a5-8e67-e14be1428f97.jpg?v=1680870095"
+                    "><img loading="lazy" class="product-item__secondary-image"
+                    sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px,
+                    1520px) / 4 - 18px)" height="1200" width="1200" alt="Mustard
+                    Printed Georgette Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_7e3e8c3f-b28a-4a30-a834-a6731a43d11b.jpg?v=1680870095"
+                    "></a
+                  >
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530611933_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795228524765" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Mustard Printed Georgette Saree With ...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item"
+                ><div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img loading="lazy" class="product-item__primary-image"
+                    data-media-id="31626794893533" sizes="(max-width: 740px)
+                    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                    height="2000" width="2000" alt="Teal Blue Printed Georgette
+                    Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_a7d3f774-094d-46f5-aa27-4df69f0da0f3.jpg?v=1680870086"
+                    "><img loading="lazy" class="product-item__secondary-image"
+                    sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px,
+                    1520px) / 4 - 18px)" height="1200" width="1200" alt="Teal
+                    Blue Printed Georgette Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_99957081-f148-4861-8aa5-301f292a412a.jpg?v=1680870086"
+                    "></a
+                  >
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530120413_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795227771101" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Teal Blue Printed Georgette Saree Wit...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
+              <product-item class="product-item"
+                ><div
+                  class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                >
+                  <div class="product-item__label-list label-list">
+                    <span
+                      class="label label--highlight"
+                      style="background-color: #13becf"
+                      >Save 50%</span
+                    >
+                  </div>
+                  <a
+                    href="product-detail.html"
+                    class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
+                    style="padding-bottom: 100%; --aspect-ratio: 1"
+                  >
+                    <img loading="lazy" class="product-item__primary-image"
+                    data-media-id="31626793844957" sizes="(max-width: 740px)
+                    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)"
+                    height="2000" width="2000" alt="Dark Pink Printed Georgette
+                    Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_261d38ec-973b-47b9-b2bc-7f3bb839e145.jpg?v=1680870077"
+                    "><img loading="lazy" class="product-item__secondary-image"
+                    sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px,
+                    1520px) / 4 - 18px)" height="1200" width="1200" alt="Dark
+                    Pink Printed Georgette Saree With Tassels"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_86ced709-bc6d-414c-92a4-294d4a6a8cd3.jpg?v=1680870077"
+                    "></a
+                  >
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530022109_0"
+                    accept-charset="UTF-8"
+                    class="product-item__quick-form"
+                    enctype="multipart/form-data"
+                    is="product-form"
+                  >
+                    <input
+                      type="hidden"
+                      name="form_type"
+                      value="product"
+                    /><input type="hidden" name="utf8" value="✓" /><input
+                      type="hidden"
+                      name="quantity"
+                      value="1"
+                    />
+                    <input type="hidden" name="id" value="43795227672797" />
+                    <button
+                      is="loader-button"
+                      type="submit"
+                      class="button button--outline button--text button--full hidden-touch"
+                    >
+                      + Add to cart
+                    </button>
+                    <button
+                      type="submit"
+                      class="product-item__quick-buy-button hidden-no-touch"
+                    >
+                      <span class="visually-hidden">+ Add to cart</span
+                      ><svg
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--quick-buy-shopping-cart"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M1 3H5L6 13H18L20 6H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <circle
+                          cx="7"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <circle
+                          cx="17"
+                          cy="19"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M12 2V10M8 6H16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="product-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="product-detail.html"
+                      class="product-item-meta__title"
+                      >Dark Pink Printed Georgette Saree Wit...</a
+                    >
+
+                    <div class="product-item-meta__price-list-container">
+                      <div class="price-list price-list--centered">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money" style="color: #13becf"
+                            >₹849.00</span
+                          ></span
+                        >
+
+                        <span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </product-item>
             </div>
           </div>
-        </section>
+        </div>
       </div>
       <div
         id="shopify-section-static-newsletter"
@@ -8741,7 +12143,7 @@ if(!isset($_SESSION)){
         </style>
 
         <section class="section section--flush">
-          <div class="section__color-wrapper" style="background-color: #13becf">
+          <div class="section__color-wrapper" style="background-color: #f7921c">
             <div class="container vertical-breather">
               <native-carousel class="text-with-icons">
                 <div class="text-with-icons__list hide-scrollbar">
@@ -8899,7 +12301,7 @@ if(!isset($_SESSION)){
         }
       </style>
 
-      <footer class="footer" style="background-color: #f7921c">
+      <footer class="footer" style="background-color: #13becf">
         <div class="container">
           <div class="footer__inner">
             <div class="footer__item-list">
@@ -8935,6 +12337,11 @@ if(!isset($_SESSION)){
                     <li class="linklist__item">
                       <a href="privacy.html" class="link--faded"
                         >Privacy Policies</a
+                      >
+                    </li>
+                    <li class="linklist__item">
+                      <a href="reedem.html" class="link--faded"
+                        >Reedem Gift Card</a
                       >
                     </li>
                     <li class="linklist__item">
@@ -9350,7 +12757,7 @@ if(!isset($_SESSION)){
                       <label
                         for="footer[contact][email]"
                         class="input__label"
-                        style="background-color: #f7921c"
+                        style="background-color: #13becf"
                         >Your e-mail</label
                       >
                       <button
@@ -9465,6 +12872,82 @@ if(!isset($_SESSION)){
       src="//cdn.codeblackbelt.com/js/modules/also-bought/main.min.js?shop=peachm.myshopify.com"
       defer
     ></script>
+
+    <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+    <script>
+      $("#AjaxinateContainer").infiniteScroll({
+        hideNav: ".pagination",
+        path: "#AjaxinatePagination a",
+        append: "#AjaxinateContainer .product-list__inner",
+        prefill: true,
+        history: "push",
+        checkLastPage: true,
+        scrollThreshold: 800,
+        appendCallback: true,
+      });
+      // vanilla JS
+      $("#AjaxinateContainer").on(
+        "load.infiniteScroll",
+        function (event, body, path, response) {
+          console.log(`Loaded: ${path}`);
+          setTimeout(function () {
+            //location.hash = "page-"+path.split("=")[1];
+          }, 200);
+        }
+      );
+
+      $("#facet-filters-form input").on("click", function () {
+        setTimeout(function () {
+          if (location.search.indexOf("page=") == -1) {
+            location.search = location.search + "&page=1";
+          }
+        }, 500);
+      });
+      let page = 1;
+      if (location.search.indexOf("page=") > -1) {
+        if (location.search.length <= 8) {
+          page = Number(location.search.split("page=")[1]);
+        } else {
+          pageString = location.search.split("page=")[1];
+          console.log(pageString);
+          page = Number(pageString.split("&")[0]);
+        }
+        console.log(page);
+        let innerH = $("#AjaxinateContainer").height();
+        if (page > 1) {
+          page = page - 1;
+          let data = "";
+          for (i = page; i >= 1; i--) {
+            innerH += innerH;
+            $.ajax({
+              url: "/collections/designer-lehenga?page=" + i,
+              method: "get",
+              success: function (res) {
+                // console.log(data);
+                data = $(res)
+                  .find("#AjaxinateContainer")
+                  .html()
+                  .replace("product-list__inner", "product-list__inner paused");
+                $("#AjaxinateContainer").prepend(data);
+                setTimeout(function () {
+                  // $(".product-list__inner#page-"+page).removeClass("paused");
+                }, 500);
+              },
+            });
+          }
+        }
+
+        $(window).on("scroll", function () {
+          console.log(innerH);
+          if ($(".product-list__inner.paused").length > -1) {
+            $(".product-list__inner.paused").removeClass("paused");
+            // setTimeout(function(){
+            $("#AjaxinateContainer").scrollTop(innerH);
+            // },200)
+          }
+        });
+      }
+    </script>
 
     <script>
       $(".product-form__add-button,.shopify-payment-button button").on(
@@ -10839,258 +14322,6 @@ if(!isset($_SESSION)){
     <div
       id="shopify-block-6048552914641687618"
       class="shopify-block shopify-app-block"
-    >
-      <script>
-        var wsShop = "peachm.myshopify.com";
-        window.wscc_markets = [];
-
-        window.wscc_markets = [];
-
-        window.wscc_markets.push({
-          country_code: "AU",
-          country: "Australia",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "AT",
-          country: "Austria",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "BE",
-          country: "Belgium",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "CA",
-          country: "Canada",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "CZ",
-          country: "Czechia",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "DK",
-          country: "Denmark",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "FJ",
-          country: "Fiji",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "FI",
-          country: "Finland",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "FR",
-          country: "France",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "DE",
-          country: "Germany",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "HK",
-          country: "Hong Kong SAR",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "IN",
-          country: "India",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "IE",
-          country: "Ireland",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "IL",
-          country: "Israel",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "IT",
-          country: "Italy",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "JP",
-          country: "Japan",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "KW",
-          country: "Kuwait",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "MY",
-          country: "Malaysia",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "MU",
-          country: "Mauritius",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "NL",
-          country: "Netherlands",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "NZ",
-          country: "New Zealand",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "NO",
-          country: "Norway",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "PL",
-          country: "Poland",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "PT",
-          country: "Portugal",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "SA",
-          country: "Saudi Arabia",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "SG",
-          country: "Singapore",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "ZA",
-          country: "South Africa",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "KR",
-          country: "South Korea",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "ES",
-          country: "Spain",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "LK",
-          country: "Sri Lanka",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "SE",
-          country: "Sweden",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "CH",
-          country: "Switzerland",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "AE",
-          country: "United Arab Emirates",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "GB",
-          country: "United Kingdom",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-
-        window.wscc_markets.push({
-          country_code: "US",
-          country: "United States",
-          currency_code: "INR",
-          symbol: "₹",
-        });
-      </script>
-    </div>
+    ></div>
   </body>
 </html>

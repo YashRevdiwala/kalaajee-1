@@ -1,28 +1,12 @@
-<?php
-include("components/connection.php");
-
-if(!isset($_SESSION)){
-  session_start();
-  if(isset($_SESSION['client_email'])){
-    $client_email = $_SESSION['client_email'];
-    $login_display = '<li class="header__linklist-item">
-                  <a href="account.php">My Account </a>
-                </li>';
-  }else{
-    $login_display = '<li class="header__linklist-item">
-                  <a href="login.php">Login </a>
-                </li>
-                <li class="header__linklist-item">
-                  <a href="register.php">Register </a>
-                </li>';
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
     <!-- Added by AVADA SEO Suite -->
+
+    <meta
+      name="twitter:image"
+      content="http://cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702"
+    />
 
     <script>
       window.FPConfig = {};
@@ -226,6 +210,169 @@ if(!isset($_SESSION)){
       window.KiwiSizing =
         window.KiwiSizing === undefined ? {} : window.KiwiSizing;
       KiwiSizing.shop = "peachm.myshopify.com";
+
+      KiwiSizing.data = {
+        collections:
+          "403898859741,405903147229,405901607133,405902983389,406536093917,406558081245,405903245533,405900951773,406559785181,405901738205,403898335453,403356451037,406553428189,406553493725,406553624797,406553886941,406535176413,406536028381",
+        tags: "c.violet,m.rayon,o.casual,o.daily,o.officewear,p.chikankari,p.lucknowi,pt.kurti,s.straightcut,st.stitched,w.embroidered",
+        product: "7737378799837",
+        vendor: "Peachmode",
+        type: "Kurti",
+        title: "Lavender Lakhnawi Work Rayon Kurti",
+        images: [
+          "\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
+          "\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-2.jpg?v=1669040705",
+          "\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-3.jpg?v=1669040708",
+          "\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-4.jpg?v=1669040710",
+        ],
+        options: [
+          {
+            name: "Size",
+            position: 1,
+            values: ["S", "M", "L", "XL", "XXL", "3XL"],
+          },
+        ],
+        variants: [
+          {
+            id: 42885690687709,
+            title: "S",
+            option1: "S",
+            option2: null,
+            option3: null,
+            sku: "VMIK-ROOH-2-1111D-S",
+            requires_shipping: true,
+            taxable: true,
+            featured_image: null,
+            available: true,
+            name: "Lavender Lakhnawi Work Rayon Kurti - S",
+            public_title: "S",
+            options: ["S"],
+            price: 94900,
+            weight: 400,
+            compare_at_price: 159900,
+            inventory_management: "shopify",
+            barcode: null,
+            requires_selling_plan: false,
+            selling_plan_allocations: [],
+            quantity_rule: { min: 1, max: null, increment: 1 },
+          },
+          {
+            id: 42885690720477,
+            title: "M",
+            option1: "M",
+            option2: null,
+            option3: null,
+            sku: "VMIK-ROOH-2-1111D-M",
+            requires_shipping: true,
+            taxable: true,
+            featured_image: null,
+            available: false,
+            name: "Lavender Lakhnawi Work Rayon Kurti - M",
+            public_title: "M",
+            options: ["M"],
+            price: 94900,
+            weight: 400,
+            compare_at_price: 159900,
+            inventory_management: "shopify",
+            barcode: null,
+            requires_selling_plan: false,
+            selling_plan_allocations: [],
+            quantity_rule: { min: 1, max: null, increment: 1 },
+          },
+          {
+            id: 42885690753245,
+            title: "L",
+            option1: "L",
+            option2: null,
+            option3: null,
+            sku: "VMIK-ROOH-2-1111D-L",
+            requires_shipping: true,
+            taxable: true,
+            featured_image: null,
+            available: true,
+            name: "Lavender Lakhnawi Work Rayon Kurti - L",
+            public_title: "L",
+            options: ["L"],
+            price: 94900,
+            weight: 400,
+            compare_at_price: 159900,
+            inventory_management: "shopify",
+            barcode: null,
+            requires_selling_plan: false,
+            selling_plan_allocations: [],
+            quantity_rule: { min: 1, max: null, increment: 1 },
+          },
+          {
+            id: 42885690786013,
+            title: "XL",
+            option1: "XL",
+            option2: null,
+            option3: null,
+            sku: "VMIK-ROOH-2-1111D-XL",
+            requires_shipping: true,
+            taxable: true,
+            featured_image: null,
+            available: true,
+            name: "Lavender Lakhnawi Work Rayon Kurti - XL",
+            public_title: "XL",
+            options: ["XL"],
+            price: 94900,
+            weight: 400,
+            compare_at_price: 159900,
+            inventory_management: "shopify",
+            barcode: null,
+            requires_selling_plan: false,
+            selling_plan_allocations: [],
+            quantity_rule: { min: 1, max: null, increment: 1 },
+          },
+          {
+            id: 42885690818781,
+            title: "XXL",
+            option1: "XXL",
+            option2: null,
+            option3: null,
+            sku: "VMIK-ROOH-2-1111D-XXL",
+            requires_shipping: true,
+            taxable: true,
+            featured_image: null,
+            available: true,
+            name: "Lavender Lakhnawi Work Rayon Kurti - XXL",
+            public_title: "XXL",
+            options: ["XXL"],
+            price: 94900,
+            weight: 400,
+            compare_at_price: 159900,
+            inventory_management: "shopify",
+            barcode: null,
+            requires_selling_plan: false,
+            selling_plan_allocations: [],
+            quantity_rule: { min: 1, max: null, increment: 1 },
+          },
+          {
+            id: 42885690851549,
+            title: "3XL",
+            option1: "3XL",
+            option2: null,
+            option3: null,
+            sku: "VMIK-ROOH-2-1111D-3XL",
+            requires_shipping: true,
+            taxable: true,
+            featured_image: null,
+            available: true,
+            name: "Lavender Lakhnawi Work Rayon Kurti - 3XL",
+            public_title: "3XL",
+            options: ["3XL"],
+            price: 94900,
+            weight: 400,
+            compare_at_price: 159900,
+            inventory_management: "shopify",
+            barcode: null,
+            requires_selling_plan: false,
+            selling_plan_allocations: [],
+            quantity_rule: { min: 1, max: null, increment: 1 },
+          },
+        ],
+      };
     </script>
     <script type="text/javascript">
       var __wzrk_account_id = "44K-Z6K-6Z5Z";
@@ -246,14 +393,273 @@ if(!isset($_SESSION)){
       var __wzrk_customer_email = "";
       var __wzrk_customer_phone = "";
 
+      var __wzrk_product_json = {
+        id: 7737378799837,
+        title: "Lavender Lakhnawi Work Rayon Kurti",
+        handle: "lavender-party-wear-lakhnawi-work-rayon-kurti-139904",
+        description:
+          "\u003cp\u003eMake some space in your casual wardrobe for this lavender colored kurti. This kurti is fashioned on pure rayon viscose fabric which is lightweight and assures the wearer a perfect fit \u0026amp; comfort. This stitched kurti is beautified with lakhnawi work as shown. Ideal for party, outing \u0026amp; weekend get together. Team it with high heels and fashionable accessories to look more attractive. This attractive kurti will surely fetch you compliments for your rich sense of style. Note:- The actual product may differ slightly in color and design from the one illustrated in the images when compared with computer or mobile screen.\u003c\/p\u003e",
+        published_at: "2022-06-16T00:24:39+05:30",
+        created_at: "2022-06-16T00:24:45+05:30",
+        vendor: "Peachmode",
+        type: "Kurti",
+        tags: [
+          "c.violet",
+          "m.rayon",
+          "o.casual",
+          "o.daily",
+          "o.officewear",
+          "p.chikankari",
+          "p.lucknowi",
+          "pt.kurti",
+          "s.straightcut",
+          "st.stitched",
+          "w.embroidered",
+        ],
+        price: 94900,
+        price_min: 94900,
+        price_max: 94900,
+        available: true,
+        price_varies: false,
+        compare_at_price: 159900,
+        compare_at_price_min: 159900,
+        compare_at_price_max: 159900,
+        compare_at_price_varies: false,
+        variants: [
+          {
+            id: 42885690687709,
+            title: "S",
+            option1: "S",
+            option2: null,
+            option3: null,
+            sku: "VMIK-ROOH-2-1111D-S",
+            requires_shipping: true,
+            taxable: true,
+            featured_image: null,
+            available: true,
+            name: "Lavender Lakhnawi Work Rayon Kurti - S",
+            public_title: "S",
+            options: ["S"],
+            price: 94900,
+            weight: 400,
+            compare_at_price: 159900,
+            inventory_management: "shopify",
+            barcode: null,
+            requires_selling_plan: false,
+            selling_plan_allocations: [],
+            quantity_rule: { min: 1, max: null, increment: 1 },
+          },
+          {
+            id: 42885690720477,
+            title: "M",
+            option1: "M",
+            option2: null,
+            option3: null,
+            sku: "VMIK-ROOH-2-1111D-M",
+            requires_shipping: true,
+            taxable: true,
+            featured_image: null,
+            available: false,
+            name: "Lavender Lakhnawi Work Rayon Kurti - M",
+            public_title: "M",
+            options: ["M"],
+            price: 94900,
+            weight: 400,
+            compare_at_price: 159900,
+            inventory_management: "shopify",
+            barcode: null,
+            requires_selling_plan: false,
+            selling_plan_allocations: [],
+            quantity_rule: { min: 1, max: null, increment: 1 },
+          },
+          {
+            id: 42885690753245,
+            title: "L",
+            option1: "L",
+            option2: null,
+            option3: null,
+            sku: "VMIK-ROOH-2-1111D-L",
+            requires_shipping: true,
+            taxable: true,
+            featured_image: null,
+            available: true,
+            name: "Lavender Lakhnawi Work Rayon Kurti - L",
+            public_title: "L",
+            options: ["L"],
+            price: 94900,
+            weight: 400,
+            compare_at_price: 159900,
+            inventory_management: "shopify",
+            barcode: null,
+            requires_selling_plan: false,
+            selling_plan_allocations: [],
+            quantity_rule: { min: 1, max: null, increment: 1 },
+          },
+          {
+            id: 42885690786013,
+            title: "XL",
+            option1: "XL",
+            option2: null,
+            option3: null,
+            sku: "VMIK-ROOH-2-1111D-XL",
+            requires_shipping: true,
+            taxable: true,
+            featured_image: null,
+            available: true,
+            name: "Lavender Lakhnawi Work Rayon Kurti - XL",
+            public_title: "XL",
+            options: ["XL"],
+            price: 94900,
+            weight: 400,
+            compare_at_price: 159900,
+            inventory_management: "shopify",
+            barcode: null,
+            requires_selling_plan: false,
+            selling_plan_allocations: [],
+            quantity_rule: { min: 1, max: null, increment: 1 },
+          },
+          {
+            id: 42885690818781,
+            title: "XXL",
+            option1: "XXL",
+            option2: null,
+            option3: null,
+            sku: "VMIK-ROOH-2-1111D-XXL",
+            requires_shipping: true,
+            taxable: true,
+            featured_image: null,
+            available: true,
+            name: "Lavender Lakhnawi Work Rayon Kurti - XXL",
+            public_title: "XXL",
+            options: ["XXL"],
+            price: 94900,
+            weight: 400,
+            compare_at_price: 159900,
+            inventory_management: "shopify",
+            barcode: null,
+            requires_selling_plan: false,
+            selling_plan_allocations: [],
+            quantity_rule: { min: 1, max: null, increment: 1 },
+          },
+          {
+            id: 42885690851549,
+            title: "3XL",
+            option1: "3XL",
+            option2: null,
+            option3: null,
+            sku: "VMIK-ROOH-2-1111D-3XL",
+            requires_shipping: true,
+            taxable: true,
+            featured_image: null,
+            available: true,
+            name: "Lavender Lakhnawi Work Rayon Kurti - 3XL",
+            public_title: "3XL",
+            options: ["3XL"],
+            price: 94900,
+            weight: 400,
+            compare_at_price: 159900,
+            inventory_management: "shopify",
+            barcode: null,
+            requires_selling_plan: false,
+            selling_plan_allocations: [],
+            quantity_rule: { min: 1, max: null, increment: 1 },
+          },
+        ],
+        images: [
+          "\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
+          "\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-2.jpg?v=1669040705",
+          "\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-3.jpg?v=1669040708",
+          "\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-4.jpg?v=1669040710",
+        ],
+        featured_image:
+          "\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
+        options: ["Size"],
+        media: [
+          {
+            alt: "Lavender Lakhnawi Work Rayon Kurti - Peachmode",
+            id: 31015251280093,
+            position: 1,
+            preview_image: {
+              aspect_ratio: 1.0,
+              height: 2000,
+              width: 2000,
+              src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
+            },
+            aspect_ratio: 1.0,
+            height: 2000,
+            media_type: "image",
+            src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
+            width: 2000,
+          },
+          {
+            alt: "Lavender Lakhnawi Work Rayon Kurti - Peachmode",
+            id: 31015251509469,
+            position: 2,
+            preview_image: {
+              aspect_ratio: 1.0,
+              height: 1200,
+              width: 1200,
+              src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-2.jpg?v=1669040705",
+            },
+            aspect_ratio: 1.0,
+            height: 1200,
+            media_type: "image",
+            src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-2.jpg?v=1669040705",
+            width: 1200,
+          },
+          {
+            alt: "Lavender Lakhnawi Work Rayon Kurti - Peachmode",
+            id: 31015251869917,
+            position: 3,
+            preview_image: {
+              aspect_ratio: 1.0,
+              height: 2000,
+              width: 2000,
+              src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-3.jpg?v=1669040708",
+            },
+            aspect_ratio: 1.0,
+            height: 2000,
+            media_type: "image",
+            src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-3.jpg?v=1669040708",
+            width: 2000,
+          },
+          {
+            alt: "Lavender Lakhnawi Work Rayon Kurti - Peachmode",
+            id: 31015252000989,
+            position: 4,
+            preview_image: {
+              aspect_ratio: 1.0,
+              height: 2000,
+              width: 2000,
+              src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-4.jpg?v=1669040710",
+            },
+            aspect_ratio: 1.0,
+            height: 2000,
+            media_type: "image",
+            src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-4.jpg?v=1669040710",
+            width: 2000,
+          },
+        ],
+        requires_selling_plan: false,
+        selling_plan_groups: [],
+        content:
+          "\u003cp\u003eMake some space in your casual wardrobe for this lavender colored kurti. This kurti is fashioned on pure rayon viscose fabric which is lightweight and assures the wearer a perfect fit \u0026amp; comfort. This stitched kurti is beautified with lakhnawi work as shown. Ideal for party, outing \u0026amp; weekend get together. Team it with high heels and fashionable accessories to look more attractive. This attractive kurti will surely fetch you compliments for your rich sense of style. Note:- The actual product may differ slightly in color and design from the one illustrated in the images when compared with computer or mobile screen.\u003c\/p\u003e",
+      };
+      var __wzrk_product_title = "Lavender Lakhnawi Work Rayon Kurti";
+      var __wzrk_product_price = "₹949.00";
+      var __wzrk_product_category_name = "";
+      var __wzrk_currency = "INR";
+      var __wzrk_quantity = "";
+      var __wzrk_seller_name = "Peachmode";
+
       window.clevertapApp = {
         config: {
           currency: "INR",
           meta: {
-            title: "Track your order",
-            template: "page.track-your-order",
-            url: "https://peachmode.com/pages/track-your-order",
-            type: "page",
+            title: "Lavender Lakhnawi Work Rayon Kurti",
+            template: "product",
+            url: "https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904",
+            type: "product",
           },
           routes: {
             customer: {
@@ -271,6 +677,65 @@ if(!isset($_SESSION)){
             },
           },
         },
+      };
+
+      clevertapApp.product = {
+        variants: {},
+        url: "/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904",
+        title: "Lavender Lakhnawi Work Rayon Kurti",
+        handle: "lavender-party-wear-lakhnawi-work-rayon-kurti-139904",
+        id: parseInt("7737378799837"),
+        available: "true",
+        image: "products/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg",
+        price: parseFloat((parseInt("94900") / 100).toFixed(2)),
+      };
+
+      clevertapApp.product.variants[parseInt("42885690687709")] = {
+        title: "S",
+        id: parseInt("42885690687709"),
+        available: "true",
+        image: "",
+        price: parseFloat((parseInt("94900") / 100).toFixed(2)),
+      };
+
+      clevertapApp.product.variants[parseInt("42885690720477")] = {
+        title: "M",
+        id: parseInt("42885690720477"),
+        available: "false",
+        image: "",
+        price: parseFloat((parseInt("94900") / 100).toFixed(2)),
+      };
+
+      clevertapApp.product.variants[parseInt("42885690753245")] = {
+        title: "L",
+        id: parseInt("42885690753245"),
+        available: "true",
+        image: "",
+        price: parseFloat((parseInt("94900") / 100).toFixed(2)),
+      };
+
+      clevertapApp.product.variants[parseInt("42885690786013")] = {
+        title: "XL",
+        id: parseInt("42885690786013"),
+        available: "true",
+        image: "",
+        price: parseFloat((parseInt("94900") / 100).toFixed(2)),
+      };
+
+      clevertapApp.product.variants[parseInt("42885690818781")] = {
+        title: "XXL",
+        id: parseInt("42885690818781"),
+        available: "true",
+        image: "",
+        price: parseFloat((parseInt("94900") / 100).toFixed(2)),
+      };
+
+      clevertapApp.product.variants[parseInt("42885690851549")] = {
+        title: "3XL",
+        id: parseInt("42885690851549"),
+        available: "true",
+        image: "",
+        price: parseFloat((parseInt("94900") / 100).toFixed(2)),
       };
 
       clevertapApp.frame = {
@@ -305,13 +770,20 @@ if(!isset($_SESSION)){
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Track your order</title>
+    <title>Lavender Lakhnawi Work Rayon Kurti</title>
     <meta
       name="description"
-      content='To track your order please enter your Order ID and Email/Phone in the box below and press the "Track" button. These were given to you on your receipt and in the confirmation email you should have received.'
+      content="Buy lavender party wear lakhnawi work rayon kurti available in different sizes at best price from Peachmode."
     />
-    <link rel="canonical" href="https://peachmode.com/pages/track-your-order" />
-    <link rel="shortcut icon" href="img/1.png" />
+    <link
+      rel="canonical"
+      href="https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
+    />
+    <link
+      rel="shortcut icon"
+      href="//cdn.shopify.com/s/files/1/0637/4834/1981/files/peachmode-3_96x96.jpg?v=1655288482"
+      type="image/png"
+    />
     <link rel="preconnect" href="https://cdn.shopify.com" />
     <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
@@ -331,43 +803,152 @@ if(!isset($_SESSION)){
       as="script"
       href="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/theme.aio.min.js?v=67881326845666540201669276710"
     />
+    <link
+      rel="preload"
+      as="fetch"
+      href="/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904.js"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="image"
+      imagesizes="(max-width: 999px) calc(100vw - 48px), 640px"
+      imagesrcset="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_400x.jpg?v=1669040702 400w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_500x.jpg?v=1669040702 500w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_600x.jpg?v=1669040702 600w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_700x.jpg?v=1669040702 700w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_800x.jpg?v=1669040702 800w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_900x.jpg?v=1669040702 900w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1000x.jpg?v=1669040702 1000w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1100x.jpg?v=1669040702 1100w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1200x.jpg?v=1669040702 1200w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1300x.jpg?v=1669040702 1300w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1400x.jpg?v=1669040702 1400w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1500x.jpg?v=1669040702 1500w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1600x.jpg?v=1669040702 1600w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1700x.jpg?v=1669040702 1700w, //cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1800x.jpg?v=1669040702 1800w
+"
+    />
+    <link
+      rel="preload"
+      as="script"
+      href="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/flickity.aio.min.js?v=52974065055626885651669276710"
+    />
     <script>
       // Google Tag Manager
       window.dataLayer = window.dataLayer || [];
     </script>
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Track your order" />
+    <meta property="og:type" content="product" />
+    <meta property="og:title" content="Lavender Lakhnawi Work Rayon Kurti" />
+    <meta property="product:price:amount" content="949.00" />
+    <meta property="product:price:currency" content="INR" />
     <meta
       property="og:image"
-      content="http://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo.png?v=1649671323"
+      content="http://cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702"
     />
     <meta
       property="og:image:secure_url"
-      content="https://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo.png?v=1649671323"
+      content="https://cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702"
     />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="628" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="2000" />
     <meta
       property="og:description"
-      content='To track your order please enter your Order ID and Email/Phone in the box below and press the "Track" button. These were given to you on your receipt and in the confirmation email you should have received.'
+      content="Buy lavender party wear lakhnawi work rayon kurti available in different sizes at best price from Peachmode."
     />
     <meta
       property="og:url"
-      content="https://peachmode.com/pages/track-your-order"
+      content="https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
     />
     <meta property="og:site_name" content="Peachmode" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Track your order" />
+    <meta name="twitter:title" content="Lavender Lakhnawi Work Rayon Kurti" />
     <meta
       name="twitter:description"
-      content='To track your order please enter your Order ID and Email/Phone in the box below and press the "Track" button. These were given to you on your receipt and in the confirmation email you should have received.'
+      content="Make some space in your casual wardrobe for this lavender colored kurti. This kurti is fashioned on pure rayon viscose fabric which is lightweight and assures the wearer a perfect fit &amp;amp; comfort. This stitched kurti is beautified with lakhnawi work as shown. Ideal for party, outing &amp;amp; weekend get together. Team it with high heels and fashionable accessories to look more attractive. This attractive kurti will surely fetch you compliments for your rich sense of style. Note:- The actual product may differ slightly in color and design from the one illustrated in the images when compared with computer or mobile screen."
     />
     <meta
       name="twitter:image"
-      content="https://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo_1200x1200_crop_center.png?v=1649671323"
+      content="https://cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1200x1200_crop_center.jpg?v=1669040702"
     />
-    <meta name="twitter:image:alt" content="peachmode.com" />
+    <meta
+      name="twitter:image:alt"
+      content="Lavender Lakhnawi Work Rayon Kurti - Peachmode"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "S",
+            "availability": "https://schema.org/InStock",
+            "price": 949.0,
+            "priceCurrency": "INR",
+            "priceValidUntil": "2023-04-23",
+            "sku": "VMIK-ROOH-2-1111D-S",
+            "url": "/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904?variant=42885690687709"
+          },
+          {
+            "@type": "Offer",
+            "name": "M",
+            "availability": "https://schema.org/OutOfStock",
+            "price": 949.0,
+            "priceCurrency": "INR",
+            "priceValidUntil": "2023-04-23",
+            "sku": "VMIK-ROOH-2-1111D-M",
+            "url": "/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904?variant=42885690720477"
+          },
+          {
+            "@type": "Offer",
+            "name": "L",
+            "availability": "https://schema.org/InStock",
+            "price": 949.0,
+            "priceCurrency": "INR",
+            "priceValidUntil": "2023-04-23",
+            "sku": "VMIK-ROOH-2-1111D-L",
+            "url": "/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904?variant=42885690753245"
+          },
+          {
+            "@type": "Offer",
+            "name": "XL",
+            "availability": "https://schema.org/InStock",
+            "price": 949.0,
+            "priceCurrency": "INR",
+            "priceValidUntil": "2023-04-23",
+            "sku": "VMIK-ROOH-2-1111D-XL",
+            "url": "/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904?variant=42885690786013"
+          },
+          {
+            "@type": "Offer",
+            "name": "XXL",
+            "availability": "https://schema.org/InStock",
+            "price": 949.0,
+            "priceCurrency": "INR",
+            "priceValidUntil": "2023-04-23",
+            "sku": "VMIK-ROOH-2-1111D-XXL",
+            "url": "/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904?variant=42885690818781"
+          },
+          {
+            "@type": "Offer",
+            "name": "3XL",
+            "availability": "https://schema.org/InStock",
+            "price": 949.0,
+            "priceCurrency": "INR",
+            "priceValidUntil": "2023-04-23",
+            "sku": "VMIK-ROOH-2-1111D-3XL",
+            "url": "/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904?variant=42885690851549"
+          }
+        ],
+        "brand": {
+          "@type": "Brand",
+          "name": "Peachmode"
+        },
+        "name": "Lavender Lakhnawi Work Rayon Kurti",
+        "description": "Make some space in your casual wardrobe for this lavender colored kurti. This kurti is fashioned on pure rayon viscose fabric which is lightweight and assures the wearer a perfect fit \u0026amp; comfort. This stitched kurti is beautified with lakhnawi work as shown. Ideal for party, outing \u0026amp; weekend get together. Team it with high heels and fashionable accessories to look more attractive. This attractive kurti will surely fetch you compliments for your rich sense of style. Note:- The actual product may differ slightly in color and design from the one illustrated in the images when compared with computer or mobile screen.",
+        "category": "Kurti",
+        "url": "/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904",
+        "sku": "VMIK-ROOH-2-1111D-S",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1024x.jpg?v=1669040702",
+          "image": "https://cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1024x.jpg?v=1669040702",
+          "name": "Lavender Lakhnawi Work Rayon Kurti - Peachmode",
+          "width": "1024",
+          "height": "1024"
+        }
+      }
+    </script>
 
     <script type="application/ld+json">
       {
@@ -383,8 +964,8 @@ if(!isset($_SESSION)){
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Track your order",
-            "item": "https://peachmode.com/pages/track-your-order"
+            "name": "Lavender Lakhnawi Work Rayon Kurti",
+            "item": "https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
           }
         ]
       }
@@ -660,8 +1241,8 @@ if(!isset($_SESSION)){
       window.themeVariables = {
         settings: {
           direction: "ltr",
-          pageType: "page",
-          cartCount: 0,
+          pageType: "product",
+          cartCount: 1,
           moneyFormat:
             '\u003cspan class="money"\u003e₹{{amount}}\u003c\/span\u003e',
           moneyWithCurrencyFormat:
@@ -765,6 +1346,23 @@ if(!isset($_SESSION)){
             viewportHeight + "px"
           );
         });
+      } // We save the product ID in local storage to be eventually used for recently viewed section
+      try {
+        const items = JSON.parse(
+          localStorage.getItem("theme:recently-viewed-products") || "[]"
+        );
+
+        // We check if the current product already exists, and if it does not, we add it at the start
+        if (!items.includes(7737378799837)) {
+          items.unshift(7737378799837);
+        }
+
+        localStorage.setItem(
+          "theme:recently-viewed-products",
+          JSON.stringify(items.slice(0, 20))
+        );
+      } catch (e) {
+        // Safari in private mode does not allow setting item, we silently fail
       }
     </script>
 
@@ -825,23 +1423,28 @@ if(!isset($_SESSION)){
       data-paypal-v4="true"
       data-currency="INR"
     />
+    <link
+      rel="alternate"
+      type="application/json+oembed"
+      href="https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904.oembed"
+    />
     <script>
       (function () {
         var scripts = [
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.96fe0b7abf48419e7469.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.04492a71077e352f2957.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_checkout-react-html_src_hooks_title_ts.latest.en.3457953d3abd1b694aa5.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_shopify_verdict_build_esm_runtimes_browser_index_mts_js.latest.en.f6f2083a5fb187836a1f.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app_components_AddressForm_AddressForm_tsx-app_components_Step_Step_tsx-app_utilities_receipt-224401.latest.en.91b3bf74b8a9635d2c0a.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.94b7d1c1c7ab40c6eac2.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.d63d03b3b69c11f9e6aa.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app_components_AddressForm_AddressForm_tsx-app_components_Step_Step_tsx-app_utilities_receipt-224401.latest.en.4102af967c2318ba421f.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.8e68c4e4246b64be3ba3.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.7eadcddb7755a08c8d6d.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.0ca662c669b41a356f6a.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_card-fields-react_src_hook_ts-packages_checkout-graphql_src_in-92a386.latest.en.b39452fcc8039fc140d1.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.aaa897dd9c534f7f99ac.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.34c13c3036294a9b3b6d.js",
         ];
         var styles = [
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.5196d587d3de2d2fbc8a.css",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.4e93eb2ccac793a61d40.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.90bde523bde67a4067f2.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.b7ed98bf011cf2a4887c.css",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.f987e50a37d7171c2810.css",
         ];
 
@@ -960,13 +1563,14 @@ if(!isset($_SESSION)){
       var __st = {
         a: 63748341981,
         offset: 19800,
-        reqid: "ed5e77cb-fd9a-495e-a811-ad66b93fbc25",
-        pageurl: "peachmode.com\/pages\/track-your-order",
-        s: "pages-97773682909",
-        u: "6f9a5d2673f7",
-        p: "page",
-        rtyp: "page",
-        rid: 97773682909,
+        reqid: "b1f94d65-e606-4912-99cf-f34de9de6c38",
+        pageurl:
+          "peachmode.com\/products\/lavender-party-wear-lakhnawi-work-rayon-kurti-139904",
+        t: "prospect",
+        u: "381f47fcb842",
+        p: "product",
+        rtyp: "product",
+        rid: 7737378799837,
       };
     </script>
     <script>
@@ -1030,6 +1634,74 @@ if(!isset($_SESSION)){
       crossorigin="anonymous"
     ></script>
 
+    <style id="shopify-dynamic-checkout">
+      .shopify-payment-button__button--hidden {
+        visibility: hidden;
+      }
+
+      .shopify-payment-button__button {
+        border-radius: 4px;
+        border: none;
+        box-shadow: 0 0 0 0 transparent;
+        color: white;
+        cursor: pointer;
+        display: block;
+        font-size: 1em;
+        font-weight: 500;
+        line-height: 1;
+        text-align: center;
+        width: 100%;
+        transition: background 0.2s ease-in-out;
+      }
+
+      .shopify-payment-button__button[disabled] {
+        opacity: 0.6;
+        cursor: default;
+      }
+
+      .shopify-payment-button__button--unbranded {
+        background-color: #1990c6;
+        padding: 1em 2em;
+      }
+
+      .shopify-payment-button__button--unbranded:hover:not([disabled]) {
+        background-color: #136f99;
+      }
+
+      .shopify-payment-button__more-options {
+        background: transparent;
+        border: 0 none;
+        cursor: pointer;
+        display: block;
+        font-size: 1em;
+        margin-top: 1em;
+        text-align: center;
+        width: 100%;
+      }
+
+      .shopify-payment-button__more-options:hover:not([disabled]) {
+        text-decoration: underline;
+      }
+
+      .shopify-payment-button__more-options[disabled] {
+        opacity: 0.6;
+        cursor: default;
+      }
+
+      .shopify-payment-button__button--branded {
+        display: flex;
+        flex-direction: column;
+        min-height: 44px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .shopify-payment-button__button--branded .shopify-cleanslate {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+    </style>
     <script>
       window.performance &&
         window.performance.mark &&
@@ -1037,7 +1709,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script>
-      var loox_global_hash = "1681094666627";
+      var loox_global_hash = "1681368481643";
     </script>
     <style>
       .loox-reviews-default {
@@ -2041,7 +2713,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script
-      src="https://cdn.shopify.com/extensions/cece2cc8-741a-4309-94ee-04a78984c575/1.59.0/assets/ws-currencyconverter.js"
+      src="https://cdn.shopify.com/extensions/c4e8e215-0970-4d3a-ac7b-2e25bea3398b/2.0.0/assets/ws-currencyconverter.js"
       type="text/javascript"
       defer="defer"
     ></script>
@@ -2067,7 +2739,7 @@ if(!isset($_SESSION)){
                   session_token && session_token.length === 2
                     ? session_token[1]
                     : "",
-                page_type: "page",
+                page_type: "product",
               };
               window.navigator.sendBeacon(
                 "https://monorail-edge.shopifysvc.com/v1/produce",
@@ -2086,15 +2758,158 @@ if(!isset($_SESSION)){
         }
       })();
     </script>
+    <script id="evids-setup">
+      (function () {
+        let t, e;
+        function n() {
+          (t = {
+            page_viewed: {},
+            collection_viewed: {},
+            product_viewed: {},
+            product_variant_viewed: {},
+            search_submitted: {},
+            product_added_to_cart: {},
+            checkout_started: {},
+            checkout_completed: {},
+            payment_info_submitted: {},
+          }),
+            (e = { wpm: {}, trekkie: {} });
+        }
+        function o(t) {
+          return `${t || "sh"}-${(function () {
+            const t = "xxxx-4xxx-xxxx-xxxxxxxxxxxx";
+            let e = "";
+            try {
+              const n = window.crypto,
+                o = new Uint16Array(31);
+              n.getRandomValues(o);
+              let r = 0;
+              e = t
+                .replace(/[x]/g, (t) => {
+                  const e = o[r] % 16;
+                  return r++, ("x" === t ? e : (3 & e) | 8).toString(16);
+                })
+                .toUpperCase();
+            } catch (n) {
+              e = t
+                .replace(/[x]/g, (t) => {
+                  const e = (16 * Math.random()) | 0;
+                  return ("x" === t ? e : (3 & e) | 8).toString(16);
+                })
+                .toUpperCase();
+            }
+            return `${(function () {
+              let t = 0,
+                e = 0;
+              t = new Date().getTime() >>> 0;
+              try {
+                e = performance.now() >>> 0;
+              } catch (t) {
+                e = 0;
+              }
+              const n = Math.abs(t + e)
+                .toString(16)
+                .toLowerCase();
+              return "00000000".substr(0, 8 - n.length) + n;
+            })()}-${e}`;
+          })()}`;
+        }
+        function r(n, r) {
+          if (
+            !t[n] ||
+            ("trekkie" !== (null == r ? void 0 : r.analyticsFramework) &&
+              "wpm" !== (null == r ? void 0 : r.analyticsFramework))
+          )
+            return o("shu");
+          const i = "string" == typeof (c = r.cacheKey) && c ? c : "default";
+          var c;
+          const a = (function (t, n, o) {
+            const r = e[n];
+            return (
+              void 0 === r[t] && (r[t] = {}),
+              void 0 === r[t][o] ? (r[t][o] = 0) : (r[t][o] += 1),
+              r[t][o]
+            );
+          })(n, r.analyticsFramework, i);
+          return (function (e, n, r) {
+            const i = t[e];
+            if (void 0 === i[r]) {
+              const t = o();
+              i[r] = [t];
+            } else if (void 0 === i[r][n]) {
+              const t = o();
+              i[r].push(t);
+            }
+            return i[r][n];
+          })(n, a, i);
+        }
+        function i() {
+          (window.Shopify = window.Shopify || {}),
+            n(),
+            (window.Shopify.evids = (t, e) => r(t, e));
+        }
+        i();
+      })();
+    </script>
     <script>
       window.ShopifyAnalytics = window.ShopifyAnalytics || {};
       window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
       window.ShopifyAnalytics.meta.currency = "INR";
       var meta = {
+        product: {
+          id: 7737378799837,
+          gid: "gid:\/\/shopify\/Product\/7737378799837",
+          vendor: "Peachmode",
+          type: "Kurti",
+          variants: [
+            {
+              id: 42885690687709,
+              price: 94900,
+              name: "Lavender Lakhnawi Work Rayon Kurti - S",
+              public_title: "S",
+              sku: "VMIK-ROOH-2-1111D-S",
+            },
+            {
+              id: 42885690720477,
+              price: 94900,
+              name: "Lavender Lakhnawi Work Rayon Kurti - M",
+              public_title: "M",
+              sku: "VMIK-ROOH-2-1111D-M",
+            },
+            {
+              id: 42885690753245,
+              price: 94900,
+              name: "Lavender Lakhnawi Work Rayon Kurti - L",
+              public_title: "L",
+              sku: "VMIK-ROOH-2-1111D-L",
+            },
+            {
+              id: 42885690786013,
+              price: 94900,
+              name: "Lavender Lakhnawi Work Rayon Kurti - XL",
+              public_title: "XL",
+              sku: "VMIK-ROOH-2-1111D-XL",
+            },
+            {
+              id: 42885690818781,
+              price: 94900,
+              name: "Lavender Lakhnawi Work Rayon Kurti - XXL",
+              public_title: "XXL",
+              sku: "VMIK-ROOH-2-1111D-XXL",
+            },
+            {
+              id: 42885690851549,
+              price: 94900,
+              name: "Lavender Lakhnawi Work Rayon Kurti - 3XL",
+              public_title: "3XL",
+              sku: "VMIK-ROOH-2-1111D-3XL",
+            },
+          ],
+        },
         page: {
-          pageType: "page",
-          resourceType: "page",
-          resourceId: 97773682909,
+          pageType: "product",
+          resourceType: "product",
+          resourceId: 7737378799837,
         },
       };
       for (var attr in meta) {
@@ -2240,18 +3055,18 @@ if(!isset($_SESSION)){
                   app_name: "storefront",
                   context_url: window.location.href,
                   source_url:
-                    "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js",
+                    "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js",
                 }
               );
             };
             scriptFallback.async = true;
             scriptFallback.src =
-              "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js";
+              "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js";
             first.parentNode.insertBefore(scriptFallback, first);
           };
           script.async = true;
           script.src =
-            "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js";
+            "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js";
           first.parentNode.insertBefore(script, first);
         };
         trekkie.load({
@@ -2291,9 +3106,9 @@ if(!isset($_SESSION)){
           document.write = originalDocumentWrite;
 
           window.ShopifyAnalytics.lib.page(null, {
-            pageType: "page",
-            resourceType: "page",
-            resourceId: 97773682909,
+            pageType: "product",
+            resourceType: "product",
+            resourceId: 7737378799837,
           });
 
           var match = window.location.pathname.match(
@@ -2302,6 +3117,37 @@ if(!isset($_SESSION)){
           var token = match ? match[1] : undefined;
           if (!hasLoggedConversion(token)) {
             setCookieIfConversion(token);
+            window.ShopifyAnalytics.lib.track("Viewed Product", {
+              currency: "INR",
+              variantId: 42885690687709,
+              productId: 7737378799837,
+              productGid: "gid:\/\/shopify\/Product\/7737378799837",
+              name: "Lavender Lakhnawi Work Rayon Kurti - S",
+              price: "949.00",
+              sku: "VMIK-ROOH-2-1111D-S",
+              brand: "Peachmode",
+              variant: "S",
+              category: "Kurti",
+              nonInteraction: true,
+            });
+            window.ShopifyAnalytics.lib.track(
+              "monorail:\/\/trekkie_storefront_viewed_product\/1.1",
+              {
+                currency: "INR",
+                variantId: 42885690687709,
+                productId: 7737378799837,
+                productGid: "gid:\/\/shopify\/Product\/7737378799837",
+                name: "Lavender Lakhnawi Work Rayon Kurti - S",
+                price: "949.00",
+                sku: "VMIK-ROOH-2-1111D-S",
+                brand: "Peachmode",
+                variant: "S",
+                category: "Kurti",
+                nonInteraction: true,
+                referer:
+                  "https:\/\/peachmode.com\/products\/lavender-party-wear-lakhnawi-work-rayon-kurti-139904",
+              }
+            );
           }
         });
 
@@ -2331,7 +3177,7 @@ if(!isset($_SESSION)){
         window.BOOMR.themeVersion = "8.8.1";
         window.BOOMR.shopId = 63748341981;
         window.BOOMR.themeId = 131960242397;
-        window.BOOMR.renderRegion = "gcp-europe-west1";
+        window.BOOMR.renderRegion = "gcp-us-east1";
         window.BOOMR.url =
           "https://cdn.shopify.com/shopifycloud/boomerang/shopify-boomerang-1.0.0.min.js";
         var where =
@@ -2621,24 +3467,157 @@ if(!isset($_SESSION)){
             },
           ],
           initData: {
-            cart: null,
+            cart: {
+              cost: { totalAmount: { amount: 749.0, currencyCode: "INR" } },
+              id: "65c349adca4f2c6986c3abf3bb0c1ad6",
+              lines: [
+                {
+                  cost: { totalAmount: { amount: 749.0, currencyCode: "INR" } },
+                  merchandise: {
+                    id: "43421057155293",
+                    image: {
+                      src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/maroon-sequence-embroidered-cotton-silk-top-peachmode-1.jpg?v=1669048826",
+                    },
+                    price: { amount: 749.0, currencyCode: "INR" },
+                    product: {
+                      id: "7741562618077",
+                      title: "Maroon Sequins Embroidered Cotton Silk Top",
+                      vendor: "Peachmode",
+                      type: "Top",
+                    },
+                    sku: "RANMAY-RANI-106-XS",
+                    title: "XS",
+                  },
+                  quantity: 1,
+                },
+              ],
+              totalQuantity: 1,
+            },
             checkout: null,
             customer: null,
-            productVariants: [],
+            productVariants: [
+              {
+                id: "42885690687709",
+                image: {
+                  src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
+                },
+                price: { amount: 949.0, currencyCode: "INR" },
+                product: {
+                  id: "7737378799837",
+                  title: "Lavender Lakhnawi Work Rayon Kurti",
+                  vendor: "Peachmode",
+                  type: "Kurti",
+                },
+                sku: "VMIK-ROOH-2-1111D-S",
+                title: "S",
+              },
+              {
+                id: "42885690720477",
+                image: {
+                  src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
+                },
+                price: { amount: 949.0, currencyCode: "INR" },
+                product: {
+                  id: "7737378799837",
+                  title: "Lavender Lakhnawi Work Rayon Kurti",
+                  vendor: "Peachmode",
+                  type: "Kurti",
+                },
+                sku: "VMIK-ROOH-2-1111D-M",
+                title: "M",
+              },
+              {
+                id: "42885690753245",
+                image: {
+                  src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
+                },
+                price: { amount: 949.0, currencyCode: "INR" },
+                product: {
+                  id: "7737378799837",
+                  title: "Lavender Lakhnawi Work Rayon Kurti",
+                  vendor: "Peachmode",
+                  type: "Kurti",
+                },
+                sku: "VMIK-ROOH-2-1111D-L",
+                title: "L",
+              },
+              {
+                id: "42885690786013",
+                image: {
+                  src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
+                },
+                price: { amount: 949.0, currencyCode: "INR" },
+                product: {
+                  id: "7737378799837",
+                  title: "Lavender Lakhnawi Work Rayon Kurti",
+                  vendor: "Peachmode",
+                  type: "Kurti",
+                },
+                sku: "VMIK-ROOH-2-1111D-XL",
+                title: "XL",
+              },
+              {
+                id: "42885690818781",
+                image: {
+                  src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
+                },
+                price: { amount: 949.0, currencyCode: "INR" },
+                product: {
+                  id: "7737378799837",
+                  title: "Lavender Lakhnawi Work Rayon Kurti",
+                  vendor: "Peachmode",
+                  type: "Kurti",
+                },
+                sku: "VMIK-ROOH-2-1111D-XXL",
+                title: "XXL",
+              },
+              {
+                id: "42885690851549",
+                image: {
+                  src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
+                },
+                price: { amount: 949.0, currencyCode: "INR" },
+                product: {
+                  id: "7737378799837",
+                  title: "Lavender Lakhnawi Work Rayon Kurti",
+                  vendor: "Peachmode",
+                  type: "Kurti",
+                },
+                sku: "VMIK-ROOH-2-1111D-3XL",
+                title: "3XL",
+              },
+            ],
           },
         },
         function pageEvents(webPixelsManagerAPI) {
           webPixelsManagerAPI.publish("page_viewed");
+          webPixelsManagerAPI.publish("product_viewed", {
+            productVariant: {
+              id: "42885690687709",
+              image: {
+                src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
+              },
+              price: { amount: 949.0, currencyCode: "INR" },
+              product: {
+                id: "7737378799837",
+                title: "Lavender Lakhnawi Work Rayon Kurti",
+                vendor: "Peachmode",
+                type: "Kurti",
+              },
+              sku: "VMIK-ROOH-2-1111D-S",
+              title: "S",
+            },
+          });
         },
         "https://cdn.shopify.com",
         "browser",
-        "0.0.279",
-        "518c152fw00918cf1pc7ca055am99284242"
+        "0.0.285",
+        "da3bd5a4w8ea8a283p30eb74b3mf7ed84c9"
       );
     </script>
   </head>
   <body
-    class="no-focus-outline features--image-zoom template-page page-track-your-order"
+    class="no-focus-outline features--image-zoom template-product"
     data-instant-allow-query-string
   >
     <!-- Google Tag Manager (noscript) -->
@@ -2728,10 +3707,6 @@ if(!isset($_SESSION)){
             ><announcement-bar-item hidden class="announcement-bar__item"
               ><div class="announcement-bar__message text--xsmall">
                 <p>7 Day no questions asked return policy.</p>
-              </div></announcement-bar-item
-            ><announcement-bar-item hidden class="announcement-bar__item"
-              ><div class="announcement-bar__message text--xsmall">
-                <p>Free Shipping in India. COD Available.</p>
               </div></announcement-bar-item
             >
           </div>
@@ -2932,14 +3907,14 @@ if(!isset($_SESSION)){
                   <li class="header__linklist-item">
                     <a
                       class="header__linklist-link link--animated"
-                      href="track-order.php"
+                      href="track-order.html"
                       >Track Order</a
                     >
                   </li>
                   <li class="header__linklist-item">
                     <a
                       class="header__linklist-link link--animated"
-                      href="contact.php"
+                      href="contact.html"
                       >Contact Us</a
                     >
                   </li>
@@ -2982,7 +3957,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-1"
                       aria-expanded="false"
                       >Collections</a
@@ -2996,21 +3971,21 @@ if(!isset($_SESSION)){
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >New Arrivals</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Handbags</a
                         >
                       </li>
                       <li class="nav-dropdown__item has-dropdown">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           aria-controls="desktop-menu-1-3"
                           aria-expanded="false"
                           >Jewellery<svg
@@ -3037,35 +4012,35 @@ if(!isset($_SESSION)){
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Earrings</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Necklace</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Rings</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Bracelet</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Maang Tika</a
                             >
                           </li>
@@ -3074,28 +4049,28 @@ if(!isset($_SESSION)){
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Bedsheets</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Exclusive</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Combo Packs</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Mens Kurta Pyjama</a
                         >
                       </li>
@@ -3107,7 +4082,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-2"
                       aria-expanded="false"
                       >Sarees</a
@@ -3118,73 +4093,73 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Art Silk Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chiffon Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Crepe Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Organza Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chanderi Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bhagalpuri Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Satin Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Linen Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Net Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kanjivaram</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Banarasi Silk</a
                                   >
                                 </li>
@@ -3192,38 +4167,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Print/Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Floral Print</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bandhani Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Embroidered</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Paithani</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Lucknowi / Chickankari</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Patola</a
                                   >
                                 </li>
@@ -3231,23 +4206,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Collection</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Half N Half Saree</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Authentic Drapes</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bollywood</a
                                   >
                                 </li>
@@ -3255,38 +4230,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -3294,63 +4269,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -3358,68 +4333,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -3451,7 +4426,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-3"
                       aria-expanded="false"
                       >Salwar Suits</a
@@ -3462,73 +4437,73 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Organza</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bhagalpuri Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Banarasi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chanderi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tapetta Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tussar Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Net</a
                                   >
                                 </li>
@@ -3536,43 +4511,43 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Style</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sharara Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Anarkali Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Palazzo Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Patiala Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pakistani Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Straight Cut Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Indo western</a
                                   >
                                 </li>
@@ -3580,23 +4555,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Stitch Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Unstitched Salwar suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Readymade Salwar suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Semi Stitched</a
                                   >
                                 </li>
@@ -3604,28 +4579,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >3000 & above</a
                                   >
                                 </li>
@@ -3633,63 +4608,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -3697,68 +4672,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -3790,7 +4765,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-4"
                       aria-expanded="false"
                       >Kurtis</a
@@ -3801,58 +4776,58 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chanderi Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Linen</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Muslin</a
                                   >
                                 </li>
@@ -3860,63 +4835,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Print/Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Floral print</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Solid</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bandhani</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Printed</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Embroidered</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Anarkali</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >A-Line</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Straight</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Short
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Long</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >High Low</a
                                   >
                                 </li>
@@ -3924,53 +4899,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Product Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti Pant Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti Palazzo Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti Dhoti Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti Skirt Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Palazzo Suit</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Top Bottom Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kaftan</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kaftan Set</a
                                   >
                                 </li>
@@ -3978,28 +4953,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
@@ -4007,23 +4982,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000 & above</a
                                   >
                                 </li>
@@ -4031,68 +5006,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4124,7 +5099,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-5"
                       aria-expanded="false"
                       >Lehengas</a
@@ -4135,53 +5110,53 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Art Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Banarasi Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Organza</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Satin</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Velvet</a
                                   >
                                 </li>
@@ -4189,23 +5164,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Designer</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Digital</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Floral</a
                                   >
                                 </li>
@@ -4213,38 +5188,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -4252,53 +5227,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -4306,68 +5281,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Gold</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4375,23 +5350,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Style</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Ready to wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Unstiched</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Semi stitched</a
                                   >
                                 </li>
@@ -4423,7 +5398,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-6"
                       aria-expanded="false"
                       >Gowns</a
@@ -4434,53 +5409,53 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Satin</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chanderi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Net</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tapetta Silk</a
                                   >
                                 </li>
@@ -4488,53 +5463,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -4542,38 +5517,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -4581,63 +5556,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4654,7 +5629,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-7"
                       aria-expanded="false"
                       >Western</a
@@ -4665,33 +5640,33 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
@@ -4699,28 +5674,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tops</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tunics</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Dresses</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jumpsuit</a
                                   >
                                 </li>
@@ -4728,28 +5703,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
@@ -4757,23 +5732,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000 & above</a
                                   >
                                 </li>
@@ -4781,68 +5756,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4856,14 +5831,14 @@ if(!isset($_SESSION)){
                   <li class="header__linklist-item" data-item-title="Live">
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       >Live</a
                     >
                   </li>
                   <li class="header__linklist-item" data-item-title="Sale">
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       >Sale</a
                     >
                   </li>
@@ -5038,7 +6013,7 @@ if(!isset($_SESSION)){
             </nav>
             <!-- LOGO PART -->
             <h1 class="header__logo">
-              <a class="header__logo-link" href="index.php"
+              <a class="header__logo-link" href="index.html"
                 ><span class="visually-hidden">Kalaajee</span>
                 <img
                   loading="lazy"
@@ -5325,7 +6300,7 @@ if(!isset($_SESSION)){
   }*/
                 </style>
                 <a
-                  href="login.php"
+                  href="login.html"
                   class="header__icon-wrapper tap-area hidden-phone hidden-desk"
                   aria-label="Login"
                   ><svg
@@ -5398,7 +6373,12 @@ if(!isset($_SESSION)){
                 role="list"
               >
                 <li class="header__linklist-item"></li>
-                <?php echo $login_display; ?>
+                <li class="header__linklist-item">
+                  <a href="login.html">Login </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a href="account.html">My Account </a>
+                </li>
                 <li class="header__linklist-item">
                   <a
                     href="/cart"
@@ -5527,8 +6507,8 @@ if(!isset($_SESSION)){
         global
         hidden
         class="cart-notification"
-      ></cart-notification>
-      <mobile-navigation
+      ></cart-notification
+      ><mobile-navigation
         append-body
         id="mobile-menu-drawer"
         class="drawer drawer--from-left"
@@ -8381,7 +9361,7 @@ if(!isset($_SESSION)){
 
           "logo": "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/files\/280x80_d20e9ddd-ae15-43c9-9dc7-142b6b7c30e1_280x.png?v=1676437272",
 
-          "url": "https:\/\/peachmode.com\/pages\/track-your-order"
+          "url": "https:\/\/peachmode.com"
         }
       </script>
     </div>
@@ -8427,7 +9407,7 @@ if(!isset($_SESSION)){
                 stroke="currentColor"
                 stroke-width="2"
               ></circle></svg
-            >Cart
+            >1 item
           </p>
 
           <button
@@ -8452,16 +9432,242 @@ if(!isset($_SESSION)){
             </svg>
           </button>
         </header>
-        <div class="drawer__content drawer__content--center">
-          <p>Your cart is empty</p>
+        <div class="drawer__content">
+          <form id="mini-cart-form" action="/cart" novalidate method="post">
+            <input type="hidden" name="checkout" /><line-item class="line-item">
+              <div class="line-item__content-wrapper">
+                <a
+                  href="/products/maroon-sequence-embroidered-cotton-silk-top?variant=43421057155293"
+                  class="line-item__image-wrapper"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <span class="line-item__loader" hidden>
+                    <span class="line-item__loader-spinner spinner" hidden
+                      ><svg
+                        focusable="false"
+                        width="16"
+                        height="16"
+                        class="icon icon--spinner"
+                        viewBox="25 25 50 50"
+                      >
+                        <circle
+                          cx="50"
+                          cy="50"
+                          r="20"
+                          fill="none"
+                          stroke="#222222"
+                          stroke-width="6"
+                        ></circle></svg
+                    ></span>
+                    <span class="line-item__loader-mark" hidden
+                      ><svg
+                        focusable="false"
+                        width="20"
+                        height="20"
+                        class="icon icon--check"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          d="M24.59 8L12.9885 20.6731L7.31806 15.1819L6 16.6956L12.3755 22.8792L13.0805 23.5556L13.7395 22.8309L26 9.43318L24.59 8Z"
+                          stroke="currentColor"
+                        ></path></svg
+                    ></span>
+                  </span>
 
-          <div class="button-wrapper">
-            <a href="index.html" class="button button--primary"
-              >Start shopping</a
-            >
-            <a href="cart.html" class="button button--primary">View Cart</a>
-          </div>
+                  <img loading="lazy" class="line-item__image"
+                  sizes="(max-width: 740px) 80px, 92px" height="2000"
+                  width="2000" alt="Maroon Sequence Embroidered Cotton Silk Top
+                  - Peachmode"
+                  src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/maroon-sequence-embroidered-cotton-silk-top-peachmode-1.jpg?v=1669048826"
+                  ">
+                </a>
+                <div class="line-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="/products/maroon-sequence-embroidered-cotton-silk-top?variant=43421057155293"
+                      class="product-item-meta__title text--small"
+                      >Maroon Sequins Embroidered Cotton Silk Top</a
+                    >
+                    <div class="product-item-meta__property-list">
+                      <span
+                        class="product-item-meta__property text--subdued text--xsmall"
+                        >XS</span
+                      >
+                    </div>
+                    <div
+                      class="product-item-meta__price-list-container text--small"
+                    >
+                      <div class="price-list hidden-tablet-and-up">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money">₹749.00</span></span
+                        ><span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,799.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <line-item-quantity class="line-item__quantity">
+                    <div class="quantity-selector quantity-selector--small">
+                      <a
+                        href="/cart/change?quantity=0&line=1"
+                        class="quantity-selector__button"
+                        aria-label="Decrease quantity"
+                        data-no-instant
+                        ><svg
+                          focusable="false"
+                          width="8"
+                          height="2"
+                          class="icon icon--minus"
+                          viewBox="0 0 8 2"
+                        >
+                          <path fill="currentColor" d="M0 0h8v2H0z"></path></svg
+                      ></a>
+
+                      <input
+                        is="input-number"
+                        class="quantity-selector__input text--xsmall"
+                        autocomplete="off"
+                        type="text"
+                        inputmode="numeric"
+                        name="updates[]"
+                        data-line="1"
+                        value="1"
+                        size="2"
+                        aria-label="Change quantity"
+                      /><a
+                        href="/cart/change?quantity=2&line=1"
+                        class="quantity-selector__button"
+                        aria-label="Increase quantity"
+                        data-no-instant
+                        ><svg
+                          focusable="false"
+                          width="8"
+                          height="8"
+                          class="icon icon--plus"
+                          viewBox="0 0 8 8"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M3 5v3h2V5h3V3H5V0H3v3H0v2h3z"
+                            fill="currentColor"
+                          ></path></svg
+                      ></a>
+                    </div>
+
+                    <a
+                      href="/cart/change?id=43421057155293:ff9a046641e12382ae954932b900ed99&quantity=0"
+                      class="line-item__remove-button link text--subdued text--xxsmall"
+                      data-no-instant
+                      >Remove</a
+                    >
+                  </line-item-quantity>
+                </div>
+
+                <div
+                  class="line-item__price-list-container text--small hidden-phone"
+                >
+                  <div class="price-list price-list--stack">
+                    <span class="price price--highlight">
+                      <span class="visually-hidden">Sale price</span
+                      ><span class="money">₹749.00</span></span
+                    ><span class="price price--compare">
+                      <span class="visually-hidden">Regular price</span
+                      ><span class="money">₹1,799.00</span></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </line-item>
+          </form>
+          <cart-drawer-recommendations
+            section-id="mini-cart"
+            product-id="7741562618077"
+            class="mini-cart__recommendations"
+            ><div class="mini-cart__recommendations-inner">
+              <div class="spinner">
+                <svg
+                  focusable="false"
+                  width="40"
+                  height="40"
+                  class="icon icon--spinner"
+                  viewBox="25 25 50 50"
+                >
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="20"
+                    fill="none"
+                    stroke="#222222"
+                    stroke-width="3"
+                  ></circle>
+                </svg>
+              </div></div
+          ></cart-drawer-recommendations>
         </div>
+
+        <footer
+          class="mini-cart__drawer-footer drawer__footer drawer__footer--tight drawer__footer--bordered"
+        >
+          <div class="mini-cart__actions text--subdued text--xsmall">
+            <button
+              type="button"
+              is="toggle-button"
+              id="order-note-toggle"
+              class="link"
+              data-action="toggle-order-note"
+              aria-controls="mini-cart-note"
+              aria-expanded="false"
+            >
+              Add order note</button
+            ><span>Shipping &amp; taxes calculated at checkout</span>
+          </div>
+          <button
+            is="loader-button"
+            form="mini-cart-form"
+            type="submit"
+            class="checkout-button button button--primary button--full"
+            name="checkout"
+          >
+            <span class="checkout-button__lock"
+              ><svg
+                focusable="false"
+                width="17"
+                height="17"
+                class="icon icon--lock"
+                viewBox="0 0 17 17"
+              >
+                <path
+                  d="M2.5 7V15H14.5V7H2.5Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  fill="none"
+                ></path>
+                <path
+                  d="M5.5 4C5.5 2.34315 6.84315 1 8.5 1V1C10.1569 1 11.5 2.34315 11.5 4V7H5.5V4Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                ></path>
+                <circle
+                  cx="8.5"
+                  cy="11"
+                  r="0.5"
+                  stroke="currentColor"
+                ></circle></svg
+            ></span>
+
+            <!--Checkout-->
+            BUY NOW
+            <span class="square-separator"></span
+            ><span class="money">₹749.00</span>
+          </button>
+        </footer>
         <openable-element id="mini-cart-note" class="mini-cart__order-note">
           <span class="openable__overlay"></span>
           <label
@@ -8490,231 +9696,1509 @@ if(!isset($_SESSION)){
     </div>
     <div id="main" role="main" class="anchor">
       <div
-        id="shopify-section-template--16029305176285__main"
-        class="shopify-section shopify-section--main-page"
+        id="shopify-section-template--15880464695517__main"
+        class="shopify-section shopify-section--main-product"
       >
+        <style>
+          #shopify-section-template--15880464695517__main {
+            --primary-button-background: 241, 63, 98;
+            --primary-button-text-color: 255, 255, 255;
+            --secondary-button-background: 247, 174, 166;
+            --secondary-button-text-color: 255, 255, 255;
+          }
+        </style>
+
         <section>
-          <div class="container">
-            <div class="page-header">
-              <nav
-                aria-label="Breadcrumb"
-                class="breadcrumb breadcrumb--floating text--xsmall hidden-phone"
-              >
-                <ol class="breadcrumb__list" role="list">
-                  <li class="breadcrumb__item">
-                    <a class="breadcrumb__link" href="index.php">Home</a>
-                  </li>
+          <style>
+            @media screen and (min-width: 1000px) {
+              :root {
+                --anchor-offset: 140px; /* When the sticky form is activate, every scroll must be offset by an extra value */
+              }
+            }
+          </style>
 
-                  <li class="breadcrumb__item">
-                    <span class="breadcrumb__link" aria-current="page"
-                      >Track your order</span
-                    >
-                  </li>
-                </ol>
-              </nav>
-
-              <div class="page-header__text-wrapper text-container">
-                <h1 class="heading h2">Track your order</h1>
-              </div>
-            </div>
-            <div class="page-content page-content--medium rte">
-              <span
-                >To track your order please enter your Order ID and Email/Phone
-                in the box below and press the "Track" button. These were given
-                to you on your receipt and in the confirmation email you should
-                have received.</span
-              >
-              <p id="trackerError"></p>
-              <form id="return-and-track-order-form" method="post" class="mt-4">
-                <div class="input">
-                  <input
-                    id="orderid"
-                    type="text"
-                    class="input__field"
-                    name="orderid"
-                    aria-label="orderid"
-                    required
-                  />
-                  <label for="orderid" class="input__label"
-                    >Order ID*
-                    <small
-                      >(Found in your order confirmation email.)</small
-                    ></label
-                  >
-                </div>
-                <div class="input">
-                  <input
-                    id="billing_email"
-                    type="email"
-                    class="input__field"
-                    name="billing_email"
-                    aria-label="billing_email"
-                  />
-                  <label for="billing_email" class="input__label"
-                    >Billing Email
-                    <small>(Email you used during checkout.)</small></label
-                  >
-                </div>
-                <div class="input">
-                  <h6>OR</h6>
-                </div>
-                <div class="input">
-                  <input
-                    id="billing_phone"
-                    type="number"
-                    class="input__field"
-                    name="billing_phone"
-                    aria-label="billing_phone"
-                  />
-                  <label for="billing_phone" class="input__label"
-                    >Billing Phone
-                    <small
-                      >(Phone number you used during checkout.)</small
-                    ></label
-                  >
-                </div>
-                <button
-                  is="loader-button"
-                  type="submit"
-                  class="form__submit button button--primary button--full"
-                >
-                  Track Order
-                </button>
-              </form>
-            </div>
-            <div class="account account--order">
-              <div class="container container--small">
-                <div class="page-header page-header--small">
-                  <div class="page-header__text-wrapper text-container">
-                    <h1 class="heading h4 order_name">
-                      <img
-                        loading="lazy"
-                        style="height: 50px; margin: auto"
-                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/loading.gif?v=135655685998696985211654153040"
-                      />
-                    </h1>
-                    <span class="account__order-date text--subdued order_date"
-                      >---</span
-                    >
+          <product-sticky-form
+            form-id="product-form-template--15880464695517__main-7737378799837"
+            hidden
+            class="product-sticky-form"
+          >
+            <div class="container">
+              <div class="product-sticky-form__inner">
+                <div class="product-sticky-form__content-wrapper hidden-pocket">
+                  <div class="product-sticky-form__image-wrapper">
+                    <img loading="lazy" class="product-sticky-form__image"
+                    sizes="55px" height="2000" width="2000" alt="Lavender
+                    Lakhnawi Work Rayon Kurti - Peachmode"
+                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702"
+                    ">
                   </div>
-                </div>
-                <div class="page-content">
-                  <div class="account__block-list">
-                    <div class="account__block-item">
-                      <div class="account__order-details">
-                        <div class="order_table"></div>
 
-                        <div class="account__order-addresses line-item-table">
-                          <h2 class="heading h5">Addresses</h2>
-                          <div
-                            class="account__addresses-list account__addresses-list--wide"
-                          >
-                            <div
-                              class="account__address account__address--auto"
-                            >
-                              <span
-                                class="account__address-title heading heading--small"
-                                >Billing address</span
-                              >
-                              <div
-                                class="account__address-details billing_address"
-                              >
-                                <p></p>
-                              </div>
-                            </div>
-                            <div
-                              class="account__address account__address--auto"
-                            >
-                              <span
-                                class="account__address-title heading heading--small"
-                                >Shipping address</span
-                              >
-                              <div
-                                class="account__address-details shipping_address"
-                              >
-                                <p></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="account__order-addresses">
-                          <h2 class="heading h5">Shipments:</h2>
-                          <p id="shipmentError"></p>
-                          <div
-                            class="account__addresses-list shipment_details account__addresses-list--wide"
-                            style="
-                              grid-template-columns: repeat(auto-fit, 100%);
-                            "
-                          >
-                            <div
-                              class="account__address account__address--auto"
-                            >
-                              <ul
-                                class="tracking_details d-flex flex-1 flex-wrap"
-                              >
-                                <li>
-                                  <strong>Tracking No:</strong><span>NA</span>
-                                </li>
-                                <li>
-                                  <strong>Courier Company:</strong
-                                  ><span>NA</span>
-                                </li>
-                                <li>
-                                  <strong>Shipment Status:</strong
-                                  ><span>NA</span>
-                                </li>
-                                <li>
-                                  <strong>Payment Mode:</strong><span>NA</span>
-                                </li>
-                                <li><strong>Amount:</strong><span>NA</span></li>
-                              </ul>
-                              <div class="tracking_slider mt-4">
-                                <div class="track_bar">
-                                  <span class="in_transit"></span>
-                                  <span></span>
-                                </div>
-                                <div
-                                  class="d-flex flex-wrap flex-1 justify-between align-center"
-                                >
-                                  <span>Shipment Created</span>
-                                  <span>In Transit</span>
-                                  <span>Delivered</span>
-                                </div>
-                              </div>
-                              <div class="mt-4">
-                                <a
-                                  href=""
-                                  class="button button--primary button--small track_url"
-                                  target="_blank"
-                                  >GET DETAILED SCAN</a
-                                >
-                              </div>
-                              <table
-                                class="line-item-table table table-shipment mt-4 mb-1"
-                              >
-                                <thead
-                                  class="line-item-table__header-group hidden-phone"
-                                >
-                                  <tr>
-                                    <th>
-                                      <span class="">Shipment Items</span>
-                                    </th>
-                                    <th>
-                                      <span class="text--center">Size</span>
-                                    </th>
-                                    <th>
-                                      <span class="text--center">Quantity</span>
-                                    </th>
-                                  </tr>
-                                </thead>
-                                <tbody
-                                  class="line-item-table__list shipment_html"
-                                ></tbody>
-                              </table>
-                            </div>
-                          </div>
+                  <div class="product-sticky-form__info">
+                    <div class="product-sticky-form__bottom-info">
+                      <span class="product-sticky-form__title"
+                        >Lavender Lakhnawi Work Rayon Kurti</span
+                      >
+                      <span
+                        class="square-separator square-separator--subdued"
+                      ></span>
+                      <span class="product-sticky-form__price"
+                        ><span class="money">₹949.00</span></span
+                      >
+
+                      <div
+                        class="product-sticky-form__unit-price text--xsmall text--subdued"
+                        style="display: none"
+                      >
+                        <div class="unit-price-measurement">
+                          <span class="unit-price-measurement__price"></span>
+                          <span class="unit-price-measurement__separator"
+                            >/</span
+                          ><span
+                            class="unit-price-measurement__reference-value"
+                          ></span
+                          ><span
+                            class="unit-price-measurement__reference-unit"
+                          ></span>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-sticky-form__form">
+                  <product-variants
+                    handle="lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
+                    form-id="product-form-template--15880464695517__main-7737378799837"
+                    update-url
+                    class="product-sticky-form__variants hidden-pocket"
+                    ><div class="select-wrapper" data-selector-type="dropdown">
+                      <combo-box
+                        fit-toggle
+                        initial-focus-selector="[aria-selected='true']"
+                        id="sticky-form-option-template--15880464695517__main-1-combo-box"
+                        class="combo-box"
+                      >
+                        <span class="combo-box__overlay"></span>
+
+                        <header class="combo-box__header">
+                          <p class="combo-box__title heading h6">Size</p>
+
+                          <button
+                            type="button"
+                            class="combo-box__close-button tap-area"
+                            data-action="close"
+                            title="Close"
+                          >
+                            <svg
+                              focusable="false"
+                              width="14"
+                              height="14"
+                              class="icon icon--close"
+                              viewBox="0 0 14 14"
+                            >
+                              <path
+                                d="M13 13L1 1M13 1L1 13"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                              ></path>
+                            </svg>
+                          </button>
+                        </header>
+
+                        <div class="combo-box__option-list" role="listbox">
+                          <button
+                            type="button"
+                            role="option"
+                            class="combo-box__option-item"
+                            value="S"
+                            aria-selected="true"
+                          >
+                            S</button
+                          ><button
+                            type="button"
+                            role="option"
+                            class="combo-box__option-item"
+                            value="M"
+                            aria-selected="false"
+                          >
+                            M</button
+                          ><button
+                            type="button"
+                            role="option"
+                            class="combo-box__option-item"
+                            value="L"
+                            aria-selected="false"
+                          >
+                            L</button
+                          ><button
+                            type="button"
+                            role="option"
+                            class="combo-box__option-item"
+                            value="XL"
+                            aria-selected="false"
+                          >
+                            XL</button
+                          ><button
+                            type="button"
+                            role="option"
+                            class="combo-box__option-item"
+                            value="XXL"
+                            aria-selected="false"
+                          >
+                            XXL</button
+                          ><button
+                            type="button"
+                            role="option"
+                            class="combo-box__option-item"
+                            value="3XL"
+                            aria-selected="false"
+                          >
+                            3XL
+                          </button>
+                        </div>
+
+                        <select
+                          class="visually-hidden"
+                          name="option1"
+                          form="product-form-template--15880464695517__main-7737378799837"
+                          data-bind-value="sticky-form-option-template--15880464695517__main-1-value"
+                          aria-label="Size"
+                        >
+                          <option value="S" selected>S</option>
+                          <option value="M">M</option>
+                          <option value="L">L</option>
+                          <option value="XL">XL</option>
+                          <option value="XXL">XXL</option>
+                          <option value="3XL">3XL</option>
+                        </select>
+                      </combo-box>
+
+                      <button
+                        type="button"
+                        is="toggle-button"
+                        class="select"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-controls="sticky-form-option-template--15880464695517__main-1-combo-box"
+                      >
+                        <span
+                          id="sticky-form-option-template--15880464695517__main-1-value"
+                          class="select__selected-value"
+                          >S</span
+                        ><svg
+                          focusable="false"
+                          width="12"
+                          height="8"
+                          class="icon icon--chevron"
+                          viewBox="0 0 12 8"
+                        >
+                          <path
+                            fill="none"
+                            d="M1 1l5 5 5-5"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          ></path>
+                        </svg>
+                      </button></div></product-variants
+                  ><product-payment-container
+                    form-id="product-form-template--15880464695517__main-7737378799837"
+                    class="product-sticky-form__payment-container"
+                    ><button
+                      id="StickyAddToCart"
+                      is="loader-button"
+                      form="product-form-template--15880464695517__main-7737378799837"
+                      type="submit"
+                      data-product-add-to-cart-button
+                      data-button-content="Add to cart"
+                      class="product-form__add-button button button--secondary"
+                    >
+                      Add to cart
+                    </button>
+                  </product-payment-container>
+                </div>
+              </div>
+            </div>
+          </product-sticky-form>
+          <div class="container">
+            <nav
+              aria-label="Breadcrumb"
+              class="breadcrumb text--xsmall text--subdued hidden-phone"
+            >
+              <ol class="breadcrumb__list" role="list">
+                <li class="breadcrumb__item">
+                  <a class="breadcrumb__link" href="/">Home</a>
+                </li>
+                <li class="breadcrumb__item">
+                  <span class="breadcrumb__link" aria-current="page"
+                    >Lavender Lakhnawi Work Rayon Kurti</span
+                  >
+                </li>
+              </ol>
+            </nav>
+
+            <!-- PRODUCT TOP PART -->
+            <div class="product product--thumbnails-left">
+              <product-media
+                form-id="product-form-template--15880464695517__main-7737378799837"
+                autoplay-video
+                thumbnails-position="left"
+                reveal-on-scroll
+                product-handle="lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
+                class="product__media"
+                style="--largest-image-aspect-ratio: 1"
+              >
+                <div
+                  class="product__media-list-wrapper"
+                  style="max-width: 2000px"
+                >
+                  <flickity-carousel
+                    click-nav
+                    flickity-config='{
+        "adaptiveHeight": true,
+        "dragThreshold": 10,
+        "initialIndex": ".is-initial-selected",
+        "fade": false,
+        "draggable": "&gt;1",
+        "contain": true,
+        "cellSelector": ".product__media-item:not(.is-filtered)",
+        "percentPosition": false,
+        "pageDots": false,
+        "prevNextButtons": false
+      }'
+                    id="product-template--15880464695517__main-7737378799837-media-list"
+                    class="product__media-list"
+                    ><div
+                      id="product-template--15880464695517__main-31015251280093"
+                      class="product__media-item is-initial-selected is-selected"
+                      data-media-type="image"
+                      data-media-id="31015251280093"
+                      data-original-position="0"
+                    >
+                      <div
+                        class="product__media-image-wrapper aspect-ratio aspect-ratio--natural"
+                        style="padding-bottom: 100%; --aspect-ratio: 1"
+                      >
+                        <img loading="lazy" reveal sizes="(max-width: 999px)
+                        calc(100vw - 48px), 640px" height="2000" width="2000"
+                        alt="Lavender Lakhnawi Work Rayon Kurti - Peachmode"
+                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702"
+                        ">
+                      </div>
+                    </div>
+                    <div
+                      id="product-template--15880464695517__main-31015251509469"
+                      class="product__media-item"
+                      data-media-type="image"
+                      data-media-id="31015251509469"
+                      data-original-position="1"
+                    >
+                      <div
+                        class="product__media-image-wrapper aspect-ratio aspect-ratio--natural"
+                        style="padding-bottom: 100%; --aspect-ratio: 1"
+                      >
+                        <img loading="lazy" loading="lazy" sizes="(max-width:
+                        999px) calc(100vw - 48px), 640px" height="1200"
+                        width="1200" alt="Lavender Lakhnawi Work Rayon Kurti -
+                        Peachmode"
+                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-2.jpg?v=1669040705"
+                        ">
+                      </div>
+                    </div>
+                    <div
+                      id="product-template--15880464695517__main-31015251869917"
+                      class="product__media-item"
+                      data-media-type="image"
+                      data-media-id="31015251869917"
+                      data-original-position="2"
+                    >
+                      <div
+                        class="product__media-image-wrapper aspect-ratio aspect-ratio--natural"
+                        style="padding-bottom: 100%; --aspect-ratio: 1"
+                      >
+                        <img loading="lazy" loading="lazy" sizes="(max-width:
+                        999px) calc(100vw - 48px), 640px" height="2000"
+                        width="2000" alt="Lavender Lakhnawi Work Rayon Kurti -
+                        Peachmode"
+                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-3.jpg?v=1669040708"
+                        ">
+                      </div>
+                    </div>
+                    <div
+                      id="product-template--15880464695517__main-31015252000989"
+                      class="product__media-item"
+                      data-media-type="image"
+                      data-media-id="31015252000989"
+                      data-original-position="3"
+                    >
+                      <div
+                        class="product__media-image-wrapper aspect-ratio aspect-ratio--natural"
+                        style="padding-bottom: 100%; --aspect-ratio: 1"
+                      >
+                        <img loading="lazy" loading="lazy" sizes="(max-width:
+                        999px) calc(100vw - 48px), 640px" height="2000"
+                        width="2000" alt="Lavender Lakhnawi Work Rayon Kurti -
+                        Peachmode"
+                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-4.jpg?v=1669040710"
+                        ">
+                      </div>
+                    </div></flickity-carousel
+                  ><button
+                    is="toggle-button"
+                    aria-controls="product-template--15880464695517__main-7737378799837-zoom"
+                    aria-expanded="false"
+                    class="tap-area product__zoom-button"
+                  >
+                    <span class="visually-hidden">Zoom</span
+                    ><svg
+                      fill="none"
+                      focusable="false"
+                      width="14"
+                      height="14"
+                      class="icon icon--image-zoom"
+                      viewBox="0 0 14 14"
+                    >
+                      <path
+                        d="M9.50184 9.50184C11.4777 7.52595 11.5133 4.358 9.58134 2.42602C7.64936 0.494037 4.48141 0.529632 2.50552 2.50552C0.529632 4.48141 0.494037 7.64936 2.42602 9.58134C4.358 11.5133 7.52595 11.4777 9.50184 9.50184ZM9.50184 9.50184L13 13"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <flickity-controls
+                  controls="product-template--15880464695517__main-7737378799837-media-list"
+                  class="product__media-nav"
+                >
+                  <button
+                    class="product__media-prev-next hidden-pocket hidden-lap-and-up tap-area tap-area--large"
+                    aria-label="Previous"
+                    data-action="prev"
+                  >
+                    <svg
+                      focusable="false"
+                      width="17"
+                      height="14"
+                      class="icon icon--nav-arrow-left icon--direction-aware"
+                      viewBox="0 0 17 14"
+                    >
+                      <path
+                        d="M17 7H2M8 1L2 7l6 6"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                      ></path>
+                    </svg></button
+                  ><scroll-shadow class="product__thumbnail-scroll-shadow">
+                    <div class="product__thumbnail-list hide-scrollbar">
+                      <div class="product__thumbnail-list-inner">
+                        <button
+                          type="button"
+                          tabindex="-1"
+                          reveal
+                          class="product__thumbnail-item"
+                          aria-current="true"
+                          aria-controls="product-template--15880464695517__main-31015251280093"
+                          data-media-id="31015251280093"
+                          data-action="select"
+                        >
+                          <div class="product__thumbnail">
+                            <img loading="lazy" sizes="(max-width: 999px) 72px,
+                            60px" height="2000" width="2000" alt="Lavender
+                            Lakhnawi Work Rayon Kurti - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702"
+                            ">
+                          </div></button
+                        ><button
+                          type="button"
+                          tabindex="-1"
+                          reveal
+                          class="product__thumbnail-item"
+                          aria-controls="product-template--15880464695517__main-31015251509469"
+                          data-media-id="31015251509469"
+                          data-action="select"
+                        >
+                          <div class="product__thumbnail">
+                            <img loading="lazy" sizes="(max-width: 999px) 72px,
+                            60px" height="1200" width="1200" alt="Lavender
+                            Lakhnawi Work Rayon Kurti - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-2.jpg?v=1669040705"
+                            ">
+                          </div></button
+                        ><button
+                          type="button"
+                          tabindex="-1"
+                          reveal
+                          class="product__thumbnail-item"
+                          aria-controls="product-template--15880464695517__main-31015251869917"
+                          data-media-id="31015251869917"
+                          data-action="select"
+                        >
+                          <div class="product__thumbnail">
+                            <img loading="lazy" sizes="(max-width: 999px) 72px,
+                            60px" height="2000" width="2000" alt="Lavender
+                            Lakhnawi Work Rayon Kurti - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-3.jpg?v=1669040708"
+                            ">
+                          </div></button
+                        ><button
+                          type="button"
+                          tabindex="-1"
+                          reveal
+                          class="product__thumbnail-item"
+                          aria-controls="product-template--15880464695517__main-31015252000989"
+                          data-media-id="31015252000989"
+                          data-action="select"
+                        >
+                          <div class="product__thumbnail">
+                            <img loading="lazy" sizes="(max-width: 999px) 72px,
+                            60px" height="2000" width="2000" alt="Lavender
+                            Lakhnawi Work Rayon Kurti - Peachmode"
+                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-4.jpg?v=1669040710"
+                            ">
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </scroll-shadow>
+
+                  <button
+                    class="product__media-prev-next hidden-pocket hidden-lap-and-up tap-area tap-aera--large"
+                    aria-label="Next"
+                    data-action="next"
+                  >
+                    <svg
+                      focusable="false"
+                      width="17"
+                      height="14"
+                      class="icon icon--nav-arrow-right icon--direction-aware"
+                      viewBox="0 0 17 14"
+                    >
+                      <path
+                        d="M0 7h15M9 1l6 6-6 6"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                      ></path>
+                    </svg>
+                  </button> </flickity-controls
+                ><product-image-zoom
+                  product-handle="lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
+                  id="product-template--15880464695517__main-7737378799837-zoom"
+                  class="pswp"
+                  tabindex="-1"
+                  role="dialog"
+                >
+                  <div class="pswp__bg"></div>
+
+                  <div class="pswp__scroll-wrap">
+                    <div class="pswp__container">
+                      <div class="pswp__item"></div>
+                      <div class="pswp__item"></div>
+                      <div class="pswp__item"></div>
+                    </div>
+
+                    <div class="pswp__ui pswp__ui--hidden">
+                      <div class="pswp__top-bar">
+                        <button
+                          class="pswp__button pswp__button--close prev-next-button"
+                          data-action="pswp-close"
+                          title="Close"
+                        >
+                          <svg
+                            focusable="false"
+                            width="14"
+                            height="14"
+                            class="icon icon--close"
+                            viewBox="0 0 14 14"
+                          >
+                            <path
+                              d="M13 13L1 1M13 1L1 13"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              fill="none"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+
+                      <div class="pswp__prev-next-buttons hidden-pocket">
+                        <button
+                          class="pswp__button prev-next-button prev-next-button--prev"
+                          data-action="pswp-prev"
+                          title="Previous"
+                        >
+                          <svg
+                            focusable="false"
+                            width="17"
+                            height="14"
+                            class="icon icon--nav-arrow-left icon--direction-aware"
+                            viewBox="0 0 17 14"
+                          >
+                            <path
+                              d="M17 7H2M8 1L2 7l6 6"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              fill="none"
+                            ></path>
+                          </svg>
+                        </button>
+                        <button
+                          class="pswp__button prev-next-button prev-next-button--next"
+                          data-action="pswp-next"
+                          title="Next"
+                        >
+                          <svg
+                            focusable="false"
+                            width="17"
+                            height="14"
+                            class="icon icon--nav-arrow-right icon--direction-aware"
+                            viewBox="0 0 17 14"
+                          >
+                            <path
+                              d="M0 7h15M9 1l6 6-6 6"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              fill="none"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+
+                      <div class="pswp__dots-nav-wrapper hidden-lap-and-up">
+                        <button
+                          class="tap-area tap-area--large"
+                          data-action="pswp-prev"
+                        >
+                          <span class="visually-hidden">Previous</span
+                          ><svg
+                            focusable="false"
+                            width="17"
+                            height="14"
+                            class="icon icon--nav-arrow-left icon--direction-aware"
+                            viewBox="0 0 17 14"
+                          >
+                            <path
+                              d="M17 7H2M8 1L2 7l6 6"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              fill="none"
+                            ></path>
+                          </svg>
+                        </button>
+
+                        <div class="dots-nav dots-nav--centered">
+                          <!-- This will be fill at runtime as the number of items will be dynamic -->
+                        </div>
+
+                        <button
+                          class="tap-area tap-area--large"
+                          data-action="pswp-next"
+                        >
+                          <span class="visually-hidden">Next</span
+                          ><svg
+                            focusable="false"
+                            width="17"
+                            height="14"
+                            class="icon icon--nav-arrow-right icon--direction-aware"
+                            viewBox="0 0 17 14"
+                          >
+                            <path
+                              d="M0 7h15M9 1l6 6-6 6"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              fill="none"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div> </product-image-zoom
+              ></product-media>
+              <div class="product__info">
+                <!-- PRODUCT META -->
+                <product-meta
+                  form-id="product-form-template--15880464695517__main-7737378799837"
+                  price-class="price--large"
+                  class="product-meta"
+                >
+                  <h1 class="product-meta__title heading h4">
+                    Lavender Lakhnawi Work Rayon Kurti
+                  </h1>
+
+                  <div
+                    class="product-meta__price-list-container"
+                    role="region"
+                    aria-live="polite"
+                  >
+                    <div class="price-list" data-product-price-list>
+                      <span class="price price--highlight price--large">
+                        <span class="visually-hidden">Sale price</span
+                        ><span class="money">₹949.00</span></span
+                      >
+
+                      <span class="price price--compare">
+                        <span class="visually-hidden">Regular price</span
+                        ><span class="money">₹1,599.00</span></span
+                      >
+                    </div>
+
+                    <div
+                      class="product-meta__label-list label-list"
+                      data-product-label-list
+                    >
+                      <span class="label label--highlight">Save 41%</span>
+                    </div>
+                  </div>
+                  <p class="product-meta__taxes-included text--small">
+                    <span>Inclusive of all taxes</span>
+                    <span class="stock true"> In Stock </span>
+                  </p>
+                  <product-payment-terms
+                    form-id="product-form-template--15880464695517__main-7737378799837"
+                    ><form
+                      method="post"
+                      action="/cart/add"
+                      id="product-installment-form-template--15880464695517__main-7737378799837"
+                      accept-charset="UTF-8"
+                      class="shopify-product-form"
+                      enctype="multipart/form-data"
+                    >
+                      <input
+                        type="hidden"
+                        name="form_type"
+                        value="product"
+                      /><input type="hidden" name="utf8" value="✓" /><input
+                        type="hidden"
+                        name="id"
+                        value="42885690687709"
+                      /></form
+                  ></product-payment-terms>
+                  <div class="product-meta__reference">
+                    <a
+                      href="#product-7737378799837-reviews-pocket"
+                      is="review-link"
+                      onclick="document.querySelector('#product-7737378799837-reviews-pocket').click()"
+                      data-smooth-scroll
+                      class="product-meta__reviews-badge hidden-lap-and-up"
+                    >
+                      <div
+                        id="shopify-block-86151e6f-53ff-446c-bb7e-57e483f4556e"
+                        class="shopify-block shopify-app-block"
+                      >
+                        <div href="#looxReviews">
+                          <div
+                            class="loox-rating"
+                            data-id="7737378799837"
+                            data-rating="4.5"
+                            data-raters="4"
+                          ></div>
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#product-7737378799837-tabs"
+                      is="review-link"
+                      onclick="document.querySelector('#product-7737378799837-reviews-desktop').click()"
+                      data-smooth-scroll
+                      class="product-meta__reviews-badge hidden-pocket"
+                    >
+                      <div
+                        id="shopify-block-86151e6f-53ff-446c-bb7e-57e483f4556e"
+                        class="shopify-block shopify-app-block"
+                      >
+                        <div href="#looxReviews">
+                          <div
+                            class="loox-rating"
+                            data-id="7737378799837"
+                            data-rating="4.5"
+                            data-raters="4"
+                          ></div>
+                        </div>
+                      </div>
+                    </a></div
+                ></product-meta>
+                <script>
+                  var productSKU = "VMIK-ROOH-2-1111D";
+                </script>
+                <div class="product-form">
+                  <div
+                    class="product-form__option-info"
+                    style="margin-bottom: 0"
+                  >
+                    <span class="product-form__option-name">Color:</span>
+                    <span id="option-e" class="product-form__option-value"
+                      >Violet</span
+                    >
+                  </div>
+                  <div class="variant-swatch-list" style="margin-top: -15px">
+                    <a
+                      href="/products/pista-green-party-wear-lakhnawi-work-rayon-kurti-139903"
+                    >
+                      <div class="variant-swatch">
+                        <label
+                          class="variant-swatch__item"
+                          for="7737378603229-1"
+                        >
+                          <img loading="lazy" class="variant-swatch__image"
+                          sizes="(max-width: 740px) 64px, 72px" height="2000"
+                          width="2000" alt="Pista Green Lakhnawi Work Rayon
+                          Kurti - Peachmode"
+                          src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/pista-green-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040703"
+                          ">
+                        </label>
+                      </div>
+                    </a>
+                  </div>
+
+                  <product-variants
+                    handle="lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
+                    form-id="product-form-template--15880464695517__main-7737378799837"
+                    update-url
+                    class="product-form__variants"
+                    ><div
+                      class="product-form__option-selector"
+                      data-selector-type="block"
+                    >
+                      <div class="product-form__option-info">
+                        <span class="product-form__option-name">Size:</span
+                        ><span
+                          id="option-template--15880464695517__main--7737378799837-1-value"
+                          class="product-form__option-value"
+                          >S</span
+                        ><button
+                          type="button"
+                          is="toggle-button"
+                          class="product-form__option-link link text--subdued hidden-phone"
+                          aria-controls="product-template--15880464695517__main-7737378799837-size-chart-drawer"
+                          aria-expanded="false"
+                        >
+                          Size chart
+                        </button>
+                        <button
+                          type="button"
+                          is="toggle-button"
+                          class="product-form__option-link link text--subdued hidden-tablet-and-up"
+                          aria-controls="product-template--15880464695517__main-7737378799837-size-chart-popover"
+                          aria-expanded="false"
+                        >
+                          Size chart
+                        </button>
+                      </div>
+                      <div class="block-swatch-list">
+                        <div class="block-swatch">
+                          <input
+                            class="block-swatch__radio visually-hidden"
+                            type="radio"
+                            name="option1"
+                            form="product-form-template--15880464695517__main-7737378799837"
+                            id="option-template--15880464695517__main--7737378799837-1-1"
+                            value="S"
+                            checked="checked"
+                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
+                          />
+                          <label
+                            class="block-swatch__item"
+                            for="option-template--15880464695517__main--7737378799837-1-1"
+                            >S</label
+                          >
+                        </div>
+                        <div class="block-swatch">
+                          <input
+                            class="block-swatch__radio visually-hidden"
+                            type="radio"
+                            name="option1"
+                            form="product-form-template--15880464695517__main-7737378799837"
+                            id="option-template--15880464695517__main--7737378799837-1-2"
+                            value="M"
+                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
+                          />
+                          <label
+                            class="block-swatch__item"
+                            for="option-template--15880464695517__main--7737378799837-1-2"
+                            >M</label
+                          >
+                        </div>
+                        <div class="block-swatch">
+                          <input
+                            class="block-swatch__radio visually-hidden"
+                            type="radio"
+                            name="option1"
+                            form="product-form-template--15880464695517__main-7737378799837"
+                            id="option-template--15880464695517__main--7737378799837-1-3"
+                            value="L"
+                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
+                          />
+                          <label
+                            class="block-swatch__item"
+                            for="option-template--15880464695517__main--7737378799837-1-3"
+                            >L</label
+                          >
+                        </div>
+                        <div class="block-swatch">
+                          <input
+                            class="block-swatch__radio visually-hidden"
+                            type="radio"
+                            name="option1"
+                            form="product-form-template--15880464695517__main-7737378799837"
+                            id="option-template--15880464695517__main--7737378799837-1-4"
+                            value="XL"
+                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
+                          />
+                          <label
+                            class="block-swatch__item"
+                            for="option-template--15880464695517__main--7737378799837-1-4"
+                            >XL</label
+                          >
+                        </div>
+                        <div class="block-swatch">
+                          <input
+                            class="block-swatch__radio visually-hidden"
+                            type="radio"
+                            name="option1"
+                            form="product-form-template--15880464695517__main-7737378799837"
+                            id="option-template--15880464695517__main--7737378799837-1-5"
+                            value="XXL"
+                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
+                          />
+                          <label
+                            class="block-swatch__item"
+                            for="option-template--15880464695517__main--7737378799837-1-5"
+                            >XXL</label
+                          >
+                        </div>
+                        <div class="block-swatch">
+                          <input
+                            class="block-swatch__radio visually-hidden"
+                            type="radio"
+                            name="option1"
+                            form="product-form-template--15880464695517__main-7737378799837"
+                            id="option-template--15880464695517__main--7737378799837-1-6"
+                            value="3XL"
+                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
+                          />
+                          <label
+                            class="block-swatch__item"
+                            for="option-template--15880464695517__main--7737378799837-1-6"
+                            >3XL</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <noscript>
+                      <label
+                        class="input__block-label"
+                        for="product-select-template--15880464695517__main-7737378799837"
+                        >Variant</label
+                      >
+
+                      <div class="select-wrapper">
+                        <select
+                          class="select"
+                          autocomplete="off"
+                          id="product-select-template--15880464695517__main-7737378799837"
+                          name="id"
+                          form="product-form-template--15880464695517__main-7737378799837"
+                        >
+                          <option
+                            selected="selected"
+                            value="42885690687709"
+                            data-sku="VMIK-ROOH-2-1111D-S"
+                          >
+                            S - <span class="money">₹949.00</span>
+                          </option>
+                          <option
+                            disabled="disabled"
+                            value="42885690720477"
+                            data-sku="VMIK-ROOH-2-1111D-M"
+                          >
+                            M - <span class="money">₹949.00</span>
+                          </option>
+                          <option
+                            value="42885690753245"
+                            data-sku="VMIK-ROOH-2-1111D-L"
+                          >
+                            L - <span class="money">₹949.00</span>
+                          </option>
+                          <option
+                            value="42885690786013"
+                            data-sku="VMIK-ROOH-2-1111D-XL"
+                          >
+                            XL - <span class="money">₹949.00</span>
+                          </option>
+                          <option
+                            value="42885690818781"
+                            data-sku="VMIK-ROOH-2-1111D-XXL"
+                          >
+                            XXL - <span class="money">₹949.00</span>
+                          </option>
+                          <option
+                            value="42885690851549"
+                            data-sku="VMIK-ROOH-2-1111D-3XL"
+                          >
+                            3XL - <span class="money">₹949.00</span>
+                          </option></select
+                        ><svg
+                          focusable="false"
+                          width="12"
+                          height="8"
+                          class="icon icon--chevron"
+                          viewBox="0 0 12 8"
+                        >
+                          <path
+                            fill="none"
+                            d="M1 1l5 5 5-5"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          ></path>
+                        </svg>
+                      </div>
+                    </noscript>
+                  </product-variants>
+                  <div class="product-form__quantity">
+                    <span class="product-form__quantity-label">Quantity:</span>
+
+                    <quantity-selector class="quantity-selector">
+                      <button type="button" class="quantity-selector__button">
+                        <span class="visually-hidden">Decrease quantity</span
+                        ><svg
+                          focusable="false"
+                          width="10"
+                          height="2"
+                          class="icon icon--minus-big"
+                          viewBox="0 0 10 2"
+                        >
+                          <path fill="currentColor" d="M0 0h10v2H0z"></path>
+                        </svg>
+                      </button>
+
+                      <input
+                        type="text"
+                        form="product-form-template--15880464695517__main-7737378799837"
+                        is="input-number"
+                        class="quantity-selector__input"
+                        inputmode="numeric"
+                        name="quantity"
+                        autocomplete="off"
+                        min="1"
+                        value="1"
+                        size="2"
+                        aria-label="Quantity"
+                      />
+
+                      <button type="button" class="quantity-selector__button">
+                        <span class="visually-hidden">Increase quantity</span
+                        ><svg
+                          focusable="false"
+                          width="10"
+                          height="10"
+                          class="icon icon--plus-big"
+                          viewBox="0 0 10 10"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M4 6v4h2V6h4V4H6V0H4v4H0v2h4z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </button>
+                    </quantity-selector>
+                  </div>
+                  <div class="product-form__buy-buttons">
+                    <form
+                      method="post"
+                      action="/cart/add"
+                      id="product-form-template--15880464695517__main-7737378799837"
+                      accept-charset="UTF-8"
+                      class="shopify-product-form"
+                      enctype="multipart/form-data"
+                      is="product-form"
+                    >
+                      <input
+                        type="hidden"
+                        name="form_type"
+                        value="product"
+                      /><input type="hidden" name="utf8" value="✓" /><input
+                        type="hidden"
+                        disabled
+                        name="id"
+                        value="42885690687709"
+                      />
+
+                      <product-payment-container
+                        form-id="product-form-template--15880464695517__main-7737378799837"
+                        id="MainPaymentContainer"
+                        class="product-form__payment-container"
+                      >
+                        <button
+                          id="AddToCart"
+                          type="submit"
+                          is="loader-button"
+                          data-product-add-to-cart-button
+                          data-button-content="Add to cart"
+                          class="product-form__add-button button button--secondary button--full"
+                        >
+                          Add to cart
+                        </button>
+                        <div
+                          data-shopify="payment-button"
+                          data-has-selling-plan="false"
+                          data-has-fixed-selling-plan="false"
+                          class="shopify-payment-button"
+                        >
+                          <button
+                            class="shopify-payment-button__button shopify-payment-button__button--unbranded shopify-payment-button__button--hidden"
+                            disabled="disabled"
+                            aria-hidden="true"
+                          ></button
+                          ><button
+                            class="shopify-payment-button__more-options shopify-payment-button__button--hidden"
+                            disabled="disabled"
+                            aria-hidden="true"
+                          ></button>
+                        </div>
+                      </product-payment-container>
+                    </form>
+                  </div>
+                  <store-pickup
+                    form-id="product-form-template--15880464695517__main-7737378799837"
+                    class="product-form__store-availability-container"
+                  ></store-pickup>
+                </div>
+                <drawer-content
+                  id="product-template--15880464695517__main-7737378799837-size-chart-drawer"
+                  class="drawer drawer--large hidden-phone"
+                >
+                  <span class="drawer__overlay"></span>
+
+                  <header class="drawer__header">
+                    <p class="drawer__title heading h6">Size Chart</p>
+
+                    <button
+                      type="button"
+                      class="drawer__close-button tap-area"
+                      data-action="close"
+                      title="Close"
+                    >
+                      <svg
+                        focusable="false"
+                        width="14"
+                        height="14"
+                        class="icon icon--close"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          d="M13 13L1 1M13 1L1 13"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          fill="none"
+                        ></path>
+                      </svg>
+                    </button>
+                  </header>
+
+                  <div class="drawer__content drawer__content--padded-start">
+                    <div class="rte">
+                      <div class="rte">
+                        <h5>Top / Kurti / Suit</h5>
+                        <div class="table-wrapper">
+                          <table>
+                            <tbody>
+                              <tr style="height: 22px">
+                                <th style="height: 22px">
+                                  <strong>Size</strong>
+                                </th>
+                                <th style="height: 22px">
+                                  <strong>Size No</strong>
+                                </th>
+                                <th style="height: 22px">
+                                  <strong>Chest</strong>
+                                </th>
+                                <th style="height: 22px">
+                                  <strong>Waist</strong>
+                                </th>
+                                <th style="height: 22px">
+                                  <strong>Hip</strong>
+                                </th>
+                              </tr>
+                              <tr style="height: 22px">
+                                <td style="height: 22px">XS</td>
+                                <td style="height: 22px">34</td>
+                                <td style="height: 22px">34</td>
+                                <td style="height: 22px">30</td>
+                                <td style="height: 22px">38</td>
+                              </tr>
+                              <tr style="height: 35px">
+                                <td style="height: 35px">S</td>
+                                <td style="height: 35px">36</td>
+                                <td style="height: 35px">36</td>
+                                <td style="height: 35px">32</td>
+                                <td style="height: 35px">40</td>
+                              </tr>
+                              <tr style="height: 22px">
+                                <td style="height: 22px">M</td>
+                                <td style="height: 22px">38</td>
+                                <td style="height: 22px">38</td>
+                                <td style="height: 22px">34</td>
+                                <td style="height: 22px">42</td>
+                              </tr>
+                              <tr style="height: 22px">
+                                <td style="height: 22px">L</td>
+                                <td style="height: 22px">40</td>
+                                <td style="height: 22px">40</td>
+                                <td style="height: 22px">36</td>
+                                <td style="height: 22px">44</td>
+                              </tr>
+                              <tr style="height: 22px">
+                                <td style="height: 22px">XL</td>
+                                <td style="height: 22px">42</td>
+                                <td style="height: 22px">42</td>
+                                <td style="height: 22px">38</td>
+                                <td style="height: 22px">46</td>
+                              </tr>
+                              <tr style="height: 22px">
+                                <td style="height: 22px">XXL</td>
+                                <td style="height: 22px">44</td>
+                                <td style="height: 22px">44</td>
+                                <td style="height: 22px">40</td>
+                                <td style="height: 22px">48</td>
+                              </tr>
+                              <tr style="height: 22px">
+                                <td style="height: 22px"></td>
+                                <td style="height: 22px"></td>
+                                <td style="height: 22px"></td>
+                                <td style="height: 22px"></td>
+                                <td style="height: 22px"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <br />
+                        <h5>Pants / Shorts / Skirts</h5>
+                        <div class="table-wrapper">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <th style="width: 111.016px">
+                                  <strong>Size EU</strong>
+                                </th>
+                                <th style="width: 113.984px">
+                                  <strong>Size UK</strong>
+                                </th>
+                                <th style="width: 94px">
+                                  <strong>Waist</strong>
+                                </th>
+                                <th style="width: 96px">
+                                  <strong>Hip</strong>
+                                </th>
+                              </tr>
+                              <tr>
+                                <td style="width: 111.016px">XS / 34</td>
+                                <td style="width: 113.984px">6</td>
+                                <td style="width: 94px">78-82</td>
+                                <td style="width: 96px">87-91</td>
+                              </tr>
+                              <tr>
+                                <td style="width: 111.016px">S / 36</td>
+                                <td style="width: 113.984px">8</td>
+                                <td style="width: 94px">82-86</td>
+                                <td style="width: 96px">91-95</td>
+                              </tr>
+                              <tr>
+                                <td style="width: 111.016px">M / 38</td>
+                                <td style="width: 113.984px">10</td>
+                                <td style="width: 94px">86-90</td>
+                                <td style="width: 96px">95-99</td>
+                              </tr>
+                              <tr>
+                                <td style="width: 111.016px">L / 40</td>
+                                <td style="width: 113.984px">12</td>
+                                <td style="width: 94px">90-94</td>
+                                <td style="width: 96px">99-103</td>
+                              </tr>
+                              <tr>
+                                <td style="width: 111.016px">XL / 42</td>
+                                <td style="width: 113.984px">14</td>
+                                <td style="width: 94px">90-98</td>
+                                <td style="width: 96px">103-107</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div> </drawer-content
+                ><popover-content
+                  id="product-template--15880464695517__main-7737378799837-size-chart-popover"
+                  class="popover hidden-lap-and-up"
+                >
+                  <span class="popover__overlay"></span>
+
+                  <header class="popover__header">
+                    <p class="popover__title heading h6">Size Chart</p>
+
+                    <button
+                      type="button"
+                      class="popover__close-button tap-area tap-area--large"
+                      data-action="close"
+                      title="Close"
+                    >
+                      <svg
+                        focusable="false"
+                        width="14"
+                        height="14"
+                        class="icon icon--close"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          d="M13 13L1 1M13 1L1 13"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          fill="none"
+                        ></path>
+                      </svg>
+                    </button>
+                  </header>
+
+                  <div class="popover__content">
+                    <div class="rte">
+                      <div class="rte">
+                        <h5>Top / Kurti / Suit</h5>
+                        <div class="table-wrapper">
+                          <table>
+                            <tbody>
+                              <tr style="height: 22px">
+                                <th style="height: 22px">
+                                  <strong>Size</strong>
+                                </th>
+                                <th style="height: 22px">
+                                  <strong>Size No</strong>
+                                </th>
+                                <th style="height: 22px">
+                                  <strong>Chest</strong>
+                                </th>
+                                <th style="height: 22px">
+                                  <strong>Waist</strong>
+                                </th>
+                                <th style="height: 22px">
+                                  <strong>Hip</strong>
+                                </th>
+                              </tr>
+                              <tr style="height: 22px">
+                                <td style="height: 22px">XS</td>
+                                <td style="height: 22px">34</td>
+                                <td style="height: 22px">34</td>
+                                <td style="height: 22px">30</td>
+                                <td style="height: 22px">38</td>
+                              </tr>
+                              <tr style="height: 35px">
+                                <td style="height: 35px">S</td>
+                                <td style="height: 35px">36</td>
+                                <td style="height: 35px">36</td>
+                                <td style="height: 35px">32</td>
+                                <td style="height: 35px">40</td>
+                              </tr>
+                              <tr style="height: 22px">
+                                <td style="height: 22px">M</td>
+                                <td style="height: 22px">38</td>
+                                <td style="height: 22px">38</td>
+                                <td style="height: 22px">34</td>
+                                <td style="height: 22px">42</td>
+                              </tr>
+                              <tr style="height: 22px">
+                                <td style="height: 22px">L</td>
+                                <td style="height: 22px">40</td>
+                                <td style="height: 22px">40</td>
+                                <td style="height: 22px">36</td>
+                                <td style="height: 22px">44</td>
+                              </tr>
+                              <tr style="height: 22px">
+                                <td style="height: 22px">XL</td>
+                                <td style="height: 22px">42</td>
+                                <td style="height: 22px">42</td>
+                                <td style="height: 22px">38</td>
+                                <td style="height: 22px">46</td>
+                              </tr>
+                              <tr style="height: 22px">
+                                <td style="height: 22px">XXL</td>
+                                <td style="height: 22px">44</td>
+                                <td style="height: 22px">44</td>
+                                <td style="height: 22px">40</td>
+                                <td style="height: 22px">48</td>
+                              </tr>
+                              <tr style="height: 22px">
+                                <td style="height: 22px"></td>
+                                <td style="height: 22px"></td>
+                                <td style="height: 22px"></td>
+                                <td style="height: 22px"></td>
+                                <td style="height: 22px"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <br />
+                        <h5>Pants / Shorts / Skirts</h5>
+                        <div class="table-wrapper">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <th style="width: 111.016px">
+                                  <strong>Size EU</strong>
+                                </th>
+                                <th style="width: 113.984px">
+                                  <strong>Size UK</strong>
+                                </th>
+                                <th style="width: 94px">
+                                  <strong>Waist</strong>
+                                </th>
+                                <th style="width: 96px">
+                                  <strong>Hip</strong>
+                                </th>
+                              </tr>
+                              <tr>
+                                <td style="width: 111.016px">XS / 34</td>
+                                <td style="width: 113.984px">6</td>
+                                <td style="width: 94px">78-82</td>
+                                <td style="width: 96px">87-91</td>
+                              </tr>
+                              <tr>
+                                <td style="width: 111.016px">S / 36</td>
+                                <td style="width: 113.984px">8</td>
+                                <td style="width: 94px">82-86</td>
+                                <td style="width: 96px">91-95</td>
+                              </tr>
+                              <tr>
+                                <td style="width: 111.016px">M / 38</td>
+                                <td style="width: 113.984px">10</td>
+                                <td style="width: 94px">86-90</td>
+                                <td style="width: 96px">95-99</td>
+                              </tr>
+                              <tr>
+                                <td style="width: 111.016px">L / 40</td>
+                                <td style="width: 113.984px">12</td>
+                                <td style="width: 94px">90-94</td>
+                                <td style="width: 96px">99-103</td>
+                              </tr>
+                              <tr>
+                                <td style="width: 111.016px">XL / 42</td>
+                                <td style="width: 113.984px">14</td>
+                                <td style="width: 94px">90-98</td>
+                                <td style="width: 96px">103-107</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </popover-content>
+                <div class="product-meta__aside">
+                  <div class="product-meta__share text--subdued">
+                    <div class="product-meta__share-label">Share</div>
+
+                    <div class="product-meta__share-button-list">
+                      <a
+                        class="product-meta__share-button-item product-meta__share-button-item--facebook link tap-area"
+                        href="https://www.facebook.com/sharer.php?u=https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="Share on Facebook"
+                        ><svg
+                          focusable="false"
+                          width="8"
+                          height="14"
+                          class="icon icon--facebook"
+                          viewBox="0 0 9 17"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M2.486 16.2084L2.486 8.81845H0L0 5.93845L2.486 5.93845L2.486 3.81845C2.38483 2.79982 2.73793 1.78841 3.45107 1.05407C4.16421 0.319722 5.16485 -0.0628415 6.186 0.00844868C6.9284 0.00408689 7.67039 0.0441585 8.408 0.128449V2.69845L6.883 2.69845C6.4898 2.61523 6.08104 2.73438 5.79414 3.01585C5.50724 3.29732 5.3803 3.70373 5.456 4.09845L5.456 5.93845H8.308L7.936 8.81845H5.46L5.46 16.2084H2.486Z"
+                            fill="currentColor"
+                          ></path></svg
+                      ></a>
+                      <a
+                        class="product-meta__share-button-item product-meta__share-button-item--facebook link tap-area"
+                        href="https://api.whatsapp.com/send?text=https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="Share on Whatsapp"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="13"
+                          height="13"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                          /></svg
+                      ></a>
+
+                      <a
+                        class="product-meta__share-button-item product-meta__share-button-item--pinterest link tap-area"
+                        href="https://pinterest.com/pin/create/button/?url=https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904&media=https://cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_800x.jpg?v=1669040702&description=Make%20some%20space%20in%20your%20casual%20wardrobe%20for%20this%20lavender%20colored%20kurti.%20This%20kurti%20is..."
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="Pin on Pinterest"
+                        ><svg
+                          focusable="false"
+                          width="10"
+                          height="14"
+                          class="icon icon--pinterest"
+                          viewBox="0 0 12 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M5.8042 0.00123531C8.79537 -0.0442356 10.6685 1.16769 11.5498 3.29299C11.8407 3.99433 12.1516 5.28439 11.9181 6.35474C11.825 6.78208 11.7985 7.22812 11.6726 7.63086C11.4163 8.4496 11.0829 9.17441 10.6413 9.79945C10.0418 10.6486 9.13196 11.2212 7.98951 11.5091C6.97899 11.7637 6.04959 11.3826 5.50954 10.9732C5.33747 10.843 5.10674 10.6728 5.04304 10.4377C5.03488 10.4377 5.0267 10.4377 5.01853 10.4377C4.97972 10.8669 4.81532 11.3224 4.69924 11.7135C4.53858 12.2545 4.50733 12.8146 4.3064 13.3208C4.08349 13.8828 3.81274 14.3978 3.52072 14.8776C3.36739 15.1292 2.94427 15.9904 2.63675 16C2.60311 15.9354 2.58964 15.9105 2.58761 15.796C2.48858 15.6383 2.55757 15.3724 2.51393 15.1578C2.44604 14.8236 2.39317 14.2217 2.46491 13.8824C2.46491 13.7038 2.46491 13.5248 2.46491 13.3465C2.54397 12.9786 2.54085 12.6015 2.63675 12.2494C2.84537 11.4824 2.96145 10.6699 3.17692 9.87611C3.38398 9.11352 3.57396 8.27939 3.74172 7.50321C3.77957 7.32789 3.56652 6.82389 3.52072 6.63572C3.37628 6.04186 3.48624 5.21874 3.66805 4.77269C3.89698 4.21111 4.56717 3.3535 5.43589 3.57359C6.13407 3.75039 6.57846 4.50528 6.34437 5.46192C6.09862 6.46589 5.7798 7.3653 5.5587 8.37035C5.50173 8.62933 5.59968 8.90442 5.65687 9.05958C5.86357 9.61934 6.49037 10.163 7.32652 9.95278C8.59396 9.63365 9.15431 8.48627 9.53645 7.24791C9.63981 6.91302 9.62743 6.59647 9.70831 6.22709C9.87894 5.44763 9.80648 4.28411 9.56098 3.67556C9.16753 2.70023 8.43329 2.07518 7.42471 1.73624C7.1465 1.68526 6.86819 1.63427 6.58988 1.58329C6.12397 1.47655 5.23532 1.63685 4.92023 1.73624C3.51171 2.18156 2.63952 2.92544 2.09658 4.26247C1.91177 4.71767 1.81046 5.17911 1.77741 5.81884C1.76913 5.8955 1.76094 5.97217 1.75278 6.04883C1.86153 6.62068 1.87259 6.99959 2.09658 7.42657C2.20715 7.63711 2.46971 7.8029 2.51393 8.06444C2.54001 8.2185 2.42705 8.45105 2.39125 8.57467C2.33705 8.76137 2.35676 8.97522 2.26844 9.13625C2.10873 9.42678 1.67383 9.20852 1.48275 9.08491C0.489307 8.44373 -0.329526 6.5895 0.132284 4.79837C0.20342 4.5218 0.206915 4.28118 0.304126 4.03285C0.906661 2.49554 1.80565 1.55101 3.10325 0.741098C3.58947 0.437749 4.24511 0.287354 4.84657 0.128885C5.16574 0.0863481 5.48503 0.0437917 5.8042 0.00123531Z"
+                            fill="currentColor"
+                          ></path></svg
+                      ></a>
+
+                      <a
+                        class="product-meta__share-button-item product-meta__share-button-item--twitter link tap-area"
+                        href="https://twitter.com/share?text=Lavender%20Lakhnawi%20Work%20Rayon%20Kurti&url=https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="Tweet on Twitter"
+                        ><svg
+                          focusable="false"
+                          width="17"
+                          height="14"
+                          class="icon icon--twitter"
+                          viewBox="0 0 20 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M12.845 2.13398C14.0997 2.11363 14.7676 2.53229 15.4054 3.06445C15.9468 3.02216 16.6505 2.74528 17.065 2.55232C17.1993 2.48493 17.3337 2.41786 17.468 2.35046C17.2312 2.93602 16.9103 3.39474 16.417 3.74251C16.3074 3.81976 16.1987 3.92434 16.0613 3.97362C16.0613 3.97584 16.0613 3.97838 16.0613 3.98061C16.7643 3.97394 17.3441 3.6837 17.8947 3.52603C17.8947 3.52856 17.8947 3.5311 17.8947 3.53365C17.6055 3.95454 17.214 4.38147 16.7963 4.6876C16.6277 4.8103 16.4591 4.93301 16.2905 5.05571C16.2997 5.73696 16.2795 6.38704 16.1404 6.95989C15.3314 10.2888 13.1878 12.5491 9.7945 13.517C8.5761 13.8648 6.60702 14.0075 5.21102 13.6903C4.51872 13.5329 3.89334 13.3552 3.30644 13.1203C2.98052 12.9896 2.67854 12.8485 2.38972 12.6876C2.29496 12.6346 2.2001 12.5818 2.10522 12.5287C2.42018 12.5376 2.78846 12.6168 3.14052 12.5649C3.45896 12.5179 3.77128 12.53 4.06514 12.4712C4.79794 12.324 5.4486 12.1294 6.00916 11.829C6.2809 11.6834 6.69324 11.5124 6.88634 11.3026C6.52248 11.3083 6.19256 11.2311 5.9223 11.144C4.87436 10.8051 4.26436 10.1824 3.86752 9.2468C4.1851 9.27827 5.09982 9.35394 5.31368 9.18894C4.91398 9.16891 4.52956 8.95688 4.25478 8.7992C3.41184 8.31634 2.72438 7.50634 2.72954 6.26021C2.84022 6.30821 2.9509 6.35653 3.06148 6.40453C3.27324 6.48622 3.48848 6.52978 3.74112 6.57778C3.8478 6.59781 4.06114 6.65534 4.18362 6.6137C4.17836 6.6137 4.17308 6.6137 4.16782 6.6137C4.00476 6.43982 3.73902 6.32411 3.57512 6.1375C3.03438 5.52206 2.52758 4.57507 2.84812 3.44686C2.9294 3.16077 3.05842 2.90805 3.19586 2.67502C3.20114 2.67757 3.2064 2.67979 3.21168 2.68234C3.2746 2.80282 3.415 2.89152 3.50408 2.99229C3.78024 3.30573 4.1209 3.5877 4.46812 3.83629C5.65108 4.68347 6.71642 5.20386 8.42738 5.58946C8.86134 5.68706 9.36308 5.76176 9.88146 5.76238C9.73578 5.37424 9.78258 4.7461 9.89726 4.37035C10.1856 3.42557 10.8119 2.74402 11.7307 2.37907C11.9504 2.29197 12.1941 2.22838 12.4498 2.17722C12.5815 2.16291 12.7133 2.14861 12.845 2.13398Z"
+                            fill="currentColor"
+                          ></path></svg
+                      ></a>
+
+                      <a
+                        class="product-meta__share-button-item product-meta__share-button-item--mail link tap-area"
+                        href="mailto:?&subject=Lavender Lakhnawi Work Rayon Kurti&body=https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
+                        aria-label="Share by e-mail"
+                        ><svg
+                          focusable="false"
+                          width="13"
+                          height="13"
+                          class="icon icon--share"
+                          viewBox="0 0 18 18"
+                        >
+                          <path
+                            d="M17 1l-5.6 16-3.2-7.2M17 1L1 6.6l7.2 3.2M17 1L8.2 9.8"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path></svg
+                      ></a>
                     </div>
                   </div>
                 </div>
@@ -8722,6 +11206,1173 @@ if(!isset($_SESSION)){
             </div>
           </div>
         </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464695517__product-content"
+        class="shopify-section shopify-section--product-content"
+      >
+        <div class="product-tabs__trust-list container hidden-lap-and-up">
+          <button
+            is="toggle-button"
+            class="product-tabs__trust-title icon-text link text--subdued hidden-phone"
+            aria-controls="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-1-drawer"
+            aria-expanded="false"
+          >
+            <svg
+              fill="none"
+              focusable="false"
+              width="24"
+              height="24"
+              class="icon icon--picto-warranty product-tabs__trust-icon"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M5.25463 14C4.15672 12.6304 3.5 10.8919 3.5 9C3.5 4.58172 7.08172 1 11.5 1C15.9183 1 19.5 4.58172 19.5 9C19.5 10.8919 18.8433 12.6304 17.7454 14M5.25463 14L1.5 20L4.5 19L5.5 22L8.5 16.4185M5.25463 14C6.15126 15.1185 7.13226 15.9095 8.5 16.4185M8.5 16.4185C9.36872 16.7418 10.5187 17 11.5 17C12.5609 17 13.5736 16.7935 14.5 16.4185M17.7454 14L21.5 20L18.5 19L17.5 22L14.5 16.4185M17.7454 14C16.8949 15.0609 15.7797 15.9005 14.5 16.4185"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+              <path
+                d="M8 9.72727L10.1473 12L14.5 7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path></svg
+            >100% Quality Assurance
+          </button>
+
+          <button
+            is="toggle-button"
+            class="product-tabs__trust-title icon-text link text--subdued hidden-tablet-and-up"
+            aria-controls="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-1-popover"
+            aria-expanded="false"
+          >
+            <svg
+              fill="none"
+              focusable="false"
+              width="24"
+              height="24"
+              class="icon icon--picto-warranty product-tabs__trust-icon"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M5.25463 14C4.15672 12.6304 3.5 10.8919 3.5 9C3.5 4.58172 7.08172 1 11.5 1C15.9183 1 19.5 4.58172 19.5 9C19.5 10.8919 18.8433 12.6304 17.7454 14M5.25463 14L1.5 20L4.5 19L5.5 22L8.5 16.4185M5.25463 14C6.15126 15.1185 7.13226 15.9095 8.5 16.4185M8.5 16.4185C9.36872 16.7418 10.5187 17 11.5 17C12.5609 17 13.5736 16.7935 14.5 16.4185M17.7454 14L21.5 20L18.5 19L17.5 22L14.5 16.4185M17.7454 14C16.8949 15.0609 15.7797 15.9005 14.5 16.4185"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+              <path
+                d="M8 9.72727L10.1473 12L14.5 7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path></svg
+            >100% Quality Assurance</button
+          ><button
+            is="toggle-button"
+            class="product-tabs__trust-title icon-text link text--subdued hidden-phone"
+            aria-controls="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-2-drawer"
+            aria-expanded="false"
+          >
+            <svg
+              fill="none"
+              focusable="false"
+              width="26"
+              height="24"
+              class="icon icon--picto-delivery-truck product-tabs__trust-icon"
+              viewBox="0 0 26 24"
+            >
+              <path
+                d="M17 17H8.68004C8.68004 17 8 16 7 16M17 17V8M17 17H19.32M17 8V3H1V17H5.31996M17 8H23.5L25 12.5V17H22.68C22.68 17 22 16 21 16M21 16C22 16 23 17 23 18C23 19 22 20 21 20C20 20 19 19 19 18C19 17.6527 19.1206 17.3054 19.32 17M21 16C20.3473 16 19.6946 16.426 19.32 17M7 16C8 16 9 17 9 18C9 19 8 20 7 20C6 20 5 19 5 18C5 17.6527 5.12061 17.3054 5.31996 17M7 16C6.3473 16 5.69459 16.426 5.31996 17"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path></svg
+            >Cash on Delivery
+          </button>
+
+          <button
+            is="toggle-button"
+            class="product-tabs__trust-title icon-text link text--subdued hidden-tablet-and-up"
+            aria-controls="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-2-popover"
+            aria-expanded="false"
+          >
+            <svg
+              fill="none"
+              focusable="false"
+              width="26"
+              height="24"
+              class="icon icon--picto-delivery-truck product-tabs__trust-icon"
+              viewBox="0 0 26 24"
+            >
+              <path
+                d="M17 17H8.68004C8.68004 17 8 16 7 16M17 17V8M17 17H19.32M17 8V3H1V17H5.31996M17 8H23.5L25 12.5V17H22.68C22.68 17 22 16 21 16M21 16C22 16 23 17 23 18C23 19 22 20 21 20C20 20 19 19 19 18C19 17.6527 19.1206 17.3054 19.32 17M21 16C20.3473 16 19.6946 16.426 19.32 17M7 16C8 16 9 17 9 18C9 19 8 20 7 20C6 20 5 19 5 18C5 17.6527 5.12061 17.3054 5.31996 17M7 16C6.3473 16 5.69459 16.426 5.31996 17"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path></svg
+            >Cash on Delivery</button
+          ><button
+            is="toggle-button"
+            class="product-tabs__trust-title icon-text link text--subdued hidden-phone"
+            aria-controls="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-3-drawer"
+            aria-expanded="false"
+          >
+            <svg
+              fill="none"
+              focusable="false"
+              width="32"
+              height="24"
+              class="icon icon--picto-return-box product-tabs__trust-icon"
+              viewBox="0 0 32 24"
+            >
+              <path
+                d="M20 21L29 17.1429V6.85714M20 21L11 17.1429V16M20 21V10.7143M29 6.85714L20 3L11 6.85714M29 6.85714L20 10.7143M11 6.85714L20 10.7143M11 6.85714V10"
+                stroke="currentColor"
+                stroke-width="2"
+              ></path>
+              <path
+                d="M13 13L2 13M2 13L7.2 18.2M2 13L7.2 7.79998"
+                stroke="currentColor"
+                stroke-width="2"
+              ></path></svg
+            >Easy 7 Days Returns Policy India
+          </button>
+
+          <button
+            is="toggle-button"
+            class="product-tabs__trust-title icon-text link text--subdued hidden-tablet-and-up"
+            aria-controls="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-3-popover"
+            aria-expanded="false"
+          >
+            <svg
+              fill="none"
+              focusable="false"
+              width="32"
+              height="24"
+              class="icon icon--picto-return-box product-tabs__trust-icon"
+              viewBox="0 0 32 24"
+            >
+              <path
+                d="M20 21L29 17.1429V6.85714M20 21L11 17.1429V16M20 21V10.7143M29 6.85714L20 3L11 6.85714M29 6.85714L20 10.7143M11 6.85714L20 10.7143M11 6.85714V10"
+                stroke="currentColor"
+                stroke-width="2"
+              ></path>
+              <path
+                d="M13 13L2 13M2 13L7.2 18.2M2 13L7.2 7.79998"
+                stroke="currentColor"
+                stroke-width="2"
+              ></path></svg
+            >Easy 7 Days Returns Policy India
+          </button>
+        </div>
+        <section class="container">
+          <div
+            id="product-7737378799837-content"
+            class="product-content anchor"
+          >
+            <div
+              class="product-content__tabs anchor"
+              id="product-7737378799837-tabs"
+            >
+              <div class="product-tabs">
+                <tabs-nav arrows class="tabs-nav tabs-nav--loose hidden-pocket">
+                  <scrollable-content class="tabs-nav__scroller hide-scrollbar">
+                    <div class="tabs-nav__scroller-inner">
+                      <div class="tabs-nav__item-list">
+                        <button
+                          type="button"
+                          class="tabs-nav__item heading heading--small"
+                          aria-expanded="false"
+                          aria-controls="block-template--15880464695517__product-content-description"
+                        >
+                          Description</button
+                        ><button
+                          type="button"
+                          class="tabs-nav__item heading heading--small"
+                          aria-expanded="false"
+                          aria-controls="block-template--15880464695517__product-content-a5a960ea-e055-4388-8560-dab249cdef2f"
+                        >
+                          SPECIFICATIONS</button
+                        ><button
+                          type="button"
+                          id="product-7737378799837-reviews-desktop"
+                          class="tabs-nav__item heading heading--small anchor"
+                          aria-expanded="true"
+                          aria-controls="block-template--15880464695517__product-content-e3dda7a2-72cd-4975-bf8e-0301fe9e23f4"
+                        >
+                          Reviews</button
+                        ><button
+                          type="button"
+                          class="tabs-nav__item heading heading--small"
+                          aria-expanded="false"
+                          aria-controls="block-template--15880464695517__product-content-71f74c37-1aeb-416e-a392-2bc4eb2a4784"
+                        >
+                          Return Policy
+                        </button>
+                      </div>
+                    </div>
+                  </scrollable-content>
+
+                  <div class="tabs-nav__arrows hidden-tablet-and-up">
+                    <button class="tabs-nav__arrow-item">
+                      <span class="visually-hidden">Previous</span
+                      ><svg
+                        focusable="false"
+                        width="6"
+                        height="9"
+                        class="icon icon--product-tab-left icon--direction-aware"
+                        viewBox="0 0 6 9"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M2.554 4.5L6 1.054 4.946 0l-4.5 4.5 4.5 4.5L6 7.946 2.554 4.5z"
+                          fill="currentColor"
+                        ></path>
+                      </svg>
+                    </button>
+
+                    <button class="tabs-nav__arrow-item">
+                      <span class="visually-hidden">Next</span
+                      ><svg
+                        focusable="false"
+                        width="6"
+                        height="9"
+                        class="icon icon--product-tab-right icon--direction-aware"
+                        viewBox="0 0 6 9"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M3.446 4.5L0 1.054 1.054 0l4.5 4.5-4.5 4.5L0 7.946 3.446 4.5z"
+                          fill="currentColor"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                </tabs-nav>
+                <div class="product-tabs__content">
+                  <div
+                    hidden
+                    id="block-template--15880464695517__product-content-description"
+                    class="product-tabs__tab-item-wrapper"
+                  >
+                    <button
+                      is="toggle-button"
+                      class="collapsible-toggle heading heading--small hidden-lap-and-up"
+                      aria-controls="block-template--15880464695517__product-content-description-content"
+                      aria-expanded="false"
+                    >
+                      Description<svg
+                        focusable="false"
+                        width="12"
+                        height="8"
+                        class="icon icon--chevron"
+                        viewBox="0 0 12 8"
+                      >
+                        <path
+                          fill="none"
+                          d="M1 1l5 5 5-5"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+
+                    <collapsible-content
+                      id="block-template--15880464695517__product-content-description-content"
+                      class="collapsible"
+                    >
+                      <div class="product-tabs__tab-item-content rte">
+                        <p>
+                          Make some space in your casual wardrobe for this
+                          lavender colored kurti. This kurti is fashioned on
+                          pure rayon viscose fabric which is lightweight and
+                          assures the wearer a perfect fit &amp; comfort. This
+                          stitched kurti is beautified with lakhnawi work as
+                          shown. Ideal for party, outing &amp; weekend get
+                          together. Team it with high heels and fashionable
+                          accessories to look more attractive. This attractive
+                          kurti will surely fetch you compliments for your rich
+                          sense of style. Note:- The actual product may differ
+                          slightly in color and design from the one illustrated
+                          in the images when compared with computer or mobile
+                          screen.
+                        </p>
+                      </div>
+                      <div class="product-tabs__trust-list hidden-pocket">
+                        <button
+                          is="toggle-button"
+                          class="product-tabs__trust-title icon-text link text--subdued hidden-phone"
+                          aria-controls="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-1-drawer"
+                          aria-expanded="false"
+                        >
+                          <svg
+                            fill="none"
+                            focusable="false"
+                            width="24"
+                            height="24"
+                            class="icon icon--picto-warranty product-tabs__trust-icon"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M5.25463 14C4.15672 12.6304 3.5 10.8919 3.5 9C3.5 4.58172 7.08172 1 11.5 1C15.9183 1 19.5 4.58172 19.5 9C19.5 10.8919 18.8433 12.6304 17.7454 14M5.25463 14L1.5 20L4.5 19L5.5 22L8.5 16.4185M5.25463 14C6.15126 15.1185 7.13226 15.9095 8.5 16.4185M8.5 16.4185C9.36872 16.7418 10.5187 17 11.5 17C12.5609 17 13.5736 16.7935 14.5 16.4185M17.7454 14L21.5 20L18.5 19L17.5 22L14.5 16.4185M17.7454 14C16.8949 15.0609 15.7797 15.9005 14.5 16.4185"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                            <path
+                              d="M8 9.72727L10.1473 12L14.5 7"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path></svg
+                          >100% Quality Assurance
+                        </button>
+
+                        <button
+                          is="toggle-button"
+                          class="product-tabs__trust-title icon-text link text--subdued hidden-tablet-and-up"
+                          aria-controls="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-1-popover"
+                          aria-expanded="false"
+                        >
+                          <svg
+                            fill="none"
+                            focusable="false"
+                            width="24"
+                            height="24"
+                            class="icon icon--picto-warranty product-tabs__trust-icon"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M5.25463 14C4.15672 12.6304 3.5 10.8919 3.5 9C3.5 4.58172 7.08172 1 11.5 1C15.9183 1 19.5 4.58172 19.5 9C19.5 10.8919 18.8433 12.6304 17.7454 14M5.25463 14L1.5 20L4.5 19L5.5 22L8.5 16.4185M5.25463 14C6.15126 15.1185 7.13226 15.9095 8.5 16.4185M8.5 16.4185C9.36872 16.7418 10.5187 17 11.5 17C12.5609 17 13.5736 16.7935 14.5 16.4185M17.7454 14L21.5 20L18.5 19L17.5 22L14.5 16.4185M17.7454 14C16.8949 15.0609 15.7797 15.9005 14.5 16.4185"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                            <path
+                              d="M8 9.72727L10.1473 12L14.5 7"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path></svg
+                          >100% Quality Assurance</button
+                        ><button
+                          is="toggle-button"
+                          class="product-tabs__trust-title icon-text link text--subdued hidden-phone"
+                          aria-controls="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-2-drawer"
+                          aria-expanded="false"
+                        >
+                          <svg
+                            fill="none"
+                            focusable="false"
+                            width="26"
+                            height="24"
+                            class="icon icon--picto-delivery-truck product-tabs__trust-icon"
+                            viewBox="0 0 26 24"
+                          >
+                            <path
+                              d="M17 17H8.68004C8.68004 17 8 16 7 16M17 17V8M17 17H19.32M17 8V3H1V17H5.31996M17 8H23.5L25 12.5V17H22.68C22.68 17 22 16 21 16M21 16C22 16 23 17 23 18C23 19 22 20 21 20C20 20 19 19 19 18C19 17.6527 19.1206 17.3054 19.32 17M21 16C20.3473 16 19.6946 16.426 19.32 17M7 16C8 16 9 17 9 18C9 19 8 20 7 20C6 20 5 19 5 18C5 17.6527 5.12061 17.3054 5.31996 17M7 16C6.3473 16 5.69459 16.426 5.31996 17"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path></svg
+                          >Cash on Delivery
+                        </button>
+
+                        <button
+                          is="toggle-button"
+                          class="product-tabs__trust-title icon-text link text--subdued hidden-tablet-and-up"
+                          aria-controls="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-2-popover"
+                          aria-expanded="false"
+                        >
+                          <svg
+                            fill="none"
+                            focusable="false"
+                            width="26"
+                            height="24"
+                            class="icon icon--picto-delivery-truck product-tabs__trust-icon"
+                            viewBox="0 0 26 24"
+                          >
+                            <path
+                              d="M17 17H8.68004C8.68004 17 8 16 7 16M17 17V8M17 17H19.32M17 8V3H1V17H5.31996M17 8H23.5L25 12.5V17H22.68C22.68 17 22 16 21 16M21 16C22 16 23 17 23 18C23 19 22 20 21 20C20 20 19 19 19 18C19 17.6527 19.1206 17.3054 19.32 17M21 16C20.3473 16 19.6946 16.426 19.32 17M7 16C8 16 9 17 9 18C9 19 8 20 7 20C6 20 5 19 5 18C5 17.6527 5.12061 17.3054 5.31996 17M7 16C6.3473 16 5.69459 16.426 5.31996 17"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path></svg
+                          >Cash on Delivery</button
+                        ><button
+                          is="toggle-button"
+                          class="product-tabs__trust-title icon-text link text--subdued hidden-phone"
+                          aria-controls="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-3-drawer"
+                          aria-expanded="false"
+                        >
+                          <svg
+                            fill="none"
+                            focusable="false"
+                            width="32"
+                            height="24"
+                            class="icon icon--picto-return-box product-tabs__trust-icon"
+                            viewBox="0 0 32 24"
+                          >
+                            <path
+                              d="M20 21L29 17.1429V6.85714M20 21L11 17.1429V16M20 21V10.7143M29 6.85714L20 3L11 6.85714M29 6.85714L20 10.7143M11 6.85714L20 10.7143M11 6.85714V10"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            ></path>
+                            <path
+                              d="M13 13L2 13M2 13L7.2 18.2M2 13L7.2 7.79998"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            ></path></svg
+                          >Easy 7 Days Returns Policy India
+                        </button>
+
+                        <button
+                          is="toggle-button"
+                          class="product-tabs__trust-title icon-text link text--subdued hidden-tablet-and-up"
+                          aria-controls="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-3-popover"
+                          aria-expanded="false"
+                        >
+                          <svg
+                            fill="none"
+                            focusable="false"
+                            width="32"
+                            height="24"
+                            class="icon icon--picto-return-box product-tabs__trust-icon"
+                            viewBox="0 0 32 24"
+                          >
+                            <path
+                              d="M20 21L29 17.1429V6.85714M20 21L11 17.1429V16M20 21V10.7143M29 6.85714L20 3L11 6.85714M29 6.85714L20 10.7143M11 6.85714L20 10.7143M11 6.85714V10"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            ></path>
+                            <path
+                              d="M13 13L2 13M2 13L7.2 18.2M2 13L7.2 7.79998"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            ></path></svg
+                          >Easy 7 Days Returns Policy India
+                        </button>
+                      </div></collapsible-content
+                    >
+                  </div>
+                  <div
+                    hidden
+                    id="block-template--15880464695517__product-content-a5a960ea-e055-4388-8560-dab249cdef2f"
+                    class="product-tabs__tab-item-wrapper"
+                  >
+                    <button
+                      is="toggle-button"
+                      class="collapsible-toggle heading heading--small hidden-lap-and-up"
+                      aria-expanded="false"
+                      aria-controls="block-template--15880464695517__product-content-a5a960ea-e055-4388-8560-dab249cdef2f-content"
+                    >
+                      SPECIFICATIONS<svg
+                        focusable="false"
+                        width="12"
+                        height="8"
+                        class="icon icon--chevron"
+                        viewBox="0 0 12 8"
+                      >
+                        <path
+                          fill="none"
+                          d="M1 1l5 5 5-5"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+
+                    <collapsible-content
+                      id="block-template--15880464695517__product-content-a5a960ea-e055-4388-8560-dab249cdef2f-content"
+                      class="collapsible"
+                    >
+                      <div class="product-tabs__tab-item-content rte">
+                        <table class="specification_table">
+                          <tbody>
+                            <tr>
+                              <th valign="top">Measurements:</th>
+                              <td>
+                                <p>
+                                  <span class="metafield-multi_line_text_field"
+                                    >Kurti <br />
+                                  </span>
+                                </p>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <th>Material:</th>
+                              <td>Rayon</td>
+                            </tr>
+
+                            <tr>
+                              <th>Color:</th>
+                              <td>Violet</td>
+                            </tr>
+
+                            <tr>
+                              <th>Work:</th>
+                              <td>Embroidered</td>
+                            </tr>
+
+                            <tr>
+                              <th>Stitch Type:</th>
+                              <td>Stitched</td>
+                            </tr>
+
+                            <tr>
+                              <th>Occasion:</th>
+                              <td>Casual, Office wear, Daily</td>
+                            </tr>
+
+                            <tr>
+                              <th>Print / Pattern:</th>
+                              <td>Lucknowi, Chikankari</td>
+                            </tr>
+
+                            <tr>
+                              <th>Style:</th>
+                              <td>Straight Cut</td>
+                            </tr>
+
+                            <tr>
+                              <th>Supplier SKU:</th>
+                              <td>VMIK-ROOH-2-1111D</td>
+                            </tr>
+                            <tr>
+                              <th>Supplier:</th>
+                              <td>
+                                Tulsyan Retail Pvt. Ltd<br />
+                                Shyam Sangini Market, Surat, Gujarat
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <th>Country of Origin:</th>
+                              <td>India</td>
+                            </tr>
+
+                            <tr>
+                              <th>Care Guide:</th>
+                              <td>Dry Clean</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div></collapsible-content
+                    >
+                  </div>
+                  <div
+                    id="block-template--15880464695517__product-content-e3dda7a2-72cd-4975-bf8e-0301fe9e23f4"
+                    class="product-tabs__tab-item-wrapper"
+                  >
+                    <button
+                      is="toggle-button"
+                      id="product-7737378799837-reviews-pocket"
+                      class="collapsible-toggle heading heading--small hidden-lap-and-up anchor"
+                      aria-controls="block-template--15880464695517__product-content-e3dda7a2-72cd-4975-bf8e-0301fe9e23f4-content"
+                      aria-expanded="true"
+                    >
+                      Reviews
+                      <svg
+                        focusable="false"
+                        width="12"
+                        height="8"
+                        class="icon icon--chevron"
+                        viewBox="0 0 12 8"
+                      >
+                        <path
+                          fill="none"
+                          d="M1 1l5 5 5-5"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+
+                    <collapsible-content
+                      open
+                      id="block-template--15880464695517__product-content-e3dda7a2-72cd-4975-bf8e-0301fe9e23f4-content"
+                      class="collapsible"
+                    >
+                      <div class="product-tabs__tab-item-content">
+                        <div
+                          id="looxReviews"
+                          data-product-id="7737378799837"
+                          class="loox-reviews-default"
+                        >
+                          <div
+                            id="loox-inline-reviews"
+                            style="display: none"
+                            data-loox-hash="1679743816839"
+                          >
+                            <div class="review">
+                              <div class="name">Prachi D.</div>
+                              <div class="review_text">
+                                Nice kurti. like this
+                              </div>
+                            </div>
+                            <div class="review">
+                              <div class="name">Chandrika M.</div>
+                              <div class="review_text">
+                                Only complain is I thought it would come with
+                                the bottom piece as u have showed in the photo.
+                              </div>
+                            </div>
+                            <div class="review">
+                              <div class="name">Shifa S.</div>
+                              <div class="review_text">.</div>
+                            </div>
+                            <div class="review">
+                              <div class="name">Vandana Y.</div>
+                              <div class="review_text">
+                                Fabric is good and it is same as shown in the
+                                picture I m so happy
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <br />
+                      </div>
+                    </collapsible-content>
+                  </div>
+                  <div
+                    hidden
+                    id="block-template--15880464695517__product-content-71f74c37-1aeb-416e-a392-2bc4eb2a4784"
+                    class="product-tabs__tab-item-wrapper"
+                  >
+                    <button
+                      is="toggle-button"
+                      class="collapsible-toggle heading heading--small hidden-lap-and-up"
+                      aria-expanded="false"
+                      aria-controls="block-template--15880464695517__product-content-71f74c37-1aeb-416e-a392-2bc4eb2a4784-content"
+                    >
+                      Return Policy<svg
+                        focusable="false"
+                        width="12"
+                        height="8"
+                        class="icon icon--chevron"
+                        viewBox="0 0 12 8"
+                      >
+                        <path
+                          fill="none"
+                          d="M1 1l5 5 5-5"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+
+                    <collapsible-content
+                      id="block-template--15880464695517__product-content-71f74c37-1aeb-416e-a392-2bc4eb2a4784-content"
+                      class="collapsible"
+                    >
+                      <div class="product-tabs__tab-item-content rte">
+                        <p>
+                          We have a flat 7 Day Full Refund / Exchange policy.
+                          For returns with full money refund or exchange
+                          requests you can visit returns centre -
+                          <a
+                            href="/pages/return-replace-your-order"
+                            target="_blank"
+                            title="Return/Replace your order"
+                            ><strong>Click Here</strong></a
+                          >
+                          to generate a return pickup request or
+                          <a
+                            href="https://wa.me/918976948840?text=Hi"
+                            target="_blank"
+                            title="Peachmode Whatsapp"
+                            ><strong>Chat On Whatsapp</strong></a
+                          >
+                          or email us at <strong>returns@peachmode.com</strong>
+                        </p>
+                      </div></collapsible-content
+                    >
+                  </div>
+                </div>
+                <drawer-content
+                  id="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-1-drawer"
+                  class="drawer drawer--large hidden-phone"
+                >
+                  <span class="drawer__overlay"></span>
+
+                  <header class="drawer__header">
+                    <p class="drawer__title heading h6">
+                      <svg
+                        fill="none"
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--picto-warranty product-tabs__trust-icon"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M5.25463 14C4.15672 12.6304 3.5 10.8919 3.5 9C3.5 4.58172 7.08172 1 11.5 1C15.9183 1 19.5 4.58172 19.5 9C19.5 10.8919 18.8433 12.6304 17.7454 14M5.25463 14L1.5 20L4.5 19L5.5 22L8.5 16.4185M5.25463 14C6.15126 15.1185 7.13226 15.9095 8.5 16.4185M8.5 16.4185C9.36872 16.7418 10.5187 17 11.5 17C12.5609 17 13.5736 16.7935 14.5 16.4185M17.7454 14L21.5 20L18.5 19L17.5 22L14.5 16.4185M17.7454 14C16.8949 15.0609 15.7797 15.9005 14.5 16.4185"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M8 9.72727L10.1473 12L14.5 7"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                      >100% Quality Assurance
+                    </p>
+
+                    <button
+                      type="button"
+                      class="drawer__close-button tap-area"
+                      data-action="close"
+                      title="Close"
+                    >
+                      <svg
+                        focusable="false"
+                        width="14"
+                        height="14"
+                        class="icon icon--close"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          d="M13 13L1 1M13 1L1 13"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          fill="none"
+                        ></path>
+                      </svg>
+                    </button>
+                  </header>
+
+                  <div class="drawer__content drawer__content--padded-start">
+                    <div class="rte">
+                      <p>
+                        We do complete quality check of our products before
+                        shipping so you can be assured to get the best quaility
+                        products.
+                      </p>
+                    </div>
+                  </div> </drawer-content
+                ><popover-content
+                  id="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-1-popover"
+                  class="popover hidden-tablet-and-up"
+                >
+                  <span class="popover__overlay"></span>
+
+                  <header class="popover__header">
+                    <p class="popover__title heading h6">
+                      <svg
+                        fill="none"
+                        focusable="false"
+                        width="24"
+                        height="24"
+                        class="icon icon--picto-warranty product-tabs__trust-icon"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M5.25463 14C4.15672 12.6304 3.5 10.8919 3.5 9C3.5 4.58172 7.08172 1 11.5 1C15.9183 1 19.5 4.58172 19.5 9C19.5 10.8919 18.8433 12.6304 17.7454 14M5.25463 14L1.5 20L4.5 19L5.5 22L8.5 16.4185M5.25463 14C6.15126 15.1185 7.13226 15.9095 8.5 16.4185M8.5 16.4185C9.36872 16.7418 10.5187 17 11.5 17C12.5609 17 13.5736 16.7935 14.5 16.4185M17.7454 14L21.5 20L18.5 19L17.5 22L14.5 16.4185M17.7454 14C16.8949 15.0609 15.7797 15.9005 14.5 16.4185"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M8 9.72727L10.1473 12L14.5 7"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                      >100% Quality Assurance
+                    </p>
+
+                    <button
+                      type="button"
+                      class="popover__close-button tap-area tap-area--large"
+                      data-action="close"
+                      title="Close"
+                    >
+                      <svg
+                        focusable="false"
+                        width="14"
+                        height="14"
+                        class="icon icon--close"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          d="M13 13L1 1M13 1L1 13"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          fill="none"
+                        ></path>
+                      </svg>
+                    </button>
+                  </header>
+
+                  <div class="popover__content">
+                    <div class="rte">
+                      <p>
+                        We do complete quality check of our products before
+                        shipping so you can be assured to get the best quaility
+                        products.
+                      </p>
+                    </div>
+                  </div> </popover-content
+                ><drawer-content
+                  id="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-2-drawer"
+                  class="drawer drawer--large hidden-phone"
+                >
+                  <span class="drawer__overlay"></span>
+
+                  <header class="drawer__header">
+                    <p class="drawer__title heading h6">
+                      <svg
+                        fill="none"
+                        focusable="false"
+                        width="26"
+                        height="24"
+                        class="icon icon--picto-delivery-truck product-tabs__trust-icon"
+                        viewBox="0 0 26 24"
+                      >
+                        <path
+                          d="M17 17H8.68004C8.68004 17 8 16 7 16M17 17V8M17 17H19.32M17 8V3H1V17H5.31996M17 8H23.5L25 12.5V17H22.68C22.68 17 22 16 21 16M21 16C22 16 23 17 23 18C23 19 22 20 21 20C20 20 19 19 19 18C19 17.6527 19.1206 17.3054 19.32 17M21 16C20.3473 16 19.6946 16.426 19.32 17M7 16C8 16 9 17 9 18C9 19 8 20 7 20C6 20 5 19 5 18C5 17.6527 5.12061 17.3054 5.31996 17M7 16C6.3473 16 5.69459 16.426 5.31996 17"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                      >Cash on Delivery
+                    </p>
+
+                    <button
+                      type="button"
+                      class="drawer__close-button tap-area"
+                      data-action="close"
+                      title="Close"
+                    >
+                      <svg
+                        focusable="false"
+                        width="14"
+                        height="14"
+                        class="icon icon--close"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          d="M13 13L1 1M13 1L1 13"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          fill="none"
+                        ></path>
+                      </svg>
+                    </button>
+                  </header>
+
+                  <div class="drawer__content drawer__content--padded-start">
+                    <div class="rte">
+                      <p>
+                        Pay with cash when your product is delivered to you.
+                      </p>
+                    </div>
+                  </div> </drawer-content
+                ><popover-content
+                  id="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-2-popover"
+                  class="popover hidden-tablet-and-up"
+                >
+                  <span class="popover__overlay"></span>
+
+                  <header class="popover__header">
+                    <p class="popover__title heading h6">
+                      <svg
+                        fill="none"
+                        focusable="false"
+                        width="26"
+                        height="24"
+                        class="icon icon--picto-delivery-truck product-tabs__trust-icon"
+                        viewBox="0 0 26 24"
+                      >
+                        <path
+                          d="M17 17H8.68004C8.68004 17 8 16 7 16M17 17V8M17 17H19.32M17 8V3H1V17H5.31996M17 8H23.5L25 12.5V17H22.68C22.68 17 22 16 21 16M21 16C22 16 23 17 23 18C23 19 22 20 21 20C20 20 19 19 19 18C19 17.6527 19.1206 17.3054 19.32 17M21 16C20.3473 16 19.6946 16.426 19.32 17M7 16C8 16 9 17 9 18C9 19 8 20 7 20C6 20 5 19 5 18C5 17.6527 5.12061 17.3054 5.31996 17M7 16C6.3473 16 5.69459 16.426 5.31996 17"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                      >Cash on Delivery
+                    </p>
+
+                    <button
+                      type="button"
+                      class="popover__close-button tap-area tap-area--large"
+                      data-action="close"
+                      title="Close"
+                    >
+                      <svg
+                        focusable="false"
+                        width="14"
+                        height="14"
+                        class="icon icon--close"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          d="M13 13L1 1M13 1L1 13"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          fill="none"
+                        ></path>
+                      </svg>
+                    </button>
+                  </header>
+
+                  <div class="popover__content">
+                    <div class="rte">
+                      <p>
+                        Pay with cash when your product is delivered to you.
+                      </p>
+                    </div>
+                  </div> </popover-content
+                ><drawer-content
+                  id="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-3-drawer"
+                  class="drawer drawer--large hidden-phone"
+                >
+                  <span class="drawer__overlay"></span>
+
+                  <header class="drawer__header">
+                    <p class="drawer__title heading h6">
+                      <svg
+                        fill="none"
+                        focusable="false"
+                        width="32"
+                        height="24"
+                        class="icon icon--picto-return-box product-tabs__trust-icon"
+                        viewBox="0 0 32 24"
+                      >
+                        <path
+                          d="M20 21L29 17.1429V6.85714M20 21L11 17.1429V16M20 21V10.7143M29 6.85714L20 3L11 6.85714M29 6.85714L20 10.7143M11 6.85714L20 10.7143M11 6.85714V10"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <path
+                          d="M13 13L2 13M2 13L7.2 18.2M2 13L7.2 7.79998"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path></svg
+                      >Easy 7 Days Returns Policy India
+                    </p>
+
+                    <button
+                      type="button"
+                      class="drawer__close-button tap-area"
+                      data-action="close"
+                      title="Close"
+                    >
+                      <svg
+                        focusable="false"
+                        width="14"
+                        height="14"
+                        class="icon icon--close"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          d="M13 13L1 1M13 1L1 13"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          fill="none"
+                        ></path>
+                      </svg>
+                    </button>
+                  </header>
+
+                  <div class="drawer__content drawer__content--padded-start">
+                    <div class="rte">
+                      <p>
+                        We have a flat 7 Day Full Refund / Exchange policy. For
+                        returns with full money refund or exchange requests you
+                        can visit returns centre -
+                        <a
+                          href="/pages/return-replace-your-order"
+                          target="_blank"
+                          title="Return/Replace your order"
+                          ><strong>Click Here</strong></a
+                        >
+                        to generate a return pickup request or
+                        <a
+                          href="https://wa.me/918976948840?text=Hi"
+                          target="_blank"
+                          title="Peachmode Whatsapp"
+                          ><strong>Chat On Whatsapp</strong></a
+                        >
+                        or email us at <strong>returns@kalaajee.com</strong>
+                      </p>
+                    </div>
+                  </div> </drawer-content
+                ><popover-content
+                  id="product-template--15880464695517__product-content-374badcf-bdad-47ba-9d57-81e4019dc9fe-trust-3-popover"
+                  class="popover hidden-tablet-and-up"
+                >
+                  <span class="popover__overlay"></span>
+
+                  <header class="popover__header">
+                    <p class="popover__title heading h6">
+                      <svg
+                        fill="none"
+                        focusable="false"
+                        width="32"
+                        height="24"
+                        class="icon icon--picto-return-box product-tabs__trust-icon"
+                        viewBox="0 0 32 24"
+                      >
+                        <path
+                          d="M20 21L29 17.1429V6.85714M20 21L11 17.1429V16M20 21V10.7143M29 6.85714L20 3L11 6.85714M29 6.85714L20 10.7143M11 6.85714L20 10.7143M11 6.85714V10"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path>
+                        <path
+                          d="M13 13L2 13M2 13L7.2 18.2M2 13L7.2 7.79998"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        ></path></svg
+                      >Easy 7 Days Returns Policy India
+                    </p>
+
+                    <button
+                      type="button"
+                      class="popover__close-button tap-area tap-area--large"
+                      data-action="close"
+                      title="Close"
+                    >
+                      <svg
+                        focusable="false"
+                        width="14"
+                        height="14"
+                        class="icon icon--close"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          d="M13 13L1 1M13 1L1 13"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          fill="none"
+                        ></path>
+                      </svg>
+                    </button>
+                  </header>
+
+                  <div class="popover__content">
+                    <div class="rte">
+                      <p>
+                        We have a flat 7 Day Full Refund / Exchange policy. For
+                        returns with full money refund or exchange requests you
+                        can visit returns centre -
+                        <a
+                          href="/pages/return-replace-your-order"
+                          target="_blank"
+                          title="Return/Replace your order"
+                          ><strong>Click Here</strong></a
+                        >
+                        to generate a return pickup request or
+                        <a
+                          href="https://wa.me/918976948840?text=Hi"
+                          target="_blank"
+                          title="Peachmode Whatsapp"
+                          ><strong>Chat On Whatsapp</strong></a
+                        >
+                        or email us at <strong>returns@peachmode.com</strong>
+                      </p>
+                    </div>
+                  </div>
+                </popover-content>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464695517__product-recommendations"
+        class="shopify-section shopify-section--product-recommendations"
+      >
+        <style>
+          #shopify-section-template--15880464695517__product-recommendations {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+            --prev-next-button-background: 255, 255, 255;
+            --prev-next-button-color: 34, 34, 34;
+
+            --section-background: 255, 255, 255;
+            --section-products-per-row: 2;
+          }
+
+          @media screen and (min-width: 741px) {
+            #shopify-section-template--15880464695517__product-recommendations {
+              --section-products-per-row: 3;
+            }
+          }
+
+          @media screen and (min-width: 1200px) {
+            #shopify-section-template--15880464695517__product-recommendations {
+              --section-products-per-row: 5;
+            }
+          }
+        </style>
+
+        <product-recommendations
+          section-id="template--15880464695517__product-recommendations"
+          product-id="7737378799837"
+          use-automatic-recommendations
+          recommendations-count="6"
+          class="section"
+        ></product-recommendations>
+      </div>
+      <div
+        id="shopify-section-template--15880464695517__16496761031d5bf6cf"
+        class="shopify-section shopify-section--recently-viewed-products"
+      >
+        <style>
+          #shopify-section-template--15880464695517__16496761031d5bf6cf {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+            --prev-next-button-background: 255, 255, 255;
+            --prev-next-button-color: 34, 34, 34;
+
+            --section-background: 255, 255, 255;
+            --section-products-per-row: 2;
+          }
+
+          @media screen and (min-width: 741px) {
+            #shopify-section-template--15880464695517__16496761031d5bf6cf {
+              --section-products-per-row: 3;
+            }
+          }
+
+          @media screen and (min-width: 1200px) {
+            #shopify-section-template--15880464695517__16496761031d5bf6cf {
+              --section-products-per-row: 5;
+            }
+          }
+        </style>
+
+        <recently-viewed-products
+          section-id="template--15880464695517__16496761031d5bf6cf"
+          products-count="4"
+          exclude-product-id="7737378799837"
+          class="section"
+        ></recently-viewed-products>
       </div>
       <div
         id="shopify-section-static-newsletter"
@@ -8741,12 +12392,12 @@ if(!isset($_SESSION)){
         </style>
 
         <section class="section section--flush">
-          <div class="section__color-wrapper" style="background-color: #13becf">
+          <div class="section__color-wrapper" style="background-color: #f7921c">
             <div class="container vertical-breather">
               <native-carousel class="text-with-icons">
                 <div class="text-with-icons__list hide-scrollbar">
                   <native-carousel-item
-                    id="block-static-text-with-icons-static-text-with-icons-0"
+                    id="block-template--15880464466141__text-with-icons-item-1"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -8766,12 +12417,12 @@ if(!isset($_SESSION)){
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">Free shipping</p>
+                      <p class="heading heading--small">FREE SHIPPING</p>
                       <p>Free shipping in India</p>
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-static-text-with-icons-static-text-with-icons-1"
+                    id="block-template--15880464466141__text-with-icons-item-2"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -8802,7 +12453,7 @@ if(!isset($_SESSION)){
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-static-text-with-icons-static-text-with-icons-2"
+                    id="block-template--15880464466141__text-with-icons-33a9f141-c31d-4001-ba8e-e05bb9bde209"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -8833,12 +12484,12 @@ if(!isset($_SESSION)){
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">Secure payment</p>
+                      <p class="heading heading--small">SECURE PAYMENT</p>
                       <p>Your payment information is processed securely.</p>
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-static-text-with-icons-static-text-with-icons-3"
+                    id="block-template--15880464466141__text-with-icons-item-3"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -8847,23 +12498,21 @@ if(!isset($_SESSION)){
                         focusable="false"
                         width="24"
                         height="24"
-                        class="icon icon--picto-email"
+                        class="icon icon--picto-send"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M21 8V5H3V8M21 8V19H3V8M21 8L12 12.5L3 8"
+                          d="M21.913 2L15.3391 20L11.5826 11.9M21.913 2L3.13043 8.3L11.5826 11.9M21.913 2L11.5826 11.9"
                           stroke="currentColor"
                           stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
                         ></path>
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">Contact us</p>
+                      <p class="heading heading--small">Contact Us</p>
                       <p>
-                        Need to contact us ? Just send us an e-mail at
-                        contact@peachmode.com
+                        Need to contact us ? Just send us an e-mail to
+                        contact@kalaajee.com
                       </p>
                     </div></native-carousel-item
                   >
@@ -8899,7 +12548,7 @@ if(!isset($_SESSION)){
         }
       </style>
 
-      <footer class="footer" style="background-color: #f7921c">
+      <footer class="footer" style="background-color: #13becf">
         <div class="container">
           <div class="footer__inner">
             <div class="footer__item-list">
@@ -9350,7 +12999,7 @@ if(!isset($_SESSION)){
                       <label
                         for="footer[contact][email]"
                         class="input__label"
-                        style="background-color: #f7921c"
+                        style="background-color: #13becf"
                         >Your e-mail</label
                       >
                       <button
@@ -9467,11 +13116,20 @@ if(!isset($_SESSION)){
     ></script>
 
     <script>
+      fbq("track", "ViewContent", {
+        content_name: "Lavender Lakhnawi Work Rayon Kurti",
+        content_ids: productSKU,
+        content_type: "product",
+        value: 949.0,
+        currency: "INR",
+      });
+    </script>
+    <script>
       $(".product-form__add-button,.shopify-payment-button button").on(
         "click",
         function () {
           setTimeout(function () {
-            let proTitle = $(".product-meta__title a").html();
+            let proTitle = $(".product-meta__title").html();
 
             let productName =
               proTitle + " - " + $(".block-swatch__radio:checked").val();
@@ -9499,6 +13157,61 @@ if(!isset($_SESSION)){
       );
     </script>
 
+    <script>
+      // Google Analytics
+      dataLayer.push({
+        ecommerce: {
+          detail: {
+            products: [
+              {
+                name: "Lavender Lakhnawi Work Rayon Kurti",
+                id: productSKU,
+                price: "949.00",
+              },
+            ],
+          },
+        },
+      });
+    </script>
+    <script>
+      $("#AddToCart,.shopify-payment-button button").on("click", function () {
+        setTimeout(function () {
+          var products_analytics_info = [];
+          var product_data = {};
+
+          let productName =
+            $(".product-meta__title").html() +
+            " - " +
+            $(".block-swatch__radio:checked").val();
+          let productPrice = $(
+            ".product-meta__price-list-container .price.price--highlight .money"
+          ).html();
+          let variantID = $('[name="id"]').val();
+          let currency = localStorage.getItem("wscc-currency") ?? "INR";
+          let qty = $('.product-form__quantity [name="quantity"]').val();
+
+          product_data.name = productName;
+          product_data.id = productSKU;
+          product_data.price = productPrice.replace(",", "").match(/(\d+)/)[0];
+          product_data.quantity = qty;
+          products_analytics_info.push(product_data);
+          console.log(product_data);
+
+          // send Analytics only if cart has products
+          if (products_analytics_info.length > 0) {
+            dataLayer.push({
+              event: "addToCart",
+              ecommerce: {
+                currencyCode: $("#currency-info").val(),
+                add: {
+                  products: products_analytics_info,
+                },
+              },
+            });
+          }
+        }, 500);
+      });
+    </script>
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];

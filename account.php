@@ -11,6 +11,9 @@ if(!isset($_SESSION)){
   }else{
     $login_display = '<li class="header__linklist-item">
                   <a href="login.php">Login </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a href="register.php">Register </a>
                 </li>';
   }
 }

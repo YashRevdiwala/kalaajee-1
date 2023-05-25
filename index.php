@@ -11,6 +11,9 @@ if(!isset($_SESSION)){
   }else{
     $login_display = '<li class="header__linklist-item">
                   <a href="login.php">Login </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a href="register.php">Register </a>
                 </li>';
   }
 }
@@ -14347,7 +14350,7 @@ if(!isset($_SESSION)){
                 </h2>
                 <form
                   method="post"
-                  action="/contact#newsletter-template--15880464466141__newsletter"
+                  action="subscribe.php"
                   id="newsletter-template--15880464466141__newsletter"
                   accept-charset="UTF-8"
                   class="form newsletter__form"
@@ -14372,9 +14375,10 @@ if(!isset($_SESSION)){
                       <input
                         type="email"
                         id="newsletter[template--15880464466141__newsletter][contact][email]"
-                        name="contact[email]"
+                        name="contact_email"
                         class="input__field"
                         required
+                        autocomplete="off"
                       />
                       <label
                         for="newsletter[template--15880464466141__newsletter][contact][email]"
@@ -14386,6 +14390,7 @@ if(!isset($_SESSION)){
                     <div class="input">
                       <button
                         type="submit"
+                        name="subscribe_mail"
                         is="loader-button"
                         class="button button--primary"
                       >
@@ -14993,7 +14998,7 @@ if(!isset($_SESSION)){
                   </p>
                   <form
                     method="post"
-                    action="/contact#footer-newsletter"
+                    action="subscribe.php"
                     id="footer-newsletter"
                     accept-charset="UTF-8"
                     class="footer__newsletter-form form"
@@ -15012,9 +15017,10 @@ if(!isset($_SESSION)){
                       <input
                         type="email"
                         id="footer[contact][email]"
-                        name="contact[email]"
+                        name="contact_email"
                         class="input__field input__field--text"
                         required
+                        autocomplete="off"
                       />
                       <label
                         for="footer[contact][email]"
@@ -15024,6 +15030,7 @@ if(!isset($_SESSION)){
                       >
                       <button
                         type="submit"
+                        name="subscribe_mail"
                         class="input__submit-icon tap-area"
                         title="Register"
                       >

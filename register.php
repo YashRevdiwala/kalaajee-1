@@ -1,3 +1,14 @@
+<?php 
+include("components/connection.php");
+if(!isset($_SESSION)){
+  session_start();
+  if(isset($_SESSION['client_email'])){
+    $client_email = $_SESSION['client_email'];
+    header("Location:index.php");
+    exit();
+  }
+}
+?>
 
 <!doctype html><html class="no-js" lang="en" dir="ltr" >
   <head>
@@ -60,10 +71,10 @@ window.clevertapApp = {
         config: {
           	currency: 'INR',
             meta : {
-                title : 'Privacy policy',
-                template : '',
-                url : 'https://peachmode.com/policies/privacy-policy',
-                type : 'policy',
+                title : 'Create Account',
+                template : 'customers/register',
+                url : 'https://peachmode.com/account/register',
+                type : 'customers/register',
             },
             routes: {
                 customer: {
@@ -108,7 +119,7 @@ if (localStorage) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Privacy policy</title><link rel="canonical" href="https://peachmode.com/policies/privacy-policy"><link rel="shortcut icon" href="img/1.png"><link rel="preconnect" href="https://cdn.shopify.com">
+    <title>Create Account</title><link rel="canonical" href="https://peachmode.com/account/register"><link rel="shortcut icon" href="img/1.png"><link rel="preconnect" href="https://cdn.shopify.com">
     <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin><link rel="preload" as="style" href="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/theme.aio.min.css?v=41317135448036212481669276710">
     <link rel="preload" as="script" href="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/vendor.aio.min.js?v=150683728779720575551669276710">
@@ -118,12 +129,12 @@ window.dataLayer = window.dataLayer || [];
 </script>
     
     <meta property="og:type" content="website">
-  <meta property="og:title" content="Privacy policy"><meta property="og:image" content="http://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo.png?v=1649671323">
+  <meta property="og:title" content="Create Account"><meta property="og:image" content="http://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo.png?v=1649671323">
   <meta property="og:image:secure_url" content="https://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo.png?v=1649671323">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="628"><meta property="og:url" content="https://peachmode.com/policies/privacy-policy">
-<meta property="og:site_name" content="Peachmode"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Privacy policy">
-  <meta name="twitter:description" content="Privacy policy"><meta name="twitter:image" content="https://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo_1200x1200_crop_center.png?v=1649671323">
+  <meta property="og:image:height" content="628"><meta property="og:url" content="https://peachmode.com/account/register">
+<meta property="og:site_name" content="Peachmode"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Create Account">
+  <meta name="twitter:description" content="Create Account"><meta name="twitter:image" content="https://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo_1200x1200_crop_center.png?v=1649671323">
   <meta name="twitter:image:alt" content="peachmode.com">
     
 
@@ -374,7 +385,7 @@ window.dataLayer = window.dataLayer || [];
   window.themeVariables = {
     settings: {
       direction: "ltr",
-      pageType: "policy",
+      pageType: "customers\/register",
       cartCount: 1,
       moneyFormat: "\u003cspan class=\"money\"\u003e₹{{amount}}\u003c\/span\u003e",
       moneyWithCurrencyFormat: "\u003cspan class=\"money\"\u003e₹{{amount}}\u003c\/span\u003e",
@@ -459,10 +470,7 @@ window.dataLayer = window.dataLayer || [];
       const viewportHeight = (window.visualViewport ? window.visualViewport.height : document.documentElement.clientHeight);
       document.documentElement.style.setProperty('--window-height',viewportHeight + 'px');
     });
-  }document.addEventListener('DOMContentLoaded', () => {
-      document.querySelector('.shopify-policy__title').classList.add('page-header__text-wrapper');
-      document.querySelector('.shopify-policy__title h1').classList.add('heading', 'h2');
-    });</script>
+  }</script>
 
     <link rel="stylesheet" href="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/theme.css?v=179782170850921857211660968963">
     <link rel="stylesheet" href="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/custom.aio.min.css?v=13877014798859137141669276710">
@@ -471,13 +479,12 @@ window.dataLayer = window.dataLayer || [];
     <script src="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/theme.js?v=176847002945199770411657523293" defer></script>
     <script src="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/custom.aio.min.js?v=41133906798395419041669276710" defer></script>
 
-    <img alt="website" width="99999" height="99999" style="pointer-events: none; position: absolute; top: 0; left: 0; width: 99vw; height: 99vh; max-width: 99vw; max-height: 99vh;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5OTk5OSIgaGVpZ2h0PSI5OTk5OSIgdmlld0JveD0iMCAwIDk5OTk5IDk5OTk5IiAvPg==" /><script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');</script><link rel="stylesheet" media="all" integrity="sha256-PkqjwHo6YXgNFrxLgo0v754aIKRKrjbgKae5jl7lpNA=" crossorigin="anonymous" href="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/policy-3e4aa3c07a3a61780d16bc4b828d2fef9e1a20a44aae36e029a7b98e5ee5a4d0.css">
-<meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/63748341981/digital_wallets/dialog">
+    <img alt="website" width="99999" height="99999" style="pointer-events: none; position: absolute; top: 0; left: 0; width: 99vw; height: 99vh; max-width: 99vw; max-height: 99vh;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5OTk5OSIgaGVpZ2h0PSI5OTk5OSIgdmlld0JveD0iMCAwIDk5OTk5IDk5OTk5IiAvPg==" /><script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');</script><meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/63748341981/digital_wallets/dialog">
 <meta id="in-context-paypal-metadata" data-shop-id="63748341981" data-venmo-supported="false" data-environment="production" data-locale="en_US" data-paypal-v4="true" data-currency="INR">
 <script>
   (function() {
-    var scripts = ["https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.96fe0b7abf48419e7469.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_checkout-react-html_src_hooks_title_ts.latest.en.3457953d3abd1b694aa5.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_shopify_verdict_build_esm_runtimes_browser_index_mts_js.latest.en.f6f2083a5fb187836a1f.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app_components_AddressForm_AddressForm_tsx-app_components_Step_Step_tsx-app_utilities_receipt-224401.latest.en.91b3bf74b8a9635d2c0a.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.94b7d1c1c7ab40c6eac2.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.d63d03b3b69c11f9e6aa.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.0ca662c669b41a356f6a.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_card-fields-react_src_hook_ts-packages_checkout-graphql_src_in-92a386.latest.en.b39452fcc8039fc140d1.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.aaa897dd9c534f7f99ac.js"];
-    var styles = ["https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.5196d587d3de2d2fbc8a.css", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.4e93eb2ccac793a61d40.css", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.90bde523bde67a4067f2.css", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.f987e50a37d7171c2810.css"];
+    var scripts = ["https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.8645d252f07ec25fdbc6.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages~Information~NoAddressLocation~Payment~PostPurchase~Review~Shipping~ShopPay~Sho~cf13f96e.latest.en.04837ae4ff5a8e949953.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information~Payment~ShopPay.latest.en.84ff9c0024faf7f72c14.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.900911b3d82c82309ebf.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui~app.latest.en.86cd9328cdcd6cd3a58f.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors~app.latest.en.b4546f9bffad10b3673b.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages~app.latest.en.f5154093d2604596d084.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.931851b1b02f1bcae42a.js"];
+    var styles = ["https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui~app.latest.en.9f2a5e9ec696775e2217.css", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors~app.latest.en.e788719f193b49c039a3.css", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.6b4c79ead7042980b29d.css", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information~Payment~ShopPay.latest.en.da9f06164a980bf8e7ea.css", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.9a0274ab07be120c1902.css"];
 
     function prefetch(url, as, callback) {
       var link = document.createElement('link');
@@ -543,7 +550,7 @@ Shopify.routes.root = "/";</script>
     window.addEventListener('load', asyncLoad, false);
   }
 })();</script>
-<script id="__st">var __st={"a":63748341981,"offset":19800,"reqid":"e707831a-0677-4e9e-a297-eb0702c1f712","pageurl":"peachmode.com\/policies\/privacy-policy","t":"prospect","u":"52d514778416"};</script>
+<script id="__st">var __st={"a":63748341981,"offset":19800,"reqid":"471e1873-a143-4f1b-b0b0-e578a765a9ad","pageurl":"peachmode.com\/account\/register","t":"prospect","u":"3a79ac6246f6"};</script>
 <script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
 <script>!function(o){o.addEventListener("DOMContentLoaded",function(){window.Shopify=window.Shopify||{},window.Shopify.recaptchaV3=window.Shopify.recaptchaV3||{siteKey:"6LcCR2cUAAAAANS1Gpq_mDIJ2pQuJphsSQaUEuc9"};var t=['form[action*="/contact"] input[name="form_type"][value="contact"]','form[action*="/comments"] input[name="form_type"][value="new_comment"]','form[action*="/account"] input[name="form_type"][value="customer_login"]','form[action*="/account"] input[name="form_type"][value="recover_customer_password"]','form[action*="/account"] input[name="form_type"][value="create_customer"]','form[action*="/contact"] input[name="form_type"][value="customer"]'].join(",");function n(e){e=e.target;null==e||null!=(e=function e(t,n){if(null==t.parentElement)return null;if("FORM"!=t.parentElement.tagName)return e(t.parentElement,n);for(var o=t.parentElement.action,r=0;r<n.length;r++)if(-1!==o.indexOf(n[r]))return t.parentElement;return null}(e,["/contact","/comments","/account"]))&&null!=e.querySelector(t)&&((e=o.createElement("script")).setAttribute("src","https://cdn.shopify.com/shopifycloud/storefront-recaptcha-v3/v0.6/index.js"),o.body.appendChild(e),o.removeEventListener("focus",n,!0),o.removeEventListener("change",n,!0),o.removeEventListener("click",n,!0))}o.addEventListener("click",n,!0),o.addEventListener("change",n,!0),o.addEventListener("focus",n,!0)})}(document);</script>
 <script integrity="sha256-4VRZk5nmuLKdyxECzHbrGZ+jOgmvT6eNFej4VE7mT80=" data-source-attribution="shopify.loadfeatures" defer="defer" src="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/load_feature-e154599399e6b8b29dcb1102cc76eb199fa33a09af4fa78d15e8f8544ee64fcd.js" crossorigin="anonymous"></script>
@@ -552,7 +559,7 @@ Shopify.routes.root = "/";</script>
 
 <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.end');</script>
   
-	<script>var loox_global_hash = '1681118583974';</script><style>.loox-reviews-default { max-width: 1200px; margin: 0 auto; }.loox-rating .loox-icon { color:#fed264; }</style><script>var loox_rating_icons_enabled = true;</script>
+	<script>var loox_global_hash = '1681165168328';</script><style>.loox-reviews-default { max-width: 1200px; margin: 0 auto; }.loox-rating .loox-icon { color:#fed264; }</style><script>var loox_rating_icons_enabled = true;</script>
     
      
 <style type='text/css'>
@@ -705,9 +712,12 @@ if (window.location.search.indexOf('utm_source') > 0 || window.location.search.i
 </script>
 
   
-  <script src="https://cdn.shopify.com/extensions/cece2cc8-741a-4309-94ee-04a78984c575/1.59.0/assets/ws-currencyconverter.js" type="text/javascript" defer="defer"></script>
+  <script src="https://cdn.shopify.com/extensions/c4e8e215-0970-4d3a-ac7b-2e25bea3398b/2.0.0/assets/ws-currencyconverter.js" type="text/javascript" defer="defer"></script>
 <link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">
-<script>(function(){if ("sendBeacon" in navigator && "performance" in window) {var session_token = document.cookie.match(/_shopify_s=([^;]*)/);function handle_abandonment_event(e) {var entries = performance.getEntries().filter(function(entry) {return /monorail-edge.shopifysvc.com/.test(entry.name);});if (!window.abandonment_tracked && entries.length === 0) {window.abandonment_tracked = true;var currentMs = Date.now();var navigation_start = performance.timing.navigationStart;var payload = {shop_id: 63748341981,url: window.location.href,navigation_start,duration: currentMs - navigation_start,session_token: session_token && session_token.length === 2 ? session_token[1] : "",page_type: "policy"};window.navigator.sendBeacon("https://monorail-edge.shopifysvc.com/v1/produce", JSON.stringify({schema_id: "online_store_buyer_site_abandonment/1.1",payload: payload,metadata: {event_created_at_ms: currentMs,event_sent_at_ms: currentMs}}));}}window.addEventListener('pagehide', handle_abandonment_event);}}());</script>
+<script>(function(){if ("sendBeacon" in navigator && "performance" in window) {var session_token = document.cookie.match(/_shopify_s=([^;]*)/);function handle_abandonment_event(e) {var entries = performance.getEntries().filter(function(entry) {return /monorail-edge.shopifysvc.com/.test(entry.name);});if (!window.abandonment_tracked && entries.length === 0) {window.abandonment_tracked = true;var currentMs = Date.now();var navigation_start = performance.timing.navigationStart;var payload = {shop_id: 63748341981,url: window.location.href,navigation_start,duration: currentMs - navigation_start,session_token: session_token && session_token.length === 2 ? session_token[1] : "",page_type: "customers/register"};window.navigator.sendBeacon("https://monorail-edge.shopifysvc.com/v1/produce", JSON.stringify({schema_id: "online_store_buyer_site_abandonment/1.1",payload: payload,metadata: {event_created_at_ms: currentMs,event_sent_at_ms: currentMs}}));}}window.addEventListener('pagehide', handle_abandonment_event);}}());</script>
+<script id="evids-setup">
+  (function () {let t,e;function n(){t={page_viewed:{},collection_viewed:{},product_viewed:{},product_variant_viewed:{},search_submitted:{},product_added_to_cart:{},checkout_started:{},checkout_completed:{},payment_info_submitted:{}},e={wpm:{},trekkie:{}}}function o(t){return`${t||"sh"}-${function(){const t="xxxx-4xxx-xxxx-xxxxxxxxxxxx";let e="";try{const n=window.crypto,o=new Uint16Array(31);n.getRandomValues(o);let r=0;e=t.replace(/[x]/g,(t=>{const e=o[r]%16;return r++,("x"===t?e:3&e|8).toString(16)})).toUpperCase()}catch(n){e=t.replace(/[x]/g,(t=>{const e=16*Math.random()|0;return("x"===t?e:3&e|8).toString(16)})).toUpperCase()}return`${function(){let t=0,e=0;t=(new Date).getTime()>>>0;try{e=performance.now()>>>0}catch(t){e=0}const n=Math.abs(t+e).toString(16).toLowerCase();return"00000000".substr(0,8-n.length)+n}()}-${e}`}()}`}function r(n,r){if(!t[n]||"trekkie"!==(null==r?void 0:r.analyticsFramework)&&"wpm"!==(null==r?void 0:r.analyticsFramework))return o("shu");const i="string"==typeof(c=r.cacheKey)&&c?c:"default";var c;const a=function(t,n,o){const r=e[n];return void 0===r[t]&&(r[t]={}),void 0===r[t][o]?r[t][o]=0:r[t][o]+=1,r[t][o]}(n,r.analyticsFramework,i);return function(e,n,r){const i=t[e];if(void 0===i[r]){const t=o();i[r]=[t]}else if(void 0===i[r][n]){const t=o();i[r].push(t)}return i[r][n]}(n,a,i)}function i(){window.Shopify=window.Shopify||{},n(),window.Shopify.evids=(t,e)=>r(t,e)}i();})();
+</script>
 <script>window.ShopifyAnalytics = window.ShopifyAnalytics || {};
 window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
 window.ShopifyAnalytics.meta.currency = 'INR';
@@ -832,15 +842,15 @@ for (var attr in meta) {
       theme_id: 131960242397,
       app_name: "storefront",
       context_url: window.location.href,
-      source_url: "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js"});
+      source_url: "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js"});
 
       };
       scriptFallback.async = true;
-      scriptFallback.src = 'https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js';
+      scriptFallback.src = 'https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js';
       first.parentNode.insertBefore(scriptFallback, first);
     };
     script.async = true;
-    script.src = 'https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js';
+    script.src = 'https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js';
     first.parentNode.insertBefore(script, first);
   };
   trekkie.load(
@@ -1022,7 +1032,7 @@ for (var attr in meta) {
     });
   }
 })();</script>
-<script id="web-pixels-manager-setup">(function e(e,n,a,o,t,r){var i=null!==e;i&&(window.Shopify=window.Shopify||{},window.Shopify.analytics=window.Shopify.analytics||{},window.Shopify.analytics.replayQueue=[],window.Shopify.analytics.publish=function(e,n,a){window.Shopify.analytics.replayQueue.push([e,n,a])});var s=function(){var e="legacy",n="unknown",a=null,o=navigator.userAgent.match(/(Firefox|Chrome)\/(\d+)/i),t=navigator.userAgent.match(/(Edg)\/(\d+)/i),r=navigator.userAgent.match(/(Version)\/(\d+)(.+)(Safari)\/(\d+)/i);r?(n="safari",a=parseInt(r[2],10)):t?(n="edge",a=parseInt(t[2],10)):o&&(n=o[1].toLocaleLowerCase(),a=parseInt(o[2],10));var i={chrome:60,firefox:55,safari:11,edge:80}[n];return void 0!==i&&null!==a&&i<=a&&(e="modern"),e}().substring(0,1),l=o.substring(0,1);if(i)try{self.performance.mark("wpm:start")}catch(e){}var d,c,u,p,f,h,w,y,g=a+"/"+l+r+s+".js";d={src:g,async:!0,onload:function(){if(e){var a=window.webPixelsManager.init(e);n(a),window.Shopify.analytics.replayQueue.forEach((function(e){a.publishCustomEvent(e[0],e[1],e[2])})),window.Shopify.analytics.replayQueue=[],window.Shopify.analytics.publish=a.publishCustomEvent}},onerror:function(){var n=(e.storefrontBaseUrl?e.storefrontBaseUrl.replace(/\/$/,""):self.location.origin)+"/.well-known/shopify/monorail/unstable/produce_batch",a=JSON.stringify({metadata:{event_sent_at_ms:(new Date).getTime()},events:[{schema_id:"web_pixels_manager_load/2.0",payload:{version:t||"latest",page_url:self.location.href,status:"failed",error_msg:g+" has failed to load"},metadata:{event_created_at_ms:(new Date).getTime()}}]});try{if(self.navigator.sendBeacon.bind(self.navigator)(n,a))return!0}catch(e){}const o=new XMLHttpRequest;try{return o.open("POST",n,!0),o.setRequestHeader("Content-Type","text/plain"),o.send(a),!0}catch(e){console&&console.warn&&console.warn("[Web Pixels Manager] Got an unhandled error while logging a load error.")}return!1}},c=document.createElement("script"),u=d.src,p=d.async||!0,f=d.onload,h=d.onerror,w=document.head,y=document.body,c.async=p,c.src=u,f&&c.addEventListener("load",f),h&&c.addEventListener("error",h),w?w.appendChild(c):y?y.appendChild(c):console.error("Did not find a head or body element to append the script")})({shopId: 63748341981,storefrontBaseUrl: "https://peachmode.com",cdnBaseUrl: "https://cdn.shopify.com",surface: "storefront-renderer",enabledBetaFlags: ["web_pixels_use_shop_domain_monorail_endpoint","web_pixels_shopify_pixel_validation","web_pixels_prefetch_assets"],webPixelExtensionBaseUrl: "https://cdn.shopify.com",webPixelsConfigList: [{"id":"shopify-app-pixel","configuration":"{}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"0530","apiClientId":"shopify-pixel","type":"APP"},{"id":"shopify-custom-pixel","eventPayloadVersion":"v1","runtimeContext":"LAX","scriptVersion":"0530","apiClientId":"shopify-pixel","type":"CUSTOM"}],initData: {"cart":{"cost":{"totalAmount":{"amount":849.0,"currencyCode":"INR"}},"id":"9042bee05b223e0365a249bf46651c1e","lines":[{"cost":{"totalAmount":{"amount":849.0,"currencyCode":"INR"}},"merchandise":{"id":"43795228786909","image":{"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/file_002c2ee4-d534-43d2-af31-83230b46dc6c.jpg?v=1680870105"},"price":{"amount":849.0,"currencyCode":"INR"},"product":{"id":"8045530808541","title":"Pink Printed Georgette Saree With Tassels","vendor":"Peachmode","type":"Saree"},"sku":"LTFAB-KSHVIBRKHA2-2960","title":"Default Title"},"quantity":1}],"totalQuantity":1},"checkout":null,"customer":null,"productVariants":[]},},function pageEvents(webPixelsManagerAPI) {webPixelsManagerAPI.publish("page_viewed");},"https://cdn.shopify.com","browser","0.0.279","518c152fw00918cf1pc7ca055am99284242");</script></head><body class="no-focus-outline  features--image-zoom template- " data-instant-allow-query-string>
+<script id="web-pixels-manager-setup">(function e(e,n,a,o,t,r){var i=null!==e;i&&(window.Shopify=window.Shopify||{},window.Shopify.analytics=window.Shopify.analytics||{},window.Shopify.analytics.replayQueue=[],window.Shopify.analytics.publish=function(e,n,a){window.Shopify.analytics.replayQueue.push([e,n,a])});var s=function(){var e="legacy",n="unknown",a=null,o=navigator.userAgent.match(/(Firefox|Chrome)\/(\d+)/i),t=navigator.userAgent.match(/(Edg)\/(\d+)/i),r=navigator.userAgent.match(/(Version)\/(\d+)(.+)(Safari)\/(\d+)/i);r?(n="safari",a=parseInt(r[2],10)):t?(n="edge",a=parseInt(t[2],10)):o&&(n=o[1].toLocaleLowerCase(),a=parseInt(o[2],10));var i={chrome:60,firefox:55,safari:11,edge:80}[n];return void 0!==i&&null!==a&&i<=a&&(e="modern"),e}().substring(0,1),l=o.substring(0,1);if(i)try{self.performance.mark("wpm:start")}catch(e){}var d,c,u,p,f,h,w,y,g=a+"/"+l+r+s+".js";d={src:g,async:!0,onload:function(){if(e){var a=window.webPixelsManager.init(e);n(a),window.Shopify.analytics.replayQueue.forEach((function(e){a.publishCustomEvent(e[0],e[1],e[2])})),window.Shopify.analytics.replayQueue=[],window.Shopify.analytics.publish=a.publishCustomEvent}},onerror:function(){var n=(e.storefrontBaseUrl?e.storefrontBaseUrl.replace(/\/$/,""):self.location.origin)+"/.well-known/shopify/monorail/unstable/produce_batch",a=JSON.stringify({metadata:{event_sent_at_ms:(new Date).getTime()},events:[{schema_id:"web_pixels_manager_load/2.0",payload:{version:t||"latest",page_url:self.location.href,status:"failed",error_msg:g+" has failed to load"},metadata:{event_created_at_ms:(new Date).getTime()}}]});try{if(self.navigator.sendBeacon.bind(self.navigator)(n,a))return!0}catch(e){}const o=new XMLHttpRequest;try{return o.open("POST",n,!0),o.setRequestHeader("Content-Type","text/plain"),o.send(a),!0}catch(e){console&&console.warn&&console.warn("[Web Pixels Manager] Got an unhandled error while logging a load error.")}return!1}},c=document.createElement("script"),u=d.src,p=d.async||!0,f=d.onload,h=d.onerror,w=document.head,y=document.body,c.async=p,c.src=u,f&&c.addEventListener("load",f),h&&c.addEventListener("error",h),w?w.appendChild(c):y?y.appendChild(c):console.error("Did not find a head or body element to append the script")})({shopId: 63748341981,storefrontBaseUrl: "https://peachmode.com",cdnBaseUrl: "https://cdn.shopify.com",surface: "storefront-renderer",enabledBetaFlags: ["web_pixels_use_shop_domain_monorail_endpoint","web_pixels_shopify_pixel_validation","web_pixels_prefetch_assets"],webPixelExtensionBaseUrl: "https://cdn.shopify.com",webPixelsConfigList: [{"id":"shopify-app-pixel","configuration":"{}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"0530","apiClientId":"shopify-pixel","type":"APP"},{"id":"shopify-custom-pixel","eventPayloadVersion":"v1","runtimeContext":"LAX","scriptVersion":"0530","apiClientId":"shopify-pixel","type":"CUSTOM"}],initData: {"cart":{"cost":{"totalAmount":{"amount":849.0,"currencyCode":"INR"}},"id":"9042bee05b223e0365a249bf46651c1e","lines":[{"cost":{"totalAmount":{"amount":849.0,"currencyCode":"INR"}},"merchandise":{"id":"43795228786909","image":{"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/file_002c2ee4-d534-43d2-af31-83230b46dc6c.jpg?v=1680870105"},"price":{"amount":849.0,"currencyCode":"INR"},"product":{"id":"8045530808541","title":"Pink Printed Georgette Saree With Tassels","vendor":"Peachmode","type":"Saree"},"sku":"LTFAB-KSHVIBRKHA2-2960","title":"Default Title"},"quantity":1}],"totalQuantity":1},"checkout":null,"customer":null,"productVariants":[]},},function pageEvents(webPixelsManagerAPI) {webPixelsManagerAPI.publish("page_viewed");},"https://cdn.shopify.com","browser","0.0.280","5c46ad45w03c6b27bp74bf52d0m9e637fdc");</script></head><body class="no-focus-outline  features--image-zoom template-register " data-instant-allow-query-string>
      <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W42Q78"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1135,7 +1145,7 @@ for (var attr in meta) {
   </ul></div> 
        <div class="header__secondary-links">
          
-         <ul class="header__linklist list--unstyled" role="list"><li class="header__linklist-item" >
+          <ul class="header__linklist list--unstyled" role="list"><li class="header__linklist-item" >
                      <a class="header__linklist-link link--animated" href="track-order.html" >Track Order</a>
                   </li><li class="header__linklist-item" >
                      <a class="header__linklist-link link--animated" href="contact.html" >Contact Us</a>
@@ -1818,7 +1828,7 @@ for (var attr in meta) {
 </style></span>
         </div></nav>
 
- <!-- LOGO PART --><h1 class="header__logo"><a class="header__logo-link" href="index.html"><span class="visually-hidden">Kalaajee</span>
+     <!-- LOGO PART --><h1 class="header__logo"><a class="header__logo-link" href="index.html"><span class="visually-hidden">Kalaajee</span>
             <img loading="lazy" class="header__logo-image" width="280" height="80" src="img/KALAAJEE PNG FILE LOGO 8-5-2023.png" alt=""></a></h1><!-- SECONDARY LINKS PART -->
       <div class="header__secondary-links">
        
@@ -2983,88 +2993,43 @@ for (var attr in meta) {
       <button type="button" data-action="close" class="form__submit form__submit--closer button button--secondary">Save</button>
     </openable-element></cart-drawer>
 
-</div><div id="main" role="main" class="anchor"><div class="shopify-policy__container">
-  <div class="shopify-policy__title">
-    <h1>Privacy policy</h1>
-  </div>
+</div><div id="main" role="main" class="anchor"><div id="shopify-section-template--15880465023197__main" class="shopify-section shopify-section--main-customers-register"><section>
+  <div class="container">
+    <div class="page-header">
+      <div class="page-header__text-wrapper text-container">
+        <h1 class="heading h2">Register</h1>
+        <p>Please fill in the fields below:</p>
+      </div>
+    </div>
 
-  <div class="shopify-policy__body">
-    <div class="rte">
-        <p align="justify">You (“you” or “End User” or ”your” or “Buyer” or “Customer”) are required to read and accept all of the terms and conditions as laid down in this document (the “Privacy Policy”), before you may use www.Kalaajee.com<span> </span><span> </span>(hereinafter referred to as “Site” or “we” or “our” or "Firm").</p>
-<p align="justify">If you are a Persons who is "incompetent to contract" within the meaning of the Indian Contract Act, 1872 including minors, un-discharged insolvents etc, we require that, before using and/or placing an order on this Site, you inform your legal guardian or parents about our Privacy Policy and require their consent by way of their registration as Users of this Site.</p>
-<p align="justify">The privacy practices of this statement apply to our services available under the domain and sub domains of the Site. By visiting this Site you agree to be bound by the terms and conditions of this Privacy Policy. If you do not agree please do not use or access our Site.</p>
-<p align="justify">This Privacy Policy does not apply to Sites maintained by other companies or organizations to which we link and we are not responsible for any personal information you submit to third parties via our website. Please ensure that you read the Privacy Policy of such other companies or organizations before submitting your details.</p>
-<p align="justify">This Privacy Policy describes the information, as part of the normal operation of our services, we collect from you and what may happen to that information. This policy is inter alia formulated and displayed to inform you about our information collection/retention policies and practices so that you can make an informed decision in relation to the sharing of your personal information with us.</p>
-<p align="justify">By accepting the Privacy Policy and the User Agreement in registration and/or the use of the Site in general, you expressly consent to our use and disclosure of your personal information in accordance with this Privacy Policy. This Privacy Policy is incorporated into and subject to the terms of the User Agreement. This Privacy Policy is effective upon acceptance in registration and/or by access by you to the Site.</p>
-<h3>Privacy Guarantee</h3>
-<p align="justify">We agree that we will not sell or rent your personal information to third parties for their marketing purposes without your explicit consent. From time to time we may reveal general statistical information about our Site and visitors, such as number of visitors, number and type of goods and services purchased, etc. Only those of our employees who need access to your information in order to perform their duties are allowed such access. Any employee who violates our privacy and/or security policies is subject to disciplinary action, including possible termination and civil and/or criminal prosecution.</p>
-<h3>Collection of Information</h3>
-<p align="justify">When you use our Site, we collect and store your personal information from you. Our primary goal in doing so is for the purposes of provisioning our services.</p>
-<p align="justify">In general, you can browse the Site without revealing any personal information about yourself. To fully use our Site, you will need to register using our online registration form, where you may be required to provide us with your name, date of birth, contact number, email id, user id, password, residence / place of business information, billing information, shipping information, bank account details and other personal information as indicated on the forms throughout the Site. You always have the option to not provide information by choosing not to use a particular service or feature on the Site.</p>
-<p align="justify">We may automatically track certain information about you based upon your activities on our site. We use this information to do internal research on our users' demographics, interests, and behavior to better understand, protect and serve our users. This information is compiled and analyzed on an aggregated basis. This information may include the URL that you just came from (whether this URL is on our site or not), which URL you next go to (whether this URL is on our site or not), your computer browser information, and your IP address.</p>
-<p align="justify">We use data collection devices such as "cookies" on certain pages of the Site to help analyze our web page flow and measure promotional effectiveness. A cookie is a piece of information that is stored on your computer's hard drive by your web browser which tracks your movements within websites. Our site uses cookies to keep track of how often you visit our site, the contents of your shopping cart, previous purchases and to deliver content specific to your interests. Most browsers are automatically set to accept cookies but usually you can alter the settings of your browser to prevent automatic acceptance. If you choose not to receive cookies, you may still use most of the features of our website, including the ability to purchase items.</p>
-<p align="justify">If you decide to use online payment services for the purchase of items, we may collect some additional information, such as a billing address, a credit/ debit card number and a credit/ debit card expiration date and/ or other payment instrument details and tracking information from cheques or money orders.</p>
-<p align="justify">If you choose to post messages on our message boards, chat rooms or other message areas or leave feedback for other users, we will collect that information you provide to us. We retain this information as necessary to resolve disputes, provide customer support and troubleshoot problems as permitted by law.</p>
-<p align="justify">If you send us personal correspondence, such as emails or letters, or if other users or third parties send us correspondence about your activities or postings on the Site, we may collect such information into a file specific to you.</p>
-<h3>Use of Your Information</h3>
-<p align="justify">We use your personal information to facilitate the services you request. We use your personal information in the file we maintain about you, and other information we obtain from your current and past activities on the Site to: resolve disputes; troubleshoot problems; help promote safe transactions; collect payments owed; measure consumer interest in the services provided by us, inform you about online and offline offers, products, services, and updates; customize your experience; detect and protect us against error, fraud and other criminal activity; enforce our User Agreement; and as otherwise described to you at the time of collection. At times, we may look across multiple users to identify problems or resolve disputes, and in particular we may examine your personal information to identify users using multiple User IDs or aliases. We may compare and review your personal information for errors, omissions and for accuracy.</p>
-<p align="justify">You agree that we may use personal information about you to improve our marketing and promotional efforts, to analyze site usage, improve the Site's content and product offerings, and customize the Site's content, layout, and services. These uses improve the Site and better tailor it to meet your needs, so as to provide you with a smooth, efficient, safe and customized experience while using the Site.</p>
-<p align="justify">Further in an effort to make our Site as effective and enjoyable as possible, the computers that operate it collect certain information each time you visit. We store these statistics in server logs. These statistics may not identify you personally, but provide us information regarding the type of user who is accessing our Site and certain browsing activities of that user. This data may include: the IP address of the user accessing our Website (i.e. the unique I.D. number of the user's computer), the type of browser (Internet Explorer, Firefox, etc.) and the operating system (Windows, Mac OS, etc.), the site the user last visited before linking to our Site, how long the user accessed our Site in any given session, and the date and time of access. We may make extensive use of this data at an aggregated level in order to understand how our Site is being used. We may share some of the aggregate findings (not the specific data) with advertisers, sponsors, investors, strategic partners, and others in order to help grow our business.</p>
-<p align="justify">You agree that we may use your personal information to contact you and deliver information to you that, in some cases, are targeted to your interests, such as targeted banner advertisements, administrative notices, product offerings, and communications relevant to your use of the Site. By accepting the User Agreement and Privacy Policy, you expressly agree to receive this information. If you do not wish to receive these communications, we encourage you to opt out of the receipt of certain communications in your profile. You may make changes to your profile at any time.</p>
-<h3>Disclosure of Your Information</h3>
-<p align="justify">We may also use your information to deliver information to you that, in some cases, are targeted to your interests, such as new services and promotions. We may use various outside agencies (third party service providers) to make our Site operate. For example, we may use third parties to host our Site, operate various features made available on our Site, send emails, analyze data, provide search results and links, and assist in fulfilling your orders. Some of these third parties may need access to your information in order to make the services provided through our Site. Information will only be disclosed to these service providers on a need-to-know basis, and they will only be permitted to use such information for the purpose of providing the particular services provided by such entities in connection with our Site.</p>
-<p align="justify">We cooperate with law enforcement and regulatory inquiries, as well as other third parties to enforce laws, such as: intellectual property rights, fraud and other rights, to help protect you and other Users. Therefore, in response to a verified request by law enforcement or other government officials relating to a criminal investigation or alleged illegal activity, we can (and you authorize us to) disclose your name, city, state, telephone number, email address, User ID history, fraud complaints, and purchasing history without notice. Without limiting the above, in an effort to respect your privacy, we will not otherwise disclose your personal information to law enforcement or other government officials without a subpoena, court order or substantially similar legal procedure, except when we believe in good faith that the disclosure of information is necessary to prevent imminent physical harm or financial loss; or report suspected illegal activity. Further, we can (and you authorize us to) disclose your name, street address, city, state, zip code, country, phone number, email, and company name to Intellectual Property right's owners under confidentiality agreement, as we in our sole discretion believe necessary or appropriate in connection with an investigation of fraud, intellectual property infringement, piracy, or other unlawful activity.</p>
-<p align="justify">Due to the existing regulatory environment, we cannot ensure that all of your private communications and other personal information will never be disclosed in ways not otherwise described in this Privacy Policy. By way of example (without limiting the foregoing), we may be forced to disclose personal information to the government or third parties under certain circumstances, third parties may unlawfully intercept or access transmissions or private communications, or users may abuse or misuse your personal information that they collect from the Site. Therefore, although we use industry standard practices to protect your privacy, we do not promise, and you should not expect, that your personal information or private communications will always remain private.</p>
-<h3>Security</h3>
-<p align="justify">When you place orders or access your account information, we offer the use of a secure server. The secure server software (SSL) encrypts all information you put in before it is sent to us. Furthermore, all of the customer data we collect is protected against unauthorized access. To prevent unauthorized access, maintain data accuracy, and ensure correct use of information, we will employ reasonable security practices and procedures and current Internet security methods and technologies in compliance with Information Technology Act, 2000 and rules made there under.</p>
-<h3>Changes in policy</h3>
-<p align="justify">You acknowledge that this Privacy Policy is part of the User Agreement and you unconditionally agree that using this Site signifies your assent to our Privacy Policy. If you do not agree with this Privacy Policy, please do not use our Site. Your visit and any dispute over privacy is subject to this policy and the User Agreement, including limitations on damages. We reserve the right to change the terms of use and this Privacy Policy, at any time. We will post any changes so that you are always aware of our policy. Unless stated otherwise, our current Privacy Policy applies to all information that we have about you and your account.</p>
-<p align="justify">Name and address of the entity collecting and retaining Your Information.</p>
-<p align="justify">Name and address of the entity collecting and retaining Your Information shall be the contracting entity stated in the User Agreement.</p>
-<p align="justify">Privacy Policy of the Peachmode Facebook app</p>
-<p align="justify">This application (hereinafter “Application”) collects some Personal Data from its Users.<br>The Data are collected and processed for the purposes set out below.</p>
-<h3>Data Processing Ownership</h3>
-<p align="justify">Types of Data collected<br>The owner does not provide a list of Personal Data types collected.<br>Other Personal Data collected may be highlighted by other sections of this privacy policy or by dedicated explanation text, in the moment when the Data collection happens.<br>The Personal Data may be freely inserted by the User or the Data Subject, or collected automatically when using the Application.<br>Any use of Cookies by the Application or the owners of third party services used by the Application, unless stated otherwise, serves to identify the User and remember his/her preferences for the sole purpose of providing the service required by the User. Failure to provide certain Personal Data, in particular Navigation Data, by deactivating the Application’s Cookies may make it impossible to surf or for the Application to provide its services.<br>The Personal Data collected may regard both the User and third parties whose data the User provides.<br>The User assumes responsibility for the Personal Data of third parties published or shared through the Application and declares that (s)he has the right to communicate or broadcast them, thus relieving the Owner of all responsibility towards third parties.</p>
-<p align="justify">Mode and place of processing the Data obtained</p>
-<h3>Method of Processing</h3>
-<p align="justify">The Data Controller processes the Data of the Interested Parties and Users in a lawful and proper manner and shall take appropriate security measures to prevent unauthorized access, disclosure, modification or unauthorized destruction of the Data. Processing is carried out using computers and / or telematic means, with organizational methods and logics strictly related to the stated purposes.<br>In addition to the owner, in some cases, access to the Data may be available to external parties (such as third party technical service providers, mail carriers, hosting providers, IT companies, communications agencies). The updated list of Managers may be requested from the Owner at any time.</p>
-<h3>Place</h3>
-<p align="justify">The Data are processed at the headquarters of the Data Controller, unless stated otherwise in the rest of this document.</p>
-<h3>Conservation Time</h3>
-<p align="justify">The Data are kept for the time necessary to perform the service requested by the User, and the User can always ask for their suspension or removal.</p>
-<h3>The use of the collected Data</h3>
-<p align="justify">The Data concerning the User or the Data Subject are collected for the following purposes: Social Applications.<br>The kinds of Personal Data used for each purpose are given in the specific sections of this document.<br>The use of Data for additional purposes by the Owner may in some cases, and for legal purposes, require specific consent by the User or the Data Subject.</p>
-<h3>Facebook permissions asked by this app</h3>
-<p align="justify">This Application asks some Facebook permissions allowing it to perform actions with the User's Facebook account and to retrieve information, including Personal Data, from it. For more information about the following permissions, refer to the Facebook permissions documentation and to the Facebook privacy policy.</p>
-<h3>Basic information</h3>
-<p align="justify">By default, this includes certain properties of the User object such as id, name, picture, gender, and their locale. Certain connections of the User object such as the Friends connection are also available. If the user has made more of their data public, more information will be available.</p>
-<h3>Email</h3>
-<p align="justify">Provides access to the user's primary email address</p>
-<p align="justify">Publish to the Wall Enables the app to post content, comments, and likes to a user's stream and to the streams of the user's friends.</p>
-<p align="justify">Detailed information on the processing of Personal Data and the services provided by third parties</p>
-<p align="justify">Personal Data collected for the following purposes and using the following services:</p>
-<p align="justify">Social Applications These services allow the web site to access the data on your profile in the social networks, and to interact through your post. These services are not activated automatically, but require express authorization by the user.</p>
-<p align="justify">Facebook App (This Website) This service allows the Application to connect with the User's Facebook account and perform actions with it, depending on the permissions granted.<br>When Users authorize a Facebook Application, the Application is allowed not only to perform the actions connected to the permissions granted, but also to access some basic information of the Facebook profile.<br>By default, this includes certain properties of the User object such as id, name, picture, gender, and their locale. Certain connections of the User object such as the Friends connection are also available. If the user has made more of their data public, more information will be available.<br>Permissions asked: Email and Publish to the Wall.<br>Place of Processing: USA – Privacy Policy</p>
-<h3>Additional information about data processing</h3>
-<p align="justify"><strong>Legal Protection</strong><br>The User’s Personal Data may be used for legal purposes by the Owner of the Application in court or in the stages leading to possible legal action arising from its improper use or that of related services by the User.</p>
-<p align="justify"><strong>Additional Information</strong><br>Specific information may be shown on the pages of the Site concerning particular services or the processing of Data provided by the User or by the Data Subject.</p>
-<p align="justify"><strong>Maintenance</strong><br>The User’s Personal Data may be further used in ways and for purposes required for Application maintenance.</p>
-<p align="justify"><strong>System Logs</strong><br>For operation and maintenance purposes, this Application and any third party services it uses may collect system logs, i.e., files that record interaction – including navigation. They may also contain personal data, such as IP addresses.</p>
-<p align="justify"><strong>Information not contained in this policy</strong><br>More information on processing Personal Information may be requested from the Owner at any time.</p>
-<p align="justify"><strong>The Rights of Data Subjects</strong><br>Those persons to whom the Data refer have the right, at any time, to know whether their data has been stored and can consult the Data Controller to learn about their contents and origin, to verify their accuracy or to ask for them to be supplemented, cancelled, updated or corrected, or for their transformation into anonymous format or to block any data held in violation of the law, as well as to oppose their treatment for any and all legitimate reasons. Requests should be sent to the Owner of the Processing System.</p>
-<p align="justify"><strong>Changes to this Privacy Policy</strong><br>The Application reserves the right to make changes to this Privacy Policy at any time by giving notice to its Users on this page, and by ensuring analogous protection of the Personal Information in all cases. It is strongly recommended to check this page often, referring to the date of the last modification listed at the bottom.</p>
-<p align="justify"><strong>Information about this privacy policy</strong><br>The Data Controller is responsible for this privacy policy, prepared starting from the modules provided by Iubenda and hosted on the Iubenda's servers.</p>
-<p align="justify"><strong>Personal information or Data</strong><br>Any information regarding a natural person, a legal person, an institution or an association, which is, or can be, identified, even indirectly, by reference to any other information, including a personal identification number.</p>
-<p align="justify"><strong>Browsing and usage Data</strong><br>Information collected automatically from the Site, including the IP addresses or domain names of the computers utilized by the users who connect to the site, the URI addresses (Uniform Resource Identifier), the time of the request, the method utilized to submit the request to the server, the size of the file received in response, the numerical code indicating the status of the server's answer (successful outcome, error, etc.), the country of origin, the features of the browser and the operating system utilized by the visitor, the various time details per visit (e.g., the time spent on each page) and the details about the path followed within the site with special reference to the sequence of pages visited, and other parameters about the operating system and the user's IT environment.</p>
-<p align="justify"><strong>User</strong><br>Means the individual user of the Application’s services or products.</p>
-<p align="justify"><strong>Data Subject</strong><br>The legal or natural person to whom the Personal Data refer.</p>
-<p align="justify"><strong>Data Processor</strong><br>The natural person, legal person, public administration or any other organization, association or organization designated by the Data Controller for the Personal Data processing system.</p>
-<p align="justify"><strong>Data Controller</strong><br>The natural person, legal person, public administration or any other body, association or organization with the right, also jointly with another Data Controller, to make decisions regarding the purposes, and the methods of processing of Personal Data and the means used, including the security measures concerning the operation and use of this Site.</p>
-<p align="justify"><strong>Legal information</strong><br>Notice to European Users: this privacy statement has been prepared in fulfillment of the obligations under Art. 10 of EC Directive n. 95/46/EC, and under the provisions of Directive 2002/58/EC, as revised by Directive 2009/136/EC, on the subject of Cookies. This privacy policy exclusively regards this Application.</p>
+    <div class="page-content page-content--small">
+      <div class="account__block-list"><div class="account__block-item" ><form method="post" action="/account" id="register-customer" accept-charset="UTF-8" data-login-with-shop-sign-up="true" name="create" class="form"><input type="hidden" name="form_type" value="create_customer" /><input type="hidden" name="utf8" value="✓" /><div class="input">
+                      <input type="text" id="customer[first_name]" class="input__field" name="customer[first_name]" required="required" autocomplete="given-name" >
+                      <label for="customer[first_name]" class="input__label">First name</label>
+                    </div>
+
+                    <div class="input">
+                      <input type="text" id="customer[last_name]" class="input__field" name="customer[last_name]" required="required" autocomplete="family-name" >
+                      <label for="customer[last_name]" class="input__label">Last name</label>
+                    </div><div class="input">
+                    <input type="email" id="customer[email]" class="input__field" name="customer[email]" required="required" autocomplete="email" >
+                    <label for="customer[email]" class="input__label">E-mail</label>
+                  </div>
+
+                  <div class="input">
+                    <input type="password" id="customer[password]" class="input__field" name="customer[password]" required="required" autocomplete="new-password" >
+                    <label for="customer[password]" class="input__label">Password</label>
+                  </div>
+
+                  <button type="submit" is="loader-button" class="form__submit button button--primary button--full">Create account</button>
+
+                  <span class="form__secondary-action text--subdued">Already have an account?<a href="/account/login" class="link">Login</a>
+                  </span></form></div></div>
     </div>
   </div>
-</div>
+</section>
 
+</div>
 <div id="shopify-section-static-newsletter" class="shopify-section shopify-section--newsletter"></div><div id="shopify-section-static-text-with-icons" class="shopify-section shopify-section--text-with-icons"><style>
     #shopify-section-static-text-with-icons {--heading-color: 255, 255, 255;
       --text-color: 255, 255, 255;
@@ -3281,7 +3246,7 @@ for (var attr in meta) {
           </div></div>
     </div>
   </div>
-</footer><cookie-bar section="footer" hidden class="cookie-bar text--xsmall"><p class="heading heading--xsmall">Cookie policy</p><p>I agree to the processing of my data in accordance with the conditions set out in the policy of Privacy.</p><div class="cookie-bar__actions">
+</footer><cookie-bar section="footer" hidden class="cookie-bar text--xsmall"><p class="heading heading--xsmall">Cookie policy</p><p>I agree to the processing of my data in accordance with the conditions set out in the policy of Privacy.</p><div class="cookie-bar__actions"><cookie-bar section="footer" hidden class="cookie-bar text--xsmall"><p class="heading heading--xsmall">Cookie policy</p><p>I agree to the processing of my data in accordance with the conditions set out in the policy of Privacy.</p><div class="cookie-bar__actions">
       <button class="button button--text button--primary button--small text--xsmall" data-action="accept-policy">Accept</button>
       <button class="button button--text button--ternary button--small text--xsmall" data-action="decline-policy">Decline</button>
     </div>

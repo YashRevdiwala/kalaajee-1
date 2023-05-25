@@ -1,24 +1,3 @@
-<?php
-include("components/connection.php");
-
-if(!isset($_SESSION)){
-  session_start();
-  if(isset($_SESSION['client_email'])){
-    $client_email = $_SESSION['client_email'];
-    $login_display = '<li class="header__linklist-item">
-                  <a href="account.php">My Account </a>
-                </li>';
-  }else{
-    $login_display = '<li class="header__linklist-item">
-                  <a href="login.php">Login </a>
-                </li>
-                <li class="header__linklist-item">
-                  <a href="register.php">Register </a>
-                </li>';
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
@@ -250,9 +229,9 @@ if(!isset($_SESSION)){
         config: {
           currency: "INR",
           meta: {
-            title: "Track your order",
-            template: "page.track-your-order",
-            url: "https://peachmode.com/pages/track-your-order",
+            title: "Login with OTP",
+            template: "page.otp-login",
+            url: "https://peachmode.com/pages/otp-login",
             type: "page",
           },
           routes: {
@@ -305,12 +284,12 @@ if(!isset($_SESSION)){
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Track your order</title>
+    <title>Login with OTP</title>
     <meta
       name="description"
-      content='To track your order please enter your Order ID and Email/Phone in the box below and press the "Track" button. These were given to you on your receipt and in the confirmation email you should have received.'
+      content="If you have an account with us, please log in."
     />
-    <link rel="canonical" href="https://peachmode.com/pages/track-your-order" />
+    <link rel="canonical" href="https://peachmode.com/pages/otp-login" />
     <link rel="shortcut icon" href="img/1.png" />
     <link rel="preconnect" href="https://cdn.shopify.com" />
     <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com" />
@@ -337,7 +316,7 @@ if(!isset($_SESSION)){
     </script>
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Track your order" />
+    <meta property="og:title" content="Login with OTP" />
     <meta
       property="og:image"
       content="http://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo.png?v=1649671323"
@@ -350,18 +329,15 @@ if(!isset($_SESSION)){
     <meta property="og:image:height" content="628" />
     <meta
       property="og:description"
-      content='To track your order please enter your Order ID and Email/Phone in the box below and press the "Track" button. These were given to you on your receipt and in the confirmation email you should have received.'
+      content="If you have an account with us, please log in."
     />
-    <meta
-      property="og:url"
-      content="https://peachmode.com/pages/track-your-order"
-    />
+    <meta property="og:url" content="https://peachmode.com/pages/otp-login" />
     <meta property="og:site_name" content="Peachmode" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Track your order" />
+    <meta name="twitter:title" content="Login with OTP" />
     <meta
       name="twitter:description"
-      content='To track your order please enter your Order ID and Email/Phone in the box below and press the "Track" button. These were given to you on your receipt and in the confirmation email you should have received.'
+      content="If you have an account with us, please log in."
     />
     <meta
       name="twitter:image"
@@ -383,8 +359,8 @@ if(!isset($_SESSION)){
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Track your order",
-            "item": "https://peachmode.com/pages/track-your-order"
+            "name": "Login with OTP",
+            "item": "https://peachmode.com/pages/otp-login"
           }
         ]
       }
@@ -828,21 +804,21 @@ if(!isset($_SESSION)){
     <script>
       (function () {
         var scripts = [
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.96fe0b7abf48419e7469.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_checkout-react-html_src_hooks_title_ts.latest.en.3457953d3abd1b694aa5.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_shopify_verdict_build_esm_runtimes_browser_index_mts_js.latest.en.f6f2083a5fb187836a1f.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app_components_AddressForm_AddressForm_tsx-app_components_Step_Step_tsx-app_utilities_receipt-224401.latest.en.91b3bf74b8a9635d2c0a.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.94b7d1c1c7ab40c6eac2.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.d63d03b3b69c11f9e6aa.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.0ca662c669b41a356f6a.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_card-fields-react_src_hook_ts-packages_checkout-graphql_src_in-92a386.latest.en.b39452fcc8039fc140d1.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.aaa897dd9c534f7f99ac.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.8645d252f07ec25fdbc6.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages~Information~NoAddressLocation~Payment~PostPurchase~Review~Shipping~ShopPay~Sho~cf13f96e.latest.en.04837ae4ff5a8e949953.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information~Payment~ShopPay.latest.en.84ff9c0024faf7f72c14.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.900911b3d82c82309ebf.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui~app.latest.en.86cd9328cdcd6cd3a58f.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors~app.latest.en.b4546f9bffad10b3673b.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages~app.latest.en.f5154093d2604596d084.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.931851b1b02f1bcae42a.js",
         ];
         var styles = [
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.5196d587d3de2d2fbc8a.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.4e93eb2ccac793a61d40.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.90bde523bde67a4067f2.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.f987e50a37d7171c2810.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui~app.latest.en.9f2a5e9ec696775e2217.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors~app.latest.en.e788719f193b49c039a3.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.6b4c79ead7042980b29d.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information~Payment~ShopPay.latest.en.da9f06164a980bf8e7ea.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.9a0274ab07be120c1902.css",
         ];
 
         function prefetch(url, as, callback) {
@@ -960,13 +936,13 @@ if(!isset($_SESSION)){
       var __st = {
         a: 63748341981,
         offset: 19800,
-        reqid: "ed5e77cb-fd9a-495e-a811-ad66b93fbc25",
-        pageurl: "peachmode.com\/pages\/track-your-order",
-        s: "pages-97773682909",
-        u: "6f9a5d2673f7",
+        reqid: "b1ae1145-2293-4599-a832-6a1984163762",
+        pageurl: "peachmode.com\/pages\/otp-login",
+        s: "pages-98435236061",
+        u: "a22b3e4e2d02",
         p: "page",
         rtyp: "page",
-        rid: 97773682909,
+        rid: 98435236061,
       };
     </script>
     <script>
@@ -1037,7 +1013,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script>
-      var loox_global_hash = "1681094666627";
+      var loox_global_hash = "1681201533463";
     </script>
     <style>
       .loox-reviews-default {
@@ -2041,7 +2017,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script
-      src="https://cdn.shopify.com/extensions/cece2cc8-741a-4309-94ee-04a78984c575/1.59.0/assets/ws-currencyconverter.js"
+      src="https://cdn.shopify.com/extensions/c4e8e215-0970-4d3a-ac7b-2e25bea3398b/2.0.0/assets/ws-currencyconverter.js"
       type="text/javascript"
       defer="defer"
     ></script>
@@ -2086,6 +2062,99 @@ if(!isset($_SESSION)){
         }
       })();
     </script>
+    <script id="evids-setup">
+      (function () {
+        let t, e;
+        function n() {
+          (t = {
+            page_viewed: {},
+            collection_viewed: {},
+            product_viewed: {},
+            product_variant_viewed: {},
+            search_submitted: {},
+            product_added_to_cart: {},
+            checkout_started: {},
+            checkout_completed: {},
+            payment_info_submitted: {},
+          }),
+            (e = { wpm: {}, trekkie: {} });
+        }
+        function o(t) {
+          return `${t || "sh"}-${(function () {
+            const t = "xxxx-4xxx-xxxx-xxxxxxxxxxxx";
+            let e = "";
+            try {
+              const n = window.crypto,
+                o = new Uint16Array(31);
+              n.getRandomValues(o);
+              let r = 0;
+              e = t
+                .replace(/[x]/g, (t) => {
+                  const e = o[r] % 16;
+                  return r++, ("x" === t ? e : (3 & e) | 8).toString(16);
+                })
+                .toUpperCase();
+            } catch (n) {
+              e = t
+                .replace(/[x]/g, (t) => {
+                  const e = (16 * Math.random()) | 0;
+                  return ("x" === t ? e : (3 & e) | 8).toString(16);
+                })
+                .toUpperCase();
+            }
+            return `${(function () {
+              let t = 0,
+                e = 0;
+              t = new Date().getTime() >>> 0;
+              try {
+                e = performance.now() >>> 0;
+              } catch (t) {
+                e = 0;
+              }
+              const n = Math.abs(t + e)
+                .toString(16)
+                .toLowerCase();
+              return "00000000".substr(0, 8 - n.length) + n;
+            })()}-${e}`;
+          })()}`;
+        }
+        function r(n, r) {
+          if (
+            !t[n] ||
+            ("trekkie" !== (null == r ? void 0 : r.analyticsFramework) &&
+              "wpm" !== (null == r ? void 0 : r.analyticsFramework))
+          )
+            return o("shu");
+          const i = "string" == typeof (c = r.cacheKey) && c ? c : "default";
+          var c;
+          const a = (function (t, n, o) {
+            const r = e[n];
+            return (
+              void 0 === r[t] && (r[t] = {}),
+              void 0 === r[t][o] ? (r[t][o] = 0) : (r[t][o] += 1),
+              r[t][o]
+            );
+          })(n, r.analyticsFramework, i);
+          return (function (e, n, r) {
+            const i = t[e];
+            if (void 0 === i[r]) {
+              const t = o();
+              i[r] = [t];
+            } else if (void 0 === i[r][n]) {
+              const t = o();
+              i[r].push(t);
+            }
+            return i[r][n];
+          })(n, a, i);
+        }
+        function i() {
+          (window.Shopify = window.Shopify || {}),
+            n(),
+            (window.Shopify.evids = (t, e) => r(t, e));
+        }
+        i();
+      })();
+    </script>
     <script>
       window.ShopifyAnalytics = window.ShopifyAnalytics || {};
       window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
@@ -2094,7 +2163,7 @@ if(!isset($_SESSION)){
         page: {
           pageType: "page",
           resourceType: "page",
-          resourceId: 97773682909,
+          resourceId: 98435236061,
         },
       };
       for (var attr in meta) {
@@ -2240,18 +2309,18 @@ if(!isset($_SESSION)){
                   app_name: "storefront",
                   context_url: window.location.href,
                   source_url:
-                    "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js",
+                    "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js",
                 }
               );
             };
             scriptFallback.async = true;
             scriptFallback.src =
-              "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js";
+              "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js";
             first.parentNode.insertBefore(scriptFallback, first);
           };
           script.async = true;
           script.src =
-            "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js";
+            "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js";
           first.parentNode.insertBefore(script, first);
         };
         trekkie.load({
@@ -2293,7 +2362,7 @@ if(!isset($_SESSION)){
           window.ShopifyAnalytics.lib.page(null, {
             pageType: "page",
             resourceType: "page",
-            resourceId: 97773682909,
+            resourceId: 98435236061,
           });
 
           var match = window.location.pathname.match(
@@ -2331,7 +2400,7 @@ if(!isset($_SESSION)){
         window.BOOMR.themeVersion = "8.8.1";
         window.BOOMR.shopId = 63748341981;
         window.BOOMR.themeId = 131960242397;
-        window.BOOMR.renderRegion = "gcp-europe-west1";
+        window.BOOMR.renderRegion = "gcp-us-east1";
         window.BOOMR.url =
           "https://cdn.shopify.com/shopifycloud/boomerang/shopify-boomerang-1.0.0.min.js";
         var where =
@@ -2632,13 +2701,13 @@ if(!isset($_SESSION)){
         },
         "https://cdn.shopify.com",
         "browser",
-        "0.0.279",
-        "518c152fw00918cf1pc7ca055am99284242"
+        "0.0.280",
+        "5c46ad45w03c6b27bp74bf52d0m9e637fdc"
       );
     </script>
   </head>
   <body
-    class="no-focus-outline features--image-zoom template-page page-track-your-order"
+    class="no-focus-outline features--image-zoom template-page"
     data-instant-allow-query-string
   >
     <!-- Google Tag Manager (noscript) -->
@@ -2932,14 +3001,14 @@ if(!isset($_SESSION)){
                   <li class="header__linklist-item">
                     <a
                       class="header__linklist-link link--animated"
-                      href="track-order.php"
+                      href="track-order.html"
                       >Track Order</a
                     >
                   </li>
                   <li class="header__linklist-item">
                     <a
                       class="header__linklist-link link--animated"
-                      href="contact.php"
+                      href="contact.html"
                       >Contact Us</a
                     >
                   </li>
@@ -2982,7 +3051,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-1"
                       aria-expanded="false"
                       >Collections</a
@@ -2996,21 +3065,21 @@ if(!isset($_SESSION)){
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >New Arrivals</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Handbags</a
                         >
                       </li>
                       <li class="nav-dropdown__item has-dropdown">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           aria-controls="desktop-menu-1-3"
                           aria-expanded="false"
                           >Jewellery<svg
@@ -3037,35 +3106,35 @@ if(!isset($_SESSION)){
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Earrings</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Necklace</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Rings</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Bracelet</a
                             >
                           </li>
                           <li class="nav-dropdown__item">
                             <a
                               class="nav-dropdown__link link--faded"
-                              href="product.php"
+                              href="product.html"
                               >Maang Tika</a
                             >
                           </li>
@@ -3074,28 +3143,28 @@ if(!isset($_SESSION)){
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Bedsheets</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Exclusive</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Combo Packs</a
                         >
                       </li>
                       <li class="nav-dropdown__item">
                         <a
                           class="nav-dropdown__link link--faded"
-                          href="product.php"
+                          href="product.html"
                           >Mens Kurta Pyjama</a
                         >
                       </li>
@@ -3107,7 +3176,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-2"
                       aria-expanded="false"
                       >Sarees</a
@@ -3118,73 +3187,73 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Art Silk Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chiffon Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Crepe Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Organza Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chanderi Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bhagalpuri Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Satin Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Linen Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Net Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kanjivaram</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Banarasi Silk</a
                                   >
                                 </li>
@@ -3192,38 +3261,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Print/Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Floral Print</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bandhani Sarees</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Embroidered</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Paithani</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Lucknowi / Chickankari</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Patola</a
                                   >
                                 </li>
@@ -3231,23 +3300,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Collection</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Half N Half Saree</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Authentic Drapes</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bollywood</a
                                   >
                                 </li>
@@ -3255,38 +3324,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -3294,63 +3363,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -3358,68 +3427,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -3451,7 +3520,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-3"
                       aria-expanded="false"
                       >Salwar Suits</a
@@ -3462,73 +3531,73 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Organza</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bhagalpuri Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Banarasi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chanderi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tapetta Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tussar Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Net</a
                                   >
                                 </li>
@@ -3536,43 +3605,43 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Style</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sharara Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Anarkali Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Palazzo Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Patiala Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pakistani Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Straight Cut Suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Indo western</a
                                   >
                                 </li>
@@ -3580,23 +3649,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Stitch Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Unstitched Salwar suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Readymade Salwar suits</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Semi Stitched</a
                                   >
                                 </li>
@@ -3604,28 +3673,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >3000 & above</a
                                   >
                                 </li>
@@ -3633,63 +3702,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -3697,68 +3766,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -3790,7 +3859,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-4"
                       aria-expanded="false"
                       >Kurtis</a
@@ -3801,58 +3870,58 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chanderi Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Linen</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Muslin</a
                                   >
                                 </li>
@@ -3860,63 +3929,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Print/Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Floral print</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Solid</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bandhani</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Printed</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Embroidered</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Anarkali</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >A-Line</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Straight</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Short
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Long</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >High Low</a
                                   >
                                 </li>
@@ -3924,53 +3993,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Product Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti Pant Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti Palazzo Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti Dhoti Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti Skirt Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Palazzo Suit</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Top Bottom Set</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kurti</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kaftan</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Kaftan Set</a
                                   >
                                 </li>
@@ -3978,28 +4047,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
@@ -4007,23 +4076,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000 & above</a
                                   >
                                 </li>
@@ -4031,68 +4100,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4124,7 +4193,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-5"
                       aria-expanded="false"
                       >Lehengas</a
@@ -4135,53 +4204,53 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Art Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Banarasi Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Organza</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Satin</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Velvet</a
                                   >
                                 </li>
@@ -4189,23 +4258,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Pattern</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Designer</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Digital</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Floral</a
                                   >
                                 </li>
@@ -4213,38 +4282,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -4252,53 +4321,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -4306,68 +4375,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Gold</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4375,23 +4444,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Style</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Ready to wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Unstiched</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Semi stitched</a
                                   >
                                 </li>
@@ -4423,7 +4492,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-6"
                       aria-expanded="false"
                       >Gowns</a
@@ -4434,53 +4503,53 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Satin</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chanderi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jacquard</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Net</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Silk</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tapetta Silk</a
                                   >
                                 </li>
@@ -4488,53 +4557,53 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Bridal</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Engagement</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Haldi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Mehendi</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Reception</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Sangeet</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Wedding
                                   </a>
                                 </li>
@@ -4542,38 +4611,38 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000-2999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >3000-3999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >4000-4999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >5000 & above</a
                                   >
                                 </li>
@@ -4581,63 +4650,63 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4654,7 +4723,7 @@ if(!isset($_SESSION)){
                   >
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       aria-controls="desktop-menu-7"
                       aria-expanded="false"
                       >Western</a
@@ -4665,33 +4734,33 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Fabric</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Rayon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Cotton</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Georgette</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Chiffon</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Crepe</a
                                   >
                                 </li>
@@ -4699,28 +4768,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Type</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tops</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Tunics</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Dresses</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Jumpsuit</a
                                   >
                                 </li>
@@ -4728,28 +4797,28 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Occasion</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Casual / Daily</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Festive</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Office wear</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Party
                                   </a>
                                 </li>
@@ -4757,23 +4826,23 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Price</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >0-999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >1000-1999</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >2000 & above</a
                                   >
                                 </li>
@@ -4781,68 +4850,68 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <a
-                                href="product.php"
+                                href="product.html"
                                 class="mega-menu__title heading heading--small"
                                 >Color</a
                               >
                               <ul class="linklist list--unstyled" role="list">
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Red</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Pink</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >White</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Black</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Orange</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Blue</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Purple</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Yellow</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Brown</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Grey</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Green</a
                                   >
                                 </li>
                                 <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
+                                  <a href="product.html" class="link--faded"
                                     >Multicolor</a
                                   >
                                 </li>
@@ -4856,14 +4925,14 @@ if(!isset($_SESSION)){
                   <li class="header__linklist-item" data-item-title="Live">
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       >Live</a
                     >
                   </li>
                   <li class="header__linklist-item" data-item-title="Sale">
                     <a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.html"
                       >Sale</a
                     >
                   </li>
@@ -5038,7 +5107,7 @@ if(!isset($_SESSION)){
             </nav>
             <!-- LOGO PART -->
             <h1 class="header__logo">
-              <a class="header__logo-link" href="index.php"
+              <a class="header__logo-link" href="index.html"
                 ><span class="visually-hidden">Kalaajee</span>
                 <img
                   loading="lazy"
@@ -5325,7 +5394,7 @@ if(!isset($_SESSION)){
   }*/
                 </style>
                 <a
-                  href="login.php"
+                  href="login.html"
                   class="header__icon-wrapper tap-area hidden-phone hidden-desk"
                   aria-label="Login"
                   ><svg
@@ -5398,7 +5467,12 @@ if(!isset($_SESSION)){
                 role="list"
               >
                 <li class="header__linklist-item"></li>
-                <?php echo $login_display; ?>
+                <li class="header__linklist-item">
+                  <a href="login.html">Login </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a href="account.html">My Account </a>
+                </li>
                 <li class="header__linklist-item">
                   <a
                     href="/cart"
@@ -5527,8 +5601,8 @@ if(!isset($_SESSION)){
         global
         hidden
         class="cart-notification"
-      ></cart-notification>
-      <mobile-navigation
+      ></cart-notification
+      ><mobile-navigation
         append-body
         id="mobile-menu-drawer"
         class="drawer drawer--from-left"
@@ -8381,7 +8455,7 @@ if(!isset($_SESSION)){
 
           "logo": "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/files\/280x80_d20e9ddd-ae15-43c9-9dc7-142b6b7c30e1_280x.png?v=1676437272",
 
-          "url": "https:\/\/peachmode.com\/pages\/track-your-order"
+          "url": "https:\/\/peachmode.com\/pages\/otp-login"
         }
       </script>
     </div>
@@ -8490,7 +8564,7 @@ if(!isset($_SESSION)){
     </div>
     <div id="main" role="main" class="anchor">
       <div
-        id="shopify-section-template--16029305176285__main"
+        id="shopify-section-template--16113835835613__main"
         class="shopify-section shopify-section--main-page"
       >
         <section>
@@ -8502,75 +8576,52 @@ if(!isset($_SESSION)){
               >
                 <ol class="breadcrumb__list" role="list">
                   <li class="breadcrumb__item">
-                    <a class="breadcrumb__link" href="index.php">Home</a>
+                    <a class="breadcrumb__link" href="/">Home</a>
                   </li>
 
                   <li class="breadcrumb__item">
                     <span class="breadcrumb__link" aria-current="page"
-                      >Track your order</span
+                      >Login with OTP</span
                     >
                   </li>
                 </ol>
               </nav>
 
               <div class="page-header__text-wrapper text-container">
-                <h1 class="heading h2">Track your order</h1>
+                <h1 class="heading h2">Login with OTP</h1>
               </div>
             </div>
-            <div class="page-content page-content--medium rte">
-              <span
-                >To track your order please enter your Order ID and Email/Phone
-                in the box below and press the "Track" button. These were given
-                to you on your receipt and in the confirmation email you should
-                have received.</span
-              >
-              <p id="trackerError"></p>
-              <form id="return-and-track-order-form" method="post" class="mt-4">
+            <div class="page-content page-content--small rte">
+              <span>If you have an account with us, please log in.</span>
+              <p id="otpError"></p>
+              <form id="otp_login" method="post" class="mt-4 need_otp">
                 <div class="input">
                   <input
-                    id="orderid"
-                    type="text"
-                    class="input__field"
-                    name="orderid"
-                    aria-label="orderid"
+                    id="customer_phone"
+                    onkeypress="return isNumber(event,this,10)"
                     required
-                  />
-                  <label for="orderid" class="input__label"
-                    >Order ID*
-                    <small
-                      >(Found in your order confirmation email.)</small
-                    ></label
-                  >
-                </div>
-                <div class="input">
-                  <input
-                    id="billing_email"
-                    type="email"
-                    class="input__field"
-                    name="billing_email"
-                    aria-label="billing_email"
-                  />
-                  <label for="billing_email" class="input__label"
-                    >Billing Email
-                    <small>(Email you used during checkout.)</small></label
-                  >
-                </div>
-                <div class="input">
-                  <h6>OR</h6>
-                </div>
-                <div class="input">
-                  <input
-                    id="billing_phone"
                     type="number"
                     class="input__field"
-                    name="billing_phone"
-                    aria-label="billing_phone"
+                    name="customer_phone"
+                    aria-label="customer_phone"
                   />
-                  <label for="billing_phone" class="input__label"
-                    >Billing Phone
-                    <small
-                      >(Phone number you used during checkout.)</small
-                    ></label
+                  <label for="customer_phone" class="input__label"
+                    >Phone Number</label
+                  >
+                </div>
+                <div class="input customer_otp_container" style="display: none">
+                  <input
+                    id="customer_otp"
+                    disabled
+                    required
+                    type="number"
+                    onkeypress="return isNumber(event,this,6)"
+                    class="input__field"
+                    name="customer_phone"
+                    aria-label="customer_phone"
+                  />
+                  <label for="customer_otp" class="input__label"
+                    >Enter OTP</label
                   >
                 </div>
                 <button
@@ -8578,150 +8629,39 @@ if(!isset($_SESSION)){
                   type="submit"
                   class="form__submit button button--primary button--full"
                 >
-                  Track Order
+                  <span class="d-block">Verify Number</span
+                  ><span class="d-none">Verify OTP</span>
                 </button>
+                <a
+                  href="login.html"
+                  class="mt-2 button button--secondary button--full"
+                  >Login Via Username & Password</a
+                >
               </form>
-            </div>
-            <div class="account account--order">
-              <div class="container container--small">
-                <div class="page-header page-header--small">
-                  <div class="page-header__text-wrapper text-container">
-                    <h1 class="heading h4 order_name">
-                      <img
-                        loading="lazy"
-                        style="height: 50px; margin: auto"
-                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/loading.gif?v=135655685998696985211654153040"
-                      />
-                    </h1>
-                    <span class="account__order-date text--subdued order_date"
-                      >---</span
-                    >
-                  </div>
-                </div>
-                <div class="page-content">
-                  <div class="account__block-list">
-                    <div class="account__block-item">
-                      <div class="account__order-details">
-                        <div class="order_table"></div>
-
-                        <div class="account__order-addresses line-item-table">
-                          <h2 class="heading h5">Addresses</h2>
-                          <div
-                            class="account__addresses-list account__addresses-list--wide"
-                          >
-                            <div
-                              class="account__address account__address--auto"
-                            >
-                              <span
-                                class="account__address-title heading heading--small"
-                                >Billing address</span
-                              >
-                              <div
-                                class="account__address-details billing_address"
-                              >
-                                <p></p>
-                              </div>
-                            </div>
-                            <div
-                              class="account__address account__address--auto"
-                            >
-                              <span
-                                class="account__address-title heading heading--small"
-                                >Shipping address</span
-                              >
-                              <div
-                                class="account__address-details shipping_address"
-                              >
-                                <p></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="account__order-addresses">
-                          <h2 class="heading h5">Shipments:</h2>
-                          <p id="shipmentError"></p>
-                          <div
-                            class="account__addresses-list shipment_details account__addresses-list--wide"
-                            style="
-                              grid-template-columns: repeat(auto-fit, 100%);
-                            "
-                          >
-                            <div
-                              class="account__address account__address--auto"
-                            >
-                              <ul
-                                class="tracking_details d-flex flex-1 flex-wrap"
-                              >
-                                <li>
-                                  <strong>Tracking No:</strong><span>NA</span>
-                                </li>
-                                <li>
-                                  <strong>Courier Company:</strong
-                                  ><span>NA</span>
-                                </li>
-                                <li>
-                                  <strong>Shipment Status:</strong
-                                  ><span>NA</span>
-                                </li>
-                                <li>
-                                  <strong>Payment Mode:</strong><span>NA</span>
-                                </li>
-                                <li><strong>Amount:</strong><span>NA</span></li>
-                              </ul>
-                              <div class="tracking_slider mt-4">
-                                <div class="track_bar">
-                                  <span class="in_transit"></span>
-                                  <span></span>
-                                </div>
-                                <div
-                                  class="d-flex flex-wrap flex-1 justify-between align-center"
-                                >
-                                  <span>Shipment Created</span>
-                                  <span>In Transit</span>
-                                  <span>Delivered</span>
-                                </div>
-                              </div>
-                              <div class="mt-4">
-                                <a
-                                  href=""
-                                  class="button button--primary button--small track_url"
-                                  target="_blank"
-                                  >GET DETAILED SCAN</a
-                                >
-                              </div>
-                              <table
-                                class="line-item-table table table-shipment mt-4 mb-1"
-                              >
-                                <thead
-                                  class="line-item-table__header-group hidden-phone"
-                                >
-                                  <tr>
-                                    <th>
-                                      <span class="">Shipment Items</span>
-                                    </th>
-                                    <th>
-                                      <span class="text--center">Size</span>
-                                    </th>
-                                    <th>
-                                      <span class="text--center">Quantity</span>
-                                    </th>
-                                  </tr>
-                                </thead>
-                                <tbody
-                                  class="line-item-table__list shipment_html"
-                                ></tbody>
-                              </table>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <iframe
+                src=""
+                id="login_with_otp"
+                scrolling="no"
+                frameborder="0"
+                width="1"
+                height="1"
+                style="display: none"
+              ></iframe>
             </div>
           </div>
         </section>
+        <script>
+          function isNumber(evt, val, limit) {
+            evt = evt ? evt : window.event;
+            var charCode = evt.which ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+              return false;
+            }
+            if (val.value.length > limit) return false;
+
+            return true;
+          }
+        </script>
       </div>
       <div
         id="shopify-section-static-newsletter"
@@ -8741,12 +8681,12 @@ if(!isset($_SESSION)){
         </style>
 
         <section class="section section--flush">
-          <div class="section__color-wrapper" style="background-color: #13becf">
+          <div class="section__color-wrapper" style="background-color: #f7921c">
             <div class="container vertical-breather">
               <native-carousel class="text-with-icons">
                 <div class="text-with-icons__list hide-scrollbar">
                   <native-carousel-item
-                    id="block-static-text-with-icons-static-text-with-icons-0"
+                    id="block-template--15880464466141__text-with-icons-item-1"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -8766,12 +8706,12 @@ if(!isset($_SESSION)){
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">Free shipping</p>
+                      <p class="heading heading--small">FREE SHIPPING</p>
                       <p>Free shipping in India</p>
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-static-text-with-icons-static-text-with-icons-1"
+                    id="block-template--15880464466141__text-with-icons-item-2"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -8802,7 +8742,7 @@ if(!isset($_SESSION)){
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-static-text-with-icons-static-text-with-icons-2"
+                    id="block-template--15880464466141__text-with-icons-33a9f141-c31d-4001-ba8e-e05bb9bde209"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -8833,12 +8773,12 @@ if(!isset($_SESSION)){
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">Secure payment</p>
+                      <p class="heading heading--small">SECURE PAYMENT</p>
                       <p>Your payment information is processed securely.</p>
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-static-text-with-icons-static-text-with-icons-3"
+                    id="block-template--15880464466141__text-with-icons-item-3"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -8847,23 +8787,21 @@ if(!isset($_SESSION)){
                         focusable="false"
                         width="24"
                         height="24"
-                        class="icon icon--picto-email"
+                        class="icon icon--picto-send"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M21 8V5H3V8M21 8V19H3V8M21 8L12 12.5L3 8"
+                          d="M21.913 2L15.3391 20L11.5826 11.9M21.913 2L3.13043 8.3L11.5826 11.9M21.913 2L11.5826 11.9"
                           stroke="currentColor"
                           stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
                         ></path>
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">Contact us</p>
+                      <p class="heading heading--small">Contact Us</p>
                       <p>
-                        Need to contact us ? Just send us an e-mail at
-                        contact@peachmode.com
+                        Need to contact us ? Just send us an e-mail to
+                        contact@kalaajee.com
                       </p>
                     </div></native-carousel-item
                   >
@@ -8899,7 +8837,7 @@ if(!isset($_SESSION)){
         }
       </style>
 
-      <footer class="footer" style="background-color: #f7921c">
+      <footer class="footer" style="background-color: #13becf">
         <div class="container">
           <div class="footer__inner">
             <div class="footer__item-list">
@@ -9350,7 +9288,7 @@ if(!isset($_SESSION)){
                       <label
                         for="footer[contact][email]"
                         class="input__label"
-                        style="background-color: #f7921c"
+                        style="background-color: #13becf"
                         >Your e-mail</label
                       >
                       <button
