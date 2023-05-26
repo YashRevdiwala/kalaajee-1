@@ -3004,20 +3004,20 @@ for (var attr in meta) {
 
     <div class="page-content page-content--small">
       <div class="account__block-list"><div class="account__block-item" ><form method="post" action="register-client.php" id="register-customer" accept-charset="UTF-8" data-login-with-shop-sign-up="true" name="create" class="form"><input type="hidden" name="form_type" value="create_customer" /><input type="hidden" name="utf8" value="✓" /><div class="input">
-                      <input type="text" id="customer[first_name]" class="input__field" name="customer[first_name]" required="required" autocomplete="given-name" >
+                      <input type="text" id="register_first_name" class="input__field" name="register_first_name" required="required" autocomplete="given-name" >
                       <label for="register_first_name" class="input__label">First name</label>
                     </div>
 
                     <div class="input">
-                      <input type="text" id="customer[last_name]" class="input__field" name="customer[last_name]" required="required" autocomplete="family-name" >
+                      <input type="text" id="register_last_name" class="input__field" name="register_last_name" required="required" autocomplete="family-name" >
                       <label for="register_last_name" class="input__label">Last name</label>
                     </div><div class="input">
-                    <input type="email" id="customer[email]" class="input__field" name="customer[email]" required="required" autocomplete="email" >
+                    <input type="email" id="register_email" class="input__field" name="register_email" required="required" autocomplete="email" >
                     <label for="register_email" class="input__label">E-mail</label>
                   </div>
 
                   <div class="input">
-                    <input type="password" id="customer[password]" class="input__field" name="customer[password]" required="required" autocomplete="new-password" >
+                    <input type="password" id="register_password" class="input__field" name="register_password" required="required" autocomplete="new-password" >
                     <label for="register_password" class="input__label">Password</label>
                   </div>
 

@@ -1,3 +1,30 @@
+<?php
+include("components/connection.php");
+
+if(!isset($_SESSION)){
+  session_start();
+  if(isset($_SESSION['product_unique_id'])){
+    $product_unique_id = $_SESSION['product_unique_id'];
+    echo $product_unique_id;
+    $run_query = mysqli_query($conn,"SELECT * FROM tbl_product WHERE id = '$product_unique_id'");
+    $row = mysqli_fetch_array($run_query);
+  }
+  if(isset($_SESSION['client_email'])){
+    $client_email = $_SESSION['client_email'];
+    $login_display = '<li class="header__linklist-item">
+                  <a href="account.php">My Account </a>
+                </li>';
+  }else{
+    $login_display = '<li class="header__linklist-item">
+                  <a href="login.php">Login </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a href="register.php">Register </a>
+                </li>';
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
@@ -6373,12 +6400,7 @@
                 role="list"
               >
                 <li class="header__linklist-item"></li>
-                <li class="header__linklist-item">
-                  <a href="login.html">Login </a>
-                </li>
-                <li class="header__linklist-item">
-                  <a href="account.html">My Account </a>
-                </li>
+                <?php echo $login_display; ?>
                 <li class="header__linklist-item">
                   <a
                     href="/cart"
@@ -11491,21 +11513,7 @@
                       class="collapsible"
                     >
                       <div class="product-tabs__tab-item-content rte">
-                        <p>
-                          Make some space in your casual wardrobe for this
-                          lavender colored kurti. This kurti is fashioned on
-                          pure rayon viscose fabric which is lightweight and
-                          assures the wearer a perfect fit &amp; comfort. This
-                          stitched kurti is beautified with lakhnawi work as
-                          shown. Ideal for party, outing &amp; weekend get
-                          together. Team it with high heels and fashionable
-                          accessories to look more attractive. This attractive
-                          kurti will surely fetch you compliments for your rich
-                          sense of style. Note:- The actual product may differ
-                          slightly in color and design from the one illustrated
-                          in the images when compared with computer or mobile
-                          screen.
-                        </p>
+                        <?php echo $row['description']; ?>
                       </div>
                       <div class="product-tabs__trust-list hidden-pocket">
                         <button
@@ -11717,7 +11725,7 @@
 
                             <tr>
                               <th>Material:</th>
-                              <td>Rayon</td>
+                              <td><?php echo $row['material']; ?></td>
                             </tr>
 
                             <tr>
@@ -11727,22 +11735,22 @@
 
                             <tr>
                               <th>Work:</th>
-                              <td>Embroidered</td>
+                              <td><?php echo $row['work']; ?></td>
                             </tr>
 
                             <tr>
                               <th>Stitch Type:</th>
-                              <td>Stitched</td>
+                              <td><?php echo $row['type_blouse']; ?></td>
                             </tr>
 
                             <tr>
                               <th>Occasion:</th>
-                              <td>Casual, Office wear, Daily</td>
+                              <td><?php echo $row['occasion']; ?></td>
                             </tr>
 
                             <tr>
                               <th>Print / Pattern:</th>
-                              <td>Lucknowi, Chikankari</td>
+                              <td><?php echo $row['print'].", ".$row['pattern']; ?></td>
                             </tr>
 
                             <tr>
@@ -11769,7 +11777,7 @@
 
                             <tr>
                               <th>Care Guide:</th>
-                              <td>Dry Clean</td>
+                              <td><?php echo $row['care_ins']; ?></td>
                             </tr>
                           </tbody>
                         </table>
