@@ -8629,11 +8629,11 @@
                   type="submit"
                   class="form__submit button button--primary button--full"
                 >
-                  <span class="d-block">Verify Number</span
-                  ><span class="d-none">Verify OTP</span>
+                  <span class="d-block">Verify Number</span>
+                  <span class="d-none">Verify OTP</span>
                 </button>
                 <a
-                  href="login.html"
+                  href="login.php"
                   class="mt-2 button button--secondary button--full"
                   >Login Via Username & Password</a
                 >

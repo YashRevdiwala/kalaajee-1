@@ -3,10 +3,9 @@ include("components/connection.php");
 
 if(!isset($_SESSION)){
   session_start();
-  if(isset($_SESSION['product_unique_id'])){
-    $product_unique_id = $_SESSION['product_unique_id'];
-    echo $product_unique_id;
-    $run_query = mysqli_query($conn,"SELECT * FROM tbl_product WHERE id = '$product_unique_id'");
+  if(isset($_GET["id"])){
+    $product_id = $_GET["id"];
+    $run_query = mysqli_query($conn,"SELECT * FROM tbl_product WHERE id = '$product_id'");
     $row = mysqli_fetch_array($run_query);
   }
   if(isset($_SESSION['client_email'])){
@@ -245,7 +244,7 @@ if(!isset($_SESSION)){
         product: "7737378799837",
         vendor: "Peachmode",
         type: "Kurti",
-        title: "Lavender Lakhnawi Work Rayon Kurti",
+        title: "<?php echo $row["pro_name"]; ?>i",
         images: [
           "\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702",
           "\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/lavender-lakhnawi-work-rayon-kurti-peachmode-2.jpg?v=1669040705",
@@ -271,7 +270,7 @@ if(!isset($_SESSION)){
             taxable: true,
             featured_image: null,
             available: true,
-            name: "Lavender Lakhnawi Work Rayon Kurti - S",
+            name: "<?php echo $row["pro_name"]; ?> - S",
             public_title: "S",
             options: ["S"],
             price: 94900,
@@ -294,7 +293,7 @@ if(!isset($_SESSION)){
             taxable: true,
             featured_image: null,
             available: false,
-            name: "Lavender Lakhnawi Work Rayon Kurti - M",
+            name: "<?php echo $row["pro_name"]; ?> - M",
             public_title: "M",
             options: ["M"],
             price: 94900,
@@ -317,7 +316,7 @@ if(!isset($_SESSION)){
             taxable: true,
             featured_image: null,
             available: true,
-            name: "Lavender Lakhnawi Work Rayon Kurti - L",
+            name: "<?php echo $row["pro_name"]; ?> - L",
             public_title: "L",
             options: ["L"],
             price: 94900,
@@ -340,7 +339,7 @@ if(!isset($_SESSION)){
             taxable: true,
             featured_image: null,
             available: true,
-            name: "Lavender Lakhnawi Work Rayon Kurti - XL",
+            name: "<?php echo $row["pro_name"]; ?> - XL",
             public_title: "XL",
             options: ["XL"],
             price: 94900,
@@ -363,7 +362,7 @@ if(!isset($_SESSION)){
             taxable: true,
             featured_image: null,
             available: true,
-            name: "Lavender Lakhnawi Work Rayon Kurti - XXL",
+            name: "<?php echo $row["pro_name"]; ?> - XXL",
             public_title: "XXL",
             options: ["XXL"],
             price: 94900,
@@ -386,7 +385,7 @@ if(!isset($_SESSION)){
             taxable: true,
             featured_image: null,
             available: true,
-            name: "Lavender Lakhnawi Work Rayon Kurti - 3XL",
+            name: "<?php echo $row["pro_name"]; ?> - 3XL",
             public_title: "3XL",
             options: ["3XL"],
             price: 94900,
@@ -422,7 +421,7 @@ if(!isset($_SESSION)){
 
       var __wzrk_product_json = {
         id: 7737378799837,
-        title: "Lavender Lakhnawi Work Rayon Kurti",
+        title: "<?php echo $row["pro_name"]; ?>",
         handle: "lavender-party-wear-lakhnawi-work-rayon-kurti-139904",
         description:
           "\u003cp\u003eMake some space in your casual wardrobe for this lavender colored kurti. This kurti is fashioned on pure rayon viscose fabric which is lightweight and assures the wearer a perfect fit \u0026amp; comfort. This stitched kurti is beautified with lakhnawi work as shown. Ideal for party, outing \u0026amp; weekend get together. Team it with high heels and fashionable accessories to look more attractive. This attractive kurti will surely fetch you compliments for your rich sense of style. Note:- The actual product may differ slightly in color and design from the one illustrated in the images when compared with computer or mobile screen.\u003c\/p\u003e",
@@ -464,7 +463,7 @@ if(!isset($_SESSION)){
             taxable: true,
             featured_image: null,
             available: true,
-            name: "Lavender Lakhnawi Work Rayon Kurti - S",
+            name: "<?php echo $row["pro_name"]; ?> - S",
             public_title: "S",
             options: ["S"],
             price: 94900,
@@ -487,7 +486,7 @@ if(!isset($_SESSION)){
             taxable: true,
             featured_image: null,
             available: false,
-            name: "Lavender Lakhnawi Work Rayon Kurti - M",
+            name: "<?php echo $row["pro_name"]; ?> - M",
             public_title: "M",
             options: ["M"],
             price: 94900,
@@ -510,7 +509,7 @@ if(!isset($_SESSION)){
             taxable: true,
             featured_image: null,
             available: true,
-            name: "Lavender Lakhnawi Work Rayon Kurti - L",
+            name: "<?php echo $row["pro_name"]; ?> - L",
             public_title: "L",
             options: ["L"],
             price: 94900,
@@ -533,7 +532,7 @@ if(!isset($_SESSION)){
             taxable: true,
             featured_image: null,
             available: true,
-            name: "Lavender Lakhnawi Work Rayon Kurti - XL",
+            name: "<?php echo $row["pro_name"]; ?> - XL",
             public_title: "XL",
             options: ["XL"],
             price: 94900,
@@ -556,7 +555,7 @@ if(!isset($_SESSION)){
             taxable: true,
             featured_image: null,
             available: true,
-            name: "Lavender Lakhnawi Work Rayon Kurti - XXL",
+            name: "<?php echo $row["pro_name"]; ?> - XXL",
             public_title: "XXL",
             options: ["XXL"],
             price: 94900,
@@ -579,7 +578,7 @@ if(!isset($_SESSION)){
             taxable: true,
             featured_image: null,
             available: true,
-            name: "Lavender Lakhnawi Work Rayon Kurti - 3XL",
+            name: "<?php echo $row["pro_name"]; ?> - 3XL",
             public_title: "3XL",
             options: ["3XL"],
             price: 94900,
@@ -603,7 +602,7 @@ if(!isset($_SESSION)){
         options: ["Size"],
         media: [
           {
-            alt: "Lavender Lakhnawi Work Rayon Kurti - Peachmode",
+            alt: "<?php echo $row["pro_name"]; ?>",
             id: 31015251280093,
             position: 1,
             preview_image: {
@@ -619,7 +618,7 @@ if(!isset($_SESSION)){
             width: 2000,
           },
           {
-            alt: "Lavender Lakhnawi Work Rayon Kurti - Peachmode",
+            alt: "<?php echo $row["pro_name"]; ?>",
             id: 31015251509469,
             position: 2,
             preview_image: {
@@ -635,7 +634,7 @@ if(!isset($_SESSION)){
             width: 1200,
           },
           {
-            alt: "Lavender Lakhnawi Work Rayon Kurti - Peachmode",
+            alt: "<?php echo $row["pro_name"]; ?>",
             id: 31015251869917,
             position: 3,
             preview_image: {
@@ -651,7 +650,7 @@ if(!isset($_SESSION)){
             width: 2000,
           },
           {
-            alt: "Lavender Lakhnawi Work Rayon Kurti - Peachmode",
+            alt: "<?php echo $row["pro_name"]; ?>",
             id: 31015252000989,
             position: 4,
             preview_image: {
@@ -672,7 +671,7 @@ if(!isset($_SESSION)){
         content:
           "\u003cp\u003eMake some space in your casual wardrobe for this lavender colored kurti. This kurti is fashioned on pure rayon viscose fabric which is lightweight and assures the wearer a perfect fit \u0026amp; comfort. This stitched kurti is beautified with lakhnawi work as shown. Ideal for party, outing \u0026amp; weekend get together. Team it with high heels and fashionable accessories to look more attractive. This attractive kurti will surely fetch you compliments for your rich sense of style. Note:- The actual product may differ slightly in color and design from the one illustrated in the images when compared with computer or mobile screen.\u003c\/p\u003e",
       };
-      var __wzrk_product_title = "Lavender Lakhnawi Work Rayon Kurti";
+      var __wzrk_product_title = "<?php echo $row["pro_name"]; ?>";
       var __wzrk_product_price = "₹949.00";
       var __wzrk_product_category_name = "";
       var __wzrk_currency = "INR";
@@ -683,7 +682,7 @@ if(!isset($_SESSION)){
         config: {
           currency: "INR",
           meta: {
-            title: "Lavender Lakhnawi Work Rayon Kurti",
+            title: "<?php echo $row["pro_name"]; ?>",
             template: "product",
             url: "https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904",
             type: "product",
@@ -709,7 +708,7 @@ if(!isset($_SESSION)){
       clevertapApp.product = {
         variants: {},
         url: "/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904",
-        title: "Lavender Lakhnawi Work Rayon Kurti",
+        title: "<?php echo $row["pro_name"]; ?>",
         handle: "lavender-party-wear-lakhnawi-work-rayon-kurti-139904",
         id: parseInt("7737378799837"),
         available: "true",
@@ -797,7 +796,7 @@ if(!isset($_SESSION)){
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Lavender Lakhnawi Work Rayon Kurti</title>
+    <title><?php echo $row["pro_name"]; ?></title>
     <meta
       name="description"
       content="Buy lavender party wear lakhnawi work rayon kurti available in different sizes at best price from Peachmode."
@@ -854,7 +853,7 @@ if(!isset($_SESSION)){
     </script>
 
     <meta property="og:type" content="product" />
-    <meta property="og:title" content="Lavender Lakhnawi Work Rayon Kurti" />
+    <meta property="og:title" content="<?php echo $row["pro_name"]; ?>" />
     <meta property="product:price:amount" content="949.00" />
     <meta property="product:price:currency" content="INR" />
     <meta
@@ -877,7 +876,7 @@ if(!isset($_SESSION)){
     />
     <meta property="og:site_name" content="Peachmode" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Lavender Lakhnawi Work Rayon Kurti" />
+    <meta name="twitter:title" content="<?php echo $row["pro_name"]; ?>" />
     <meta
       name="twitter:description"
       content="Make some space in your casual wardrobe for this lavender colored kurti. This kurti is fashioned on pure rayon viscose fabric which is lightweight and assures the wearer a perfect fit &amp;amp; comfort. This stitched kurti is beautified with lakhnawi work as shown. Ideal for party, outing &amp;amp; weekend get together. Team it with high heels and fashionable accessories to look more attractive. This attractive kurti will surely fetch you compliments for your rich sense of style. Note:- The actual product may differ slightly in color and design from the one illustrated in the images when compared with computer or mobile screen."
@@ -888,7 +887,7 @@ if(!isset($_SESSION)){
     />
     <meta
       name="twitter:image:alt"
-      content="Lavender Lakhnawi Work Rayon Kurti - Peachmode"
+      content="<?php echo $row["pro_name"]; ?>"
     />
 
     <script type="application/ld+json">
@@ -961,7 +960,7 @@ if(!isset($_SESSION)){
           "@type": "Brand",
           "name": "Peachmode"
         },
-        "name": "Lavender Lakhnawi Work Rayon Kurti",
+        "name": "<?php echo $row["pro_name"]; ?>",
         "description": "Make some space in your casual wardrobe for this lavender colored kurti. This kurti is fashioned on pure rayon viscose fabric which is lightweight and assures the wearer a perfect fit \u0026amp; comfort. This stitched kurti is beautified with lakhnawi work as shown. Ideal for party, outing \u0026amp; weekend get together. Team it with high heels and fashionable accessories to look more attractive. This attractive kurti will surely fetch you compliments for your rich sense of style. Note:- The actual product may differ slightly in color and design from the one illustrated in the images when compared with computer or mobile screen.",
         "category": "Kurti",
         "url": "/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904",
@@ -970,7 +969,7 @@ if(!isset($_SESSION)){
           "@type": "ImageObject",
           "url": "https://cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1024x.jpg?v=1669040702",
           "image": "https://cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1_1024x.jpg?v=1669040702",
-          "name": "Lavender Lakhnawi Work Rayon Kurti - Peachmode",
+          "name": " <?php echo $row['pro_name']; ?> ",
           "width": "1024",
           "height": "1024"
         }
@@ -991,7 +990,7 @@ if(!isset($_SESSION)){
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Lavender Lakhnawi Work Rayon Kurti",
+            "name": "<?php echo $row["pro_name"]; ?>",
             "item": "https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
           }
         ]
@@ -2892,42 +2891,42 @@ if(!isset($_SESSION)){
             {
               id: 42885690687709,
               price: 94900,
-              name: "Lavender Lakhnawi Work Rayon Kurti - S",
+              name: "<?php echo $row["pro_name"]; ?> - S",
               public_title: "S",
               sku: "VMIK-ROOH-2-1111D-S",
             },
             {
               id: 42885690720477,
               price: 94900,
-              name: "Lavender Lakhnawi Work Rayon Kurti - M",
+              name: "<?php echo $row["pro_name"]; ?> - M",
               public_title: "M",
               sku: "VMIK-ROOH-2-1111D-M",
             },
             {
               id: 42885690753245,
               price: 94900,
-              name: "Lavender Lakhnawi Work Rayon Kurti - L",
+              name: "<?php echo $row["pro_name"]; ?> - L",
               public_title: "L",
               sku: "VMIK-ROOH-2-1111D-L",
             },
             {
               id: 42885690786013,
               price: 94900,
-              name: "Lavender Lakhnawi Work Rayon Kurti - XL",
+              name: "<?php echo $row["pro_name"]; ?> - XL",
               public_title: "XL",
               sku: "VMIK-ROOH-2-1111D-XL",
             },
             {
               id: 42885690818781,
               price: 94900,
-              name: "Lavender Lakhnawi Work Rayon Kurti - XXL",
+              name: "<?php echo $row["pro_name"]; ?> - XXL",
               public_title: "XXL",
               sku: "VMIK-ROOH-2-1111D-XXL",
             },
             {
               id: 42885690851549,
               price: 94900,
-              name: "Lavender Lakhnawi Work Rayon Kurti - 3XL",
+              name: "<?php echo $row["pro_name"]; ?> - 3XL",
               public_title: "3XL",
               sku: "VMIK-ROOH-2-1111D-3XL",
             },
@@ -3149,8 +3148,8 @@ if(!isset($_SESSION)){
               variantId: 42885690687709,
               productId: 7737378799837,
               productGid: "gid:\/\/shopify\/Product\/7737378799837",
-              name: "Lavender Lakhnawi Work Rayon Kurti - S",
-              price: "949.00",
+              name: "<?php echo $row["pro_name"]; ?> - S",
+              price: "<?php echo $row["final_price"]; ?>",
               sku: "VMIK-ROOH-2-1111D-S",
               brand: "Peachmode",
               variant: "S",
@@ -3164,8 +3163,8 @@ if(!isset($_SESSION)){
                 variantId: 42885690687709,
                 productId: 7737378799837,
                 productGid: "gid:\/\/shopify\/Product\/7737378799837",
-                name: "Lavender Lakhnawi Work Rayon Kurti - S",
-                price: "949.00",
+                name: "<?php echo $row["pro_name"]; ?> - S",
+                price: "<?php echo $row["final_price"]; ?>",
                 sku: "VMIK-ROOH-2-1111D-S",
                 brand: "Peachmode",
                 variant: "S",
@@ -3531,7 +3530,7 @@ if(!isset($_SESSION)){
                 price: { amount: 949.0, currencyCode: "INR" },
                 product: {
                   id: "7737378799837",
-                  title: "Lavender Lakhnawi Work Rayon Kurti",
+                  title: "<?php echo $row["pro_name"]; ?>",
                   vendor: "Peachmode",
                   type: "Kurti",
                 },
@@ -3546,7 +3545,7 @@ if(!isset($_SESSION)){
                 price: { amount: 949.0, currencyCode: "INR" },
                 product: {
                   id: "7737378799837",
-                  title: "Lavender Lakhnawi Work Rayon Kurti",
+                  title: "<?php echo $row["pro_name"]; ?>",
                   vendor: "Peachmode",
                   type: "Kurti",
                 },
@@ -3561,7 +3560,7 @@ if(!isset($_SESSION)){
                 price: { amount: 949.0, currencyCode: "INR" },
                 product: {
                   id: "7737378799837",
-                  title: "Lavender Lakhnawi Work Rayon Kurti",
+                  title: "<?php echo $row["pro_name"]; ?>",
                   vendor: "Peachmode",
                   type: "Kurti",
                 },
@@ -3576,7 +3575,7 @@ if(!isset($_SESSION)){
                 price: { amount: 949.0, currencyCode: "INR" },
                 product: {
                   id: "7737378799837",
-                  title: "Lavender Lakhnawi Work Rayon Kurti",
+                  title: "<?php echo $row["pro_name"]; ?>",
                   vendor: "Peachmode",
                   type: "Kurti",
                 },
@@ -3591,7 +3590,7 @@ if(!isset($_SESSION)){
                 price: { amount: 949.0, currencyCode: "INR" },
                 product: {
                   id: "7737378799837",
-                  title: "Lavender Lakhnawi Work Rayon Kurti",
+                  title: "<?php echo $row["pro_name"]; ?>",
                   vendor: "Peachmode",
                   type: "Kurti",
                 },
@@ -3606,7 +3605,7 @@ if(!isset($_SESSION)){
                 price: { amount: 949.0, currencyCode: "INR" },
                 product: {
                   id: "7737378799837",
-                  title: "Lavender Lakhnawi Work Rayon Kurti",
+                  title: "<?php echo $row["pro_name"]; ?>",
                   vendor: "Peachmode",
                   type: "Kurti",
                 },
@@ -3627,7 +3626,7 @@ if(!isset($_SESSION)){
               price: { amount: 949.0, currencyCode: "INR" },
               product: {
                 id: "7737378799837",
-                title: "Lavender Lakhnawi Work Rayon Kurti",
+                title: "<?php echo $row["pro_name"]; ?>",
                 vendor: "Peachmode",
                 type: "Kurti",
               },
@@ -9523,10 +9522,10 @@ if(!isset($_SESSION)){
                       <div class="price-list hidden-tablet-and-up">
                         <span class="price price--highlight">
                           <span class="visually-hidden">Sale price</span
-                          ><span class="money">₹749.00</span></span
+                          ><span class="money">₹<?php echo $row["final_price"]; ?></span></span
                         ><span class="price price--compare">
                           <span class="visually-hidden">Regular price</span
-                          ><span class="money">₹1,799.00</span></span
+                          ><span class="money">₹<?php echo $row["mrp"]; ?></span></span
                         >
                       </div>
                     </div>
@@ -9595,10 +9594,10 @@ if(!isset($_SESSION)){
                   <div class="price-list price-list--stack">
                     <span class="price price--highlight">
                       <span class="visually-hidden">Sale price</span
-                      ><span class="money">₹749.00</span></span
+                      ><span class="money">₹<?php echo $row["final_price"]; ?></span></span
                     ><span class="price price--compare">
                       <span class="visually-hidden">Regular price</span
-                      ><span class="money">₹1,799.00</span></span
+                      ><span class="money">₹<?php echo $row["mrp"]; ?></span></span
                     >
                   </div>
                 </div>
@@ -9749,23 +9748,22 @@ if(!isset($_SESSION)){
                 <div class="product-sticky-form__content-wrapper hidden-pocket">
                   <div class="product-sticky-form__image-wrapper">
                     <img loading="lazy" class="product-sticky-form__image"
-                    sizes="55px" height="2000" width="2000" alt="Lavender
-                    Lakhnawi Work Rayon Kurti - Peachmode"
-                    src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702"
+                    sizes="55px" height="2000" width="2000" alt="<?php echo $row["pro_name"]; ?>"
+                    src="<?php echo $imgpath,$row["photo1"]; ?>"
                     ">
                   </div>
 
                   <div class="product-sticky-form__info">
                     <div class="product-sticky-form__bottom-info">
-                      <span class="product-sticky-form__title"
-                        >Lavender Lakhnawi Work Rayon Kurti</span
-                      >
+                      <span class="product-sticky-form__title">
+                        <?php echo $row["pro_name"]; ?>
+                      </span>
                       <span
                         class="square-separator square-separator--subdued"
                       ></span>
-                      <span class="product-sticky-form__price"
-                        ><span class="money">₹949.00</span></span
-                      >
+                      <span class="product-sticky-form__price">
+                        <span class="money">₹<?php echo $row["final_price"]; ?></span>
+                      </span>
 
                       <div
                         class="product-sticky-form__unit-price text--xsmall text--subdued"
@@ -9948,11 +9946,11 @@ if(!isset($_SESSION)){
             >
               <ol class="breadcrumb__list" role="list">
                 <li class="breadcrumb__item">
-                  <a class="breadcrumb__link" href="/">Home</a>
+                  <a class="breadcrumb__link" href="index.php">Home</a>
                 </li>
                 <li class="breadcrumb__item">
                   <span class="breadcrumb__link" aria-current="page"
-                    >Lavender Lakhnawi Work Rayon Kurti</span
+                    ><?php echo $row["pro_name"]; ?></span
                   >
                 </li>
               </ol>
@@ -9976,20 +9974,21 @@ if(!isset($_SESSION)){
                   <flickity-carousel
                     click-nav
                     flickity-config='{
-        "adaptiveHeight": true,
-        "dragThreshold": 10,
-        "initialIndex": ".is-initial-selected",
-        "fade": false,
-        "draggable": "&gt;1",
-        "contain": true,
-        "cellSelector": ".product__media-item:not(.is-filtered)",
-        "percentPosition": false,
-        "pageDots": false,
-        "prevNextButtons": false
-      }'
+                      "adaptiveHeight": true,
+                      "dragThreshold": 10,
+                      "initialIndex": ".is-initial-selected",
+                      "fade": false,
+                      "draggable": "&gt;1",
+                      "contain": true,
+                      "cellSelector": ".product__media-item:not(.is-filtered)",
+                      "percentPosition": false,
+                      "pageDots": false,
+                      "prevNextButtons": false
+                    }'
                     id="product-template--15880464695517__main-7737378799837-media-list"
                     class="product__media-list"
-                    ><div
+                  >
+                    <div
                       id="product-template--15880464695517__main-31015251280093"
                       class="product__media-item is-initial-selected is-selected"
                       data-media-type="image"
@@ -10002,8 +10001,8 @@ if(!isset($_SESSION)){
                       >
                         <img loading="lazy" reveal sizes="(max-width: 999px)
                         calc(100vw - 48px), 640px" height="2000" width="2000"
-                        alt="Lavender Lakhnawi Work Rayon Kurti - Peachmode"
-                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702"
+                        alt="<?php echo $row["pro_name"]; ?>"
+                        src="<?php echo $imgpath,$row["photo1"]; ?>"
                         ">
                       </div>
                     </div>
@@ -10020,9 +10019,8 @@ if(!isset($_SESSION)){
                       >
                         <img loading="lazy" loading="lazy" sizes="(max-width:
                         999px) calc(100vw - 48px), 640px" height="1200"
-                        width="1200" alt="Lavender Lakhnawi Work Rayon Kurti -
-                        Peachmode"
-                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-2.jpg?v=1669040705"
+                        width="1200" alt="<?php echo $row["pro_name"]; ?>"
+                        src="<?php echo $imgpath,$row["photo2"]; ?>"
                         ">
                       </div>
                     </div>
@@ -10039,8 +10037,7 @@ if(!isset($_SESSION)){
                       >
                         <img loading="lazy" loading="lazy" sizes="(max-width:
                         999px) calc(100vw - 48px), 640px" height="2000"
-                        width="2000" alt="Lavender Lakhnawi Work Rayon Kurti -
-                        Peachmode"
+                        width="2000" alt="<?php echo $row["pro_name"]; ?>"
                         src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-3.jpg?v=1669040708"
                         ">
                       </div>
@@ -10058,13 +10055,13 @@ if(!isset($_SESSION)){
                       >
                         <img loading="lazy" loading="lazy" sizes="(max-width:
                         999px) calc(100vw - 48px), 640px" height="2000"
-                        width="2000" alt="Lavender Lakhnawi Work Rayon Kurti -
-                        Peachmode"
+                        width="2000" alt="<?php echo $row["pro_name"]; ?>"
                         src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-4.jpg?v=1669040710"
                         ">
                       </div>
-                    </div></flickity-carousel
-                  ><button
+                    </div>
+                  </flickity-carousel>
+                  <button
                     is="toggle-button"
                     aria-controls="product-template--15880464695517__main-7737378799837-zoom"
                     aria-expanded="false"
@@ -10125,12 +10122,12 @@ if(!isset($_SESSION)){
                         >
                           <div class="product__thumbnail">
                             <img loading="lazy" sizes="(max-width: 999px) 72px,
-                            60px" height="2000" width="2000" alt="Lavender
-                            Lakhnawi Work Rayon Kurti - Peachmode"
-                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-1.jpg?v=1669040702"
+                            60px" height="2000" width="2000" alt="<?php echo $row["pro_name"]; ?>"
+                            src="<?php echo $imgpath,$row["photo1"]; ?>"
                             ">
-                          </div></button
-                        ><button
+                          </div>
+                        </button>
+                        <button
                           type="button"
                           tabindex="-1"
                           reveal
@@ -10141,41 +10138,8 @@ if(!isset($_SESSION)){
                         >
                           <div class="product__thumbnail">
                             <img loading="lazy" sizes="(max-width: 999px) 72px,
-                            60px" height="1200" width="1200" alt="Lavender
-                            Lakhnawi Work Rayon Kurti - Peachmode"
-                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-2.jpg?v=1669040705"
-                            ">
-                          </div></button
-                        ><button
-                          type="button"
-                          tabindex="-1"
-                          reveal
-                          class="product__thumbnail-item"
-                          aria-controls="product-template--15880464695517__main-31015251869917"
-                          data-media-id="31015251869917"
-                          data-action="select"
-                        >
-                          <div class="product__thumbnail">
-                            <img loading="lazy" sizes="(max-width: 999px) 72px,
-                            60px" height="2000" width="2000" alt="Lavender
-                            Lakhnawi Work Rayon Kurti - Peachmode"
-                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-3.jpg?v=1669040708"
-                            ">
-                          </div></button
-                        ><button
-                          type="button"
-                          tabindex="-1"
-                          reveal
-                          class="product__thumbnail-item"
-                          aria-controls="product-template--15880464695517__main-31015252000989"
-                          data-media-id="31015252000989"
-                          data-action="select"
-                        >
-                          <div class="product__thumbnail">
-                            <img loading="lazy" sizes="(max-width: 999px) 72px,
-                            60px" height="2000" width="2000" alt="Lavender
-                            Lakhnawi Work Rayon Kurti - Peachmode"
-                            src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/lavender-lakhnawi-work-rayon-kurti-peachmode-4.jpg?v=1669040710"
+                            60px" height="1200" width="1200" alt="<?php echo $row["pro_name"]; ?>"
+                            src="<?php echo $imgpath,$row["photo2"]; ?>"
                             ">
                           </div>
                         </button>
@@ -10344,7 +10308,7 @@ if(!isset($_SESSION)){
                   class="product-meta"
                 >
                   <h1 class="product-meta__title heading h4">
-                    Lavender Lakhnawi Work Rayon Kurti
+                    <?php echo $row["pro_name"]; ?>
                   </h1>
 
                   <div
@@ -10355,12 +10319,12 @@ if(!isset($_SESSION)){
                     <div class="price-list" data-product-price-list>
                       <span class="price price--highlight price--large">
                         <span class="visually-hidden">Sale price</span
-                        ><span class="money">₹949.00</span></span
+                        ><span class="money">₹<?php echo $row["final_price"]; ?>.00</span></span
                       >
 
                       <span class="price price--compare">
                         <span class="visually-hidden">Regular price</span
-                        ><span class="money">₹1,599.00</span></span
+                        ><span class="money">₹<?php echo $row["mrp"]; ?>.00</span></span
                       >
                     </div>
 
@@ -10368,7 +10332,12 @@ if(!isset($_SESSION)){
                       class="product-meta__label-list label-list"
                       data-product-label-list
                     >
-                      <span class="label label--highlight">Save 41%</span>
+                      <span class="label label--highlight">
+                        Save <?php
+                              $sale_percent = (int)(($row["final_price"]/$row["mrp"])*100); 
+                              echo $sale_percent; 
+                              ?>%
+                      </span>
                     </div>
                   </div>
                   <p class="product-meta__taxes-included text--small">
@@ -11203,7 +11172,7 @@ if(!isset($_SESSION)){
 
                       <a
                         class="product-meta__share-button-item product-meta__share-button-item--mail link tap-area"
-                        href="mailto:?&subject=Lavender Lakhnawi Work Rayon Kurti&body=https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
+                        href="mailto:?&subject=<?php echo $row["pro_name"]; ?>&body=https://peachmode.com/products/lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
                         aria-label="Share by e-mail"
                         ><svg
                           focusable="false"
@@ -13125,7 +13094,7 @@ if(!isset($_SESSION)){
 
     <script>
       fbq("track", "ViewContent", {
-        content_name: "Lavender Lakhnawi Work Rayon Kurti",
+        content_name: "<?php echo $row["pro_name"]; ?>",
         content_ids: productSKU,
         content_type: "product",
         value: 949.0,
@@ -13172,7 +13141,7 @@ if(!isset($_SESSION)){
           detail: {
             products: [
               {
-                name: "Lavender Lakhnawi Work Rayon Kurti",
+                name: "<?php echo $row["pro_name"]; ?>",
                 id: productSKU,
                 price: "949.00",
               },

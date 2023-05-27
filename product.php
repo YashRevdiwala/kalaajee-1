@@ -3,9 +3,6 @@ include("components/connection.php");
 
 if(!isset($_SESSION)){
   session_start();
-  if(isset($_GET["id"])){
-    $productType = $_GET["id"];
-  }
   if(isset($_SESSION['client_email'])){
     $client_email = $_SESSION['client_email'];
     $login_display = '<li class="header__linklist-item">
@@ -43,7 +40,15 @@ if(!isset($_SESSION)){
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <?php echo '<title>'.$productType.'</title>'; ?>
+    <?php
+      if(isset($_GET["id"])){
+        $productType = $_GET["id"];
+        echo '<title>'.$productType.'</title>'; 
+      }elseif(isset($_GET["main_cat"])){
+        $productType = $_GET["main_cat"];
+        echo '<title>'.$productType.'</title>'; 
+      }
+    ?>
     <link rel="shortcut icon" href="img/1.png" />
     <link
       rel="canonical"
@@ -9499,7 +9504,17 @@ if(!isset($_SESSION)){
                 </ol>
               </nav>
               <div class="page-header__text-wrapper text-container">
-                <h1 class="heading h1"><?php echo $productType; ?></h1>
+                <h1 class="heading h1">
+                  <?php
+                    if(isset($_GET["id"])){
+                      $productType = $_GET["id"];
+                      echo $productType; 
+                    }elseif(isset($_GET["main_cat"])){
+                      $productType = $_GET["main_cat"];
+                      echo $productType; 
+                    }
+                  ?>
+                </h1>
               </div>
             </div>
           </div>
@@ -10157,14 +10172,48 @@ if(!isset($_SESSION)){
           <div class="column2">
             <div class="product-list__inner">
               <?php
-                $query = "SELECT * FROM tbl_product WHERE status = '$productType' LIMIT 16";
-                $run_query = mysqli_query($conn,$query);
-
+                if(isset($_GET["id"])){
+                  $productType = $_GET["id"];
+                  if(isset($_GET["fabric"])){
+                    $fabricType = $_GET["fabric"];
+                    if($fabricType == ""){
+                      $query = "SELECT * FROM tbl_product WHERE material != '' LIMIT 16";
+                      $run_query = mysqli_query($conn,$query);
+                    }else{
+                      $query = "SELECT * FROM tbl_product WHERE material = '$fabricType' LIMIT 16";
+                      $run_query = mysqli_query($conn,$query);
+                    }
+                  }elseif(isset($_GET["pattern"])){
+                    $patternType = $_GET["pattern"];
+                    if($patternType == ""){
+                      $query = "SELECT * FROM tbl_product WHERE pattern != '' LIMIT 16";
+                      $run_query = mysqli_query($conn,$query);
+                    }else{
+                      $query = "SELECT * FROM tbl_product WHERE pattern = '$patternType' OR print = '$patternType' LIMIT 16";
+                      $run_query = mysqli_query($conn,$query);
+                    }
+                  }elseif(isset($_GET["minPrice"]) && isset($_GET["maxPrice"])){
+                    $minPrice = $_GET["minPrice"];
+                    $maxPrice = $_GET["maxPrice"];
+                    $query = "SELECT * FROM tbl_product WHERE final_price > $minPrice AND final_price < $maxPrice LIMIT 16";
+                    $run_query = mysqli_query($conn,$query);
+                  }elseif($productType == ""){
+                    $query = "SELECT * FROM tbl_product WHERE photo2 != '' LIMIT 16";
+                    $run_query = mysqli_query($conn,$query);
+                  }else{
+                    $query = "SELECT * FROM tbl_product WHERE status = '$productType' LIMIT 16";
+                    $run_query = mysqli_query($conn,$query);
+                  }
+                }elseif(isset($_GET["main_cat"])){
+                  $productType = $_GET["main_cat"];
+                  $query = "SELECT * FROM tbl_product WHERE maincat = '$productType' LIMIT 16";
+                  $run_query = mysqli_query($conn,$query);
+                }
                 while($row = mysqli_fetch_array($run_query)){
                   $save_percent = (int)(($row['final_price']/$row['mrp'])*100);
                   echo '<product-item class="product-item">
                     <div
-                      class="product-item__image-wrapper product-item__image-wrapper--multiple"
+                    class="product-item__image-wrapper product-item__image-wrapper--multiple"
                     >
                       <div class="product-item__label-list label-list">
                         <span
@@ -10174,7 +10223,7 @@ if(!isset($_SESSION)){
                         >
                       </div>
                       <a
-                        href="product-detail.php"
+                        href="product-detail.php?id='.$row["id"].'"
                         class="product-item__aspect-ratio aspect-ratio aspect-ratio--square"
                         style="padding-bottom: 100%; --aspect-ratio: 1"
                       >
@@ -10269,7 +10318,7 @@ if(!isset($_SESSION)){
                     <div class="product-item__info">
                       <div class="product-item-meta">
                         <a
-                          href="product-detail.php"
+                          href="product-detail.php?id='.$row["id"].'"
                           class="product-item-meta__title"
                           >'.$row['pro_name'].'</a
                         >
@@ -10292,7 +10341,6 @@ if(!isset($_SESSION)){
                       </div>
                     </div>
                   </product-item>';
-                  $_SESSION['product_unique_id'] = $row['id'];
                 }
               ?>
             </div>

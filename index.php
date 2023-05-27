@@ -7,6 +7,9 @@ if(!isset($_SESSION)){
     $client_email = $_SESSION['client_email'];
     $login_display = '<li class="header__linklist-item">
                   <a href="account.php">My Account </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a href="logout.php">Logout </a>
                 </li>';
   }else{
     $login_display = '<li class="header__linklist-item">
@@ -2786,13 +2789,16 @@ if(!isset($_SESSION)){
                     class="header__linklist-item has-dropdown"
                     data-item-title="Collections"
                   >
-                    <a
-                      class="header__linklist-link link--animated"
-                      href="product.php"
-                      aria-controls="desktop-menu-1"
-                      aria-expanded="false"
-                      >Collections</a
-                    >
+                    <?php
+                      $productType = "";
+                      echo '<a
+                        class="header__linklist-link link--animated"
+                        href="product.php?id='.$productType.'"
+                        aria-controls="desktop-menu-1"
+                        aria-expanded="false"
+                        >Collections</a
+                      >';
+                    ?>
                     <ul
                       hidden
                       id="desktop-menu-1"
@@ -2800,110 +2806,136 @@ if(!isset($_SESSION)){
                       role="list"
                     >
                       <li class="nav-dropdown__item">
-                        <a
-                          class="nav-dropdown__link link--faded"
-                          href="product.php"
-                          >New Arrivals</a
-                        >
+                        <?php
+                          $productType = "New Arrivals";
+                          echo '<a
+                            class="nav-dropdown__link link--faded"
+                            href="product.php?id='.$productType.'"
+                            >New Arrivals</a
+                          >';
+                        ?>
                       </li>
                       <li class="nav-dropdown__item">
-                        <a
-                          class="nav-dropdown__link link--faded"
-                          href="product.php"
-                          >Handbags</a
-                        >
+                        <?php
+                          $productType = "Handbags";
+                          echo '<a
+                            class="nav-dropdown__link link--faded"
+                            href="product.php?id='.$productType.'"
+                            >Handbags</a
+                          >';
+                        ?>
                       </li>
                       <li class="nav-dropdown__item has-dropdown">
-                        <a
-                          class="nav-dropdown__link link--faded"
-                          href="product.php"
-                          aria-controls="desktop-menu-1-3"
-                          aria-expanded="false"
-                          >Jewellery<svg
-                            focusable="false"
-                            width="7"
-                            height="10"
-                            class="icon icon--dropdown-arrow-right icon--direction-aware"
-                            viewBox="0 0 7 10"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M3.9394 5L0.469727 1.53033L1.53039 0.469666L6.06072 5L1.53039 9.53032L0.469727 8.46967L3.9394 5Z"
-                              fill="currentColor"
-                            ></path>
-                          </svg>
-                        </a>
-                        <ul
-                          hidden
-                          id="desktop-menu-1-3"
-                          class="nav-dropdown list--unstyled"
-                          role="list"
-                        >
-                          <li class="nav-dropdown__item">
-                            <a
-                              class="nav-dropdown__link link--faded"
-                              href="product.php"
-                              >Earrings</a
+                        <?php
+                          $productType = "Jewellery";
+                          echo '<a
+                            class="nav-dropdown__link link--faded"
+                            href="product.php?id='.$productType.'"
+                            aria-controls="desktop-menu-1-3"
+                            aria-expanded="false"
+                            >Jewellery<svg
+                              focusable="false"
+                              width="7"
+                              height="10"
+                              class="icon icon--dropdown-arrow-right icon--direction-aware"
+                              viewBox="0 0 7 10"
                             >
-                          </li>
-                          <li class="nav-dropdown__item">
-                            <a
-                              class="nav-dropdown__link link--faded"
-                              href="product.php"
-                              >Necklace</a
-                            >
-                          </li>
-                          <li class="nav-dropdown__item">
-                            <a
-                              class="nav-dropdown__link link--faded"
-                              href="product.php"
-                              >Rings</a
-                            >
-                          </li>
-                          <li class="nav-dropdown__item">
-                            <a
-                              class="nav-dropdown__link link--faded"
-                              href="product.php"
-                              >Bracelet</a
-                            >
-                          </li>
-                          <li class="nav-dropdown__item">
-                            <a
-                              class="nav-dropdown__link link--faded"
-                              href="product.php"
-                              >Maang Tika</a
-                            >
-                          </li>
-                        </ul>
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M3.9394 5L0.469727 1.53033L1.53039 0.469666L6.06072 5L1.53039 9.53032L0.469727 8.46967L3.9394 5Z"
+                                fill="currentColor"
+                              ></path>
+                            </svg>
+                          </a>
+                          <ul
+                            hidden
+                            id="desktop-menu-1-3"
+                            class="nav-dropdown list--unstyled"
+                            role="list"
+                          >';
+                          $productType = "Earrings";
+                            echo '<li class="nav-dropdown__item">
+                              <a
+                                class="nav-dropdown__link link--faded"
+                                href="product.php?id='.$productType.'"
+                                >Earrings</a
+                              >
+                            </li>';
+                            $productType = "Necklace";
+                            echo '<li class="nav-dropdown__item">
+                              <a
+                                class="nav-dropdown__link link--faded"
+                                href="product.php?id='.$productType.'"
+                                >Necklace</a
+                              >
+                            </li>';
+                            $productType = "Rings";
+                            echo '<li class="nav-dropdown__item">
+                              <a
+                                class="nav-dropdown__link link--faded"
+                                href="product.php?id='.$productType.'"
+                                >Rings</a
+                              >
+                            </li>';
+                            $productType = "Bracelet";
+                            echo '<li class="nav-dropdown__item">
+                              <a
+                                class="nav-dropdown__link link--faded"
+                                href="product.php?id='.$productType.'"
+                                >Bracelet</a
+                              >
+                            </li>';
+                            $productType = "Maang Tika";
+                            echo '<li class="nav-dropdown__item">
+                              <a
+                                class="nav-dropdown__link link--faded"
+                                href="product.php?id='.$productType.'"
+                                >Maang Tika</a
+                              >
+                            </li>
+                          </ul>';
+                        ?>
                       </li>
                       <li class="nav-dropdown__item">
-                        <a
-                          class="nav-dropdown__link link--faded"
-                          href="product.php"
-                          >Bedsheets</a
-                        >
+                        <?php
+                          $productType = "Bedsheets";
+                          echo '<a
+                            class="nav-dropdown__link link--faded"
+                            href="product.php?id='.$productType.'"
+                            >Bedsheets</a
+                          >';
+                        ?>
                       </li>
                       <li class="nav-dropdown__item">
-                        <a
-                          class="nav-dropdown__link link--faded"
-                          href="product.php"
-                          >Exclusive</a
-                        >
+                        <?php
+                          $productType = "Exclusive";
+                          echo '<a
+                            class="nav-dropdown__link link--faded"
+                            href="product.php?id='.$productType.'"
+                            >Exclusive</a
+                          >';
+                        ?>
                       </li>
                       <li class="nav-dropdown__item">
-                        <a
-                          class="nav-dropdown__link link--faded"
-                          href="product.php"
-                          >Combo Packs</a
-                        >
+                        <?php
+                          $productType = "Combo Packs";
+                          echo '<a
+                            class="nav-dropdown__link link--faded"
+                            href="product.php?id='.$productType.'"
+                            >Combo Packs</a
+                          >';
+                        ?>
                       </li>
                       <li class="nav-dropdown__item">
-                        <a
-                          class="nav-dropdown__link link--faded"
-                          href="product.php"
-                          >Mens Kurta Pyjama</a
-                        >
+                        <?php
+                          $productType = "Mens Kurta Pyjama";
+                          echo '<a
+                            class="nav-dropdown__link link--faded"
+                            href="product.php?id='.$productType.'"
+                            >Mens Kurta Pyjama</a
+                          >';
+                        ?>
                       </li>
                     </ul>
                   </li>
@@ -2911,129 +2943,172 @@ if(!isset($_SESSION)){
                     class="header__linklist-item has-dropdown"
                     data-item-title="Sarees"
                   >
-                    <a
-                      class="header__linklist-link link--animated"
-                      href="product.php"
-                      aria-controls="desktop-menu-2"
-                      aria-expanded="false"
-                      >Sarees</a
-                    >
+                    <?php
+                      $productType = "";
+                      echo '<a
+                        class="header__linklist-link link--animated"
+                        href="product.php?id='.$productType.'"
+                        aria-controls="desktop-menu-2"
+                        aria-expanded="false"
+                        >Sarees</a
+                      >';
+                    ?>
                     <div hidden id="desktop-menu-2" class="mega-menu">
                       <div class="container">
                         <div class="mega-menu__inner">
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Fabric</a
-                              >
+                              <?php
+                                $productType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&fabric=Fabric"
+                                  class="mega-menu__title heading heading--small"
+                                  >Fabric</a
+                                >';
+                              ?>
                               <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Cotton Sarees</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Art Silk Sarees</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Chiffon Sarees</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Georgette Sarees</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Crepe Sarees</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Organza Sarees</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Chanderi Silk</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Bhagalpuri Silk</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Satin Sarees</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Linen Sarees</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Net Sarees</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Kanjivaram</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Banarasi Silk</a
-                                  >
-                                </li>
+                                <?php
+                                  $productType = "";
+                                  $fabricType = "Chiffon";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Cotton Sarees</a
+                                    >
+                                  </li>';
+                                  $productType = "";
+                                  $fabricType = "silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Art Silk Sarees</a
+                                    >
+                                  </li>';
+                                  $productType = "";
+                                  $fabricType = "Chiffon";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Chiffon Sarees</a
+                                    >
+                                  </li>';
+                                  $productType = "";
+                                  $fabricType = "GEORGETTE";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Georgette Sarees</a
+                                    >
+                                  </li>';
+                                  $productType = "";
+                                  $fabricType = "cracker silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Crepe Sarees</a
+                                    >
+                                  </li>';
+                                  $productType = "";
+                                  $fabricType = "Organza";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Organza Sarees</a
+                                    >
+                                  </li>';
+                                  $productType = "";
+                                  $fabricType = "Bandhej silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Chanderi Silk</a
+                                    >
+                                  </li>';
+                                  $productType = "";
+                                  $fabricType = "Soft sattin";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Bhagalpuri Silk</a
+                                    >
+                                  </li>';
+                                  $productType = "";
+                                  $fabricType = "satin";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Satin Sarees</a
+                                    >
+                                  </li>';
+                                  $productType = "";
+                                  $fabricType = "Lichi Silk.";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Linen Sarees</a
+                                    >
+                                  </li>';
+                                  $productType = "";
+                                  $fabricType = "Butterfly Net";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Net Sarees</a
+                                    >
+                                  </li>';
+                                  $productType = "";
+                                  $fabricType = "Kanjeevaram Silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Kanjivaram</a
+                                    >
+                                  </li>';
+                                  $productType = "";
+                                  $fabricType = "Soft silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Banarasi Silk</a
+                                    >
+                                  </li>';
+                                ?>
                               </ul>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Print/Pattern</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Floral Print</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Bandhani Sarees</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Embroidered</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Paithani</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Lucknowi / Chickankari</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Patola</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $productType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&pattern="
+                                  class="mega-menu__title heading heading--small"
+                                  >Print/Pattern</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                  $patternType = "Floral";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Floral Print</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "Bandhani Style";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Bandhani Sarees</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "Embroiedry";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Embroidered</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "wiving print";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Paithani</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "Lucknowi";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Lucknowi / Chickankari</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "HEAVY WEAVING RICH PALLU";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Patola</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
                               <a
@@ -3060,43 +3135,60 @@ if(!isset($_SESSION)){
                               </ul>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Price</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >0-999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >1000-1999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >2000-2999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >3000-3999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >4000-4999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >5000 & above</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $productType = "";
+                                $minPrice = "";
+                                $maxPrice = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Price</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $minPrice = "0";
+                                    $maxPrice = "999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >0-999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "1000";
+                                    $maxPrice = "1999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >1000-1999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "2000";
+                                    $maxPrice = "2999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >2000-2999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "3000";
+                                    $maxPrice = "3999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >3000-3999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "4000";
+                                    $maxPrice = "4999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >4000-4999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "5000";
+                                    $maxPrice = "5999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >5000 & above</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
                               <a
@@ -9638,6 +9730,7 @@ if(!isset($_SESSION)){
                         $query = 'SELECT * FROM tbl_product WHERE maincat = "SALE" LIMIT 4 OFFSET 20';
                         $run_query = mysqli_query($conn,$query);
 
+
                         while($row = mysqli_fetch_array($run_query)){
                           $save_percent = (int)(($row['final_price']/$row['mrp'])*100);
                           echo "<product-item class='product-item'
@@ -9773,12 +9866,15 @@ if(!isset($_SESSION)){
                       ?>
                     </div>
                   </div>
-                  <div class="section__footer">
-                    <a class="button button--primary" href="product.php"
-                      >View All</a
-                    >
-                  </div></product-list
-                >
+                  <?php
+                    $productType = "Sale";
+                    echo '<div class="section__footer">
+                      <a class="button button--primary" href="product.php?main_cat='.$productType.'"
+                        >View All</a
+                      >
+                    </div>';
+                  ?>
+                </product-list>
               </div>
             </div>
           </div>
