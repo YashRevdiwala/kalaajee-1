@@ -3191,68 +3191,82 @@ if(!isset($_SESSION)){
                               ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Occasion</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Bridal</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Casual / Daily</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Engagement</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Festive</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Haldi</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Mehendi</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Office wear</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Party
-                                  </a>
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Reception</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Sangeet</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Wedding
-                                  </a>
-                                </li>
-                              </ul>
+                              <?php
+                                $occasionType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&occasion='.$occasionType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Occasion</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $occasionType = "";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Bridal</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Casual / Daily</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Engagement</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Festive</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Haldi</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Mehendi</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Office wear</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Party
+                                    </a>
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Reception</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Sangeet</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Wedding
+                                    </a>
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
                               <a
