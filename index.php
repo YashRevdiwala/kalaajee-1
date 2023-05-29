@@ -2631,8 +2631,8 @@ if(!isset($_SESSION)){
         }
       </style>
 
-      <store-header sticky class="header header--bordered" role="banner"
-        ><div
+      <store-header sticky class="header header--bordered" role="banner">
+        <div
           class="top_wrapper hidden-phone"
           style="background-color: #f7921c"
         >
@@ -2944,7 +2944,7 @@ if(!isset($_SESSION)){
                     data-item-title="Sarees"
                   >
                     <?php
-                      $productType = "";
+                      $productType = "Sarees";
                       echo '<a
                         class="header__linklist-link link--animated"
                         href="product.php?id='.$productType.'"
@@ -2959,100 +2959,85 @@ if(!isset($_SESSION)){
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
                               <?php
-                                $productType = "";
+                                $fabricType = "";
                                 echo '<a
-                                  href="product.php?id='.$productType.'&fabric=Fabric"
+                                  href="product.php?id='.$productType.'&fabric='.$fabricType.'"
                                   class="mega-menu__title heading heading--small"
                                   >Fabric</a
-                                >';
-                              ?>
-                              <ul class="linklist list--unstyled" role="list">
-                                <?php
-                                  $productType = "";
+                                >
+                                <ul class="linklist list--unstyled" role="list">';
                                   $fabricType = "Chiffon";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
                                       >Cotton Sarees</a
                                     >
                                   </li>';
-                                  $productType = "";
                                   $fabricType = "silk";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
                                       >Art Silk Sarees</a
                                     >
                                   </li>';
-                                  $productType = "";
                                   $fabricType = "Chiffon";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
                                       >Chiffon Sarees</a
                                     >
                                   </li>';
-                                  $productType = "";
                                   $fabricType = "GEORGETTE";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
                                       >Georgette Sarees</a
                                     >
                                   </li>';
-                                  $productType = "";
                                   $fabricType = "cracker silk";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
                                       >Crepe Sarees</a
                                     >
                                   </li>';
-                                  $productType = "";
                                   $fabricType = "Organza";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
                                       >Organza Sarees</a
                                     >
                                   </li>';
-                                  $productType = "";
                                   $fabricType = "Bandhej silk";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
                                       >Chanderi Silk</a
                                     >
                                   </li>';
-                                  $productType = "";
                                   $fabricType = "Soft sattin";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
                                       >Bhagalpuri Silk</a
                                     >
                                   </li>';
-                                  $productType = "";
                                   $fabricType = "satin";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
                                       >Satin Sarees</a
                                     >
                                   </li>';
-                                  $productType = "";
                                   $fabricType = "Lichi Silk.";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
                                       >Linen Sarees</a
                                     >
                                   </li>';
-                                  $productType = "";
                                   $fabricType = "Butterfly Net";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
                                       >Net Sarees</a
                                     >
                                   </li>';
-                                  $productType = "";
                                   $fabricType = "Kanjeevaram Silk";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
                                       >Kanjivaram</a
                                     >
                                   </li>';
-                                  $productType = "";
                                   $fabricType = "Soft silk";
                                   echo '<li class="linklist__item">
                                     <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
@@ -3064,7 +3049,7 @@ if(!isset($_SESSION)){
                             </div>
                             <div class="mega-menu__column">
                               <?php
-                                $productType = "";
+                                $patternType = "";
                                 echo '<a
                                   href="product.php?id='.$productType.'&pattern="
                                   class="mega-menu__title heading heading--small"
@@ -3111,32 +3096,37 @@ if(!isset($_SESSION)){
                               ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Collection</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Half N Half Saree</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Authentic Drapes</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Bollywood</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $patternType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&pattern='.$patternType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Collection</a
+                                >';
+                                $patternType = "Half N Half Saree";
+                                echo '<ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Half N Half Saree</a
+                                    >
+                                  </li>';
+                                  $patternType = "Authentic Drapes";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Authentic Drapes</a
+                                    >
+                                  </li>';
+                                  $patternType = "Bollywood";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Bollywood</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
                               <?php
-                                $productType = "";
                                 $minPrice = "";
                                 $maxPrice = "";
                                 echo '<a
@@ -3200,67 +3190,67 @@ if(!isset($_SESSION)){
                                 >
                                 <ul class="linklist list--unstyled" role="list">
                                   <li class="linklist__item">';
-                                    $occasionType = "";
+                                    $occasionType = "Bridestmaid";
                                     echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
                                       >Bridal</a
                                     >
                                   </li>
                                   <li class="linklist__item">';
-                                    $occasionType = "";
+                                    $occasionType = "Georgette saree";
                                     echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
                                       >Casual / Daily</a
                                     >
                                   </li>
                                   <li class="linklist__item">';
-                                    $occasionType = "";
+                                    $occasionType = "Engagement";
                                     echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
                                       >Engagement</a
                                     >
                                   </li>
                                   <li class="linklist__item">';
-                                    $occasionType = "";
+                                    $occasionType = "Festive Wear";
                                     echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
                                       >Festive</a
                                     >
                                   </li>
                                   <li class="linklist__item">';
-                                    $occasionType = "";
+                                    $occasionType = "Haldi saree";
                                     echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
                                       >Haldi</a
                                     >
                                   </li>
                                   <li class="linklist__item">';
-                                    $occasionType = "";
+                                    $occasionType = "Mahendi";
                                     echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
                                       >Mehendi</a
                                     >
                                   </li>
                                   <li class="linklist__item">';
-                                    $occasionType = "";
+                                    $occasionType = "Trendy Saree";
                                     echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
                                       >Office wear</a
                                     >
                                   </li>
                                   <li class="linklist__item">';
-                                    $occasionType = "";
+                                    $occasionType = "Party Wear";
                                     echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
                                       >Party
                                     </a>
                                   </li>
                                   <li class="linklist__item">';
-                                    $occasionType = "";
+                                    $occasionType = "Wedding ,Reception";
                                     echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
                                       >Reception</a
                                     >
                                   </li>
                                   <li class="linklist__item">';
-                                    $occasionType = "";
+                                    $occasionType = "Party, Reception ,Wedding";
                                     echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
                                       >Sangeet</a
                                     >
                                   </li>
                                   <li class="linklist__item">';
-                                    $occasionType = "";
+                                    $occasionType = "Wedding Wear";
                                     echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
                                       >Wedding
                                     </a>
@@ -3269,73 +3259,88 @@ if(!isset($_SESSION)){
                               ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Color</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Red</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Pink</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >White</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Black</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Orange</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Blue</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Purple</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Yellow</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Brown</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Grey</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Green</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Multicolor</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                              $color = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&color='.$color.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Color</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $color = "Red";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Red</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Pink";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Pink</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "White";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >White</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Black";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Black</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Orange";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Orange</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Blue";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Blue</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Purple";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Purple</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Yellow";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Yellow</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Brown";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Brown</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Grey";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Grey</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Green";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Green</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Multicolor";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Multicolor</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                           </div>
                           <div class="mega-menu__images-wrapper">
@@ -3361,320 +3366,396 @@ if(!isset($_SESSION)){
                     class="header__linklist-item has-dropdown"
                     data-item-title="Salwar Suits"
                   >
-                    <a
+                  <?php
+                    $productType = "Salwar Suits";
+                    echo '<a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.php?id='.$productType.'"
                       aria-controls="desktop-menu-3"
                       aria-expanded="false"
                       >Salwar Suits</a
-                    >
+                    >';
+                  ?>
                     <div hidden id="desktop-menu-3" class="mega-menu">
                       <div class="container">
                         <div class="mega-menu__inner">
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Fabric</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Rayon</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Cotton</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Georgette</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Crepe</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Chiffon</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Organza</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Bhagalpuri Silk</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Banarasi</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Chanderi</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Jacquard</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Tapetta Silk</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Tussar Silk</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Net</a
-                                  >
-                                </li>
+                              <?php
+                                $fabricType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&fabric='.$fabricType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Fabric</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">';
+                                  $fabricType = "Rayon";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Rayon</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Cotton";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Cotton</a
+                                    >
+                                  </li>';
+                                  $fabricType = "GEORGETTE";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Georgette</a
+                                    >
+                                  </li>';
+                                  $fabricType = "cracker silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Crepe</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Chiffon";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Chiffon</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Organza";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Organza</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Bhagalpuri silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Bhagalpuri Silk</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Banarasi";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Banarasi</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Chanderi";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Chanderi</a
+                                    >
+                                  </li>';
+                                  $fabricType = "jacquard";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Jacquard</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Kanjeevaram Silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Tapetta Silk</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Soft silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Tussar Silk</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Butterfly Net";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Net</a
+                                    >
+                                  </li>';
+                                ?>
                               </ul>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Style</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Sharara Suits</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Anarkali Suits</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Palazzo Suits</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Patiala Suits</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Pakistani Suits</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Straight Cut Suits</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Indo western</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $styleType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&style='.$styleType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Style</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">';
+                                  $styleType = "Sharara Suits";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&style='.$styleType.'" class="link--faded"
+                                      >Sharara Suits</a
+                                    >
+                                  </li>';
+                                  $styleType = "Anarkali Suits";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&style='.$styleType.'" class="link--faded"
+                                      >Anarkali Suits</a
+                                    >
+                                  </li>';
+                                  $styleType = "Palazzo Suits";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&style='.$styleType.'" class="link--faded"
+                                      >Palazzo Suits</a
+                                    >
+                                  </li>';
+                                  $styleType = "Patiala Suits";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&style='.$styleType.'" class="link--faded"
+                                      >Patiala Suits</a
+                                    >
+                                  </li>';
+                                  $styleType = "Pakistani Suits";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&style='.$styleType.'" class="link--faded"
+                                      >Pakistani Suits</a
+                                    >
+                                  </li>';
+                                  $styleType = "Straight Cut Suits";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&style='.$styleType.'" class="link--faded"
+                                      >Straight Cut Suits</a
+                                    >
+                                  </li>';
+                                  $styleType = "Indo western";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&style='.$styleType.'" class="link--faded"
+                                      >Indo western</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Stitch Type</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Unstitched Salwar suits</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Readymade Salwar suits</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Semi Stitched</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $stitchType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&occasion='.$stitchType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Stitch Type</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $stitchType = "Unstiched";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$stitchType.'" class="link--faded"
+                                      >Unstitched Salwar suits</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $stitchType = "Banglory Silk Sequin";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$stitchType.'" class="link--faded"
+                                      >Readymade Salwar suits</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $stitchType = "Unstiched Banglori";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$stitchType.'" class="link--faded"
+                                      >Semi Stitched</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Price</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >0-999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >1000-1999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >2000-2999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >3000 & above</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $minPrice = "";
+                                $maxPrice = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Price</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $minPrice = "0";
+                                    $maxPrice = "999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >0-999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "1000";
+                                    $maxPrice = "1999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >1000-1999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "2000";
+                                    $maxPrice = "2999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >2000-2999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "3000";
+                                    $maxPrice = "3999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >3000 & above</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Occasion</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Bridal</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Casual / Daily</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Engagement</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Festive</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Haldi</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Mehendi</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Office wear</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Party
-                                  </a>
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Reception</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Sangeet</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Wedding
-                                  </a>
-                                </li>
-                              </ul>
+                              <?php
+                                $occasionType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&occasion='.$occasionType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Occasion</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $occasionType = "Bridestmaid";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Bridal</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Georgette saree";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Casual / Daily</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Engagement";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Engagement</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Festive Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Festive</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Haldi saree";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Haldi</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Mahendi";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Mehendi</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Trendy Saree";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Office wear</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Party Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Party
+                                    </a>
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Wedding ,Reception";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Reception</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Party, Reception ,Wedding";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Sangeet</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Wedding Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Wedding
+                                    </a>
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Color</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Red</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Pink</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >White</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Black</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Orange</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Blue</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Purple</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Yellow</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Brown</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Grey</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Green</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Multicolor</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                              $color = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&color='.$color.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Color</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $color = "Red";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Red</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Pink";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Pink</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "White";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >White</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Black";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Black</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Orange";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Orange</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Blue";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Blue</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Purple";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Purple</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Yellow";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Yellow</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Brown";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Brown</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Grey";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Grey</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Green";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Green</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Multicolor";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Multicolor</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                           </div>
                           <div class="mega-menu__images-wrapper">
@@ -3700,315 +3781,388 @@ if(!isset($_SESSION)){
                     class="header__linklist-item has-dropdown"
                     data-item-title="Kurtis"
                   >
-                    <a
+                  <?php
+                    $productType = "Kurtis";
+                    echo '<a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.php?id='.$productType.'"
                       aria-controls="desktop-menu-4"
                       aria-expanded="false"
                       >Kurtis</a
-                    >
+                    >';
+                  ?>
                     <div hidden id="desktop-menu-4" class="mega-menu">
                       <div class="container">
                         <div class="mega-menu__inner">
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Fabric</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Silk</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Rayon</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Cotton</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Georgette</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Crepe</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Chiffon</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Chanderi Cotton</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Jacquard</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Linen</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Muslin</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $fabricType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&fabric='.$fabricType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Fabric</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">';
+                                  $fabricType = "silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Silk</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Rayon";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Rayon</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Cotton";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Cotton</a
+                                    >
+                                  </li>';
+                                  $fabricType = "GEORGETTE";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Georgette</a
+                                    >
+                                  </li>';
+                                  $fabricType = "cracker silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Crepe</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Chiffon";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Chiffon</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Chanderi";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Chanderi Cotton</a
+                                    >
+                                  </li>';
+                                  $fabricType = "jacquard";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Jacquard</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Linen";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Linen</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Muslin";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Muslin</a
+                                    >
+                                  </li>';
+                                ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Print/Pattern</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Floral print</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Solid</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Bandhani</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Printed</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Embroidered</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Anarkali</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >A-Line</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Straight</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Short
-                                  </a>
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Long</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >High Low</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $patternType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&pattern='.$patternType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Print/Pattern</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                  $patternType = "Floral";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Floral Print</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "Solid";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Solid</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "Bandhani Style";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Bandhani</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "Printed";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Printed</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "Embroiedry";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Embroidered</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "Anarkali";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Anarkali</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "A-Line";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >A-Line</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "Straight";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Straight</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "Short";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Short</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "Long";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Long</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "High Low";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >High Low</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Product Type</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Kurti Pant Set</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Kurti Palazzo Set</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Kurti Dhoti Set</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Kurti Skirt Set</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Palazzo Suit</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Top Bottom Set</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Kurti</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Kaftan</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Kaftan Set</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $sub_productType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&pattern='.$sub_productType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Product Type</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">';
+                                  $sub_productType = "Kurti Pant Set";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Kurti Pant Set</a
+                                    >
+                                  </li>';
+                                  $sub_productType = "Kurti Palazzo Set";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Kurti Palazzo Set</a
+                                    >
+                                  </li>';
+                                  $sub_productType = "Kurti Dhoti Set";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Kurti Dhoti Set</a
+                                    >
+                                  </li>';
+                                  $sub_productType = "Kurti Skirt Set";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Kurti Skirt Set</a
+                                    >
+                                  </li>';
+                                  $sub_productType = "Palazzo Suit";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Palazzo Suit</a
+                                    >
+                                  </li>';
+                                  $sub_productType = "Top Bottom Set";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Top Bottom Set</a
+                                    >
+                                  </li>';
+                                  $sub_productType = "Kurti";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Kurti</a
+                                    >
+                                  </li>';
+                                  $sub_productType = "Kaftan";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Kaftan</a
+                                    >
+                                  </li>';
+                                  $sub_productType = "Kaftan Set";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Kaftan Set</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Occasion</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Casual / Daily</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Festive</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Office wear</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Party
-                                  </a>
-                                </li>
-                              </ul>
+                              <?php
+                                $occasionType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&occasion='.$occasionType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Occasion</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $occasionType = "Georgette saree";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Casual / Daily</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Festive Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Festive</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Trendy Saree";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Office wear</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Party Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Party
+                                    </a>
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Price</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >0-999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >1000-1999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >2000 & above</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $minPrice = "";
+                                $maxPrice = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Price</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $minPrice = "0";
+                                    $maxPrice = "999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >0-999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "1000";
+                                    $maxPrice = "1999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >1000-1999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "2000";
+                                    $maxPrice = "2999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >2000 & above</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Color</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Red</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Pink</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >White</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Black</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Orange</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Blue</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Purple</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Yellow</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Brown</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Grey</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Green</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Multicolor</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                              $color = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&color='.$color.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Color</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $color = "Red";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Red</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Pink";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Pink</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "White";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >White</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Black";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Black</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Orange";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Orange</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Blue";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Blue</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Purple";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Purple</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Yellow";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Yellow</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Brown";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Brown</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Grey";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Grey</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Green";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Green</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Multicolor";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Multicolor</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                           </div>
                           <div class="mega-menu__images-wrapper">
@@ -4034,280 +4188,349 @@ if(!isset($_SESSION)){
                     class="header__linklist-item has-dropdown"
                     data-item-title="Lehengas"
                   >
-                    <a
+                  <?php
+                    $productType = "Lehengas";
+                    echo '<a
                       class="header__linklist-link link--animated"
                       href="product.php"
                       aria-controls="desktop-menu-5"
                       aria-expanded="false"
                       >Lehengas</a
-                    >
+                    >';
+                  ?>
                     <div hidden id="desktop-menu-5" class="mega-menu">
                       <div class="container">
                         <div class="mega-menu__inner">
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Fabric</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Art Silk</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Banarasi Silk</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Cotton</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Georgette</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Jacquard</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Organza</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Satin</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Silk</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Velvet</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $fabricType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&fabric='.$fabricType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Fabric</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">';
+                                  $fabricType = "silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Art Silk</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Chiffon";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Banarasi Silk</a
+                                    >
+                                  </li>';
+                                  $fabricType = "cotton";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Cotton</a
+                                    >
+                                  </li>';
+                                  $fabricType = "GEORGETTE";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Georgette</a
+                                    >
+                                  </li>';
+                                  $fabricType = "jacquard";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Jacquard</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Organza";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Organza Sarees</a
+                                    >
+                                  </li>';
+                                  $fabricType = "satin";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Satin Sarees</a
+                                    >
+                                  </li>';
+                                  $fabricType = "silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Silk</a
+                                    >
+                                  </li>';
+                                  $fabricType = "velvet";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Velvet</a
+                                    >
+                                  </li>';
+                                ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Pattern</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Designer</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Digital</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Floral</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $patternType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&pattern='.$patternType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Print/Pattern</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                  $patternType = "Designer work pattern";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Designer</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "Digital";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Digital</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                  $patternType = "floral";
+                                    echo '<a href="product.php?id='.$productType.'&pattern='.$patternType.'" class="link--faded"
+                                      >Floral</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Price</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >0-999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >1000-1999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >2000-2999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >3000-3999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >4000-4999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >5000 & above</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $minPrice = "";
+                                $maxPrice = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Price</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $minPrice = "0";
+                                    $maxPrice = "999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >0-999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "1000";
+                                    $maxPrice = "1999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >1000-1999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "2000";
+                                    $maxPrice = "2999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >2000-2999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "3000";
+                                    $maxPrice = "3999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >3000-3999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "4000";
+                                    $maxPrice = "4999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >4000-4999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "5000";
+                                    $maxPrice = "5999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >5000 & above</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Occasion</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Bridal</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Engagement</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Festive</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Haldi</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Mehendi</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Party
-                                  </a>
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Reception</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Sangeet</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Wedding
-                                  </a>
-                                </li>
-                              </ul>
+                              <?php
+                                $occasionType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&occasion='.$occasionType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Occasion</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $occasionType = "Bridestmaid";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Bridal</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Engagement";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Engagement</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Festive Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Festive</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Haldi saree";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Haldi</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Mahendi";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Mehendi</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Party Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Party
+                                    </a>
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Wedding ,Reception";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Reception</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Party, Reception ,Wedding";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Sangeet</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Wedding Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Wedding
+                                    </a>
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Color</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Red</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Pink</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >White</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Black</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Orange</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Blue</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Purple</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Yellow</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Gold</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Grey</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Green</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Multicolor</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                              $color = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&color='.$color.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Color</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $color = "Red";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Red</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Pink";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Pink</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "White";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >White</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Black";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Black</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Orange";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Orange</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Blue";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Blue</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Purple";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Purple</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Yellow";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Yellow</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Brown";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Brown</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Grey";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Grey</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Green";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Green</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Multicolor";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Multicolor</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Style</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Ready to wear</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Unstiched</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Semi stitched</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $stitchType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&occasion='.$stitchType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Stitch Type</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $stitchType = "Banglory Silk Sequin";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$stitchType.'" class="link--faded"
+                                      >Ready to wear</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $stitchType = "Unstiched";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$stitchType.'" class="link--faded"
+                                      >Unstitched</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $stitchType = "Unstiched Banglori";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$stitchType.'" class="link--faded"
+                                      >Semi Stitched</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                           </div>
                           <div class="mega-menu__images-wrapper">
@@ -4333,227 +4556,289 @@ if(!isset($_SESSION)){
                     class="header__linklist-item has-dropdown"
                     data-item-title="Gowns"
                   >
-                    <a
+                  <?php
+                    $productType = "Gowns";
+                    echo '<a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.php?id='.$productType.'"
                       aria-controls="desktop-menu-6"
                       aria-expanded="false"
                       >Gowns</a
-                    >
+                    >';
+                  ?>
                     <div hidden id="desktop-menu-6" class="mega-menu">
                       <div class="container">
                         <div class="mega-menu__inner">
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Fabric</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Cotton</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Satin</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Chanderi</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Georgette</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Jacquard</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Net</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Rayon</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Silk</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Tapetta Silk</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $fabricType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&fabric='.$fabricType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Fabric</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">';
+                                  $fabricType = "Cotton";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Cotton</a
+                                    >
+                                  </li>';
+                                  $fabricType = "satin";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Satin</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Chanderi";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Chanderi</a
+                                    >
+                                  </li>';
+                                  $fabricType = "GEORGETTE";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Georgette</a
+                                    >
+                                  </li>';
+                                  $fabricType = "jacquard";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Jacquard</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Butterfly Net";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Net</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Rayon";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Rayon</a
+                                    >
+                                  </li>';
+                                  $fabricType = "silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Silk</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Kanjeevaram Silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Tapetta Silk</a
+                                    >
+                                  </li>';
+                                ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Occasion</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Bridal</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Engagement</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Festive</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Haldi</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Mehendi</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Party
-                                  </a>
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Reception</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Sangeet</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Wedding
-                                  </a>
-                                </li>
-                              </ul>
+                              <?php
+                                $occasionType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&occasion='.$occasionType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Occasion</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $occasionType = "Bridestmaid";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Bridal</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Engagement";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Engagement</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Festive Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Festive</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Haldi saree";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Haldi</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Mahendi";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Mehendi</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Party Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Party
+                                    </a>
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Wedding ,Reception";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Reception</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Party, Reception ,Wedding";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Sangeet</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Wedding Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Wedding
+                                    </a>
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Price</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >0-999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >1000-1999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >2000-2999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >3000-3999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >4000-4999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >5000 & above</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $minPrice = "";
+                                $maxPrice = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Price</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $minPrice = "0";
+                                    $maxPrice = "999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >0-999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "1000";
+                                    $maxPrice = "1999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >1000-1999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "2000";
+                                    $maxPrice = "2999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >2000-2999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "3000";
+                                    $maxPrice = "3999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >3000-3999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "4000";
+                                    $maxPrice = "4999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >4000-4999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "5000";
+                                    $maxPrice = "5999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >5000 & above</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Color</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Red</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Pink</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Black</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Orange</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Blue</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Purple</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Yellow</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Brown</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Grey</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Green</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Multicolor</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                              $color = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&color='.$color.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Color</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $color = "Red";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Red</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Pink";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Pink</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "White";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >White</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Black";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Black</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Orange";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Orange</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Blue";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Blue</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Purple";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Purple</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Yellow";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Yellow</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Brown";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Brown</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Grey";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Grey</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Green";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Green</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Multicolor";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Multicolor</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                           </div>
                         </div>
@@ -4564,201 +4849,250 @@ if(!isset($_SESSION)){
                     class="header__linklist-item has-dropdown"
                     data-item-title="Western"
                   >
-                    <a
+                  <?php
+                    $productType = "Western";
+                    echo '<a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.php?id='.$productType.'"
                       aria-controls="desktop-menu-7"
                       aria-expanded="false"
                       >Western</a
-                    >
+                    >';
+                  ?>
                     <div hidden id="desktop-menu-7" class="mega-menu">
                       <div class="container">
                         <div class="mega-menu__inner">
                           <div class="mega-menu__columns-wrapper">
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Fabric</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Rayon</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Cotton</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Georgette</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Chiffon</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Crepe</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $fabricType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&fabric='.$fabricType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Fabric</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">';
+                                  $fabricType = "Rayon";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Rayon</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Cotton";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Cotton</a
+                                    >
+                                  </li>';
+                                  $fabricType = "GEORGETTE";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Georgette</a
+                                    >
+                                  </li>';
+                                  $fabricType = "Chiffon";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Chiffon</a
+                                    >
+                                  </li>';
+                                  $fabricType = "cracker silk";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&fabric='.$fabricType.'" class="link--faded"
+                                      >Crepe</a
+                                    >
+                                  </li>';
+                                ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Type</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Tops</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Tunics</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Dresses</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Jumpsuit</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                              $sub_productType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&pattern='.$sub_productType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Type</a
+                                >';
+                                $sub_productType = "Tops";
+                                echo '<ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Tops</a
+                                    >
+                                  </li>';
+                                  $sub_productType = "Tunics";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Tunics</a
+                                    >
+                                  </li>';
+                                  $sub_productType = "Dresses";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Dresses</a
+                                    >
+                                  </li>';
+                                  $sub_productType = "Jumpsuit";
+                                  echo '<li class="linklist__item">
+                                    <a href="product.php?id='.$productType.'&pattern='.$sub_productType.'" class="link--faded"
+                                      >Jumpsuit</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Occasion</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Casual / Daily</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Festive</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Office wear</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Party
-                                  </a>
-                                </li>
-                              </ul>
+                              <?php
+                                $occasionType = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&occasion='.$occasionType.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Occasion</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $occasionType = "Georgette saree";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Casual / Daily</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Festive Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Festive</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Trendy Saree";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Office wear</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $occasionType = "Party Wear";
+                                    echo '<a href="product.php?id='.$productType.'&occasion='.$occasionType.'" class="link--faded"
+                                      >Party
+                                    </a>
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Price</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >0-999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >1000-1999</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >2000 & above</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                                $minPrice = "";
+                                $maxPrice = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Price</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $minPrice = "0";
+                                    $maxPrice = "999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >0-999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "1000";
+                                    $maxPrice = "1999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >1000-1999</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $minPrice = "2000";
+                                    $maxPrice = "2999";
+                                    echo '<a href="product.php?id='.$productType.'&minPrice='.$minPrice.'&maxPrice='.$maxPrice.'" class="link--faded"
+                                      >2000 & above</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                             <div class="mega-menu__column">
-                              <a
-                                href="product.php"
-                                class="mega-menu__title heading heading--small"
-                                >Color</a
-                              >
-                              <ul class="linklist list--unstyled" role="list">
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Red</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Pink</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >White</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Black</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Orange</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Blue</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Purple</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Yellow</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Brown</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Grey</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Green</a
-                                  >
-                                </li>
-                                <li class="linklist__item">
-                                  <a href="product.php" class="link--faded"
-                                    >Multicolor</a
-                                  >
-                                </li>
-                              </ul>
+                              <?php
+                              $color = "";
+                                echo '<a
+                                  href="product.php?id='.$productType.'&color='.$color.'"
+                                  class="mega-menu__title heading heading--small"
+                                  >Color</a
+                                >
+                                <ul class="linklist list--unstyled" role="list">
+                                  <li class="linklist__item">';
+                                    $color = "Red";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Red</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Pink";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Pink</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "White";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >White</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Black";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Black</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Orange";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Orange</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Blue";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Blue</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Purple";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Purple</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Yellow";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Yellow</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Brown";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Brown</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Grey";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Grey</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Green";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Green</a
+                                    >
+                                  </li>
+                                  <li class="linklist__item">';
+                                    $color = "Multicolor";
+                                    echo '<a href="product.php?id='.$productType.'&color='.$color.'" class="link--faded"
+                                      >Multicolor</a
+                                    >
+                                  </li>
+                                </ul>';
+                              ?>
                             </div>
                           </div>
                         </div>
@@ -4766,18 +5100,24 @@ if(!isset($_SESSION)){
                     </div>
                   </li>
                   <li class="header__linklist-item" data-item-title="Live">
-                    <a
+                  <?php
+                    $productType = "Live";
+                    echo '<a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.php?id='.$productType.'"
                       >Live</a
-                    >
+                    >';
+                  ?>
                   </li>
                   <li class="header__linklist-item" data-item-title="Sale">
-                    <a
+                  <?php
+                    $productType = "Sale";
+                    echo '<a
                       class="header__linklist-link link--animated"
-                      href="product.php"
+                      href="product.php?id='.$productType.'"
                       >Sale</a
-                    >
+                    >';
+                  ?>
                   </li>
                 </ul>
               </desktop-navigation>
@@ -5434,8 +5774,9 @@ if(!isset($_SESSION)){
               max-width: 100%;
             }
           }
-        </style> </store-header
-      ><cart-notification
+        </style> 
+      </store-header>
+      <cart-notification
         global
         hidden
         class="cart-notification"

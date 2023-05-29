@@ -241,26 +241,26 @@ if(!isset($_SESSION)){
       var __wzrk_shop_money_format = '<span class="money">₹{{amount}}</span>';
       var __wzrk_shop_name = "Peachmode";
       var __wzrk_charged_currency = "INR";
-      var __wzrk_customer_name = "Yash Sabhaya";
-      var __wzrk_customer_identity = "6713034932445";
-      var __wzrk_customer_email = "yashsabhaya964@gmail.com";
+      var __wzrk_customer_name = "";
+      var __wzrk_customer_identity = "";
+      var __wzrk_customer_email = "";
       var __wzrk_customer_phone = "";
 
       window.clevertapApp = {
         config: {
           currency: "INR",
           meta: {
-            title: "Account",
-            template: "customers/account",
-            url: "https://peachmode.com/account",
-            type: "customers/account",
+            title: "Terms of service",
+            template: "",
+            url: "https://peachmode.com/policies/terms-of-service",
+            type: "policy",
           },
           routes: {
             customer: {
               account: "/account",
-              login: "login.php",
-              logout: "logout.php",
-              register: "register.php",
+              login: "/account/login",
+              logout: "/account/logout",
+              register: "/account/register",
             },
             cart: {
               list: "/cart",
@@ -271,24 +271,6 @@ if(!isset($_SESSION)){
             },
           },
         },
-      };
-
-      var tags = [];
-
-      clevertapApp.customer = {
-        phone: "",
-        email: "yashsabhaya964@gmail.com",
-        name: "Yash Sabhaya",
-        id: parseInt("6713034932445"),
-        lastName: "Sabhaya",
-        firstName: "Yash",
-        city: "Surat",
-        acceptsMarketing: "true",
-        hasAccount: "true",
-        ordersCount: parseInt("0"),
-        taxExempt: "false",
-        totalSpent: (parseFloat("0") / 100).toFixed(2),
-        tags: tags,
       };
 
       clevertapApp.frame = {
@@ -323,8 +305,11 @@ if(!isset($_SESSION)){
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Account</title>
-    <link rel="canonical" href="https://peachmode.com/account" />
+    <title>Terms of service</title>
+    <link
+      rel="canonical"
+      href="https://peachmode.com/policies/terms-of-service"
+    />
     <link rel="shortcut icon" href="img/1.png" />
     <link rel="preconnect" href="https://cdn.shopify.com" />
     <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com" />
@@ -351,7 +336,7 @@ if(!isset($_SESSION)){
     </script>
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Account" />
+    <meta property="og:title" content="Terms of service" />
     <meta
       property="og:image"
       content="http://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo.png?v=1649671323"
@@ -362,11 +347,14 @@ if(!isset($_SESSION)){
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
-    <meta property="og:url" content="https://peachmode.com/account" />
+    <meta
+      property="og:url"
+      content="https://peachmode.com/policies/terms-of-service"
+    />
     <meta property="og:site_name" content="Peachmode" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Account" />
-    <meta name="twitter:description" content="Account" />
+    <meta name="twitter:title" content="Terms of service" />
+    <meta name="twitter:description" content="Terms of service" />
     <meta
       name="twitter:image"
       content="https://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo_1200x1200_crop_center.png?v=1649671323"
@@ -658,8 +646,8 @@ if(!isset($_SESSION)){
       window.themeVariables = {
         settings: {
           direction: "ltr",
-          pageType: "customers\/account",
-          cartCount: 0,
+          pageType: "policy",
+          cartCount: 1,
           moneyFormat:
             '\u003cspan class="money"\u003e₹{{amount}}\u003c\/span\u003e',
           moneyWithCurrencyFormat:
@@ -764,6 +752,14 @@ if(!isset($_SESSION)){
           );
         });
       }
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .querySelector(".shopify-policy__title")
+          .classList.add("page-header__text-wrapper");
+        document
+          .querySelector(".shopify-policy__title h1")
+          .classList.add("heading", "h2");
+      });
     </script>
 
     <link
@@ -809,6 +805,13 @@ if(!isset($_SESSION)){
         window.performance.mark &&
         window.performance.mark("shopify.content_for_header.start");
     </script>
+    <link
+      rel="stylesheet"
+      media="all"
+      integrity="sha256-PkqjwHo6YXgNFrxLgo0v754aIKRKrjbgKae5jl7lpNA="
+      crossorigin="anonymous"
+      href="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/policy-3e4aa3c07a3a61780d16bc4b828d2fef9e1a20a44aae36e029a7b98e5ee5a4d0.css"
+    />
     <meta
       id="shopify-digital-wallet"
       name="shopify-digital-wallet"
@@ -826,20 +829,20 @@ if(!isset($_SESSION)){
     <script>
       (function () {
         var scripts = [
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.04492a71077e352f2957.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.96fe0b7abf48419e7469.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_checkout-react-html_src_hooks_title_ts.latest.en.3457953d3abd1b694aa5.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_shopify_verdict_build_esm_runtimes_browser_index_mts_js.latest.en.f6f2083a5fb187836a1f.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app_components_AddressForm_AddressForm_tsx-app_components_Step_Step_tsx-app_utilities_receipt-224401.latest.en.4102af967c2318ba421f.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.8e68c4e4246b64be3ba3.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.7eadcddb7755a08c8d6d.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app_components_AddressForm_AddressForm_tsx-app_components_Step_Step_tsx-app_utilities_receipt-224401.latest.en.91b3bf74b8a9635d2c0a.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.94b7d1c1c7ab40c6eac2.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.d63d03b3b69c11f9e6aa.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.0ca662c669b41a356f6a.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_card-fields-react_src_hook_ts-packages_checkout-graphql_src_in-92a386.latest.en.b39452fcc8039fc140d1.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.34c13c3036294a9b3b6d.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.aaa897dd9c534f7f99ac.js",
         ];
         var styles = [
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.5196d587d3de2d2fbc8a.css",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.4e93eb2ccac793a61d40.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.b7ed98bf011cf2a4887c.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.90bde523bde67a4067f2.css",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.f987e50a37d7171c2810.css",
         ];
 
@@ -958,10 +961,10 @@ if(!isset($_SESSION)){
       var __st = {
         a: 63748341981,
         offset: 19800,
-        reqid: "b6248c19-166f-4db7-8784-0ed415817f37",
-        pageurl: "peachmode.com\/account",
-        u: "b3b47478c00b",
-        cid: 6713034932445,
+        reqid: "9d31950a-1e57-465f-9242-9fce131414d8",
+        pageurl: "peachmode.com\/policies\/terms-of-service",
+        t: "prospect",
+        u: "a8a7b15ad9f6",
       };
     </script>
     <script>
@@ -1032,7 +1035,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script>
-      var loox_global_hash = "1681351419703";
+      var loox_global_hash = "1681118583974";
     </script>
     <style>
       .loox-reviews-default {
@@ -1984,9 +1987,7 @@ if(!isset($_SESSION)){
         "https://connect.facebook.net/en_US/fbevents.js"
       );
 
-      fbq("init", "795748567170435", {
-        em: "yashsabhaya964@gmail.com",
-      });
+      fbq("init", "795748567170435");
 
       fbq("track", "PageView");
     </script>
@@ -2038,7 +2039,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script
-      src="https://cdn.shopify.com/extensions/c4e8e215-0970-4d3a-ac7b-2e25bea3398b/2.0.0/assets/ws-currencyconverter.js"
+      src="https://cdn.shopify.com/extensions/cece2cc8-741a-4309-94ee-04a78984c575/1.59.0/assets/ws-currencyconverter.js"
       type="text/javascript"
       defer="defer"
     ></script>
@@ -2064,7 +2065,7 @@ if(!isset($_SESSION)){
                   session_token && session_token.length === 2
                     ? session_token[1]
                     : "",
-                page_type: "customers/account",
+                page_type: "policy",
               };
               window.navigator.sendBeacon(
                 "https://monorail-edge.shopifysvc.com/v1/produce",
@@ -2083,104 +2084,11 @@ if(!isset($_SESSION)){
         }
       })();
     </script>
-    <script id="evids-setup">
-      (function () {
-        let t, e;
-        function n() {
-          (t = {
-            page_viewed: {},
-            collection_viewed: {},
-            product_viewed: {},
-            product_variant_viewed: {},
-            search_submitted: {},
-            product_added_to_cart: {},
-            checkout_started: {},
-            checkout_completed: {},
-            payment_info_submitted: {},
-          }),
-            (e = { wpm: {}, trekkie: {} });
-        }
-        function o(t) {
-          return `${t || "sh"}-${(function () {
-            const t = "xxxx-4xxx-xxxx-xxxxxxxxxxxx";
-            let e = "";
-            try {
-              const n = window.crypto,
-                o = new Uint16Array(31);
-              n.getRandomValues(o);
-              let r = 0;
-              e = t
-                .replace(/[x]/g, (t) => {
-                  const e = o[r] % 16;
-                  return r++, ("x" === t ? e : (3 & e) | 8).toString(16);
-                })
-                .toUpperCase();
-            } catch (n) {
-              e = t
-                .replace(/[x]/g, (t) => {
-                  const e = (16 * Math.random()) | 0;
-                  return ("x" === t ? e : (3 & e) | 8).toString(16);
-                })
-                .toUpperCase();
-            }
-            return `${(function () {
-              let t = 0,
-                e = 0;
-              t = new Date().getTime() >>> 0;
-              try {
-                e = performance.now() >>> 0;
-              } catch (t) {
-                e = 0;
-              }
-              const n = Math.abs(t + e)
-                .toString(16)
-                .toLowerCase();
-              return "00000000".substr(0, 8 - n.length) + n;
-            })()}-${e}`;
-          })()}`;
-        }
-        function r(n, r) {
-          if (
-            !t[n] ||
-            ("trekkie" !== (null == r ? void 0 : r.analyticsFramework) &&
-              "wpm" !== (null == r ? void 0 : r.analyticsFramework))
-          )
-            return o("shu");
-          const i = "string" == typeof (c = r.cacheKey) && c ? c : "default";
-          var c;
-          const a = (function (t, n, o) {
-            const r = e[n];
-            return (
-              void 0 === r[t] && (r[t] = {}),
-              void 0 === r[t][o] ? (r[t][o] = 0) : (r[t][o] += 1),
-              r[t][o]
-            );
-          })(n, r.analyticsFramework, i);
-          return (function (e, n, r) {
-            const i = t[e];
-            if (void 0 === i[r]) {
-              const t = o();
-              i[r] = [t];
-            } else if (void 0 === i[r][n]) {
-              const t = o();
-              i[r].push(t);
-            }
-            return i[r][n];
-          })(n, a, i);
-        }
-        function i() {
-          (window.Shopify = window.Shopify || {}),
-            n(),
-            (window.Shopify.evids = (t, e) => r(t, e));
-        }
-        i();
-      })();
-    </script>
     <script>
       window.ShopifyAnalytics = window.ShopifyAnalytics || {};
       window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
       window.ShopifyAnalytics.meta.currency = "INR";
-      var meta = { page: { customerId: 6713034932445 } };
+      var meta = { page: {} };
       for (var attr in meta) {
         window.ShopifyAnalytics.meta[attr] = meta[attr];
       }
@@ -2324,18 +2232,18 @@ if(!isset($_SESSION)){
                   app_name: "storefront",
                   context_url: window.location.href,
                   source_url:
-                    "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js",
+                    "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js",
                 }
               );
             };
             scriptFallback.async = true;
             scriptFallback.src =
-              "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js";
+              "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js";
             first.parentNode.insertBefore(scriptFallback, first);
           };
           script.async = true;
           script.src =
-            "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js";
+            "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js";
           first.parentNode.insertBefore(script, first);
         };
         trekkie.load({
@@ -2356,7 +2264,6 @@ if(!isset($_SESSION)){
           "Session Attribution": {},
           S2S: {
             facebookCapiEnabled: false,
-            customerId: 6713034932445,
             source: "trekkie-storefront-renderer",
           },
         });
@@ -2375,7 +2282,7 @@ if(!isset($_SESSION)){
           } catch (error) {}
           document.write = originalDocumentWrite;
 
-          window.ShopifyAnalytics.lib.page(null, { customerId: 6713034932445 });
+          window.ShopifyAnalytics.lib.page(null, {});
 
           var match = window.location.pathname.match(
             /checkouts\/(.+)\/(thank_you|post_purchase)/
@@ -2702,15 +2609,34 @@ if(!isset($_SESSION)){
             },
           ],
           initData: {
-            cart: null,
-            checkout: null,
-            customer: {
-              email: "yashsabhaya964@gmail.com",
-              firstName: "Yash",
-              id: "6713034932445",
-              lastName: "Sabhaya",
-              phone: null,
+            cart: {
+              cost: { totalAmount: { amount: 849.0, currencyCode: "INR" } },
+              id: "9042bee05b223e0365a249bf46651c1e",
+              lines: [
+                {
+                  cost: { totalAmount: { amount: 849.0, currencyCode: "INR" } },
+                  merchandise: {
+                    id: "43795228786909",
+                    image: {
+                      src: "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/products\/file_002c2ee4-d534-43d2-af31-83230b46dc6c.jpg?v=1680870105",
+                    },
+                    price: { amount: 849.0, currencyCode: "INR" },
+                    product: {
+                      id: "8045530808541",
+                      title: "Pink Printed Georgette Saree With Tassels",
+                      vendor: "Peachmode",
+                      type: "Saree",
+                    },
+                    sku: "LTFAB-KSHVIBRKHA2-2960",
+                    title: "Default Title",
+                  },
+                  quantity: 1,
+                },
+              ],
+              totalQuantity: 1,
             },
+            checkout: null,
+            customer: null,
             productVariants: [],
           },
         },
@@ -2719,13 +2645,13 @@ if(!isset($_SESSION)){
         },
         "https://cdn.shopify.com",
         "browser",
-        "0.0.285",
-        "da3bd5a4w8ea8a283p30eb74b3mf7ed84c9"
+        "0.0.279",
+        "518c152fw00918cf1pc7ca055am99284242"
       );
     </script>
   </head>
   <body
-    class="no-focus-outline features--image-zoom template-account"
+    class="no-focus-outline features--image-zoom template-"
     data-instant-allow-query-string
   >
     <!-- Google Tag Manager (noscript) -->
@@ -2815,6 +2741,10 @@ if(!isset($_SESSION)){
             ><announcement-bar-item hidden class="announcement-bar__item"
               ><div class="announcement-bar__message text--xsmall">
                 <p>7 Day no questions asked return policy.</p>
+              </div></announcement-bar-item
+            ><announcement-bar-item hidden class="announcement-bar__item"
+              ><div class="announcement-bar__message text--xsmall">
+                <p>Free Shipping in India. COD Available.</p>
               </div></announcement-bar-item
             >
           </div>
@@ -6054,8 +5984,8 @@ if(!isset($_SESSION)){
         global
         hidden
         class="cart-notification"
-      ></cart-notification>
-      <mobile-navigation
+      ></cart-notification
+      ><mobile-navigation
         append-body
         id="mobile-menu-drawer"
         class="drawer drawer--from-left"
@@ -8741,7 +8671,7 @@ if(!isset($_SESSION)){
           class="drawer__footer drawer__footer--tight drawer__footer--bordered"
         >
           <div class="mobile-nav__footer">
-            <a class="icon-text" href="/account"
+            <a class="icon-text" href="/account/login"
               ><svg
                 focusable="false"
                 width="18"
@@ -8923,6 +8853,232 @@ if(!isset($_SESSION)){
       >
         <span class="drawer__overlay"></span>
 
+        <header class="drawer__header">
+          <p class="drawer__title heading h6">
+            <svg
+              focusable="false"
+              width="21"
+              height="20"
+              class="icon icon--header-shopping-cart"
+              viewBox="0 0 21 20"
+            >
+              <path
+                d="M0 1H4L5 11H17L19 4H8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              ></path>
+              <circle
+                cx="6"
+                cy="17"
+                r="2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              ></circle>
+              <circle
+                cx="16"
+                cy="17"
+                r="2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              ></circle></svg
+            >1 item
+          </p>
+
+          <button
+            type="button"
+            class="drawer__close-button tap-area"
+            data-action="close"
+            title="Close"
+          >
+            <svg
+              focusable="false"
+              width="14"
+              height="14"
+              class="icon icon--close"
+              viewBox="0 0 14 14"
+            >
+              <path
+                d="M13 13L1 1M13 1L1 13"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              ></path>
+            </svg>
+          </button>
+        </header>
+        <div class="drawer__content">
+          <form id="mini-cart-form" action="/cart" novalidate method="post">
+            <input type="hidden" name="checkout" /><line-item class="line-item">
+              <div class="line-item__content-wrapper">
+                <a
+                  href="/products/pink-printed-georgette-saree-with-tassels-3?variant=43795228786909"
+                  class="line-item__image-wrapper"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <span class="line-item__loader" hidden>
+                    <span class="line-item__loader-spinner spinner" hidden
+                      ><svg
+                        focusable="false"
+                        width="16"
+                        height="16"
+                        class="icon icon--spinner"
+                        viewBox="25 25 50 50"
+                      >
+                        <circle
+                          cx="50"
+                          cy="50"
+                          r="20"
+                          fill="none"
+                          stroke="#222222"
+                          stroke-width="6"
+                        ></circle></svg
+                    ></span>
+                    <span class="line-item__loader-mark" hidden
+                      ><svg
+                        focusable="false"
+                        width="20"
+                        height="20"
+                        class="icon icon--check"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          d="M24.59 8L12.9885 20.6731L7.31806 15.1819L6 16.6956L12.3755 22.8792L13.0805 23.5556L13.7395 22.8309L26 9.43318L24.59 8Z"
+                          stroke="currentColor"
+                        ></path></svg
+                    ></span>
+                  </span>
+
+                  <img loading="lazy" class="line-item__image"
+                  sizes="(max-width: 740px) 80px, 92px" height="2000"
+                  width="2000" alt=""
+                  src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_002c2ee4-d534-43d2-af31-83230b46dc6c.jpg?v=1680870105"
+                  ">
+                </a>
+                <div class="line-item__info">
+                  <div class="product-item-meta">
+                    <a
+                      href="/products/pink-printed-georgette-saree-with-tassels-3?variant=43795228786909"
+                      class="product-item-meta__title text--small"
+                      >Pink Printed Georgette Saree With Tassels</a
+                    >
+                    <div
+                      class="product-item-meta__price-list-container text--small"
+                    >
+                      <div class="price-list hidden-tablet-and-up">
+                        <span class="price price--highlight">
+                          <span class="visually-hidden">Sale price</span
+                          ><span class="money">₹849.00</span></span
+                        ><span class="price price--compare">
+                          <span class="visually-hidden">Regular price</span
+                          ><span class="money">₹1,699.00</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <line-item-quantity class="line-item__quantity">
+                    <div class="quantity-selector quantity-selector--small">
+                      <a
+                        href="/cart/change?quantity=0&line=1"
+                        class="quantity-selector__button"
+                        aria-label="Decrease quantity"
+                        data-no-instant
+                        ><svg
+                          focusable="false"
+                          width="8"
+                          height="2"
+                          class="icon icon--minus"
+                          viewBox="0 0 8 2"
+                        >
+                          <path fill="currentColor" d="M0 0h8v2H0z"></path></svg
+                      ></a>
+
+                      <input
+                        is="input-number"
+                        class="quantity-selector__input text--xsmall"
+                        autocomplete="off"
+                        type="text"
+                        inputmode="numeric"
+                        name="updates[]"
+                        data-line="1"
+                        value="1"
+                        size="2"
+                        aria-label="Change quantity"
+                      /><a
+                        href="/cart/change?quantity=2&line=1"
+                        class="quantity-selector__button"
+                        aria-label="Increase quantity"
+                        data-no-instant
+                        ><svg
+                          focusable="false"
+                          width="8"
+                          height="8"
+                          class="icon icon--plus"
+                          viewBox="0 0 8 8"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M3 5v3h2V5h3V3H5V0H3v3H0v2h3z"
+                            fill="currentColor"
+                          ></path></svg
+                      ></a>
+                    </div>
+
+                    <a
+                      href="/cart/change?id=43795228786909:0c2f4531b1458e2dcd020de0d869e405&quantity=0"
+                      class="line-item__remove-button link text--subdued text--xxsmall"
+                      data-no-instant
+                      >Remove</a
+                    >
+                  </line-item-quantity>
+                </div>
+
+                <div
+                  class="line-item__price-list-container text--small hidden-phone"
+                >
+                  <div class="price-list price-list--stack">
+                    <span class="price price--highlight">
+                      <span class="visually-hidden">Sale price</span
+                      ><span class="money">₹849.00</span></span
+                    ><span class="price price--compare">
+                      <span class="visually-hidden">Regular price</span
+                      ><span class="money">₹1,699.00</span></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </line-item>
+          </form>
+          <cart-drawer-recommendations
+            section-id="mini-cart"
+            product-id="8045530808541"
+            class="mini-cart__recommendations"
+            ><div class="mini-cart__recommendations-inner">
+              <div class="spinner">
+                <svg
+                  focusable="false"
+                  width="40"
+                  height="40"
+                  class="icon icon--spinner"
+                  viewBox="25 25 50 50"
+                >
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="20"
+                    fill="none"
+                    stroke="#222222"
+                    stroke-width="3"
+                  ></circle>
+                </svg>
+              </div></div
+          ></cart-drawer-recommendations>
+        </div>
+
         <footer
           class="mini-cart__drawer-footer drawer__footer drawer__footer--tight drawer__footer--bordered"
         >
@@ -9009,161 +9165,27 @@ if(!isset($_SESSION)){
       >
     </div>
     <div id="main" role="main" class="anchor">
-      <div
-        id="shopify-section-template--15880464859357__main"
-        class="shopify-section shopify-section--main-customers-account"
-      >
-        <section>
-          <div class="link-bar hidden-phone">
-            <div class="container">
-              <div class="link-bar__wrapper">
-                <ul class="link-bar__linklist list--unstyled" role="list">
-                  <li class="link-bar__link-item">
-                    <a href="profile.php" class="link-bar__link link--animated"
-                      >My Profile</a
-                    >
-                  </li>
-                  <li class="link-bar__link-item">
-                    <a
-                      href="account.php"
-                      class="link-bar__link link--animated text--underlined"
-                      >Orders</a
-                    >
-                  </li>
+      <div class="shopify-policy__container">
+        <div class="shopify-policy__title">
+          <h1>Terms of service</h1>
+        </div>
 
-                  <li class="link-bar__link-item">
-                    <a href="address.php" class="link-bar__link link--animated"
-                      >Addresses</a
-                    >
-                  </li>
-                  <li class="link-bar__link-item">
-                    <a
-                      href="track-order.php"
-                      class="link-bar__link link--animated"
-                      >Track Order</a
-                    >
-                  </li>
-
-                  <li class="link-bar__link-item">
-                    <a
-                      href="logout.php"
-                      class="link-bar__link link--animated text--subdued"
-                      data-no-instant
-                      >Logout</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="mobile-toolbar hidden-tablet-and-up">
-            <button
-              class="mobile-toolbar__item"
-              is="toggle-button"
-              aria-expanded="false"
-              aria-controls="account-links-popover"
+        <div class="shopify-policy__body">
+          <div class="rte" align="justify">
+            <span
+              >The website www.kalaajee.com ("kalaajee.com") is operated by
+              Kalaajee Pvt. Ltd. ("Kalaajee." or "us" or "we" or "our"), having
+              its registered office located F13, Fourth Floor, Pinnacle Business
+              Park, Andheri East, Mumbai - 400093, Maharashtra, India. Please
+              read the Conditions of Use document carefully before using the
+              Peachmode.in website. By using the kalaajee..in website, you
+              signify your agreement to be bound by kalaajee.'s Conditions of
+              Use.</span
             >
-              Orders<svg
-                focusable="false"
-                width="12"
-                height="8"
-                class="icon icon--chevron"
-                viewBox="0 0 12 8"
-              >
-                <path
-                  fill="none"
-                  d="M1 1l5 5 5-5"
-                  stroke="currentColor"
-                  stroke-width="2"
-                ></path>
-              </svg>
-            </button>
           </div>
-
-          <popover-content id="account-links-popover" class="popover">
-            <span class="popover__overlay"></span>
-
-            <header class="popover__header">
-              <span class="popover__title heading h6">My account</span>
-
-              <button
-                type="button"
-                class="popover__close-button tap-area tap-area--large"
-                data-action="close"
-                title="Close"
-              >
-                <svg
-                  focusable="false"
-                  width="14"
-                  height="14"
-                  class="icon icon--close"
-                  viewBox="0 0 14 14"
-                >
-                  <path
-                    d="M13 13L1 1M13 1L1 13"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    fill="none"
-                  ></path>
-                </svg>
-              </button>
-            </header>
-
-            <div class="popover__content">
-              <div class="popover__choice-list">
-                <a href="profile.php" class="popover__choice-item">
-                  <span class="popover__choice-label">My Profile</span>
-                </a>
-                <a href="account.php" class="popover__choice-item">
-                  <span class="popover__choice-label" aria-current="true"
-                    >Orders</span
-                  >
-                </a>
-
-                <a href="address.php" class="popover__choice-item">
-                  <span class="popover__choice-label">Addresses</span>
-                </a>
-
-                <a
-                  href="login.php"
-                  class="popover__choice-item text--subdued"
-                  data-no-instant
-                >
-                  <span class="popover__choice-label">Logout</span>
-                </a>
-              </div>
-            </div>
-          </popover-content>
-
-          <div class="account account--order-list">
-            <div class="container container--small">
-              <div class="page-header page-header--small page-header--alone">
-                <div class="page-header__text-wrapper text-container">
-                  <h1 class="heading h4">
-                    Orders <span class="bubble-count bubble-count--top">0</span>
-                  </h1>
-                  <p class="text--subdued">
-                    You have not placed any orders yet.
-                  </p>
-
-                  <div class="button-wrapper">
-                    <a href="index.php" class="button button--primary"
-                      >Start shopping</a
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <div class="page-content page-content--fluid">
-                <div class="account__block-list">
-                  <div class="account__block-item"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
       </div>
+
       <div
         id="shopify-section-static-newsletter"
         class="shopify-section shopify-section--newsletter"
@@ -9187,7 +9209,7 @@ if(!isset($_SESSION)){
               <native-carousel class="text-with-icons">
                 <div class="text-with-icons__list hide-scrollbar">
                   <native-carousel-item
-                    id="block-template--15880464466141__text-with-icons-item-1"
+                    id="block-static-text-with-icons-static-text-with-icons-0"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9207,12 +9229,12 @@ if(!isset($_SESSION)){
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">FREE SHIPPING</p>
+                      <p class="heading heading--small">Free shipping</p>
                       <p>Free shipping in India</p>
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-template--15880464466141__text-with-icons-item-2"
+                    id="block-static-text-with-icons-static-text-with-icons-1"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9243,7 +9265,7 @@ if(!isset($_SESSION)){
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-template--15880464466141__text-with-icons-33a9f141-c31d-4001-ba8e-e05bb9bde209"
+                    id="block-static-text-with-icons-static-text-with-icons-2"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9274,12 +9296,12 @@ if(!isset($_SESSION)){
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">SECURE PAYMENT</p>
+                      <p class="heading heading--small">Secure payment</p>
                       <p>Your payment information is processed securely.</p>
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-template--15880464466141__text-with-icons-item-3"
+                    id="block-static-text-with-icons-static-text-with-icons-3"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9288,21 +9310,23 @@ if(!isset($_SESSION)){
                         focusable="false"
                         width="24"
                         height="24"
-                        class="icon icon--picto-send"
+                        class="icon icon--picto-email"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M21.913 2L15.3391 20L11.5826 11.9M21.913 2L3.13043 8.3L11.5826 11.9M21.913 2L11.5826 11.9"
+                          d="M21 8V5H3V8M21 8V19H3V8M21 8L12 12.5L3 8"
                           stroke="currentColor"
                           stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         ></path>
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">Contact Us</p>
+                      <p class="heading heading--small">Contact us</p>
                       <p>
-                        Need to contact us ? Just send us an e-mail to
-                        contact@kalaajee.com
+                        Need to contact us ? Just send us an e-mail at
+                        contact@peachmode.com
                       </p>
                     </div></native-carousel-item
                   >
@@ -9352,35 +9376,35 @@ if(!isset($_SESSION)){
                 <div class="footer__item-content hidden-phone">
                   <ul class="linklist list--unstyled" role="list">
                     <li class="linklist__item">
-                      <a href="terms.php" class="link--faded"
+                      <a href="terms.html" class="link--faded"
                         >Terms & Condition</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="shipping.php" class="link--faded"
+                      <a href="shipping.html" class="link--faded"
                         >Shipping & Delivery</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="good.php" class="link--faded"
+                      <a href="good.html" class="link--faded"
                         >Goods & Services Tax</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="refund.php" class="link--faded"
+                      <a href="refund.html" class="link--faded"
                         >Refund and Cancellation</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="privacy.php" class="link--faded"
+                      <a href="privacy.html" class="link--faded"
                         >Privacy Policies</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="faq.php" class="link--faded">FAQs</a>
+                      <a href="faq.html" class="link--faded">FAQs</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="contact.php" class="link--faded">Contact us</a>
+                      <a href="contact.html" class="link--faded">Contact us</a>
                     </li>
                   </ul>
                 </div>
@@ -9419,40 +9443,40 @@ if(!isset($_SESSION)){
                       <div class="spr-reviews">
                         <ul class="linklist list--unstyled" role="list">
                           <li class="linklist__item">
-                            <a href="terms.php" class="link--faded"
+                            <a href="terms.html" class="link--faded"
                               >Terms & Condition</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="shipping.php" class="link--faded"
+                            <a href="shipping.html" class="link--faded"
                               >Shipping & Delivery</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="good.php" class="link--faded"
+                            <a href="good.html" class="link--faded"
                               >Goods & Services Tax</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="refund.php" class="link--faded"
+                            <a href="refund.html" class="link--faded"
                               >Refund and Cancellation</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="privacy.php" class="link--faded"
+                            <a href="privacy.html" class="link--faded"
                               >Privacy Policies</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="reedem.php" class="link--faded"
+                            <a href="reedem.html" class="link--faded"
                               >Reedem Gift Card</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="faq.php" class="link--faded">FAQs</a>
+                            <a href="faq.html" class="link--faded">FAQs</a>
                           </li>
                           <li class="linklist__item">
-                            <a href="contact.php" class="link--faded"
+                            <a href="contact.html" class="link--faded"
                               >Contact us</a
                             >
                           </li>
@@ -9472,28 +9496,30 @@ if(!isset($_SESSION)){
                 <div class="footer__item-content hidden-phone">
                   <ul class="linklist list--unstyled" role="list">
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Collections</a>
+                      <a href="product.html" class="link--faded">Collections</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Sarees</a>
+                      <a href="product.html" class="link--faded">Sarees</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Salwar Suits</a>
+                      <a href="product.html" class="link--faded"
+                        >Salwar Suits</a
+                      >
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Kurtis</a>
+                      <a href="product.html" class="link--faded">Kurtis</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Lehengas</a>
+                      <a href="product.html" class="link--faded">Lehengas</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Gowns</a>
+                      <a href="product.html" class="link--faded">Gowns</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Western</a>
+                      <a href="product.html" class="link--faded">Western</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Live</a>
+                      <a href="product.html" class="link--faded">Live</a>
                     </li>
                     <li class="linklist__item">
                       <a href="/collections/sale" class="link--faded">Sale</a>
@@ -9819,7 +9845,7 @@ if(!isset($_SESSION)){
             <div class="footer__aside">
               <span class="footer__copyright text--xsmall text--subdued"
                 >Copyright &copy; 2023
-                <a href="index.php">&nbsp; Kalaajee Fashions</a>. All rights
+                <a href="index.html">&nbsp; Kalaajee Fashions</a>. All rights
                 reserved And Proudly Powered By<a
                   href="https://www.successinnovativetechnologiespvtltd.com/"
                 >

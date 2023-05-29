@@ -306,7 +306,7 @@ window.dataLayer = window.dataLayer || [];
 window.additionalScripts = function () {
   
 };
-</script>" src="https://checkout.shopify.com/63748341981/sandbox/google_analytics_iframe?sandbox_token=LcmgWyYVHyRb7CN_ikv5CA" onload="this.setAttribute(&#39;data-loaded&#39;, true)" sandbox="allow-scripts" id="google-analytics-sandbox" tabIndex="-1" class="visually-hidden" style="display:none" aria-hidden="true"></iframe>
+</script>" src="https://checkout.shopify.com/63748341981/sandbox/google_analytics_iframe?sandbox_token=LcmgWyYVHyRb7CN_ikv5CA" onload="this.setAttribute('data-loaded', true)" sandbox="allow-scripts" id="google-analytics-sandbox" tabIndex="-1" class="visually-hidden" style="display:none" aria-hidden="true"></iframe>
 
   
 

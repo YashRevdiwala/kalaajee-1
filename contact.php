@@ -241,26 +241,26 @@ if(!isset($_SESSION)){
       var __wzrk_shop_money_format = '<span class="money">₹{{amount}}</span>';
       var __wzrk_shop_name = "Peachmode";
       var __wzrk_charged_currency = "INR";
-      var __wzrk_customer_name = "Yash Sabhaya";
-      var __wzrk_customer_identity = "6713034932445";
-      var __wzrk_customer_email = "yashsabhaya964@gmail.com";
+      var __wzrk_customer_name = "";
+      var __wzrk_customer_identity = "";
+      var __wzrk_customer_email = "";
       var __wzrk_customer_phone = "";
 
       window.clevertapApp = {
         config: {
           currency: "INR",
           meta: {
-            title: "Account",
-            template: "customers/account",
-            url: "https://peachmode.com/account",
-            type: "customers/account",
+            title: "Contact",
+            template: "page.contact",
+            url: "https://peachmode.com/pages/contact",
+            type: "page",
           },
           routes: {
             customer: {
               account: "/account",
-              login: "login.php",
-              logout: "logout.php",
-              register: "register.php",
+              login: "/account/login",
+              logout: "/account/logout",
+              register: "/account/register",
             },
             cart: {
               list: "/cart",
@@ -271,24 +271,6 @@ if(!isset($_SESSION)){
             },
           },
         },
-      };
-
-      var tags = [];
-
-      clevertapApp.customer = {
-        phone: "",
-        email: "yashsabhaya964@gmail.com",
-        name: "Yash Sabhaya",
-        id: parseInt("6713034932445"),
-        lastName: "Sabhaya",
-        firstName: "Yash",
-        city: "Surat",
-        acceptsMarketing: "true",
-        hasAccount: "true",
-        ordersCount: parseInt("0"),
-        taxExempt: "false",
-        totalSpent: (parseFloat("0") / 100).toFixed(2),
-        tags: tags,
       };
 
       clevertapApp.frame = {
@@ -323,8 +305,8 @@ if(!isset($_SESSION)){
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Account</title>
-    <link rel="canonical" href="https://peachmode.com/account" />
+    <title>Contact</title>
+    <link rel="canonical" href="https://peachmode.com/pages/contact" />
     <link rel="shortcut icon" href="img/1.png" />
     <link rel="preconnect" href="https://cdn.shopify.com" />
     <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com" />
@@ -351,7 +333,7 @@ if(!isset($_SESSION)){
     </script>
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Account" />
+    <meta property="og:title" content="Contact" />
     <meta
       property="og:image"
       content="http://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo.png?v=1649671323"
@@ -362,11 +344,11 @@ if(!isset($_SESSION)){
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
-    <meta property="og:url" content="https://peachmode.com/account" />
+    <meta property="og:url" content="https://peachmode.com/pages/contact" />
     <meta property="og:site_name" content="Peachmode" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Account" />
-    <meta name="twitter:description" content="Account" />
+    <meta name="twitter:title" content="Contact" />
+    <meta name="twitter:description" content="Contact" />
     <meta
       name="twitter:image"
       content="https://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo_1200x1200_crop_center.png?v=1649671323"
@@ -383,6 +365,12 @@ if(!isset($_SESSION)){
             "position": 1,
             "name": "Home",
             "item": "https://peachmode.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact",
+            "item": "https://peachmode.com/pages/contact"
           }
         ]
       }
@@ -658,7 +646,7 @@ if(!isset($_SESSION)){
       window.themeVariables = {
         settings: {
           direction: "ltr",
-          pageType: "customers\/account",
+          pageType: "page",
           cartCount: 0,
           moneyFormat:
             '\u003cspan class="money"\u003e₹{{amount}}\u003c\/span\u003e',
@@ -826,20 +814,20 @@ if(!isset($_SESSION)){
     <script>
       (function () {
         var scripts = [
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.04492a71077e352f2957.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.96fe0b7abf48419e7469.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_checkout-react-html_src_hooks_title_ts.latest.en.3457953d3abd1b694aa5.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_shopify_verdict_build_esm_runtimes_browser_index_mts_js.latest.en.f6f2083a5fb187836a1f.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app_components_AddressForm_AddressForm_tsx-app_components_Step_Step_tsx-app_utilities_receipt-224401.latest.en.4102af967c2318ba421f.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.8e68c4e4246b64be3ba3.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.7eadcddb7755a08c8d6d.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app_components_AddressForm_AddressForm_tsx-app_components_Step_Step_tsx-app_utilities_receipt-224401.latest.en.91b3bf74b8a9635d2c0a.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.94b7d1c1c7ab40c6eac2.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.d63d03b3b69c11f9e6aa.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.0ca662c669b41a356f6a.js",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_card-fields-react_src_hook_ts-packages_checkout-graphql_src_in-92a386.latest.en.b39452fcc8039fc140d1.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.34c13c3036294a9b3b6d.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.aaa897dd9c534f7f99ac.js",
         ];
         var styles = [
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.5196d587d3de2d2fbc8a.css",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.4e93eb2ccac793a61d40.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.b7ed98bf011cf2a4887c.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.90bde523bde67a4067f2.css",
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.f987e50a37d7171c2810.css",
         ];
 
@@ -958,10 +946,13 @@ if(!isset($_SESSION)){
       var __st = {
         a: 63748341981,
         offset: 19800,
-        reqid: "b6248c19-166f-4db7-8784-0ed415817f37",
-        pageurl: "peachmode.com\/account",
-        u: "b3b47478c00b",
-        cid: 6713034932445,
+        reqid: "1fdcc538-94e7-4b68-a2f6-ca338cd9c3d7",
+        pageurl: "peachmode.com\/pages\/contact",
+        s: "pages-96107528413",
+        u: "0170805b3452",
+        p: "page",
+        rtyp: "page",
+        rid: 96107528413,
       };
     </script>
     <script>
@@ -1032,7 +1023,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script>
-      var loox_global_hash = "1681351419703";
+      var loox_global_hash = "1681094666627";
     </script>
     <style>
       .loox-reviews-default {
@@ -1984,9 +1975,7 @@ if(!isset($_SESSION)){
         "https://connect.facebook.net/en_US/fbevents.js"
       );
 
-      fbq("init", "795748567170435", {
-        em: "yashsabhaya964@gmail.com",
-      });
+      fbq("init", "795748567170435");
 
       fbq("track", "PageView");
     </script>
@@ -2038,7 +2027,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script
-      src="https://cdn.shopify.com/extensions/c4e8e215-0970-4d3a-ac7b-2e25bea3398b/2.0.0/assets/ws-currencyconverter.js"
+      src="https://cdn.shopify.com/extensions/cece2cc8-741a-4309-94ee-04a78984c575/1.59.0/assets/ws-currencyconverter.js"
       type="text/javascript"
       defer="defer"
     ></script>
@@ -2064,7 +2053,7 @@ if(!isset($_SESSION)){
                   session_token && session_token.length === 2
                     ? session_token[1]
                     : "",
-                page_type: "customers/account",
+                page_type: "page",
               };
               window.navigator.sendBeacon(
                 "https://monorail-edge.shopifysvc.com/v1/produce",
@@ -2083,104 +2072,17 @@ if(!isset($_SESSION)){
         }
       })();
     </script>
-    <script id="evids-setup">
-      (function () {
-        let t, e;
-        function n() {
-          (t = {
-            page_viewed: {},
-            collection_viewed: {},
-            product_viewed: {},
-            product_variant_viewed: {},
-            search_submitted: {},
-            product_added_to_cart: {},
-            checkout_started: {},
-            checkout_completed: {},
-            payment_info_submitted: {},
-          }),
-            (e = { wpm: {}, trekkie: {} });
-        }
-        function o(t) {
-          return `${t || "sh"}-${(function () {
-            const t = "xxxx-4xxx-xxxx-xxxxxxxxxxxx";
-            let e = "";
-            try {
-              const n = window.crypto,
-                o = new Uint16Array(31);
-              n.getRandomValues(o);
-              let r = 0;
-              e = t
-                .replace(/[x]/g, (t) => {
-                  const e = o[r] % 16;
-                  return r++, ("x" === t ? e : (3 & e) | 8).toString(16);
-                })
-                .toUpperCase();
-            } catch (n) {
-              e = t
-                .replace(/[x]/g, (t) => {
-                  const e = (16 * Math.random()) | 0;
-                  return ("x" === t ? e : (3 & e) | 8).toString(16);
-                })
-                .toUpperCase();
-            }
-            return `${(function () {
-              let t = 0,
-                e = 0;
-              t = new Date().getTime() >>> 0;
-              try {
-                e = performance.now() >>> 0;
-              } catch (t) {
-                e = 0;
-              }
-              const n = Math.abs(t + e)
-                .toString(16)
-                .toLowerCase();
-              return "00000000".substr(0, 8 - n.length) + n;
-            })()}-${e}`;
-          })()}`;
-        }
-        function r(n, r) {
-          if (
-            !t[n] ||
-            ("trekkie" !== (null == r ? void 0 : r.analyticsFramework) &&
-              "wpm" !== (null == r ? void 0 : r.analyticsFramework))
-          )
-            return o("shu");
-          const i = "string" == typeof (c = r.cacheKey) && c ? c : "default";
-          var c;
-          const a = (function (t, n, o) {
-            const r = e[n];
-            return (
-              void 0 === r[t] && (r[t] = {}),
-              void 0 === r[t][o] ? (r[t][o] = 0) : (r[t][o] += 1),
-              r[t][o]
-            );
-          })(n, r.analyticsFramework, i);
-          return (function (e, n, r) {
-            const i = t[e];
-            if (void 0 === i[r]) {
-              const t = o();
-              i[r] = [t];
-            } else if (void 0 === i[r][n]) {
-              const t = o();
-              i[r].push(t);
-            }
-            return i[r][n];
-          })(n, a, i);
-        }
-        function i() {
-          (window.Shopify = window.Shopify || {}),
-            n(),
-            (window.Shopify.evids = (t, e) => r(t, e));
-        }
-        i();
-      })();
-    </script>
     <script>
       window.ShopifyAnalytics = window.ShopifyAnalytics || {};
       window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
       window.ShopifyAnalytics.meta.currency = "INR";
-      var meta = { page: { customerId: 6713034932445 } };
+      var meta = {
+        page: {
+          pageType: "page",
+          resourceType: "page",
+          resourceId: 96107528413,
+        },
+      };
       for (var attr in meta) {
         window.ShopifyAnalytics.meta[attr] = meta[attr];
       }
@@ -2324,18 +2226,18 @@ if(!isset($_SESSION)){
                   app_name: "storefront",
                   context_url: window.location.href,
                   source_url:
-                    "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js",
+                    "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js",
                 }
               );
             };
             scriptFallback.async = true;
             scriptFallback.src =
-              "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js";
+              "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js";
             first.parentNode.insertBefore(scriptFallback, first);
           };
           script.async = true;
           script.src =
-            "https://cdn.shopify.com/s/trekkie.storefront.32dc1f4fe8f576a6d20c0db4541aff3dd4b06687.min.js";
+            "https://cdn.shopify.com/s/trekkie.storefront.ff16095366b6f10320cdce1a0d6f696f3f3d4af4.min.js";
           first.parentNode.insertBefore(script, first);
         };
         trekkie.load({
@@ -2356,7 +2258,6 @@ if(!isset($_SESSION)){
           "Session Attribution": {},
           S2S: {
             facebookCapiEnabled: false,
-            customerId: 6713034932445,
             source: "trekkie-storefront-renderer",
           },
         });
@@ -2375,7 +2276,11 @@ if(!isset($_SESSION)){
           } catch (error) {}
           document.write = originalDocumentWrite;
 
-          window.ShopifyAnalytics.lib.page(null, { customerId: 6713034932445 });
+          window.ShopifyAnalytics.lib.page(null, {
+            pageType: "page",
+            resourceType: "page",
+            resourceId: 96107528413,
+          });
 
           var match = window.location.pathname.match(
             /checkouts\/(.+)\/(thank_you|post_purchase)/
@@ -2412,7 +2317,7 @@ if(!isset($_SESSION)){
         window.BOOMR.themeVersion = "8.8.1";
         window.BOOMR.shopId = 63748341981;
         window.BOOMR.themeId = 131960242397;
-        window.BOOMR.renderRegion = "gcp-us-east1";
+        window.BOOMR.renderRegion = "gcp-europe-west1";
         window.BOOMR.url =
           "https://cdn.shopify.com/shopifycloud/boomerang/shopify-boomerang-1.0.0.min.js";
         var where =
@@ -2704,13 +2609,7 @@ if(!isset($_SESSION)){
           initData: {
             cart: null,
             checkout: null,
-            customer: {
-              email: "yashsabhaya964@gmail.com",
-              firstName: "Yash",
-              id: "6713034932445",
-              lastName: "Sabhaya",
-              phone: null,
-            },
+            customer: null,
             productVariants: [],
           },
         },
@@ -2719,13 +2618,13 @@ if(!isset($_SESSION)){
         },
         "https://cdn.shopify.com",
         "browser",
-        "0.0.285",
-        "da3bd5a4w8ea8a283p30eb74b3mf7ed84c9"
+        "0.0.279",
+        "518c152fw00918cf1pc7ca055am99284242"
       );
     </script>
   </head>
   <body
-    class="no-focus-outline features--image-zoom template-account"
+    class="no-focus-outline features--image-zoom template-page"
     data-instant-allow-query-string
   >
     <!-- Google Tag Manager (noscript) -->
@@ -2815,6 +2714,10 @@ if(!isset($_SESSION)){
             ><announcement-bar-item hidden class="announcement-bar__item"
               ><div class="announcement-bar__message text--xsmall">
                 <p>7 Day no questions asked return policy.</p>
+              </div></announcement-bar-item
+            ><announcement-bar-item hidden class="announcement-bar__item"
+              ><div class="announcement-bar__message text--xsmall">
+                <p>Free Shipping in India. COD Available.</p>
               </div></announcement-bar-item
             >
           </div>
@@ -6054,8 +5957,8 @@ if(!isset($_SESSION)){
         global
         hidden
         class="cart-notification"
-      ></cart-notification>
-      <mobile-navigation
+      ></cart-notification
+      ><mobile-navigation
         append-body
         id="mobile-menu-drawer"
         class="drawer drawer--from-left"
@@ -8741,7 +8644,7 @@ if(!isset($_SESSION)){
           class="drawer__footer drawer__footer--tight drawer__footer--bordered"
         >
           <div class="mobile-nav__footer">
-            <a class="icon-text" href="/account"
+            <a class="icon-text" href="/account/login"
               ><svg
                 focusable="false"
                 width="18"
@@ -8908,7 +8811,7 @@ if(!isset($_SESSION)){
 
           "logo": "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/files\/280x80_d20e9ddd-ae15-43c9-9dc7-142b6b7c30e1_280x.png?v=1676437272",
 
-          "url": "https:\/\/peachmode.com"
+          "url": "https:\/\/peachmode.com\/pages\/contact"
         }
       </script>
     </div>
@@ -8923,65 +8826,72 @@ if(!isset($_SESSION)){
       >
         <span class="drawer__overlay"></span>
 
-        <footer
-          class="mini-cart__drawer-footer drawer__footer drawer__footer--tight drawer__footer--bordered"
-        >
-          <div class="mini-cart__actions text--subdued text--xsmall">
-            <button
-              type="button"
-              is="toggle-button"
-              id="order-note-toggle"
-              class="link"
-              data-action="toggle-order-note"
-              aria-controls="mini-cart-note"
-              aria-expanded="false"
+        <header class="drawer__header">
+          <p class="drawer__title heading h6">
+            <svg
+              focusable="false"
+              width="21"
+              height="20"
+              class="icon icon--header-shopping-cart"
+              viewBox="0 0 21 20"
             >
-              Add order note</button
-            ><span>Shipping &amp; taxes calculated at checkout</span>
-          </div>
-          <button
-            is="loader-button"
-            form="mini-cart-form"
-            type="submit"
-            class="checkout-button button button--primary button--full"
-            name="checkout"
-          >
-            <span class="checkout-button__lock"
-              ><svg
-                focusable="false"
-                width="17"
-                height="17"
-                class="icon icon--lock"
-                viewBox="0 0 17 17"
-              >
-                <path
-                  d="M2.5 7V15H14.5V7H2.5Z"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  fill="none"
-                ></path>
-                <path
-                  d="M5.5 4C5.5 2.34315 6.84315 1 8.5 1V1C10.1569 1 11.5 2.34315 11.5 4V7H5.5V4Z"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                ></path>
-                <circle
-                  cx="8.5"
-                  cy="11"
-                  r="0.5"
-                  stroke="currentColor"
-                ></circle></svg
-            ></span>
+              <path
+                d="M0 1H4L5 11H17L19 4H8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              ></path>
+              <circle
+                cx="6"
+                cy="17"
+                r="2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              ></circle>
+              <circle
+                cx="16"
+                cy="17"
+                r="2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              ></circle></svg
+            >Cart
+          </p>
 
-            <!--Checkout-->
-            BUY NOW
-            <span class="square-separator"></span
-            ><span class="money">₹849.00</span>
+          <button
+            type="button"
+            class="drawer__close-button tap-area"
+            data-action="close"
+            title="Close"
+          >
+            <svg
+              focusable="false"
+              width="14"
+              height="14"
+              class="icon icon--close"
+              viewBox="0 0 14 14"
+            >
+              <path
+                d="M13 13L1 1M13 1L1 13"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              ></path>
+            </svg>
           </button>
-        </footer>
+        </header>
+        <div class="drawer__content drawer__content--center">
+          <p>Your cart is empty</p>
+
+          <div class="button-wrapper">
+            <a href="index.html" class="button button--primary"
+              >Start shopping</a
+            >
+            <a href="cart.html" class="button button--primary">View Cart</a>
+          </div>
+        </div>
         <openable-element id="mini-cart-note" class="mini-cart__order-note">
           <span class="openable__overlay"></span>
           <label
@@ -9010,154 +8920,228 @@ if(!isset($_SESSION)){
     </div>
     <div id="main" role="main" class="anchor">
       <div
-        id="shopify-section-template--15880464859357__main"
-        class="shopify-section shopify-section--main-customers-account"
+        id="shopify-section-template--15880464531677__main"
+        class="shopify-section shopify-section--main-page"
       >
         <section>
-          <div class="link-bar hidden-phone">
+          <div class="container">
+            <div class="page-header">
+              <nav
+                aria-label="Breadcrumb"
+                class="breadcrumb breadcrumb--floating text--xsmall hidden-phone"
+              >
+                <ol class="breadcrumb__list" role="list">
+                  <li class="breadcrumb__item">
+                    <a class="breadcrumb__link" href="/">Home</a>
+                  </li>
+
+                  <li class="breadcrumb__item">
+                    <span class="breadcrumb__link" aria-current="page"
+                      >Contact</span
+                    >
+                  </li>
+                </ol>
+              </nav>
+
+              <div class="page-header__text-wrapper text-container">
+                <h1 class="heading h2">Contact</h1>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464531677__1654666025d9a44e6f"
+        class="shopify-section shopify-section--multi-column"
+      >
+        <style>
+          #shopify-section-template--15880464531677__1654666025d9a44e6f {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+            --prev-next-button-background: 255, 255, 255;
+            --prev-next-button-color: 34, 34, 34;
+
+            --section-background: 255, 255, 255;
+          }
+          #shopify-section-template--15880464531677__1654666025d9a44e6f {
+            --vertical-breather: 40px; /* Only on multi-column section, due to its specific usage we reduce spacing when no content */
+          } /* Reduce the margin on small devices to create a slightly better layout */
+          @media screen and (max-width: 999px) {
+            #shopify-section-template--15880464531677__1654666025d9a44e6f {
+              --vertical-breather: var(--container-gutter);
+            }
+          }
+        </style>
+
+        <section class="section">
+          <div class="section__color-wrapper">
             <div class="container">
-              <div class="link-bar__wrapper">
-                <ul class="link-bar__linklist list--unstyled" role="list">
-                  <li class="link-bar__link-item">
-                    <a href="profile.php" class="link-bar__link link--animated"
-                      >My Profile</a
+              <multi-column
+                stack
+                stagger-apparition
+                class="multi-column multi-column--pocket-medium multi-column--medium multi-column--spacing-normal"
+                ><div>
+                  <scrollable-content
+                    class="multi-column__inner multi-column__inner--center"
+                    ><div
+                      id="block-template--15880464531677__1654666025d9a44e6f-16546660251ac3fc50-0"
+                      class="multi-column__item multi-column__item--align-start image-zoom"
+                      reveal
                     >
-                  </li>
-                  <li class="link-bar__link-item">
-                    <a
-                      href="account.php"
-                      class="link-bar__link link--animated text--underlined"
-                      >Orders</a
+                      <a
+                        href="track-order.html"
+                        class="multi-column__image-wrapper"
+                        style="max-width: 32%; width: 200px"
+                      >
+                        <img loading="lazy" sizes="(max-width: 740px) calc(100vw
+                        - 48px), (max-width: 999px) calc(25vw - 80px), 272px"
+                        class="multi-column__image" height="200" width="200"
+                        alt=""
+                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/files/track-order.png?v=1654666131"
+                        ">
+                      </a>
+                      <div
+                        class="multi-column__text-container text--center text-container"
+                      >
+                        <p class="heading h5">Track your Order</p>
+                        <p>
+                          Tracking number may take upto 24/48 hrs to get
+                          activated & reflect updated status.
+                        </p>
+                        <div class="button-wrapper">
+                          <a
+                            href="track-order.html"
+                            class="multi-column__button button button--small button--primary"
+                            >Track</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="block-template--15880464531677__1654666025d9a44e6f-16546660251ac3fc50-1"
+                      class="multi-column__item multi-column__item--align-start image-zoom"
+                      reveal
                     >
-                  </li>
-
-                  <li class="link-bar__link-item">
-                    <a href="address.php" class="link-bar__link link--animated"
-                      >Addresses</a
+                      <a
+                        href="cancel-order.html"
+                        class="multi-column__image-wrapper"
+                        style="max-width: 32%; width: 200px"
+                      >
+                        <img loading="lazy" sizes="(max-width: 740px) calc(100vw
+                        - 48px), (max-width: 999px) calc(25vw - 80px), 272px"
+                        class="multi-column__image" height="200" width="200"
+                        alt=""
+                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/files/cancel-order.png?v=1654666365"
+                        ">
+                      </a>
+                      <div
+                        class="multi-column__text-container text--center text-container"
+                      >
+                        <p class="heading h5">Cancel your Order</p>
+                        <p>
+                          Order items which have not been processed by us can be
+                          cancelled from here.
+                        </p>
+                        <div class="button-wrapper">
+                          <a
+                            href="cancel-order.html"
+                            class="multi-column__button button button--small button--primary"
+                            >Cancel</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="block-template--15880464531677__1654666025d9a44e6f-16546660251ac3fc50-2"
+                      class="multi-column__item multi-column__item--align-start image-zoom"
+                      reveal
                     >
-                  </li>
-                  <li class="link-bar__link-item">
-                    <a
-                      href="track-order.php"
-                      class="link-bar__link link--animated"
-                      >Track Order</a
-                    >
-                  </li>
-
-                  <li class="link-bar__link-item">
-                    <a
-                      href="logout.php"
-                      class="link-bar__link link--animated text--subdued"
-                      data-no-instant
-                      >Logout</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="mobile-toolbar hidden-tablet-and-up">
-            <button
-              class="mobile-toolbar__item"
-              is="toggle-button"
-              aria-expanded="false"
-              aria-controls="account-links-popover"
-            >
-              Orders<svg
-                focusable="false"
-                width="12"
-                height="8"
-                class="icon icon--chevron"
-                viewBox="0 0 12 8"
-              >
-                <path
-                  fill="none"
-                  d="M1 1l5 5 5-5"
-                  stroke="currentColor"
-                  stroke-width="2"
-                ></path>
-              </svg>
-            </button>
-          </div>
-
-          <popover-content id="account-links-popover" class="popover">
-            <span class="popover__overlay"></span>
-
-            <header class="popover__header">
-              <span class="popover__title heading h6">My account</span>
-
-              <button
-                type="button"
-                class="popover__close-button tap-area tap-area--large"
-                data-action="close"
-                title="Close"
-              >
-                <svg
-                  focusable="false"
-                  width="14"
-                  height="14"
-                  class="icon icon--close"
-                  viewBox="0 0 14 14"
-                >
-                  <path
-                    d="M13 13L1 1M13 1L1 13"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    fill="none"
-                  ></path>
-                </svg>
-              </button>
-            </header>
-
-            <div class="popover__content">
-              <div class="popover__choice-list">
-                <a href="profile.php" class="popover__choice-item">
-                  <span class="popover__choice-label">My Profile</span>
-                </a>
-                <a href="account.php" class="popover__choice-item">
-                  <span class="popover__choice-label" aria-current="true"
-                    >Orders</span
+                      <a
+                        href="return-replace-your-order.html"
+                        class="multi-column__image-wrapper"
+                        style="max-width: 32%; width: 200px"
+                      >
+                        <img loading="lazy" sizes="(max-width: 740px) calc(100vw
+                        - 48px), (max-width: 999px) calc(25vw - 80px), 272px"
+                        class="multi-column__image" height="200" width="200"
+                        alt=""
+                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/files/return_order.png?v=1654666479"
+                        ">
+                      </a>
+                      <div
+                        class="multi-column__text-container text--center text-container"
+                      >
+                        <p class="heading h5">Return/Replace Order</p>
+                        <p>
+                          Order items which have been delivered within 7days can
+                          be returned.
+                        </p>
+                        <div class="button-wrapper">
+                          <a
+                            href="return-replace-your-order.html"
+                            class="multi-column__button button button--small button--primary"
+                            >Return/Replace</a
+                          >
+                        </div>
+                      </div>
+                    </div></scrollable-content
                   >
-                </a>
-
-                <a href="address.php" class="popover__choice-item">
-                  <span class="popover__choice-label">Addresses</span>
-                </a>
-
-                <a
-                  href="login.php"
-                  class="popover__choice-item text--subdued"
-                  data-no-instant
-                >
-                  <span class="popover__choice-label">Logout</span>
-                </a>
-              </div>
-            </div>
-          </popover-content>
-
-          <div class="account account--order-list">
-            <div class="container container--small">
-              <div class="page-header page-header--small page-header--alone">
-                <div class="page-header__text-wrapper text-container">
-                  <h1 class="heading h4">
-                    Orders <span class="bubble-count bubble-count--top">0</span>
-                  </h1>
-                  <p class="text--subdued">
-                    You have not placed any orders yet.
-                  </p>
-
-                  <div class="button-wrapper">
-                    <a href="index.php" class="button button--primary"
-                      >Start shopping</a
-                    >
-                  </div>
                 </div>
-              </div>
+              </multi-column>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        id="shopify-section-template--15880464531677__1655367266b436f536"
+        class="shopify-section shopify-section--rich-text"
+      >
+        <style>
+          #shopify-section-template--15880464531677__1655367266b436f536 {
+            --heading-color: 26, 26, 26;
+            --text-color: 34, 34, 34;
+            --primary-button-background: 241, 63, 98;
+            --primary-button-text-color: 255, 255, 255;
 
-              <div class="page-content page-content--fluid">
-                <div class="account__block-list">
-                  <div class="account__block-item"></div>
+            --section-background: 255, 255, 255;
+          }
+        </style>
+
+        <section class="section">
+          <div>
+            <div class="section__color-wrapper">
+              <div class="container">
+                <div
+                  class="content-box content-box--medium content-box--text-center content-box--center text-container"
+                >
+                  <h3 class="heading h2">Still need help?</h3>
+                  <p>
+                    <a
+                      href="https://wa.me/918976948840?text=Hi"
+                      title="Peachmode Chat On Whatsapp"
+                      ><strong>Chat On Whatsapp</strong></a
+                    ><br /><br />Customer Care
+                  </p>
+                  <p>
+                    <a href="tel:+91-22-62760606">+91-22-62760606</a><br />MON -
+                    SAT (9AM - 6PM)<br />
+                  </p>
+                  <p>
+                    Email Us:<br /><a href="mailto:contact@kalaajee.com"
+                      >contact@kalaajee.com</a
+                    >
+                  </p>
+                  <p>
+                    For Returns:<br /><a href="mailto:returns@kalaajee.com"
+                      >returns@kalaajee.com</a
+                    >
+                  </p>
+                  <p>
+                    For Marketing and Business Development:<br /><a
+                      href="mailto:marketing@kalaajee.com"
+                      >marketing@kalaajee.com</a
+                    >
+                  </p>
                 </div>
               </div>
             </div>
@@ -9187,7 +9171,7 @@ if(!isset($_SESSION)){
               <native-carousel class="text-with-icons">
                 <div class="text-with-icons__list hide-scrollbar">
                   <native-carousel-item
-                    id="block-template--15880464466141__text-with-icons-item-1"
+                    id="block-static-text-with-icons-static-text-with-icons-0"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9207,12 +9191,12 @@ if(!isset($_SESSION)){
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">FREE SHIPPING</p>
+                      <p class="heading heading--small">Free shipping</p>
                       <p>Free shipping in India</p>
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-template--15880464466141__text-with-icons-item-2"
+                    id="block-static-text-with-icons-static-text-with-icons-1"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9243,7 +9227,7 @@ if(!isset($_SESSION)){
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-template--15880464466141__text-with-icons-33a9f141-c31d-4001-ba8e-e05bb9bde209"
+                    id="block-static-text-with-icons-static-text-with-icons-2"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9274,12 +9258,12 @@ if(!isset($_SESSION)){
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">SECURE PAYMENT</p>
+                      <p class="heading heading--small">Secure payment</p>
                       <p>Your payment information is processed securely.</p>
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-template--15880464466141__text-with-icons-item-3"
+                    id="block-static-text-with-icons-static-text-with-icons-3"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9288,21 +9272,23 @@ if(!isset($_SESSION)){
                         focusable="false"
                         width="24"
                         height="24"
-                        class="icon icon--picto-send"
+                        class="icon icon--picto-email"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M21.913 2L15.3391 20L11.5826 11.9M21.913 2L3.13043 8.3L11.5826 11.9M21.913 2L11.5826 11.9"
+                          d="M21 8V5H3V8M21 8V19H3V8M21 8L12 12.5L3 8"
                           stroke="currentColor"
                           stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         ></path>
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">Contact Us</p>
+                      <p class="heading heading--small">Contact us</p>
                       <p>
-                        Need to contact us ? Just send us an e-mail to
-                        contact@kalaajee.com
+                        Need to contact us ? Just send us an e-mail at
+                        contact@peachmode.com
                       </p>
                     </div></native-carousel-item
                   >
@@ -9352,35 +9338,35 @@ if(!isset($_SESSION)){
                 <div class="footer__item-content hidden-phone">
                   <ul class="linklist list--unstyled" role="list">
                     <li class="linklist__item">
-                      <a href="terms.php" class="link--faded"
+                      <a href="terms.html" class="link--faded"
                         >Terms & Condition</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="shipping.php" class="link--faded"
+                      <a href="shipping.html" class="link--faded"
                         >Shipping & Delivery</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="good.php" class="link--faded"
+                      <a href="good.html" class="link--faded"
                         >Goods & Services Tax</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="refund.php" class="link--faded"
+                      <a href="refund.html" class="link--faded"
                         >Refund and Cancellation</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="privacy.php" class="link--faded"
+                      <a href="privacy.html" class="link--faded"
                         >Privacy Policies</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="faq.php" class="link--faded">FAQs</a>
+                      <a href="faq.html" class="link--faded">FAQs</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="contact.php" class="link--faded">Contact us</a>
+                      <a href="contact.html" class="link--faded">Contact us</a>
                     </li>
                   </ul>
                 </div>
@@ -9419,40 +9405,40 @@ if(!isset($_SESSION)){
                       <div class="spr-reviews">
                         <ul class="linklist list--unstyled" role="list">
                           <li class="linklist__item">
-                            <a href="terms.php" class="link--faded"
+                            <a href="terms.html" class="link--faded"
                               >Terms & Condition</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="shipping.php" class="link--faded"
+                            <a href="shipping.html" class="link--faded"
                               >Shipping & Delivery</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="good.php" class="link--faded"
+                            <a href="good.html" class="link--faded"
                               >Goods & Services Tax</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="refund.php" class="link--faded"
+                            <a href="refund.html" class="link--faded"
                               >Refund and Cancellation</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="privacy.php" class="link--faded"
+                            <a href="privacy.html" class="link--faded"
                               >Privacy Policies</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="reedem.php" class="link--faded"
+                            <a href="reedem.html" class="link--faded"
                               >Reedem Gift Card</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="faq.php" class="link--faded">FAQs</a>
+                            <a href="faq.html" class="link--faded">FAQs</a>
                           </li>
                           <li class="linklist__item">
-                            <a href="contact.php" class="link--faded"
+                            <a href="contact.html" class="link--faded"
                               >Contact us</a
                             >
                           </li>
@@ -9472,28 +9458,30 @@ if(!isset($_SESSION)){
                 <div class="footer__item-content hidden-phone">
                   <ul class="linklist list--unstyled" role="list">
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Collections</a>
+                      <a href="product.html" class="link--faded">Collections</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Sarees</a>
+                      <a href="product.html" class="link--faded">Sarees</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Salwar Suits</a>
+                      <a href="product.html" class="link--faded"
+                        >Salwar Suits</a
+                      >
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Kurtis</a>
+                      <a href="product.html" class="link--faded">Kurtis</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Lehengas</a>
+                      <a href="product.html" class="link--faded">Lehengas</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Gowns</a>
+                      <a href="product.html" class="link--faded">Gowns</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Western</a>
+                      <a href="product.html" class="link--faded">Western</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Live</a>
+                      <a href="product.html" class="link--faded">Live</a>
                     </li>
                     <li class="linklist__item">
                       <a href="/collections/sale" class="link--faded">Sale</a>
@@ -9819,7 +9807,7 @@ if(!isset($_SESSION)){
             <div class="footer__aside">
               <span class="footer__copyright text--xsmall text--subdued"
                 >Copyright &copy; 2023
-                <a href="index.php">&nbsp; Kalaajee Fashions</a>. All rights
+                <a href="index.html">&nbsp; Kalaajee Fashions</a>. All rights
                 reserved And Proudly Powered By<a
                   href="https://www.successinnovativetechnologiespvtltd.com/"
                 >

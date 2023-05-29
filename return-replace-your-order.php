@@ -241,26 +241,26 @@ if(!isset($_SESSION)){
       var __wzrk_shop_money_format = '<span class="money">₹{{amount}}</span>';
       var __wzrk_shop_name = "Peachmode";
       var __wzrk_charged_currency = "INR";
-      var __wzrk_customer_name = "Yash Sabhaya";
-      var __wzrk_customer_identity = "6713034932445";
-      var __wzrk_customer_email = "yashsabhaya964@gmail.com";
+      var __wzrk_customer_name = "";
+      var __wzrk_customer_identity = "";
+      var __wzrk_customer_email = "";
       var __wzrk_customer_phone = "";
 
       window.clevertapApp = {
         config: {
           currency: "INR",
           meta: {
-            title: "Account",
-            template: "customers/account",
-            url: "https://peachmode.com/account",
-            type: "customers/account",
+            title: "Return/Replace your order",
+            template: "page.return-replace-your-order",
+            url: "https://peachmode.com/pages/return-replace-your-order",
+            type: "page",
           },
           routes: {
             customer: {
               account: "/account",
-              login: "login.php",
-              logout: "logout.php",
-              register: "register.php",
+              login: "/account/login",
+              logout: "/account/logout",
+              register: "/account/register",
             },
             cart: {
               list: "/cart",
@@ -271,24 +271,6 @@ if(!isset($_SESSION)){
             },
           },
         },
-      };
-
-      var tags = [];
-
-      clevertapApp.customer = {
-        phone: "",
-        email: "yashsabhaya964@gmail.com",
-        name: "Yash Sabhaya",
-        id: parseInt("6713034932445"),
-        lastName: "Sabhaya",
-        firstName: "Yash",
-        city: "Surat",
-        acceptsMarketing: "true",
-        hasAccount: "true",
-        ordersCount: parseInt("0"),
-        taxExempt: "false",
-        totalSpent: (parseFloat("0") / 100).toFixed(2),
-        tags: tags,
       };
 
       clevertapApp.frame = {
@@ -323,8 +305,15 @@ if(!isset($_SESSION)){
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Account</title>
-    <link rel="canonical" href="https://peachmode.com/account" />
+    <title>Return/Replace your order</title>
+    <meta
+      name="description"
+      content='To Return Product please enter your Order ID and Email in the box below and press the "Submit" button. These were given to you on your receipt and in the confirmation email you should have received.'
+    />
+    <link
+      rel="canonical"
+      href="https://peachmode.com/pages/return-replace-your-order"
+    />
     <link rel="shortcut icon" href="img/1.png" />
     <link rel="preconnect" href="https://cdn.shopify.com" />
     <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com" />
@@ -351,7 +340,7 @@ if(!isset($_SESSION)){
     </script>
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Account" />
+    <meta property="og:title" content="Return/Replace your order" />
     <meta
       property="og:image"
       content="http://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo.png?v=1649671323"
@@ -362,11 +351,21 @@ if(!isset($_SESSION)){
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
-    <meta property="og:url" content="https://peachmode.com/account" />
+    <meta
+      property="og:description"
+      content='To Return Product please enter your Order ID and Email in the box below and press the "Submit" button. These were given to you on your receipt and in the confirmation email you should have received.'
+    />
+    <meta
+      property="og:url"
+      content="https://peachmode.com/pages/return-replace-your-order"
+    />
     <meta property="og:site_name" content="Peachmode" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Account" />
-    <meta name="twitter:description" content="Account" />
+    <meta name="twitter:title" content="Return/Replace your order" />
+    <meta
+      name="twitter:description"
+      content='To Return Product please enter your Order ID and Email in the box below and press the "Submit" button. These were given to you on your receipt and in the confirmation email you should have received.'
+    />
     <meta
       name="twitter:image"
       content="https://cdn.shopify.com/s/files/1/0637/4834/1981/files/Peachmode_Logo_1200x1200_crop_center.png?v=1649671323"
@@ -383,6 +382,12 @@ if(!isset($_SESSION)){
             "position": 1,
             "name": "Home",
             "item": "https://peachmode.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Return\/Replace your order",
+            "item": "https://peachmode.com/pages/return-replace-your-order"
           }
         ]
       }
@@ -658,7 +663,7 @@ if(!isset($_SESSION)){
       window.themeVariables = {
         settings: {
           direction: "ltr",
-          pageType: "customers\/account",
+          pageType: "page",
           cartCount: 0,
           moneyFormat:
             '\u003cspan class="money"\u003e₹{{amount}}\u003c\/span\u003e',
@@ -826,21 +831,22 @@ if(!isset($_SESSION)){
     <script>
       (function () {
         var scripts = [
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.04492a71077e352f2957.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_checkout-react-html_src_hooks_title_ts.latest.en.3457953d3abd1b694aa5.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_shopify_verdict_build_esm_runtimes_browser_index_mts_js.latest.en.f6f2083a5fb187836a1f.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app_components_AddressForm_AddressForm_tsx-app_components_Step_Step_tsx-app_utilities_receipt-224401.latest.en.4102af967c2318ba421f.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.8e68c4e4246b64be3ba3.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.7eadcddb7755a08c8d6d.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.0ca662c669b41a356f6a.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages-packages_card-fields-react_src_hook_ts-packages_checkout-graphql_src_in-92a386.latest.en.b39452fcc8039fc140d1.js",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.34c13c3036294a9b3b6d.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.baseline.en.f8423b4aeafd3581e601.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages~Information~NoAddressLocation~Payment~PostPurchase~Review~Shipping~ShopPay~Sho~cf13f96e.baseline.en.8d3a709bcf8c04f77ed7.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information~Payment~ShopPay.baseline.en.935f71e1b5e37b1a673d.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information~Payment.baseline.en.e38e94a10255bd8dac2c.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.baseline.en.3c067bc64a64a71ff5ad.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui~app.baseline.en.26a0342d355a675e2801.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors~app.baseline.en.1188b9033722bc012e84.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages~app.baseline.en.4e70883e139eb5a799c1.js",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.baseline.en.d102fc12c433371f18b0.js",
         ];
         var styles = [
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui-packages_checkout-web-ui_src_styles_global_css_ts-packages_checkout-web-ui_sr-da3b38.latest.en.5196d587d3de2d2fbc8a.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors-node_modules_bugsnag_js_browser_notifier_js-node_modules_vanilla-extract_sprinkles_cr-077d89.latest.en.4e93eb2ccac793a61d40.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.b7ed98bf011cf2a4887c.css",
-          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.latest.en.f987e50a37d7171c2810.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui~app.baseline.en.ba7746e3965877991bae.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/vendors~app.baseline.en.954db6995929b6f1f646.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.baseline.en.dd733f21b66b59afc26d.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information~Payment~ShopPay.baseline.en.9f248e42bf2a8151ea27.css",
+          "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.baseline.en.6d08f77e3a864d9cf367.css",
         ];
 
         function prefetch(url, as, callback) {
@@ -958,10 +964,13 @@ if(!isset($_SESSION)){
       var __st = {
         a: 63748341981,
         offset: 19800,
-        reqid: "b6248c19-166f-4db7-8784-0ed415817f37",
-        pageurl: "peachmode.com\/account",
-        u: "b3b47478c00b",
-        cid: 6713034932445,
+        reqid: "a3cd4387-e3ea-47fe-9df3-8faf1732863c",
+        pageurl: "peachmode.com\/pages\/return-replace-your-order",
+        s: "pages-98220081373",
+        u: "ecfe401fa6e7",
+        p: "page",
+        rtyp: "page",
+        rid: 98220081373,
       };
     </script>
     <script>
@@ -1032,7 +1041,7 @@ if(!isset($_SESSION)){
     </script>
 
     <script>
-      var loox_global_hash = "1681351419703";
+      var loox_global_hash = "1681308055903";
     </script>
     <style>
       .loox-reviews-default {
@@ -1984,9 +1993,7 @@ if(!isset($_SESSION)){
         "https://connect.facebook.net/en_US/fbevents.js"
       );
 
-      fbq("init", "795748567170435", {
-        em: "yashsabhaya964@gmail.com",
-      });
+      fbq("init", "795748567170435");
 
       fbq("track", "PageView");
     </script>
@@ -2064,7 +2071,7 @@ if(!isset($_SESSION)){
                   session_token && session_token.length === 2
                     ? session_token[1]
                     : "",
-                page_type: "customers/account",
+                page_type: "page",
               };
               window.navigator.sendBeacon(
                 "https://monorail-edge.shopifysvc.com/v1/produce",
@@ -2180,7 +2187,13 @@ if(!isset($_SESSION)){
       window.ShopifyAnalytics = window.ShopifyAnalytics || {};
       window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
       window.ShopifyAnalytics.meta.currency = "INR";
-      var meta = { page: { customerId: 6713034932445 } };
+      var meta = {
+        page: {
+          pageType: "page",
+          resourceType: "page",
+          resourceId: 98220081373,
+        },
+      };
       for (var attr in meta) {
         window.ShopifyAnalytics.meta[attr] = meta[attr];
       }
@@ -2356,7 +2369,6 @@ if(!isset($_SESSION)){
           "Session Attribution": {},
           S2S: {
             facebookCapiEnabled: false,
-            customerId: 6713034932445,
             source: "trekkie-storefront-renderer",
           },
         });
@@ -2375,7 +2387,11 @@ if(!isset($_SESSION)){
           } catch (error) {}
           document.write = originalDocumentWrite;
 
-          window.ShopifyAnalytics.lib.page(null, { customerId: 6713034932445 });
+          window.ShopifyAnalytics.lib.page(null, {
+            pageType: "page",
+            resourceType: "page",
+            resourceId: 98220081373,
+          });
 
           var match = window.location.pathname.match(
             /checkouts\/(.+)\/(thank_you|post_purchase)/
@@ -2412,7 +2428,7 @@ if(!isset($_SESSION)){
         window.BOOMR.themeVersion = "8.8.1";
         window.BOOMR.shopId = 63748341981;
         window.BOOMR.themeId = 131960242397;
-        window.BOOMR.renderRegion = "gcp-us-east1";
+        window.BOOMR.renderRegion = "gcp-europe-west1";
         window.BOOMR.url =
           "https://cdn.shopify.com/shopifycloud/boomerang/shopify-boomerang-1.0.0.min.js";
         var where =
@@ -2704,13 +2720,7 @@ if(!isset($_SESSION)){
           initData: {
             cart: null,
             checkout: null,
-            customer: {
-              email: "yashsabhaya964@gmail.com",
-              firstName: "Yash",
-              id: "6713034932445",
-              lastName: "Sabhaya",
-              phone: null,
-            },
+            customer: null,
             productVariants: [],
           },
         },
@@ -2719,13 +2729,13 @@ if(!isset($_SESSION)){
         },
         "https://cdn.shopify.com",
         "browser",
-        "0.0.285",
-        "da3bd5a4w8ea8a283p30eb74b3mf7ed84c9"
+        "0.0.284",
+        "c97e0465wdda688adp96a29162mdee74fa4"
       );
     </script>
   </head>
   <body
-    class="no-focus-outline features--image-zoom template-account"
+    class="no-focus-outline features--image-zoom template-page page-track-your-order"
     data-instant-allow-query-string
   >
     <!-- Google Tag Manager (noscript) -->
@@ -6054,8 +6064,8 @@ if(!isset($_SESSION)){
         global
         hidden
         class="cart-notification"
-      ></cart-notification>
-      <mobile-navigation
+      ></cart-notification
+      ><mobile-navigation
         append-body
         id="mobile-menu-drawer"
         class="drawer drawer--from-left"
@@ -8741,7 +8751,7 @@ if(!isset($_SESSION)){
           class="drawer__footer drawer__footer--tight drawer__footer--bordered"
         >
           <div class="mobile-nav__footer">
-            <a class="icon-text" href="/account"
+            <a class="icon-text" href="/account/login"
               ><svg
                 focusable="false"
                 width="18"
@@ -8908,7 +8918,7 @@ if(!isset($_SESSION)){
 
           "logo": "https:\/\/cdn.shopify.com\/s\/files\/1\/0637\/4834\/1981\/files\/280x80_d20e9ddd-ae15-43c9-9dc7-142b6b7c30e1_280x.png?v=1676437272",
 
-          "url": "https:\/\/peachmode.com"
+          "url": "https:\/\/peachmode.com\/pages\/return-replace-your-order"
         }
       </script>
     </div>
@@ -8923,65 +8933,72 @@ if(!isset($_SESSION)){
       >
         <span class="drawer__overlay"></span>
 
-        <footer
-          class="mini-cart__drawer-footer drawer__footer drawer__footer--tight drawer__footer--bordered"
-        >
-          <div class="mini-cart__actions text--subdued text--xsmall">
-            <button
-              type="button"
-              is="toggle-button"
-              id="order-note-toggle"
-              class="link"
-              data-action="toggle-order-note"
-              aria-controls="mini-cart-note"
-              aria-expanded="false"
+        <header class="drawer__header">
+          <p class="drawer__title heading h6">
+            <svg
+              focusable="false"
+              width="21"
+              height="20"
+              class="icon icon--header-shopping-cart"
+              viewBox="0 0 21 20"
             >
-              Add order note</button
-            ><span>Shipping &amp; taxes calculated at checkout</span>
-          </div>
-          <button
-            is="loader-button"
-            form="mini-cart-form"
-            type="submit"
-            class="checkout-button button button--primary button--full"
-            name="checkout"
-          >
-            <span class="checkout-button__lock"
-              ><svg
-                focusable="false"
-                width="17"
-                height="17"
-                class="icon icon--lock"
-                viewBox="0 0 17 17"
-              >
-                <path
-                  d="M2.5 7V15H14.5V7H2.5Z"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  fill="none"
-                ></path>
-                <path
-                  d="M5.5 4C5.5 2.34315 6.84315 1 8.5 1V1C10.1569 1 11.5 2.34315 11.5 4V7H5.5V4Z"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                ></path>
-                <circle
-                  cx="8.5"
-                  cy="11"
-                  r="0.5"
-                  stroke="currentColor"
-                ></circle></svg
-            ></span>
+              <path
+                d="M0 1H4L5 11H17L19 4H8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              ></path>
+              <circle
+                cx="6"
+                cy="17"
+                r="2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              ></circle>
+              <circle
+                cx="16"
+                cy="17"
+                r="2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              ></circle></svg
+            >Cart
+          </p>
 
-            <!--Checkout-->
-            BUY NOW
-            <span class="square-separator"></span
-            ><span class="money">₹849.00</span>
+          <button
+            type="button"
+            class="drawer__close-button tap-area"
+            data-action="close"
+            title="Close"
+          >
+            <svg
+              focusable="false"
+              width="14"
+              height="14"
+              class="icon icon--close"
+              viewBox="0 0 14 14"
+            >
+              <path
+                d="M13 13L1 1M13 1L1 13"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              ></path>
+            </svg>
           </button>
-        </footer>
+        </header>
+        <div class="drawer__content drawer__content--center">
+          <p>Your cart is empty</p>
+
+          <div class="button-wrapper">
+            <a href="index.html" class="button button--primary"
+              >Start shopping</a
+            >
+            <a href="cart.html" class="button button--primary">View Cart</a>
+          </div>
+        </div>
         <openable-element id="mini-cart-note" class="mini-cart__order-note">
           <span class="openable__overlay"></span>
           <label
@@ -9010,154 +9027,772 @@ if(!isset($_SESSION)){
     </div>
     <div id="main" role="main" class="anchor">
       <div
-        id="shopify-section-template--15880464859357__main"
-        class="shopify-section shopify-section--main-customers-account"
+        id="shopify-section-template--16083819462877__main"
+        class="shopify-section shopify-section--main-page"
       >
+        <style>
+          @media (max-width: 600px) {
+            #return_request .table-shipment + .table.mb-1 tbody tr,
+            .d-flex-mobile {
+              display: flex;
+            }
+            #return_request .table-shipment + .table.mb-1 tbody tr,
+            .d-flex-mobile .row,
+            .bank-details .form-group.row {
+              flex-direction: column;
+            }
+            #return_request
+              .table-shipment
+              + .table.mb-1
+              tbody
+              tr:not(.d-flex-mobile)
+              td {
+              padding: 0 !important;
+            }
+            #return_request
+              .table-shipment
+              + .table.mb-1
+              tbody
+              tr
+              td:first-of-type {
+              font-weight: bold;
+            }
+            #return_request
+              .table-shipment
+              + .table.mb-1
+              tbody
+              tr
+              td:last-of-type {
+              padding-bottom: 10px !important;
+            }
+            /*     .d-flex-mobile td{
+     padding:10px 0 !important;
+    } */
+            #return_request
+              .table-shipment
+              + .table.mb-1
+              tbody
+              tr
+              td:last-of-type,
+            .d-flex-mobile td:last-of-type {
+              min-width: 300px;
+            }
+            .d-flex-mobile td:first-of-type {
+              display: none !important;
+            }
+            #return_request
+              .table-shipment
+              + .table.mb-1
+              tbody
+              tr.d-flex-mobile
+              td:last-of-type {
+              padding-bottom: 0 !important;
+            }
+            .return_product_id {
+              margin-left: -6px;
+              position: relative;
+              top: -34px;
+            }
+            #return_request td.line-item__product {
+              padding-left: 20px;
+            }
+            [name="quantity"].qty_selector {
+              display: block;
+            }
+            select.return-reason {
+              margin-left: 0;
+              width: 133px;
+            }
+          }
+        </style>
         <section>
-          <div class="link-bar hidden-phone">
-            <div class="container">
-              <div class="link-bar__wrapper">
-                <ul class="link-bar__linklist list--unstyled" role="list">
-                  <li class="link-bar__link-item">
-                    <a href="profile.php" class="link-bar__link link--animated"
-                      >My Profile</a
-                    >
-                  </li>
-                  <li class="link-bar__link-item">
-                    <a
-                      href="account.php"
-                      class="link-bar__link link--animated text--underlined"
-                      >Orders</a
-                    >
+          <div class="container">
+            <div class="page-header">
+              <nav
+                aria-label="Breadcrumb"
+                class="breadcrumb breadcrumb--floating text--xsmall hidden-phone"
+              >
+                <ol class="breadcrumb__list" role="list">
+                  <li class="breadcrumb__item">
+                    <a class="breadcrumb__link" href="/">Home</a>
                   </li>
 
-                  <li class="link-bar__link-item">
-                    <a href="address.php" class="link-bar__link link--animated"
-                      >Addresses</a
+                  <li class="breadcrumb__item">
+                    <span class="breadcrumb__link" aria-current="page"
+                      >Return/Replace your order</span
                     >
                   </li>
-                  <li class="link-bar__link-item">
-                    <a
-                      href="track-order.php"
-                      class="link-bar__link link--animated"
-                      >Track Order</a
-                    >
-                  </li>
+                </ol>
+              </nav>
 
-                  <li class="link-bar__link-item">
-                    <a
-                      href="logout.php"
-                      class="link-bar__link link--animated text--subdued"
-                      data-no-instant
-                      >Logout</a
-                    >
-                  </li>
-                </ul>
+              <div class="page-header__text-wrapper text-container">
+                <h1 class="heading h2">Return/Replace your order</h1>
               </div>
             </div>
-          </div>
-
-          <div class="mobile-toolbar hidden-tablet-and-up">
-            <button
-              class="mobile-toolbar__item"
-              is="toggle-button"
-              aria-expanded="false"
-              aria-controls="account-links-popover"
-            >
-              Orders<svg
-                focusable="false"
-                width="12"
-                height="8"
-                class="icon icon--chevron"
-                viewBox="0 0 12 8"
+            <div class="page-content page-content--medium rte">
+              <span
+                >To Return Product please enter your Order ID and Email in the
+                box below and press the "Submit" button. These were given to you
+                on your receipt and in the confirmation email you should have
+                received.</span
               >
-                <path
-                  fill="none"
-                  d="M1 1l5 5 5-5"
-                  stroke="currentColor"
-                  stroke-width="2"
-                ></path>
-              </svg>
-            </button>
-          </div>
-
-          <popover-content id="account-links-popover" class="popover">
-            <span class="popover__overlay"></span>
-
-            <header class="popover__header">
-              <span class="popover__title heading h6">My account</span>
-
-              <button
-                type="button"
-                class="popover__close-button tap-area tap-area--large"
-                data-action="close"
-                title="Close"
-              >
-                <svg
-                  focusable="false"
-                  width="14"
-                  height="14"
-                  class="icon icon--close"
-                  viewBox="0 0 14 14"
-                >
-                  <path
-                    d="M13 13L1 1M13 1L1 13"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    fill="none"
-                  ></path>
-                </svg>
-              </button>
-            </header>
-
-            <div class="popover__content">
-              <div class="popover__choice-list">
-                <a href="profile.php" class="popover__choice-item">
-                  <span class="popover__choice-label">My Profile</span>
-                </a>
-                <a href="account.php" class="popover__choice-item">
-                  <span class="popover__choice-label" aria-current="true"
-                    >Orders</span
+              <p id="trackerError"></p>
+              <form id="return-order-form" method="post" class="mt-4">
+                <div class="input">
+                  <input
+                    id="orderid"
+                    type="text"
+                    class="input__field"
+                    name="orderid"
+                    aria-label="orderid"
+                    required
+                  />
+                  <label for="orderid" class="input__label"
+                    >Order ID*
+                    <small
+                      >(Found in your order confirmation email.)</small
+                    ></label
                   >
-                </a>
-
-                <a href="address.php" class="popover__choice-item">
-                  <span class="popover__choice-label">Addresses</span>
-                </a>
-
-                <a
-                  href="login.php"
-                  class="popover__choice-item text--subdued"
-                  data-no-instant
+                </div>
+                <div class="input">
+                  <input
+                    id="billing_email"
+                    type="email"
+                    class="input__field"
+                    name="billing_email"
+                    aria-label="billing_email"
+                  />
+                  <label for="billing_email" class="input__label"
+                    >Billing Email
+                    <small>(Email you used during checkout.)</small></label
+                  >
+                </div>
+                <div class="input">
+                  <h6>OR</h6>
+                </div>
+                <div class="input">
+                  <input
+                    id="billing_phone"
+                    type="number"
+                    class="input__field"
+                    name="billing_phone"
+                    aria-label="billing_phone"
+                  />
+                  <label for="billing_phone" class="input__label"
+                    >Billing Phone
+                    <small
+                      >(Phone number you used during checkout.)</small
+                    ></label
+                  >
+                </div>
+                <button
+                  is="loader-button"
+                  type="submit"
+                  class="form__submit button button--primary button--full"
                 >
-                  <span class="popover__choice-label">Logout</span>
-                </a>
-              </div>
+                  SUBMIT
+                </button>
+              </form>
             </div>
-          </popover-content>
-
-          <div class="account account--order-list">
-            <div class="container container--small">
-              <div class="page-header page-header--small page-header--alone">
-                <div class="page-header__text-wrapper text-container">
-                  <h1 class="heading h4">
-                    Orders <span class="bubble-count bubble-count--top">0</span>
-                  </h1>
-                  <p class="text--subdued">
-                    You have not placed any orders yet.
-                  </p>
-
-                  <div class="button-wrapper">
-                    <a href="index.php" class="button button--primary"
-                      >Start shopping</a
+            <div class="account account--order">
+              <div class="container container--small">
+                <div class="page-header page-header--small">
+                  <div class="page-header__text-wrapper text-container">
+                    <h1 class="heading h4 order_name">
+                      <img
+                        loading="lazy"
+                        style="height: 50px; margin: auto"
+                        src="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/loading.gif?v=135655685998696985211654153040"
+                      />
+                    </h1>
+                    <span class="account__order-date text--subdued order_date"
+                      >---</span
                     >
                   </div>
                 </div>
-              </div>
+                <div class="page-content">
+                  <div class="account__block-list">
+                    <div class="account__block-item">
+                      <div class="account__order-details">
+                        <div class="order_table"></div>
 
-              <div class="page-content page-content--fluid">
-                <div class="account__block-list">
-                  <div class="account__block-item"></div>
+                        <div class="account__order-addresses line-item-table">
+                          <h2 class="heading h5">Addresses</h2>
+                          <div
+                            class="account__addresses-list account__addresses-list--wide"
+                          >
+                            <div
+                              class="account__address account__address--auto"
+                            >
+                              <span
+                                class="account__address-title heading heading--small"
+                                >Billing address</span
+                              >
+                              <div
+                                class="account__address-details billing_address"
+                              >
+                                <p></p>
+                              </div>
+                            </div>
+                            <div
+                              class="account__address account__address--auto"
+                            >
+                              <span
+                                class="account__address-title heading heading--small"
+                                >Shipping address</span
+                              >
+                              <div
+                                class="account__address-details shipping_address"
+                              >
+                                <p></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="account__order-addresses return_requests">
+                          <div class="if_returned_heading">
+                            <h2 class="heading h5 mb-1">
+                              Generate Returns Request:
+                            </h2>
+                            <p class="mt-0 mb-1">
+                              Select following Product(s) to return
+                            </p>
+                          </div>
+                          <span id="chooseError"></span>
+                          <div
+                            class="account__addresses-list account__addresses-list--wide"
+                            style="
+                              grid-template-columns: repeat(auto-fit, 100%);
+                            "
+                          >
+                            <div
+                              class="account__address account__address--auto"
+                            >
+                              <div class="if_returned" style="display: none">
+                                <ul
+                                  class="tracking_details d-flex flex-1 flex-wrap"
+                                >
+                                  <li>
+                                    <strong>Tracking No:</strong><span>NA</span>
+                                  </li>
+                                  <li>
+                                    <strong>Credit Action:</strong
+                                    ><span>NA</span>
+                                  </li>
+                                  <li>
+                                    <strong>Return Status:</strong
+                                    ><span>NA</span>
+                                  </li>
+                                  <li>
+                                    <strong>Payment Mode:</strong
+                                    ><span>NA</span>
+                                  </li>
+                                  <li>
+                                    <strong>Refund Amount:</strong
+                                    ><span>NA</span>
+                                  </li>
+                                </ul>
+                                <div class="tracking_slider mt-4">
+                                  <ul class="progressbar">
+                                    <li><span>Initiated Return</span></li>
+                                    <li><span>Package In Transit</span></li>
+                                    <li><span>Package Received</span></li>
+                                    <li><span>Complete</span></li>
+                                  </ul>
+                                </div>
+                                <div class="mt-4">
+                                  <a
+                                    href=""
+                                    class="button button--primary button--small track_url"
+                                    target="_blank"
+                                    >GET DETAILED SCAN</a
+                                  >
+                                </div>
+                              </div>
+                              <form id="return_request" method="post">
+                                <table
+                                  class="line-item-table table table-shipment mb-1"
+                                >
+                                  <thead
+                                    class="line-item-table__header-group hidden-phone"
+                                  >
+                                    <tr>
+                                      <th><span class="">#</span></th>
+                                      <th><span class="">Products</span></th>
+                                      <th>
+                                        <span class="text--center"
+                                          >Quantity</span
+                                        >
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody
+                                    class="line-item-table__list shipment_html return_orders"
+                                  ></tbody>
+                                  <tfoot>
+                                    <tr>
+                                      <th
+                                        colspan="3"
+                                        style="
+                                          border-bottom: 1px solid
+                                            rgb(222, 222, 222);
+                                        "
+                                      ></th>
+                                    </tr>
+                                  </tfoot>
+                                </table>
+
+                                <table class="line-item-table table mb-1">
+                                  <thead class="line-item-table__header-group">
+                                    <tr>
+                                      <th colspan="2">
+                                        <p>
+                                          Action<span style="color: red"
+                                            >*</span
+                                          >
+                                        </p>
+                                        <ul class="d-flex m-0 p-0">
+                                          <li class="d-flex align-center me-2">
+                                            <input
+                                              checked
+                                              id="credit_action_1"
+                                              type="radio"
+                                              name="credit_action"
+                                              value="Store Credit"
+                                              class="me-1"
+                                            />
+                                            <label for="credit_action_1"
+                                              >Store Credit</label
+                                            >
+                                          </li>
+                                          <li class="d-flex align-center">
+                                            <input
+                                              id="credit_action_2"
+                                              disabled
+                                              type="radio"
+                                              name="credit_action"
+                                              value="Refund"
+                                              class="me-1"
+                                            />
+                                            <label for="credit_action_2"
+                                              >Refund</label
+                                            >
+                                          </li>
+                                        </ul>
+                                        <div
+                                          class="bank-details mt-10 ml-10"
+                                          style="display: none"
+                                        >
+                                          <div class="form-group row mb-0">
+                                            <div
+                                              class="col-xs-12 col-sm-12 mb-0"
+                                            >
+                                              <h3>Enter Bank Details:</h3>
+                                            </div>
+                                          </div>
+                                          <div class="form-group row mb-0">
+                                            <div
+                                              class="col-xs-12 col-sm-6 mb-10"
+                                            >
+                                              <label for="payee_name"
+                                                >Payee Name<span
+                                                  class="red-text"
+                                                  >*</span
+                                                >
+                                                :</label
+                                              >
+                                              <input
+                                                type="text"
+                                                data-required
+                                                id="payee_name"
+                                                class="input__field form-control"
+                                              />
+                                            </div>
+                                            <div
+                                              class="col-xs-12 col-sm-6 mb-10"
+                                            >
+                                              <label for="account_no"
+                                                >Account Number<span
+                                                  class="red-text"
+                                                  >*</span
+                                                >
+                                                :</label
+                                              >
+                                              <input
+                                                type="text"
+                                                data-required
+                                                id="account_no"
+                                                class="input__field form-control"
+                                              />
+                                            </div>
+                                          </div>
+                                          <div class="form-group row mb-0">
+                                            <div
+                                              class="col-xs-12 col-sm-6 mb-10"
+                                            >
+                                              <label for="bank_name"
+                                                >Bank Name<span class="red-text"
+                                                  >*</span
+                                                >
+                                                :</label
+                                              >
+                                              <input
+                                                type="text"
+                                                data-required
+                                                id="bank_name"
+                                                class="input__field form-control"
+                                              />
+                                            </div>
+                                            <div
+                                              class="col-xs-12 col-sm-6 mb-10"
+                                            >
+                                              <label for="ifsc"
+                                                >IFSC Code<span class="red-text"
+                                                  >*</span
+                                                >
+                                                :</label
+                                              >
+                                              <input
+                                                type="text"
+                                                data-required
+                                                id="ifsc"
+                                                class="input__field form-control"
+                                              />
+                                            </div>
+                                          </div>
+                                          <div class="form-group row mb-0">
+                                            <div
+                                              class="col-xs-12 col-sm-12 mb-10"
+                                            >
+                                              <label for="bank_address"
+                                                >Bank Address:</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="bank_address"
+                                                class="input__field form-control"
+                                              />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody
+                                    class="line-item-table__list padding-tight"
+                                  >
+                                    <tr>
+                                      <td>
+                                        <big
+                                          >Pickup Address<span
+                                            style="color: red"
+                                            >*</span
+                                          ></big
+                                        >
+                                      </td>
+                                      <td>
+                                        <a href="javascript:toggleAddress()"
+                                          ><strong style="color: #f57f7f"
+                                            >Edit Address</strong
+                                          ></a
+                                        >
+                                      </td>
+                                    </tr>
+                                    <tr class="d-flex-mobile">
+                                      <td></td>
+                                      <td>
+                                        <div
+                                          class="pickup-address-form"
+                                          style="display: none"
+                                        >
+                                          <div class="form-group row">
+                                            <div class="col-sm-12">
+                                              <div class="input-box">
+                                                <label
+                                                  >Enter Name
+                                                  <abbr
+                                                    class="required"
+                                                    title="required"
+                                                    >*</abbr
+                                                  ></label
+                                                >
+                                                <input
+                                                  type="hidden"
+                                                  data-required
+                                                  class="input__field"
+                                                  value=""
+                                                  name="first_name"
+                                                />
+                                                <input
+                                                  type="hidden"
+                                                  data-required
+                                                  class="input__field"
+                                                  value=""
+                                                  name="last_name"
+                                                />
+
+                                                <input
+                                                  type="text"
+                                                  data-required
+                                                  class="input__field fullname"
+                                                  value=""
+                                                  name="full_name"
+                                                  placeholder="Full Name"
+                                                  maxlength="60"
+                                                />
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="form-group row">
+                                            <div class="col-sm-12">
+                                              <div class="input-box">
+                                                <label
+                                                  >Address
+                                                  <abbr
+                                                    class="required"
+                                                    title="required"
+                                                    >*</abbr
+                                                  ></label
+                                                >
+                                                <input
+                                                  type="text"
+                                                  data-required
+                                                  class="input__field address"
+                                                  value=""
+                                                  name="street_address"
+                                                  placeholder="Street address"
+                                                />
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="form-group row">
+                                            <div class="col-sm-6">
+                                              <div class="input-box">
+                                                <label
+                                                  >Email Address
+                                                  <abbr
+                                                    class="required"
+                                                    title="required"
+                                                    >*</abbr
+                                                  ></label
+                                                >
+                                                <input
+                                                  type="email"
+                                                  data-required
+                                                  class="input__field email"
+                                                  value=""
+                                                  name="email"
+                                                  placeholder="Email"
+                                                />
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                              <div class="input-box">
+                                                <label
+                                                  >Phone
+                                                  <abbr
+                                                    class="required"
+                                                    title="required"
+                                                    >*</abbr
+                                                  ></label
+                                                >
+                                                <input
+                                                  type="number"
+                                                  data-required
+                                                  class="input__field phone"
+                                                  value=""
+                                                  name="phone"
+                                                  placeholder="Phone"
+                                                />
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="form-group row">
+                                            <div class="col-sm-6">
+                                              <div class="input-box">
+                                                <label
+                                                  >Country
+                                                  <abbr
+                                                    class="required"
+                                                    title="required"
+                                                    >*</abbr
+                                                  ></label
+                                                >
+                                                <select
+                                                  data-required
+                                                  name="country"
+                                                  id="country"
+                                                  class="country country1 input__field"
+                                                ></select>
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                              <div class="input-box">
+                                                <label
+                                                  >State
+                                                  <abbr
+                                                    class="required"
+                                                    title="required"
+                                                    >*</abbr
+                                                  ></label
+                                                >
+                                                <select
+                                                  data-required
+                                                  name="state"
+                                                  class="state input__field"
+                                                  id="state"
+                                                ></select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="form-group row">
+                                            <div class="col-sm-6">
+                                              <div class="input-box">
+                                                <label
+                                                  >Town / City
+                                                  <abbr
+                                                    class="required"
+                                                    title="required"
+                                                    >*</abbr
+                                                  ></label
+                                                >
+                                                <input
+                                                  type="text"
+                                                  data-required
+                                                  class="city input__field"
+                                                  value=""
+                                                  name="city"
+                                                  placeholder="Town / City"
+                                                />
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                              <div class="input-box">
+                                                <label
+                                                  >Postcode / Zip
+                                                  <abbr
+                                                    class="required"
+                                                    title="required"
+                                                    >*</abbr
+                                                  ></label
+                                                >
+                                                <input
+                                                  type="number"
+                                                  data-required
+                                                  class="pincode input__field"
+                                                  value=""
+                                                  name="pincode"
+                                                  placeholder="Postcode / Zip"
+                                                  maxlength="13"
+                                                />
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="form-group row">
+                                            <div class="col-sm-6">
+                                              <div class="input-box">
+                                                <label>Landmark</label>
+                                                <input
+                                                  type="text"
+                                                  class="landmark input__field"
+                                                  value=""
+                                                  maxlength="150"
+                                                  name="landmark"
+                                                  placeholder="Landmark"
+                                                />
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                              <div class="input-box">
+                                                <label>Type of Address</label>
+                                                <div class="d-flex">
+                                                  <span
+                                                    class="d-flex align-center me-2"
+                                                  >
+                                                    <input
+                                                      checked
+                                                      class="website-radio-btn-theme address-type"
+                                                      type="radio"
+                                                      value="Home"
+                                                      name="address_type"
+                                                    />&nbsp;&nbsp;Home
+                                                  </span>
+                                                  <span
+                                                    class="d-flex align-center me-2"
+                                                  >
+                                                    <input
+                                                      class="website-radio-btn-theme address-type"
+                                                      type="radio"
+                                                      value="Office"
+                                                      name="address_type"
+                                                    />&nbsp;&nbsp;Office/
+                                                    Commercial
+                                                  </span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="form-group row">
+                                            <div class="col-sm-6">
+                                              <button
+                                                type="button"
+                                                style="
+                                                  padding: 6px 20px;
+                                                  height: auto;
+                                                  line-height: 2;
+                                                  width: auto;
+                                                "
+                                                class="save-pickup-address button button--primary button--full"
+                                              >
+                                                Save
+                                              </button>
+                                            </div>
+                                          </div>
+                                          <div class="form-group row">
+                                            <div class="col-sm-12">
+                                              <hr />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Customer:</td>
+                                      <td><p id="customer_name"></p></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Address:</td>
+                                      <td><p id="customer_address"></p></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Phone:</td>
+                                      <td><p id="customer_phone"></p></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Email:</td>
+                                      <td><p id="customer_email"></p></td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <button
+                                          is="loader-button"
+                                          type="submit"
+                                          class="form__submit button button--primary button--full"
+                                        >
+                                          Submit
+                                        </button>
+                                      </td>
+                                      <td></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -9187,7 +9822,7 @@ if(!isset($_SESSION)){
               <native-carousel class="text-with-icons">
                 <div class="text-with-icons__list hide-scrollbar">
                   <native-carousel-item
-                    id="block-template--15880464466141__text-with-icons-item-1"
+                    id="block-static-text-with-icons-static-text-with-icons-0"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9207,12 +9842,12 @@ if(!isset($_SESSION)){
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">FREE SHIPPING</p>
+                      <p class="heading heading--small">Free shipping</p>
                       <p>Free shipping in India</p>
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-template--15880464466141__text-with-icons-item-2"
+                    id="block-static-text-with-icons-static-text-with-icons-1"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9243,7 +9878,7 @@ if(!isset($_SESSION)){
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-template--15880464466141__text-with-icons-33a9f141-c31d-4001-ba8e-e05bb9bde209"
+                    id="block-static-text-with-icons-static-text-with-icons-2"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9274,12 +9909,12 @@ if(!isset($_SESSION)){
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">SECURE PAYMENT</p>
+                      <p class="heading heading--small">Secure payment</p>
                       <p>Your payment information is processed securely.</p>
                     </div></native-carousel-item
                   ><native-carousel-item
                     hidden
-                    id="block-template--15880464466141__text-with-icons-item-3"
+                    id="block-static-text-with-icons-static-text-with-icons-3"
                     class="text-with-icons__item"
                   >
                     <div class="text-with-icons__icon-wrapper">
@@ -9288,21 +9923,23 @@ if(!isset($_SESSION)){
                         focusable="false"
                         width="24"
                         height="24"
-                        class="icon icon--picto-send"
+                        class="icon icon--picto-email"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M21.913 2L15.3391 20L11.5826 11.9M21.913 2L3.13043 8.3L11.5826 11.9M21.913 2L11.5826 11.9"
+                          d="M21 8V5H3V8M21 8V19H3V8M21 8L12 12.5L3 8"
                           stroke="currentColor"
                           stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         ></path>
                       </svg>
                     </div>
                     <div class="text-with-icons__content-wrapper">
-                      <p class="heading heading--small">Contact Us</p>
+                      <p class="heading heading--small">Contact us</p>
                       <p>
-                        Need to contact us ? Just send us an e-mail to
-                        contact@kalaajee.com
+                        Need to contact us ? Just send us an e-mail at
+                        contact@peachmode.com
                       </p>
                     </div></native-carousel-item
                   >
@@ -9352,35 +9989,35 @@ if(!isset($_SESSION)){
                 <div class="footer__item-content hidden-phone">
                   <ul class="linklist list--unstyled" role="list">
                     <li class="linklist__item">
-                      <a href="terms.php" class="link--faded"
+                      <a href="terms.html" class="link--faded"
                         >Terms & Condition</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="shipping.php" class="link--faded"
+                      <a href="shipping.html" class="link--faded"
                         >Shipping & Delivery</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="good.php" class="link--faded"
+                      <a href="good.html" class="link--faded"
                         >Goods & Services Tax</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="refund.php" class="link--faded"
+                      <a href="refund.html" class="link--faded"
                         >Refund and Cancellation</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="privacy.php" class="link--faded"
+                      <a href="privacy.html" class="link--faded"
                         >Privacy Policies</a
                       >
                     </li>
                     <li class="linklist__item">
-                      <a href="faq.php" class="link--faded">FAQs</a>
+                      <a href="faq.html" class="link--faded">FAQs</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="contact.php" class="link--faded">Contact us</a>
+                      <a href="contact.html" class="link--faded">Contact us</a>
                     </li>
                   </ul>
                 </div>
@@ -9419,40 +10056,40 @@ if(!isset($_SESSION)){
                       <div class="spr-reviews">
                         <ul class="linklist list--unstyled" role="list">
                           <li class="linklist__item">
-                            <a href="terms.php" class="link--faded"
+                            <a href="terms.html" class="link--faded"
                               >Terms & Condition</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="shipping.php" class="link--faded"
+                            <a href="shipping.html" class="link--faded"
                               >Shipping & Delivery</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="good.php" class="link--faded"
+                            <a href="good.html" class="link--faded"
                               >Goods & Services Tax</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="refund.php" class="link--faded"
+                            <a href="refund.html" class="link--faded"
                               >Refund and Cancellation</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="privacy.php" class="link--faded"
+                            <a href="privacy.html" class="link--faded"
                               >Privacy Policies</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="reedem.php" class="link--faded"
+                            <a href="reedem.html" class="link--faded"
                               >Reedem Gift Card</a
                             >
                           </li>
                           <li class="linklist__item">
-                            <a href="faq.php" class="link--faded">FAQs</a>
+                            <a href="faq.html" class="link--faded">FAQs</a>
                           </li>
                           <li class="linklist__item">
-                            <a href="contact.php" class="link--faded"
+                            <a href="contact.html" class="link--faded"
                               >Contact us</a
                             >
                           </li>
@@ -9472,28 +10109,30 @@ if(!isset($_SESSION)){
                 <div class="footer__item-content hidden-phone">
                   <ul class="linklist list--unstyled" role="list">
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Collections</a>
+                      <a href="product.html" class="link--faded">Collections</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Sarees</a>
+                      <a href="product.html" class="link--faded">Sarees</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Salwar Suits</a>
+                      <a href="product.html" class="link--faded"
+                        >Salwar Suits</a
+                      >
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Kurtis</a>
+                      <a href="product.html" class="link--faded">Kurtis</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Lehengas</a>
+                      <a href="product.html" class="link--faded">Lehengas</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Gowns</a>
+                      <a href="product.html" class="link--faded">Gowns</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Western</a>
+                      <a href="product.html" class="link--faded">Western</a>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Live</a>
+                      <a href="product.html" class="link--faded">Live</a>
                     </li>
                     <li class="linklist__item">
                       <a href="/collections/sale" class="link--faded">Sale</a>
@@ -9819,7 +10458,7 @@ if(!isset($_SESSION)){
             <div class="footer__aside">
               <span class="footer__copyright text--xsmall text--subdued"
                 >Copyright &copy; 2023
-                <a href="index.php">&nbsp; Kalaajee Fashions</a>. All rights
+                <a href="index.html">&nbsp; Kalaajee Fashions</a>. All rights
                 reserved And Proudly Powered By<a
                   href="https://www.successinnovativetechnologiespvtltd.com/"
                 >
@@ -9897,6 +10536,11 @@ if(!isset($_SESSION)){
     ></script>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="//cdn.shopify.com/s/files/1/0637/4834/1981/t/4/assets/countries.js?v=80530526844844119311655444050"></script>
+    <script>
+      populateCountries("country", "state");
+    </script>
 
     <script
       src="//cdn.codeblackbelt.com/js/modules/also-bought/main.min.js?shop=peachm.myshopify.com"
