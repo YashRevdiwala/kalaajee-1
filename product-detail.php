@@ -7,6 +7,216 @@ if(!isset($_SESSION)){
     $product_id = $_GET["id"];
     $run_query = mysqli_query($conn,"SELECT * FROM tbl_product WHERE id = '$product_id'");
     $row = mysqli_fetch_array($run_query);
+
+    if($row["inncat"] == "saree"){
+      $display_sizeChart = '';
+    }else{
+      $display_sizeChart = '<product-variants
+                    handle="lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
+                    form-id="product-form-template--15880464695517__main-7737378799837"
+                    update-url
+                    class="product-form__variants"
+                    >
+                    <div
+                      class="product-form__option-selector"
+                      data-selector-type="block"
+                    >
+                      <div class="product-form__option-info">
+                        <span class="product-form__option-name">Size:</span
+                        ><span
+                          id="option-template--15880464695517__main--7737378799837-1-value"
+                          class="product-form__option-value"
+                          >S</span
+                        ><button
+                          type="button"
+                          is="toggle-button"
+                          class="product-form__option-link link text--subdued hidden-phone"
+                          aria-controls="product-template--15880464695517__main-7737378799837-size-chart-drawer"
+                          aria-expanded="false"
+                        >
+                          Size chart
+                        </button>
+                        <button
+                          type="button"
+                          is="toggle-button"
+                          class="product-form__option-link link text--subdued hidden-tablet-and-up"
+                          aria-controls="product-template--15880464695517__main-7737378799837-size-chart-popover"
+                          aria-expanded="false"
+                        >
+                          Size chart
+                        </button>
+                      </div>
+                      <div class="block-swatch-list">
+                        <div class="block-swatch">
+                          <input
+                            class="block-swatch__radio visually-hidden"
+                            type="radio"
+                            name="option1"
+                            form="product-form-template--15880464695517__main-7737378799837"
+                            id="option-template--15880464695517__main--7737378799837-1-1"
+                            value="S"
+                            checked="checked"
+                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
+                          />
+                          <label
+                            class="block-swatch__item"
+                            for="option-template--15880464695517__main--7737378799837-1-1"
+                            >S</label
+                          >
+                        </div>
+                        <div class="block-swatch">
+                          <input
+                            class="block-swatch__radio visually-hidden"
+                            type="radio"
+                            name="option1"
+                            form="product-form-template--15880464695517__main-7737378799837"
+                            id="option-template--15880464695517__main--7737378799837-1-2"
+                            value="M"
+                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
+                          />
+                          <label
+                            class="block-swatch__item"
+                            for="option-template--15880464695517__main--7737378799837-1-2"
+                            >M</label
+                          >
+                        </div>
+                        <div class="block-swatch">
+                          <input
+                            class="block-swatch__radio visually-hidden"
+                            type="radio"
+                            name="option1"
+                            form="product-form-template--15880464695517__main-7737378799837"
+                            id="option-template--15880464695517__main--7737378799837-1-3"
+                            value="L"
+                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
+                          />
+                          <label
+                            class="block-swatch__item"
+                            for="option-template--15880464695517__main--7737378799837-1-3"
+                            >L</label
+                          >
+                        </div>
+                        <div class="block-swatch">
+                          <input
+                            class="block-swatch__radio visually-hidden"
+                            type="radio"
+                            name="option1"
+                            form="product-form-template--15880464695517__main-7737378799837"
+                            id="option-template--15880464695517__main--7737378799837-1-4"
+                            value="XL"
+                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
+                          />
+                          <label
+                            class="block-swatch__item"
+                            for="option-template--15880464695517__main--7737378799837-1-4"
+                            >XL</label
+                          >
+                        </div>
+                        <div class="block-swatch">
+                          <input
+                            class="block-swatch__radio visually-hidden"
+                            type="radio"
+                            name="option1"
+                            form="product-form-template--15880464695517__main-7737378799837"
+                            id="option-template--15880464695517__main--7737378799837-1-5"
+                            value="XXL"
+                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
+                          />
+                          <label
+                            class="block-swatch__item"
+                            for="option-template--15880464695517__main--7737378799837-1-5"
+                            >XXL</label
+                          >
+                        </div>
+                        <div class="block-swatch">
+                          <input
+                            class="block-swatch__radio visually-hidden"
+                            type="radio"
+                            name="option1"
+                            form="product-form-template--15880464695517__main-7737378799837"
+                            id="option-template--15880464695517__main--7737378799837-1-6"
+                            value="3XL"
+                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
+                          />
+                          <label
+                            class="block-swatch__item"
+                            for="option-template--15880464695517__main--7737378799837-1-6"
+                            >3XL</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <noscript>
+                      <label
+                        class="input__block-label"
+                        for="product-select-template--15880464695517__main-7737378799837"
+                        >Variant</label
+                      >
+
+                      <div class="select-wrapper">
+                        <select
+                          class="select"
+                          autocomplete="off"
+                          id="product-select-template--15880464695517__main-7737378799837"
+                          name="id"
+                          form="product-form-template--15880464695517__main-7737378799837"
+                        >
+                          <option
+                            selected="selected"
+                            value="42885690687709"
+                            data-sku="VMIK-ROOH-2-1111D-S"
+                          >
+                            S - <span class="money">₹949.00</span>
+                          </option>
+                          <option
+                            disabled="disabled"
+                            value="42885690720477"
+                            data-sku="VMIK-ROOH-2-1111D-M"
+                          >
+                            M - <span class="money">₹949.00</span>
+                          </option>
+                          <option
+                            value="42885690753245"
+                            data-sku="VMIK-ROOH-2-1111D-L"
+                          >
+                            L - <span class="money">₹949.00</span>
+                          </option>
+                          <option
+                            value="42885690786013"
+                            data-sku="VMIK-ROOH-2-1111D-XL"
+                          >
+                            XL - <span class="money">₹949.00</span>
+                          </option>
+                          <option
+                            value="42885690818781"
+                            data-sku="VMIK-ROOH-2-1111D-XXL"
+                          >
+                            XXL - <span class="money">₹949.00</span>
+                          </option>
+                          <option
+                            value="42885690851549"
+                            data-sku="VMIK-ROOH-2-1111D-3XL"
+                          >
+                            3XL - <span class="money">₹949.00</span>
+                          </option></select
+                        ><svg
+                          focusable="false"
+                          width="12"
+                          height="8"
+                          class="icon icon--chevron"
+                          viewBox="0 0 12 8"
+                        >
+                          <path
+                            fill="none"
+                            d="M1 1l5 5 5-5"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          ></path>
+                        </svg>
+                      </div>
+                    </noscript>
+                  </product-variants>';
+    }
   }
   if(isset($_SESSION['client_email'])){
     $client_email = $_SESSION['client_email'];
@@ -10884,211 +11094,7 @@ if(!isset($_SESSION)){
                       </div>
                     </a>
                   </div>
-
-                  <product-variants
-                    handle="lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
-                    form-id="product-form-template--15880464695517__main-7737378799837"
-                    update-url
-                    class="product-form__variants"
-                    ><div
-                      class="product-form__option-selector"
-                      data-selector-type="block"
-                    >
-                      <div class="product-form__option-info">
-                        <span class="product-form__option-name">Size:</span
-                        ><span
-                          id="option-template--15880464695517__main--7737378799837-1-value"
-                          class="product-form__option-value"
-                          >S</span
-                        ><button
-                          type="button"
-                          is="toggle-button"
-                          class="product-form__option-link link text--subdued hidden-phone"
-                          aria-controls="product-template--15880464695517__main-7737378799837-size-chart-drawer"
-                          aria-expanded="false"
-                        >
-                          Size chart
-                        </button>
-                        <button
-                          type="button"
-                          is="toggle-button"
-                          class="product-form__option-link link text--subdued hidden-tablet-and-up"
-                          aria-controls="product-template--15880464695517__main-7737378799837-size-chart-popover"
-                          aria-expanded="false"
-                        >
-                          Size chart
-                        </button>
-                      </div>
-                      <div class="block-swatch-list">
-                        <div class="block-swatch">
-                          <input
-                            class="block-swatch__radio visually-hidden"
-                            type="radio"
-                            name="option1"
-                            form="product-form-template--15880464695517__main-7737378799837"
-                            id="option-template--15880464695517__main--7737378799837-1-1"
-                            value="S"
-                            checked="checked"
-                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
-                          />
-                          <label
-                            class="block-swatch__item"
-                            for="option-template--15880464695517__main--7737378799837-1-1"
-                            >S</label
-                          >
-                        </div>
-                        <div class="block-swatch">
-                          <input
-                            class="block-swatch__radio visually-hidden"
-                            type="radio"
-                            name="option1"
-                            form="product-form-template--15880464695517__main-7737378799837"
-                            id="option-template--15880464695517__main--7737378799837-1-2"
-                            value="M"
-                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
-                          />
-                          <label
-                            class="block-swatch__item"
-                            for="option-template--15880464695517__main--7737378799837-1-2"
-                            >M</label
-                          >
-                        </div>
-                        <div class="block-swatch">
-                          <input
-                            class="block-swatch__radio visually-hidden"
-                            type="radio"
-                            name="option1"
-                            form="product-form-template--15880464695517__main-7737378799837"
-                            id="option-template--15880464695517__main--7737378799837-1-3"
-                            value="L"
-                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
-                          />
-                          <label
-                            class="block-swatch__item"
-                            for="option-template--15880464695517__main--7737378799837-1-3"
-                            >L</label
-                          >
-                        </div>
-                        <div class="block-swatch">
-                          <input
-                            class="block-swatch__radio visually-hidden"
-                            type="radio"
-                            name="option1"
-                            form="product-form-template--15880464695517__main-7737378799837"
-                            id="option-template--15880464695517__main--7737378799837-1-4"
-                            value="XL"
-                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
-                          />
-                          <label
-                            class="block-swatch__item"
-                            for="option-template--15880464695517__main--7737378799837-1-4"
-                            >XL</label
-                          >
-                        </div>
-                        <div class="block-swatch">
-                          <input
-                            class="block-swatch__radio visually-hidden"
-                            type="radio"
-                            name="option1"
-                            form="product-form-template--15880464695517__main-7737378799837"
-                            id="option-template--15880464695517__main--7737378799837-1-5"
-                            value="XXL"
-                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
-                          />
-                          <label
-                            class="block-swatch__item"
-                            for="option-template--15880464695517__main--7737378799837-1-5"
-                            >XXL</label
-                          >
-                        </div>
-                        <div class="block-swatch">
-                          <input
-                            class="block-swatch__radio visually-hidden"
-                            type="radio"
-                            name="option1"
-                            form="product-form-template--15880464695517__main-7737378799837"
-                            id="option-template--15880464695517__main--7737378799837-1-6"
-                            value="3XL"
-                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
-                          />
-                          <label
-                            class="block-swatch__item"
-                            for="option-template--15880464695517__main--7737378799837-1-6"
-                            >3XL</label
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <noscript>
-                      <label
-                        class="input__block-label"
-                        for="product-select-template--15880464695517__main-7737378799837"
-                        >Variant</label
-                      >
-
-                      <div class="select-wrapper">
-                        <select
-                          class="select"
-                          autocomplete="off"
-                          id="product-select-template--15880464695517__main-7737378799837"
-                          name="id"
-                          form="product-form-template--15880464695517__main-7737378799837"
-                        >
-                          <option
-                            selected="selected"
-                            value="42885690687709"
-                            data-sku="VMIK-ROOH-2-1111D-S"
-                          >
-                            S - <span class="money">₹949.00</span>
-                          </option>
-                          <option
-                            disabled="disabled"
-                            value="42885690720477"
-                            data-sku="VMIK-ROOH-2-1111D-M"
-                          >
-                            M - <span class="money">₹949.00</span>
-                          </option>
-                          <option
-                            value="42885690753245"
-                            data-sku="VMIK-ROOH-2-1111D-L"
-                          >
-                            L - <span class="money">₹949.00</span>
-                          </option>
-                          <option
-                            value="42885690786013"
-                            data-sku="VMIK-ROOH-2-1111D-XL"
-                          >
-                            XL - <span class="money">₹949.00</span>
-                          </option>
-                          <option
-                            value="42885690818781"
-                            data-sku="VMIK-ROOH-2-1111D-XXL"
-                          >
-                            XXL - <span class="money">₹949.00</span>
-                          </option>
-                          <option
-                            value="42885690851549"
-                            data-sku="VMIK-ROOH-2-1111D-3XL"
-                          >
-                            3XL - <span class="money">₹949.00</span>
-                          </option></select
-                        ><svg
-                          focusable="false"
-                          width="12"
-                          height="8"
-                          class="icon icon--chevron"
-                          viewBox="0 0 12 8"
-                        >
-                          <path
-                            fill="none"
-                            d="M1 1l5 5 5-5"
-                            stroke="currentColor"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </div>
-                    </noscript>
-                  </product-variants>
+                    <?php echo $display_sizeChart; ?>
                   <div class="product-form__quantity">
                     <span class="product-form__quantity-label">Quantity:</span>
 

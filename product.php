@@ -5,8 +5,20 @@ if(!isset($_SESSION)){
   session_start();
   if(isset($_SESSION['client_email'])){
     $client_email = $_SESSION['client_email'];
+    $count_query = mysqli_query($conn,"SELECT * FROM tbl_cart WHERE email = '$client_email'");
+    $cart_count = mysqli_num_rows($count_query);
+
     $login_display = '<li class="header__linklist-item">
                   <a href="account.php">My Account </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a
+                    href="cart.php"
+                    data-no-instant
+                    >Cart<cart-count class="header__cart-count bubble-count"
+                      >'.$cart_count.'</cart-count
+                    >
+                  </a>
                 </li>';
   }else{
     $login_display = '<li class="header__linklist-item">
@@ -365,7 +377,7 @@ if(!isset($_SESSION)){
         }
       }
     </style>
-    <script>
+    <!-- <script>
       // This allows to expose several variables to the global scope, to be used in scripts
       window.themeVariables = {
         settings: {
@@ -476,7 +488,7 @@ if(!isset($_SESSION)){
           );
         });
       }
-    </script>
+    </script> -->
 
     <link
       rel="stylesheet"
@@ -6821,18 +6833,6 @@ if(!isset($_SESSION)){
               >
                 <li class="header__linklist-item"></li>
                 <?php echo $login_display; ?>
-                <li class="header__linklist-item">
-                  <a
-                    href="/cart"
-                    is="toggle-link"
-                    aria-controls="mini-cart"
-                    aria-expanded="false"
-                    data-no-instant
-                    >Cart<cart-count class="header__cart-count bubble-count"
-                      >0</cart-count
-                    >
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -9875,16 +9875,6 @@ if(!isset($_SESSION)){
             </svg>
           </button>
         </header>
-        <div class="drawer__content drawer__content--center">
-          <p>Your cart is empty</p>
-
-          <div class="button-wrapper">
-            <a href="index.html" class="button button--primary"
-              >Start shopping</a
-            >
-            <a href="cart.html" class="button button--primary">View Cart</a>
-          </div>
-        </div>
         <openable-element id="mini-cart-note" class="mini-cart__order-note">
           <span class="openable__overlay"></span>
           <label
@@ -10615,6 +10605,13 @@ if(!isset($_SESSION)){
           <div class="column2">
             <div class="product-list__inner">
               <?php
+                 if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+                  $url = "https://";   
+                else  
+                  $url = "http://";   
+                $url.= $_SERVER['HTTP_HOST'];    
+                $url.= $_SERVER['REQUEST_URI'];
+
                 if(isset($_GET["id"])){
                   $productType = $_GET["id"];
                   if(isset($_GET["fabric"])){
@@ -10710,7 +10707,7 @@ if(!isset($_SESSION)){
                     </a>
                       <form
                         method="post"
-                        action="/cart/add"
+                        action="cart-details.php?id='.$row["id"].'&page='.$url.'"
                         id="product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530808541_0"
                         accept-charset="UTF-8"
                         class="product-item__quick-form"

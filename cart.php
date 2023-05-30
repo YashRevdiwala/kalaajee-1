@@ -4117,18 +4117,6 @@ for (var attr in meta) {
               >
                 <li class="header__linklist-item"></li>
                 <?php echo $login_display; ?>
-                <li class="header__linklist-item">
-                  <a
-                    href="/cart"
-                    is="toggle-link"
-                    aria-controls="mini-cart"
-                    aria-expanded="false"
-                    data-no-instant
-                    >Cart<cart-count class="header__cart-count bubble-count"
-                      >0</cart-count
-                    >
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -5042,6 +5030,10 @@ for (var attr in meta) {
         <div class="page-header__text-wrapper text-container">
           <h1 class="heading h2">Cart</h1></div>
       </div><div class="page-content page-content--fluid">
+      <?php
+        $query = mysqli_query($conn,"SELECT * FROM tbl_cart WHERE email = '$client_email'");
+        if(mysqli_num_rows($query) > 0){
+      ?>
         <form action="/cart" method="post" novalidate class="cart">
           <input type="hidden" name="checkout">
 
@@ -5055,64 +5047,76 @@ for (var attr in meta) {
                 </tr>
               </thead>
 
-              <tbody class="line-item-table__list"><tr class="line-item">
-                    <td class="line-item__product">
-                      <div class="line-item__content-wrapper">
-                        <a href="/products/teal-blue-printed-georgette-saree-with-tassels?variant=43795227771101" class="line-item__image-wrapper" tabindex="-1" aria-hidden="true">
-                          <img loading="lazy" class="line-item__image" sizes="(max-width: 740px) 80px, 92px" height="2000" width="2000" alt="" src="//cdn.shopify.com/s/files/1/0637/4834/1981/products/file_a7d3f774-094d-46f5-aa27-4df69f0da0f3.jpg?v=1680870086" ">
-                        </a><div class="line-item__info">
-                          <div class="product-item-meta"><a href="/products/teal-blue-printed-georgette-saree-with-tassels?variant=43795227771101" class="product-item-meta__title text--small hidden-tablet-and-up">Teal Blue Printed Georgette Saree With Tassels</a>
-                            <a href="/products/teal-blue-printed-georgette-saree-with-tassels?variant=43795227771101" class="product-item-meta__title hidden-phone">Teal Blue Printed Georgette Saree With Tassels</a><div class="product-item-meta__price-list-container">
-                              <div class="price-list text--small hidden-tablet-and-up"><span class="price price--highlight">
-                            <span class="visually-hidden">Sale price</span><span class="money">₹849.00</span></span><span class="price price--compare">
-                              <span class="visually-hidden">Regular price</span><span class="money">₹1,699.00</span></span></div>
+              <tbody class="line-item-table__list">
+                <?php
+                  $cart_query = mysqli_query($conn,"SELECT * FROM tbl_cart WHERE email = '$client_email'");
+                  while($tb1_row = mysqli_fetch_array($cart_query)){
+                    $cart_row_id = $tb1_row["product_id"];
+                    $quantity_count = $tb1_row["quantity"];
+                    $display_cart = mysqli_query($conn,"SELECT * FROM tbl_product WHERE id = '$cart_row_id' ");
+                    $display_row = mysqli_fetch_array($display_cart);
+                    echo '<tr class="line-item">
+                        <td class="line-item__product">
+                          <div class="line-item__content-wrapper">
+                            <a href="/products/teal-blue-printed-georgette-saree-with-tassels?variant=43795227771101" class="line-item__image-wrapper" tabindex="-1" aria-hidden="true">
+                              <img loading="lazy" class="line-item__image" sizes="(max-width: 740px) 80px, 92px" height="2000" width="2000" alt="" src='.$imgpath,$display_row["photo1"].' ">
+                            </a><div class="line-item__info">
+                              <div class="product-item-meta"><a href="/products/teal-blue-printed-georgette-saree-with-tassels?variant=43795227771101" class="product-item-meta__title text--small hidden-tablet-and-up">'.$display_row["pro_name"].'</a>
+                                <a href="/products/teal-blue-printed-georgette-saree-with-tassels?variant=43795227771101" class="product-item-meta__title hidden-phone">'.$display_row["pro_name"].'</a><div class="product-item-meta__price-list-container">
+                                  <div class="price-list text--small hidden-tablet-and-up"><span class="price price--highlight">
+                                <span class="visually-hidden">Sale price</span><span class="money">₹'.$display_row["final_price"].'.00</span></span><span class="price price--compare">
+                                  <span class="visually-hidden">Regular price</span><span class="money">₹'.$display_row["mrp"].'.00</span></span></div>
 
-                              <div class="price-list hidden-phone"><span class="price">
-                            <span class="visually-hidden">Sale price</span><span class="money">₹849.00</span></span></div>
+                                  <div class="price-list hidden-phone"><span class="price">
+                                <span class="visually-hidden">Sale price</span><span class="money">₹'.$display_row["final_price"].'.00</span></span></div>
+                                </div>
+                              </div><line-item-quantity class="line-item__quantity hidden-tablet-and-up"><div class="quantity-selector quantity-selector--small">
+                                  <a href="/cart/change?quantity=0&line=1" class="quantity-selector__button" aria-label="Decrease quantity" data-no-instant>
+                                    <svg focusable="false" width="8" height="2" class="icon icon--minus   " viewBox="0 0 8 2">
+            <path fill="currentColor" d="M0 0h8v2H0z"></path>
+          </svg>
+                                  </a>
+
+                                  <input is="input-number" class="quantity-selector__input text--xsmall" autocomplete="off" type="text" inputmode="numeric" name="updates[]" data-line="1" value="'.$quantity_count.'"  size="2" aria-label="Change quantity"><a href="/cart/change?quantity=2&line=1" class="quantity-selector__button" aria-label="Increase quantity" data-no-instant><svg focusable="false" width="8" height="8" class="icon icon--plus   " viewBox="0 0 8 8">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3 5v3h2V5h3V3H5V0H3v3H0v2h3z" fill="currentColor"></path>
+          </svg></a></div>
+
+                                <a href="/cart/change?id=43795227771101:9dbd8a95ff62d36755bc23ffd773c749&quantity=0" class="line-item__remove-button link text--subdued text--xxsmall hidden-tablet-and-up" data-no-instant>Remove</a>
+                                <a href="/cart/change?id=43795227771101:9dbd8a95ff62d36755bc23ffd773c749&quantity=0" class="line-item__remove-button link text--subdued text--xsmall hidden-phone" data-no-instant>Remove</a></line-item-quantity>
                             </div>
-                          </div><line-item-quantity class="line-item__quantity hidden-tablet-and-up"><div class="quantity-selector quantity-selector--small">
-                              <a href="/cart/change?quantity=0&line=1" class="quantity-selector__button" aria-label="Decrease quantity" data-no-instant>
-                                <svg focusable="false" width="8" height="2" class="icon icon--minus   " viewBox="0 0 8 2">
-        <path fill="currentColor" d="M0 0h8v2H0z"></path>
-      </svg>
-                              </a>
+                          </div>
+                        </td>
+                        <td class="line-item__quantity line-item__quantity--block text--center hidden-phone"><line-item-quantity style="display: block; margin-top: -4px">
+                            <div class="quantity-selector quantity-selector--small">
+                                  <a href="cart-details.php?product_id_dec='.$cart_row_id.'=&page=cart.php" class="quantity-selector__button" aria-label="Decrease quantity" data-no-instant>
+                                    <svg focusable="false" width="8" height="2" class="icon icon--minus   " viewBox="0 0 8 2">
+            <path fill="currentColor" d="M0 0h8v2H0z"></path>
+          </svg>
+                                  </a>
 
-                              <input is="input-number" class="quantity-selector__input text--xsmall" autocomplete="off" type="text" inputmode="numeric" name="updates[]" data-line="1" value="1"  size="2" aria-label="Change quantity"><a href="/cart/change?quantity=2&line=1" class="quantity-selector__button" aria-label="Increase quantity" data-no-instant><svg focusable="false" width="8" height="8" class="icon icon--plus   " viewBox="0 0 8 8">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M3 5v3h2V5h3V3H5V0H3v3H0v2h3z" fill="currentColor"></path>
-      </svg></a></div>
+                                  <input is="input-number" class="quantity-selector__input text--xsmall" autocomplete="off" type="text" inputmode="numeric" name="updates[]" data-line="1" value="'.$quantity_count.'"  size="2" aria-label="Change quantity">
+                                  <a href="cart-details.php?product_id_inc='.$cart_row_id.'=&page=cart.php" class="quantity-selector__button" aria-label="Increase quantity" data-no-instant><svg focusable="false" width="8" height="8" class="icon icon--plus   " viewBox="0 0 8 8">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3 5v3h2V5h3V3H5V0H3v3H0v2h3z" fill="currentColor"></path>
+          </svg></a></div>
 
-                            <a href="/cart/change?id=43795227771101:9dbd8a95ff62d36755bc23ffd773c749&quantity=0" class="line-item__remove-button link text--subdued text--xxsmall hidden-tablet-and-up" data-no-instant>Remove</a>
-                            <a href="/cart/change?id=43795227771101:9dbd8a95ff62d36755bc23ffd773c749&quantity=0" class="line-item__remove-button link text--subdued text--xsmall hidden-phone" data-no-instant>Remove</a></line-item-quantity>
-                        </div>
-                      </div>
-                    </td>
+                                <a href="/cart/change?id=43795227771101:9dbd8a95ff62d36755bc23ffd773c749&quantity=0" class="line-item__remove-button link text--subdued text--xxsmall hidden-tablet-and-up" data-no-instant>Remove</a>
+                                <a href="/cart/change?id=43795227771101:9dbd8a95ff62d36755bc23ffd773c749&quantity=0" class="line-item__remove-button link text--subdued text--xsmall hidden-phone" data-no-instant>Remove</a>
+                          </line-item-quantity>
+                        </td>
 
-                    <td class="line-item__quantity line-item__quantity--block text--center hidden-phone"><line-item-quantity style="display: block; margin-top: -4px">
-                        <div class="quantity-selector quantity-selector--small">
-                              <a href="/cart/change?quantity=0&line=1" class="quantity-selector__button" aria-label="Decrease quantity" data-no-instant>
-                                <svg focusable="false" width="8" height="2" class="icon icon--minus   " viewBox="0 0 8 2">
-        <path fill="currentColor" d="M0 0h8v2H0z"></path>
-      </svg>
-                              </a>
-
-                              <input is="input-number" class="quantity-selector__input text--xsmall" autocomplete="off" type="text" inputmode="numeric" name="updates[]" data-line="1" value="1"  size="2" aria-label="Change quantity"><a href="/cart/change?quantity=2&line=1" class="quantity-selector__button" aria-label="Increase quantity" data-no-instant><svg focusable="false" width="8" height="8" class="icon icon--plus   " viewBox="0 0 8 8">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M3 5v3h2V5h3V3H5V0H3v3H0v2h3z" fill="currentColor"></path>
-      </svg></a></div>
-
-                            <a href="/cart/change?id=43795227771101:9dbd8a95ff62d36755bc23ffd773c749&quantity=0" class="line-item__remove-button link text--subdued text--xxsmall hidden-tablet-and-up" data-no-instant>Remove</a>
-                            <a href="/cart/change?id=43795227771101:9dbd8a95ff62d36755bc23ffd773c749&quantity=0" class="line-item__remove-button link text--subdued text--xsmall hidden-phone" data-no-instant>Remove</a>
-                      </line-item-quantity>
-                    </td>
-
-                    <td class="line-item__price-list-container text--right hidden-phone"><div class="price-list price-list--stack"><span class="price price--highlight">
-                            <span class="visually-hidden">Sale price</span><span class="money">₹849.00</span></span><span class="price price--compare">
-                              <span class="visually-hidden">Regular price</span><span class="money">₹1,699.00</span></span></div>
-                    </td>
-                  </tr></tbody>
-            </table><div class="shipping-estimator">
+                        <td class="line-item__price-list-container text--right hidden-phone"><div class="price-list price-list--stack"><span class="price price--highlight">
+                                <span class="visually-hidden">Sale price</span><span class="money">₹'.$display_row["final_price"].'.00</span></span><span class="price price--compare">
+                                  <span class="visually-hidden">Regular price</span><span class="money">₹'.$display_row["mrp"].'.00</span></span></div>
+                        </td>
+                    </tr>';
+                  }
+                ?>
+              </tbody>
+            </table>
+            <div class="shipping-estimator">
                 <button type="button" is="toggle-button" class="shipping-estimator__toggle-button collapsible-toggle heading heading--small" aria-controls="shipping-estimator" aria-expanded="false">Estimate shipping<svg focusable="false" width="12" height="8" class="icon icon--chevron   " viewBox="0 0 12 8">
         <path fill="none" d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2"></path>
-      </svg></button>
+        </svg></button>
 
                 <collapsible-content id="shipping-estimator" class="collapsible">
                   <shipping-estimator class="shipping-estimator__form" role="form">
@@ -5390,8 +5394,17 @@ for (var attr in meta) {
               <div class="cart__recap"><div class="cart__recap-block" >
                         <div class="cart__total-container">
                           <span class="heading h6">Total</span>
-                          <span class="heading h6"><span class="money">₹849.00</span></span>
-                        </div><p class="cart__tax-note text--subdued">Shipping &amp; taxes calculated at checkout</p></div><div class="cart__recap-note" >
+                          <?php
+                            $query_for_total = mysqli_query($conn,"SELECT * FROM tbl_cart WHERE email = '$client_email'");
+                            $total_price = 0;
+                            while($rows_for_total = mysqli_fetch_array($query_for_total)){
+                              $rows_for_total["final_price"] = $total_price + ($rows_for_total["quantity"] * $rows_for_total["final_price"]);
+                              $total_price = $rows_for_total["final_price"];
+                            }
+                            echo '<span class="heading h6"><span class="money">₹'.$total_price.'.00</span></span>';
+                          ?>
+                        </div>
+                        <p class="cart__tax-note text--subdued">Shipping &amp; taxes calculated at checkout</p></div><div class="cart__recap-note" >
                         <button type="button" is="toggle-button" id="order-note-toggle" class="link text--subdued" aria-controls="cart-note" aria-expanded="false">Edit order note</button>
 
                         <collapsible-content id="cart-note" class="collapsible" >
@@ -5416,6 +5429,19 @@ for (var attr in meta) {
                 </div></safe-sticky>
           </div>
         </form>
+      <?php
+      }else{
+        echo '<div class="drawer__content drawer__content--center">
+          <p>Your cart is empty</p>
+
+          <div class="button-wrapper">
+            <a href="index.php" class="button button--primary"
+              >Start shopping</a
+            >
+          </div>
+        </div>';
+      }
+      ?>
       </div></div>
 </section>
 

@@ -5,11 +5,23 @@ if(!isset($_SESSION)){
   session_start();
   if(isset($_SESSION['client_email'])){
     $client_email = $_SESSION['client_email'];
+    $count_query = mysqli_query($conn,"SELECT * FROM tbl_cart WHERE email = '$client_email'");
+    $cart_count = mysqli_num_rows($count_query);
+
     $login_display = '<li class="header__linklist-item">
                   <a href="account.php">My Account </a>
                 </li>
                 <li class="header__linklist-item">
                   <a href="logout.php">Logout </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a
+                    href="cart.php"
+                    data-no-instant
+                    >Cart<cart-count class="header__cart-count bubble-count"
+                      >'.$cart_count.'</cart-count
+                    >
+                  </a>
                 </li>';
   }else{
     $login_display = '<li class="header__linklist-item">
@@ -658,7 +670,7 @@ if(!isset($_SESSION)){
         }
       }
     </style>
-    <script>
+    <!-- <script>
       // This allows to expose several variables to the global scope, to be used in scripts
       window.themeVariables = {
         settings: {
@@ -677,18 +689,6 @@ if(!isset($_SESSION)){
           cartType: "drawer",
           cartCurrency: "INR",
           mobileZoomFactor: 2.5,
-        },
-
-        routes: {
-          host: "peachmode.com",
-          rootUrl: "\/",
-          rootUrlWithoutSlash: "",
-          cartUrl: "\/cart",
-          cartAddUrl: "\/cart\/add",
-          cartChangeUrl: "\/cart\/change",
-          searchUrl: "\/search",
-          predictiveSearchUrl: "\/search\/suggest",
-          productRecommendationsUrl: "\/recommendations\/products",
         },
 
         strings: {
@@ -769,7 +769,7 @@ if(!isset($_SESSION)){
           );
         });
       }
-    </script>
+    </script> -->
 
     <link
       rel="stylesheet"
@@ -828,7 +828,7 @@ if(!isset($_SESSION)){
       data-paypal-v4="true"
       data-currency="INR"
     />
-    <script>
+    <!-- <script>
       (function () {
         var scripts = [
           "https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.96fe0b7abf48419e7469.js",
@@ -882,9 +882,9 @@ if(!isset($_SESSION)){
         }
 
         addEventListener("load", prefetchAssets);
-      })();
-    </script>
-    <script id="shopify-features" type="application/json">
+      })(); 
+    </script>-->
+    <!-- <script id="shopify-features" type="application/json">
       {
         "accessToken": "624de472c678fb3b99635fb7da9e76fb",
         "betas": ["rich-media-storefront-analytics"],
@@ -1014,7 +1014,7 @@ if(!isset($_SESSION)){
             o.addEventListener("focus", n, !0);
         });
       })(document);
-    </script>
+    </script> -->
     <script
       integrity="sha256-4VRZk5nmuLKdyxECzHbrGZ+jOgmvT6eNFej4VE7mT80="
       data-source-attribution="shopify.loadfeatures"
@@ -1790,7 +1790,7 @@ if(!isset($_SESSION)){
       }
     </style>
 
-    <script>
+    <!-- <script>
       // FaceBook Pixel
       !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
@@ -1819,7 +1819,7 @@ if(!isset($_SESSION)){
       fbq("init", "795748567170435");
 
       fbq("track", "PageView");
-    </script>
+    </script> -->
 
     <script>
       //code to store UTM params into the cookie
@@ -1873,7 +1873,7 @@ if(!isset($_SESSION)){
       defer="defer"
     ></script>
     <link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch" />
-    <script>
+    <!-- <script>
       (function () {
         if ("sendBeacon" in navigator && "performance" in window) {
           var session_token = document.cookie.match(/_shopify_s=([^;]*)/);
@@ -1912,7 +1912,7 @@ if(!isset($_SESSION)){
           window.addEventListener("pagehide", handle_abandonment_event);
         }
       })();
-    </script>
+    </script> -->
     <script>
       window.ShopifyAnalytics = window.ShopifyAnalytics || {};
       window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
@@ -1925,7 +1925,7 @@ if(!isset($_SESSION)){
     <script>
       window.ShopifyAnalytics.merchantGoogleAnalytics = function () {};
     </script>
-    <script class="analytics">
+    <!-- <script class="analytics">
       (function () {
         var customDocumentWrite = function (content) {
           var jquery = null;
@@ -2130,8 +2130,8 @@ if(!isset($_SESSION)){
           .getElementsByTagName("head")[0]
           .appendChild(eventsListenerScript);
       })();
-    </script>
-    <script class="boomerang">
+    </script> -->
+    <!-- <script class="boomerang">
       (function () {
         if (
           window.BOOMR &&
@@ -2289,8 +2289,8 @@ if(!isset($_SESSION)){
           });
         }
       })();
-    </script>
-    <script id="web-pixels-manager-setup">
+    </script> -->
+    <!-- <script id="web-pixels-manager-setup">
       (function e(e, n, a, o, t, r) {
         var i = null !== e;
         i &&
@@ -2452,7 +2452,7 @@ if(!isset($_SESSION)){
         "0.0.279",
         "518c152fw00918cf1pc7ca055am99284242"
       );
-    </script>
+    </script> -->
   </head>
   <body
     class="no-focus-outline features--image-zoom template-index"
@@ -5651,18 +5651,6 @@ if(!isset($_SESSION)){
               >
                 <li class="header__linklist-item"></li>
                 <?php echo $login_display; ?>
-                <li class="header__linklist-item">
-                  <a
-                    href="/cart"
-                    is="toggle-link"
-                    aria-controls="mini-cart"
-                    aria-expanded="false"
-                    data-no-instant
-                    >Cart<cart-count class="header__cart-count bubble-count"
-                      >0</cart-count
-                    >
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -9083,6 +9071,7 @@ if(!isset($_SESSION)){
 
                   while($row = mysqli_fetch_array($run_query)){
                     $save_percent = (int)(($row['final_price']/$row['mrp'])*100);
+                    $_SESSION["product_id"] = $row["id"];
                     echo "<product-item class='product-item'> 
                         <div
                           class='product-item__image-wrapper product-item__image-wrapper--multiple'
@@ -9095,7 +9084,7 @@ if(!isset($_SESSION)){
                             >
                           </div>
                           <a
-                            href='product-detail.php'
+                            href='product-detail.php?id=".$row['id']."'
                             class='product-item__aspect-ratio aspect-ratio aspect-ratio--square'
                             style='padding-bottom: 100%; --aspect-ratio: 1'
                           >
@@ -9114,11 +9103,9 @@ if(!isset($_SESSION)){
                           >
                           <form
                             method='post'
-                            action='/cart/add'
-                            id='product_form_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f_template--15880464466141__88df96b5-7007-4e3b-908f-307b7eadb63f-1667408731ac3fd976-0_8045530808541_0'
+                            action='cart-details.php?id=".$row["id"]."&page=index.php'
                             accept-charset='UTF-8'
                             class='product-item__quick-form'
-                            enctype='multipart/form-data'
                             is='product-form'
                           >
                             <input
@@ -9136,7 +9123,6 @@ if(!isset($_SESSION)){
                               value='43795228786909'
                             />
                             <button
-                              is='loader-button'
                               type='submit'
                               class='button button--outline button--text button--full hidden-touch'
                             >
@@ -9218,6 +9204,7 @@ if(!isset($_SESSION)){
                     }
                   echo "</div>
                   </div>";
+                  echo "";
                     ?>
                   <div class="section__footer">
                     <?php
@@ -9340,7 +9327,7 @@ if(!isset($_SESSION)){
                                 >
                               </div>
                               <a
-                                href='product-detail.php'
+                                href='product-detail.php?id=".$row["id"]."'
                                 class='product-item__aspect-ratio aspect-ratio aspect-ratio--square'
                                 style='padding-bottom: 100%; --aspect-ratio: 1'
                               >
@@ -9466,7 +9453,7 @@ if(!isset($_SESSION)){
                             <div class='product-item__info'>
                               <div class='product-item-meta'>
                                 <a
-                                  href='product-detail.php'
+                                  href='product-detail.php?id=".$row["id"]."'
                                   class='product-item-meta__title'
                                   >".$row['pro_name']."</a
                                 >
@@ -9522,7 +9509,7 @@ if(!isset($_SESSION)){
                                 >
                               </div>
                               <a
-                                href='product-detail.php'
+                                href='product-detail.php?id=".$row["id"]."'
                                 class='product-item__aspect-ratio aspect-ratio aspect-ratio--square'
                                 style='padding-bottom: 100%; --aspect-ratio: 1'
                               >
@@ -9613,7 +9600,7 @@ if(!isset($_SESSION)){
                             <div class='product-item__info'>
                               <div class='product-item-meta'>
                                 <a
-                                  href='product-detail.php'
+                                  href='product-detail.php?id=".$row["id"]."'
                                   class='product-item-meta__title'
                                   >".$row['pro_name']."</a
                                 >
@@ -9669,7 +9656,7 @@ if(!isset($_SESSION)){
                                 >
                               </div>
                               <a
-                                href='product-detail.php'
+                                href='product-detail.php?id=".$row["id"]."'
                                 class='product-item__aspect-ratio aspect-ratio aspect-ratio--square'
                                 style='padding-bottom: 100%; --aspect-ratio: 1'
                               >
@@ -9795,7 +9782,7 @@ if(!isset($_SESSION)){
                             <div class='product-item__info'>
                               <div class='product-item-meta'>
                                 <a
-                                  href='product-detail.php'
+                                  href='product-detail.php?id=".$row["id"]."'
                                   class='product-item-meta__title'
                                   >".$row['pro_name']."</a
                                 >
@@ -9851,7 +9838,7 @@ if(!isset($_SESSION)){
                                 >
                               </div>
                               <a
-                                href='product-detail.php'
+                                href='product-detail.php?id=".$row["id"]."'
                                 class='product-item__aspect-ratio aspect-ratio aspect-ratio--square'
                                 style='padding-bottom: 100%; --aspect-ratio: 1'
                               >
@@ -9977,7 +9964,7 @@ if(!isset($_SESSION)){
                             <div class='product-item__info'>
                               <div class='product-item-meta'>
                                 <a
-                                  href='product-detail.php'
+                                  href='product-detail.php?id=".$row["id"]."'
                                   class='product-item-meta__title'
                                   >".$row['pro_name']."</a
                                 >
@@ -10100,7 +10087,7 @@ if(!isset($_SESSION)){
                                 >
                               </div>
                               <a
-                                href='product-detail.php'
+                                href='product-detail.php?id=".$row["id"]."'
                                 class='product-item__aspect-ratio aspect-ratio aspect-ratio--square'
                                 style='padding-bottom: 100%; --aspect-ratio: 1'
                               >
@@ -10191,7 +10178,7 @@ if(!isset($_SESSION)){
                             <div class='product-item__info'>
                               <div class='product-item-meta'>
                                 <a
-                                  href='product-detail.php'
+                                  href='product-detail.php?id=".$row["id"]."'
                                   class='product-item-meta__title'
                                   >".$row['pro_name']."</a
                                 >
@@ -10302,7 +10289,7 @@ if(!isset($_SESSION)){
                       while($row = mysqli_fetch_array($run_query)){
                         echo "<a
                           id='block-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-template--15880464466141__1204532a-27bd-454f-ba12-c3d904599de5-1667559845a0357dbe-0'
-                          href='product.php'
+                          href='product.php?id=".$row["sub_cat"]."'
                           class='list-collections__item has-overlay image-zoom'
                         >
                           <div class='list-collections__item-image-wrapper'>
@@ -10399,7 +10386,7 @@ if(!isset($_SESSION)){
                                 >
                               </div>
                               <a
-                                href='product-detail.php'
+                                href='product-detail.php?id=".$row["id"]."'
                                 class='product-item__aspect-ratio aspect-ratio aspect-ratio--square'
                                 style='padding-bottom: 100%; --aspect-ratio: 1'
                               >
@@ -10527,7 +10514,7 @@ if(!isset($_SESSION)){
                             <div class='product-item__info'>
                               <div class='product-item-meta'>
                                 <a
-                                  href='product-detail.php'
+                                  href='product-detail.php?id=".$row["id"]."'
                                   class='product-item-meta__title'
                                   >".$row['pro_name']."</a
                                 >
