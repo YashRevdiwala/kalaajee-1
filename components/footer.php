@@ -292,33 +292,58 @@ include("connection.php");
                 <div class="footer__item-content hidden-phone">
                   <ul class="linklist list--unstyled" role="list">
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Collections</a>
+                      <?php
+                        $productType = "Collections";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Collections</a>';
+                      ?>
+                      </li>
+                    <li class="linklist__item">
+                      <?php
+                        $productType = "Sarees";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Sarees</a>';
+                      ?>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Sarees</a>
+                      <?php
+                        $productType = "Salwar Suits";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Salwar Suits</a>';
+                      ?>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded"
-                        >Salwar Suits</a
-                      >
+                      <?php
+                        $productType = "Kurtis";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Kurtis</a>';
+                      ?>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Kurtis</a>
+                      <?php
+                        $productType = "Lehengas";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Lehengas</a>';
+                      ?>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Lehengas</a>
+                      <?php
+                        $productType = "Gowns";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Gowns</a>';
+                      ?>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Gowns</a>
+                      <?php
+                        $productType = "Western";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Western</a>';
+                      ?>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Western</a>
+                      <?php
+                        $productType = "Live";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Live</a>';
+                      ?>
                     </li>
                     <li class="linklist__item">
-                      <a href="product.php" class="link--faded">Live</a>
-                    </li>
-                    <li class="linklist__item">
-                      <a href="/collections/sale" class="link--faded">Sale</a>
+                      <?php
+                        $productType = "SALE";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Sale</a>';
+                      ?>
                     </li>
                   </ul>
                 </div>
@@ -360,50 +385,59 @@ include("connection.php");
                       <div class="spr-reviews">
                         <ul class="linklist list--unstyled" role="list">
                           <li class="linklist__item">
-                            <a href="/collections" class="link--faded"
-                              >Collections</a
-                            >
-                          </li>
-                          <li class="linklist__item">
-                            <a href="/collections/sarees" class="link--faded"
-                              >Sarees</a
-                            >
-                          </li>
-                          <li class="linklist__item">
-                            <a href="/collections/suits" class="link--faded"
-                              >Salwar Suits</a
-                            >
-                          </li>
-                          <li class="linklist__item">
-                            <a href="/collections/kurti" class="link--faded"
-                              >Kurtis</a
-                            >
-                          </li>
-                          <li class="linklist__item">
-                            <a href="/collections/lehengas" class="link--faded"
-                              >Lehengas</a
-                            >
-                          </li>
-                          <li class="linklist__item">
-                            <a href="/collections/gowns" class="link--faded"
-                              >Gowns</a
-                            >
-                          </li>
-                          <li class="linklist__item">
-                            <a href="/collections/western" class="link--faded"
-                              >Western</a
-                            >
-                          </li>
-                          <li class="linklist__item">
-                            <a href="/pages/streams" class="link--faded"
-                              >Live</a
-                            >
-                          </li>
-                          <li class="linklist__item">
-                            <a href="/collections/sale" class="link--faded"
-                              >Sale</a
-                            >
-                          </li>
+                      <?php
+                        $productType = "Collections";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Collections</a>';
+                      ?>
+                      </li>
+                    <li class="linklist__item">
+                      <?php
+                        $productType = "Sarees";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Sarees</a>';
+                      ?>
+                    </li>
+                    <li class="linklist__item">
+                      <?php
+                        $productType = "Salwar Suits";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Salwar Suits</a>';
+                      ?>
+                    </li>
+                    <li class="linklist__item">
+                      <?php
+                        $productType = "Kurtis";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Kurtis</a>';
+                      ?>
+                    </li>
+                    <li class="linklist__item">
+                      <?php
+                        $productType = "Lehengas";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Lehengas</a>';
+                      ?>
+                    </li>
+                    <li class="linklist__item">
+                      <?php
+                        $productType = "Gowns";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Gowns</a>';
+                      ?>
+                    </li>
+                    <li class="linklist__item">
+                      <?php
+                        $productType = "Western";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Western</a>';
+                      ?>
+                    </li>
+                    <li class="linklist__item">
+                      <?php
+                        $productType = "Live";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Live</a>';
+                      ?>
+                    </li>
+                    <li class="linklist__item">
+                      <?php
+                        $productType = "SALE";
+                        echo '<a href="product.php?id='.$productType.'" class="link--faded">Sale</a>';
+                      ?>
+                    </li>
                         </ul>
                       </div>
                     </div>
