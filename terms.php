@@ -5,8 +5,23 @@ if(!isset($_SESSION)){
   session_start();
   if(isset($_SESSION['client_email'])){
     $client_email = $_SESSION['client_email'];
+    $count_query = mysqli_query($conn,"SELECT * FROM tbl_cart WHERE email = '$client_email'");
+    $cart_count = mysqli_num_rows($count_query);
+
     $login_display = '<li class="header__linklist-item">
                   <a href="account.php">My Account </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a href="logout.php">Logout </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a
+                    href="cart.php"
+                    data-no-instant
+                    >Cart<cart-count class="header__cart-count bubble-count"
+                      >'.$cart_count.'</cart-count
+                    >
+                  </a>
                 </li>';
   }else{
     $login_display = '<li class="header__linklist-item">
@@ -5315,10 +5330,10 @@ if(!isset($_SESSION)){
                   </li>
                   <li class="header__linklist-item" data-item-title="Sale">
                   <?php
-                    $productType = "Sale";
+                    $productType = "SALE";
                     echo '<a
                       class="header__linklist-link link--animated"
-                      href="product.php?id='.$productType.'"
+                      href="product.php?main_cat='.$productType.'"
                       >Sale</a
                     >';
                   ?>
@@ -5855,18 +5870,6 @@ if(!isset($_SESSION)){
               >
                 <li class="header__linklist-item"></li>
                 <?php echo $login_display; ?>
-                <li class="header__linklist-item">
-                  <a
-                    href="/cart"
-                    is="toggle-link"
-                    aria-controls="mini-cart"
-                    aria-expanded="false"
-                    data-no-instant
-                    >Cart<cart-count class="header__cart-count bubble-count"
-                      >0</cart-count
-                    >
-                  </a>
-                </li>
               </ul>
             </div>
           </div>

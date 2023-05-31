@@ -2,6 +2,9 @@
 include("components/connection.php");
 if(!isset($_SESSION)){
   session_start();
+  $login_display = '<li class="header__linklist-item">
+                      <a href="login.php">Login </a>
+                    </li>';
   if(isset($_SESSION['client_email'])){
     $client_email = $_SESSION['client_email'];
     header("Location:index.php");
@@ -4141,18 +4144,6 @@ for (var attr in meta) {
               >
                 <li class="header__linklist-item"></li>
                 <?php echo $login_display; ?>
-                <li class="header__linklist-item">
-                  <a
-                    href="/cart"
-                    is="toggle-link"
-                    aria-controls="mini-cart"
-                    aria-expanded="false"
-                    data-no-instant
-                    >Cart<cart-count class="header__cart-count bubble-count"
-                      >0</cart-count
-                    >
-                  </a>
-                </li>
               </ul>
             </div>
           </div>

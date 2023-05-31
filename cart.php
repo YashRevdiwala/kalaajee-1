@@ -5058,11 +5058,11 @@ for (var attr in meta) {
                     echo '<tr class="line-item">
                         <td class="line-item__product">
                           <div class="line-item__content-wrapper">
-                            <a href="/products/teal-blue-printed-georgette-saree-with-tassels?variant=43795227771101" class="line-item__image-wrapper" tabindex="-1" aria-hidden="true">
+                            <a href="product-detail.php?id='.$display_row["id"].'" class="line-item__image-wrapper" tabindex="-1" aria-hidden="true">
                               <img loading="lazy" class="line-item__image" sizes="(max-width: 740px) 80px, 92px" height="2000" width="2000" alt="" src='.$imgpath,$display_row["photo1"].' ">
                             </a><div class="line-item__info">
-                              <div class="product-item-meta"><a href="/products/teal-blue-printed-georgette-saree-with-tassels?variant=43795227771101" class="product-item-meta__title text--small hidden-tablet-and-up">'.$display_row["pro_name"].'</a>
-                                <a href="/products/teal-blue-printed-georgette-saree-with-tassels?variant=43795227771101" class="product-item-meta__title hidden-phone">'.$display_row["pro_name"].'</a><div class="product-item-meta__price-list-container">
+                              <div class="product-item-meta"><a href="product-detail.php?id='.$display_row["id"].'" class="product-item-meta__title text--small hidden-tablet-and-up">'.$display_row["pro_name"].'</a>
+                                <a href="product-detail.php?id='.$display_row["id"].'" class="product-item-meta__title hidden-phone">'.$display_row["pro_name"].'</a><div class="product-item-meta__price-list-container">
                                   <div class="price-list text--small hidden-tablet-and-up"><span class="price price--highlight">
                                 <span class="visually-hidden">Sale price</span><span class="money">₹'.$display_row["final_price"].'.00</span></span><span class="price price--compare">
                                   <span class="visually-hidden">Regular price</span><span class="money">₹'.$display_row["mrp"].'.00</span></span></div>
@@ -5099,8 +5099,8 @@ for (var attr in meta) {
             <path fill-rule="evenodd" clip-rule="evenodd" d="M3 5v3h2V5h3V3H5V0H3v3H0v2h3z" fill="currentColor"></path>
           </svg></a></div>
 
-                                <a href="/cart/change?id=43795227771101:9dbd8a95ff62d36755bc23ffd773c749&quantity=0" class="line-item__remove-button link text--subdued text--xxsmall hidden-tablet-and-up" data-no-instant>Remove</a>
-                                <a href="/cart/change?id=43795227771101:9dbd8a95ff62d36755bc23ffd773c749&quantity=0" class="line-item__remove-button link text--subdued text--xsmall hidden-phone" data-no-instant>Remove</a>
+                                <a href="cart-details.php?dropProduct='.$cart_row_id.'=&page=cart.php" class="line-item__remove-button link text--subdued text--xxsmall hidden-tablet-and-up" data-no-instant>Remove</a>
+                                <a href="cart-details.php?dropProduct='.$cart_row_id.'=&page=cart.php" class="line-item__remove-button link text--subdued text--xsmall hidden-phone" data-no-instant>Remove</a>
                           </line-item-quantity>
                         </td>
 

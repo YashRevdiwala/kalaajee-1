@@ -5802,18 +5802,6 @@ if(!isset($_SESSION)){
               >
                 <li class="header__linklist-item"></li>
                 <?php echo $login_display; ?>
-                <li class="header__linklist-item">
-                  <a
-                    href="/cart"
-                    is="toggle-link"
-                    aria-controls="mini-cart"
-                    aria-expanded="false"
-                    data-no-instant
-                    >Cart<cart-count class="header__cart-count bubble-count"
-                      >0</cart-count
-                    >
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -8856,16 +8844,6 @@ if(!isset($_SESSION)){
             </svg>
           </button>
         </header>
-        <div class="drawer__content drawer__content--center">
-          <p>Your cart is empty</p>
-
-          <div class="button-wrapper">
-            <a href="index.php" class="button button--primary"
-              >Start shopping</a
-            >
-            <a href="cart.php" class="button button--primary">View Cart</a>
-          </div>
-        </div>
         <openable-element id="mini-cart-note" class="mini-cart__order-note">
           <span class="openable__overlay"></span>
           <label

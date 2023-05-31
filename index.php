@@ -5111,10 +5111,10 @@ if(!isset($_SESSION)){
                   </li>
                   <li class="header__linklist-item" data-item-title="Sale">
                   <?php
-                    $productType = "Sale";
+                    $productType = "SALE";
                     echo '<a
                       class="header__linklist-link link--animated"
-                      href="product.php?id='.$productType.'"
+                      href="product.php?main_cat='.$productType.'"
                       >Sale</a
                     >';
                   ?>

@@ -10605,58 +10605,60 @@ if(!isset($_SESSION)){
           <div class="column2">
             <div class="product-list__inner">
               <?php
-                 if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+                if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
                   $url = "https://";   
                 else  
                   $url = "http://";   
-                $url.= $_SERVER['HTTP_HOST'];    
+                $url.= $_SERVER['HTTP_HOST'];  
                 $url.= $_SERVER['REQUEST_URI'];
+                $url = urlencode($url);
+                // echo $url;
 
                 if(isset($_GET["id"])){
                   $productType = $_GET["id"];
                   if(isset($_GET["fabric"])){
                     $fabricType = $_GET["fabric"];
                     if($fabricType == ""){
-                      $query = "SELECT * FROM tbl_product WHERE material != '' LIMIT 16";
+                      $query = "SELECT * FROM tbl_product WHERE material != '' AND status = '$productType' LIMIT 16";
                       $run_query = mysqli_query($conn,$query);
                     }else{
-                      $query = "SELECT * FROM tbl_product WHERE material = '$fabricType' LIMIT 16";
+                      $query = "SELECT * FROM tbl_product WHERE material = '$fabricType' AND status = '$productType' LIMIT 16";
                       $run_query = mysqli_query($conn,$query);
                     }
                   }elseif(isset($_GET["pattern"])){
                     $patternType = $_GET["pattern"];
                     if($patternType == ""){
-                      $query = "SELECT * FROM tbl_product WHERE pattern != '' LIMIT 16";
+                      $query = "SELECT * FROM tbl_product WHERE pattern != '' AND status = '$productType' LIMIT 16";
                       $run_query = mysqli_query($conn,$query);
                     }else{
-                      $query = "SELECT * FROM tbl_product WHERE pattern = '$patternType' OR print = '$patternType' LIMIT 16";
+                      $query = "SELECT * FROM tbl_product WHERE (pattern = '$patternType' OR print = '$patternType')  LIMIT 16";
                       $run_query = mysqli_query($conn,$query);
                     }
                   }elseif(isset($_GET["minPrice"]) && isset($_GET["maxPrice"])){
                     $minPrice = $_GET["minPrice"];
                     $maxPrice = $_GET["maxPrice"];
-                    $query = "SELECT * FROM tbl_product WHERE final_price > $minPrice AND final_price < $maxPrice LIMIT 16";
+                    $query = "SELECT * FROM tbl_product WHERE (final_price > $minPrice AND final_price < $maxPrice) AND status = '$productType' LIMIT 16";
                     $run_query = mysqli_query($conn,$query);
                   }elseif(isset($_GET["occasion"])){
                     $occasionType = $_GET["occasion"];
                     if($occasionType == ""){
-                      $query = "SELECT * FROM tbl_product WHERE subcat != '' LIMIT 16";
+                      $query = "SELECT * FROM tbl_product WHERE subcat != '' AND status = '$productType' LIMIT 16";
                       $run_query = mysqli_query($conn,$query);
                     }else{
-                      $query = "SELECT * FROM tbl_product WHERE subcat = '$occasionType' OR occasion = '$occasionType' LIMIT 16";
+                      $query = "SELECT * FROM tbl_product WHERE (subcat = '$occasionType' OR occasion = '$occasionType') AND status = '$productType' LIMIT 16";
                       $run_query = mysqli_query($conn,$query);
                     }
                   }elseif(isset($_GET["color"])){
                     $color = $_GET["color"];
                     if($color == ""){
-                      $query = "SELECT * FROM tbl_product WHERE color != '' LIMIT 16";
+                      $query = "SELECT * FROM tbl_product WHERE color != '' AND status = '$productType' LIMIT 16";
                       $run_query = mysqli_query($conn,$query);
                     }else{
-                      $query = "SELECT * FROM tbl_product WHERE color = '$color' LIMIT 16";
+                      $query = "SELECT * FROM tbl_product WHERE color = '$color' AND status = '$productType' LIMIT 16";
                       $run_query = mysqli_query($conn,$query);
                     }
                   }elseif($productType == ""){
-                    $query = "SELECT * FROM tbl_product WHERE photo2 != '' LIMIT 16";
+                    $query = "SELECT * FROM tbl_product WHERE photo2 != '' AND status = '$productType'  LIMIT 16";
                     $run_query = mysqli_query($conn,$query);
                   }else{
                     $query = "SELECT * FROM tbl_product WHERE status = '$productType' LIMIT 16";

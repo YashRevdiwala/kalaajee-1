@@ -7,221 +7,25 @@ if(!isset($_SESSION)){
     $product_id = $_GET["id"];
     $run_query = mysqli_query($conn,"SELECT * FROM tbl_product WHERE id = '$product_id'");
     $row = mysqli_fetch_array($run_query);
-
-    if($row["inncat"] == "saree"){
-      $display_sizeChart = '';
-    }else{
-      $display_sizeChart = '<product-variants
-                    handle="lavender-party-wear-lakhnawi-work-rayon-kurti-139904"
-                    form-id="product-form-template--15880464695517__main-7737378799837"
-                    update-url
-                    class="product-form__variants"
-                    >
-                    <div
-                      class="product-form__option-selector"
-                      data-selector-type="block"
-                    >
-                      <div class="product-form__option-info">
-                        <span class="product-form__option-name">Size:</span
-                        ><span
-                          id="option-template--15880464695517__main--7737378799837-1-value"
-                          class="product-form__option-value"
-                          >S</span
-                        ><button
-                          type="button"
-                          is="toggle-button"
-                          class="product-form__option-link link text--subdued hidden-phone"
-                          aria-controls="product-template--15880464695517__main-7737378799837-size-chart-drawer"
-                          aria-expanded="false"
-                        >
-                          Size chart
-                        </button>
-                        <button
-                          type="button"
-                          is="toggle-button"
-                          class="product-form__option-link link text--subdued hidden-tablet-and-up"
-                          aria-controls="product-template--15880464695517__main-7737378799837-size-chart-popover"
-                          aria-expanded="false"
-                        >
-                          Size chart
-                        </button>
-                      </div>
-                      <div class="block-swatch-list">
-                        <div class="block-swatch">
-                          <input
-                            class="block-swatch__radio visually-hidden"
-                            type="radio"
-                            name="option1"
-                            form="product-form-template--15880464695517__main-7737378799837"
-                            id="option-template--15880464695517__main--7737378799837-1-1"
-                            value="S"
-                            checked="checked"
-                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
-                          />
-                          <label
-                            class="block-swatch__item"
-                            for="option-template--15880464695517__main--7737378799837-1-1"
-                            >S</label
-                          >
-                        </div>
-                        <div class="block-swatch">
-                          <input
-                            class="block-swatch__radio visually-hidden"
-                            type="radio"
-                            name="option1"
-                            form="product-form-template--15880464695517__main-7737378799837"
-                            id="option-template--15880464695517__main--7737378799837-1-2"
-                            value="M"
-                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
-                          />
-                          <label
-                            class="block-swatch__item"
-                            for="option-template--15880464695517__main--7737378799837-1-2"
-                            >M</label
-                          >
-                        </div>
-                        <div class="block-swatch">
-                          <input
-                            class="block-swatch__radio visually-hidden"
-                            type="radio"
-                            name="option1"
-                            form="product-form-template--15880464695517__main-7737378799837"
-                            id="option-template--15880464695517__main--7737378799837-1-3"
-                            value="L"
-                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
-                          />
-                          <label
-                            class="block-swatch__item"
-                            for="option-template--15880464695517__main--7737378799837-1-3"
-                            >L</label
-                          >
-                        </div>
-                        <div class="block-swatch">
-                          <input
-                            class="block-swatch__radio visually-hidden"
-                            type="radio"
-                            name="option1"
-                            form="product-form-template--15880464695517__main-7737378799837"
-                            id="option-template--15880464695517__main--7737378799837-1-4"
-                            value="XL"
-                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
-                          />
-                          <label
-                            class="block-swatch__item"
-                            for="option-template--15880464695517__main--7737378799837-1-4"
-                            >XL</label
-                          >
-                        </div>
-                        <div class="block-swatch">
-                          <input
-                            class="block-swatch__radio visually-hidden"
-                            type="radio"
-                            name="option1"
-                            form="product-form-template--15880464695517__main-7737378799837"
-                            id="option-template--15880464695517__main--7737378799837-1-5"
-                            value="XXL"
-                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
-                          />
-                          <label
-                            class="block-swatch__item"
-                            for="option-template--15880464695517__main--7737378799837-1-5"
-                            >XXL</label
-                          >
-                        </div>
-                        <div class="block-swatch">
-                          <input
-                            class="block-swatch__radio visually-hidden"
-                            type="radio"
-                            name="option1"
-                            form="product-form-template--15880464695517__main-7737378799837"
-                            id="option-template--15880464695517__main--7737378799837-1-6"
-                            value="3XL"
-                            data-bind-value="option-template--15880464695517__main--7737378799837-1-value"
-                          />
-                          <label
-                            class="block-swatch__item"
-                            for="option-template--15880464695517__main--7737378799837-1-6"
-                            >3XL</label
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <noscript>
-                      <label
-                        class="input__block-label"
-                        for="product-select-template--15880464695517__main-7737378799837"
-                        >Variant</label
-                      >
-
-                      <div class="select-wrapper">
-                        <select
-                          class="select"
-                          autocomplete="off"
-                          id="product-select-template--15880464695517__main-7737378799837"
-                          name="id"
-                          form="product-form-template--15880464695517__main-7737378799837"
-                        >
-                          <option
-                            selected="selected"
-                            value="42885690687709"
-                            data-sku="VMIK-ROOH-2-1111D-S"
-                          >
-                            S - <span class="money">₹949.00</span>
-                          </option>
-                          <option
-                            disabled="disabled"
-                            value="42885690720477"
-                            data-sku="VMIK-ROOH-2-1111D-M"
-                          >
-                            M - <span class="money">₹949.00</span>
-                          </option>
-                          <option
-                            value="42885690753245"
-                            data-sku="VMIK-ROOH-2-1111D-L"
-                          >
-                            L - <span class="money">₹949.00</span>
-                          </option>
-                          <option
-                            value="42885690786013"
-                            data-sku="VMIK-ROOH-2-1111D-XL"
-                          >
-                            XL - <span class="money">₹949.00</span>
-                          </option>
-                          <option
-                            value="42885690818781"
-                            data-sku="VMIK-ROOH-2-1111D-XXL"
-                          >
-                            XXL - <span class="money">₹949.00</span>
-                          </option>
-                          <option
-                            value="42885690851549"
-                            data-sku="VMIK-ROOH-2-1111D-3XL"
-                          >
-                            3XL - <span class="money">₹949.00</span>
-                          </option></select
-                        ><svg
-                          focusable="false"
-                          width="12"
-                          height="8"
-                          class="icon icon--chevron"
-                          viewBox="0 0 12 8"
-                        >
-                          <path
-                            fill="none"
-                            d="M1 1l5 5 5-5"
-                            stroke="currentColor"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </div>
-                    </noscript>
-                  </product-variants>';
-    }
   }
   if(isset($_SESSION['client_email'])){
     $client_email = $_SESSION['client_email'];
+    $count_query = mysqli_query($conn,"SELECT * FROM tbl_cart WHERE email = '$client_email'");
+    $cart_count = mysqli_num_rows($count_query);
     $login_display = '<li class="header__linklist-item">
                   <a href="account.php">My Account </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a href="logout.php">Logout </a>
+                </li>
+                <li class="header__linklist-item">
+                  <a
+                    href="cart.php"
+                    data-no-instant
+                    >Cart<cart-count class="header__cart-count bubble-count"
+                      >'.$cart_count.'</cart-count
+                    >
+                  </a>
                 </li>';
   }else{
     $login_display = '<li class="header__linklist-item">
@@ -1472,7 +1276,7 @@ if(!isset($_SESSION)){
         }
       }
     </style>
-    <script>
+    <!-- <script>
       // This allows to expose several variables to the global scope, to be used in scripts
       window.themeVariables = {
         settings: {
@@ -1488,7 +1292,6 @@ if(!isset($_SESSION)){
           currencyCodeEnabled: false,
           searchMode: "product",
           searchUnavailableProducts: "last",
-          cartType: "drawer",
           cartCurrency: "INR",
           mobileZoomFactor: 2.5,
         },
@@ -1497,9 +1300,6 @@ if(!isset($_SESSION)){
           host: "peachmode.com",
           rootUrl: "\/",
           rootUrlWithoutSlash: "",
-          cartUrl: "\/cart",
-          cartAddUrl: "\/cart\/add",
-          cartChangeUrl: "\/cart\/change",
           searchUrl: "\/search",
           predictiveSearchUrl: "\/search\/suggest",
           productRecommendationsUrl: "\/recommendations\/products",
@@ -1522,11 +1322,6 @@ if(!isset($_SESSION)){
           searchArticles: "Journal",
           searchPages: "Pages",
           searchCollections: "Collections",
-          cartViewCart: "View cart",
-          cartItemAdded: "Item added to your cart!",
-          cartItemAddedShort: "Added to your cart!",
-          cartAddOrderNote: "Add order note",
-          cartEditOrderNote: "Edit order note",
           shippingEstimatorNoResults: "Sorry, we do not ship to your address.",
           shippingEstimatorOneResult:
             "There is one shipping rate for your address:",
@@ -1556,17 +1351,6 @@ if(!isset($_SESSION)){
           wide: "screen and (min-width: 1400px)",
         },
       };
-
-      window.addEventListener("pageshow", async () => {
-        const cartContent = await (
-          await fetch(`${window.themeVariables.routes.cartUrl}.js`, {
-            cache: "reload",
-          })
-        ).json();
-        document.documentElement.dispatchEvent(
-          new CustomEvent("cart:refresh", { detail: { cart: cartContent } })
-        );
-      });
 
       if ("noModule" in HTMLScriptElement.prototype) {
         // Old browsers (like IE) that does not support module will be considered as if not executing JS at all
@@ -1600,7 +1384,7 @@ if(!isset($_SESSION)){
       } catch (e) {
         // Safari in private mode does not allow setting item, we silently fail
       }
-    </script>
+    </script> -->
 
     <link
       rel="stylesheet"
@@ -6513,10 +6297,10 @@ if(!isset($_SESSION)){
                   </li>
                   <li class="header__linklist-item" data-item-title="Sale">
                   <?php
-                    $productType = "Sale";
+                    $productType = "SALE";
                     echo '<a
                       class="header__linklist-link link--animated"
-                      href="product.php?id='.$productType.'"
+                      href="product.php?main_cat='.$productType.'"
                       >Sale</a
                     >';
                   ?>
@@ -7053,18 +6837,6 @@ if(!isset($_SESSION)){
               >
                 <li class="header__linklist-item"></li>
                 <?php echo $login_display; ?>
-                <li class="header__linklist-item">
-                  <a
-                    href="/cart"
-                    is="toggle-link"
-                    aria-controls="mini-cart"
-                    aria-expanded="false"
-                    data-no-instant
-                    >Cart<cart-count class="header__cart-count bubble-count"
-                      >0</cart-count
-                    >
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -11016,8 +10788,9 @@ if(!isset($_SESSION)){
                         type="hidden"
                         name="id"
                         value="42885690687709"
-                      /></form
-                  ></product-payment-terms>
+                      />
+                    </form>
+                </product-payment-terms>
                   <div class="product-meta__reference">
                     <a
                       href="#product-7737378799837-reviews-pocket"
@@ -11094,112 +10867,136 @@ if(!isset($_SESSION)){
                       </div>
                     </a>
                   </div>
-                    <?php echo $display_sizeChart; ?>
                   <div class="product-form__quantity">
                     <span class="product-form__quantity-label">Quantity:</span>
+                      <quantity-selector class="quantity-selector">
+                        <button type="button" class="quantity-selector__button" onclick="dec_quantity()">
+                          <span class="visually-hidden">Decrease quantity</span
+                          ><svg
+                            focusable="false"
+                            width="10"
+                            height="2"
+                            class="icon icon--minus-big"
+                            viewBox="0 0 10 2"
+                          ><path fill="currentColor" d="M0 0h10v2H0z"></path>
+                          </svg>
+                        </button>
 
-                    <quantity-selector class="quantity-selector">
-                      <button type="button" class="quantity-selector__button">
-                        <span class="visually-hidden">Decrease quantity</span
-                        ><svg
-                          focusable="false"
-                          width="10"
-                          height="2"
-                          class="icon icon--minus-big"
-                          viewBox="0 0 10 2"
-                        >
-                          <path fill="currentColor" d="M0 0h10v2H0z"></path>
-                        </svg>
-                      </button>
+                        <input
+                          type="text"
+                          form="product-form-template--15880464695517__main-7737378799837"
+                          is="input-number"
+                          class="quantity-selector__input"
+                          inputmode="numeric"
+                          name="cart_quantity"
+                          id="cart_quantity"
+                          autocomplete="off"
+                          min="1"
+                          value="1"
+                          size="2"
+                          aria-label="Quantity"
+                        />
 
-                      <input
-                        type="text"
-                        form="product-form-template--15880464695517__main-7737378799837"
-                        is="input-number"
-                        class="quantity-selector__input"
-                        inputmode="numeric"
-                        name="quantity"
-                        autocomplete="off"
-                        min="1"
-                        value="1"
-                        size="2"
-                        aria-label="Quantity"
-                      />
+                        <button type="button" class="quantity-selector__button" onclick="inc_quantity()">
+                          <span class="visually-hidden">Increase quantity</span
+                          ><svg
+                            focusable="false"
+                            width="10"
+                            height="10"
+                            class="icon icon--plus-big"
+                            viewBox="0 0 10 10"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M4 6v4h2V6h4V4H6V0H4v4H0v2h4z"
+                              fill="currentColor"
+                            ></path>
+                          </svg>
+                        </button>
+                      </quantity-selector>
+                    <script>
+                      function dec_quantity(){
+                        let dec_count = document.getElementById("cart_quantity").value;
+                        if(dec_count>1){
+                          dec_count = --dec_count;
+                        }
+                        document.getElementById("cart_quantity").value = dec_count;
+                      }
 
-                      <button type="button" class="quantity-selector__button">
-                        <span class="visually-hidden">Increase quantity</span
-                        ><svg
-                          focusable="false"
-                          width="10"
-                          height="10"
-                          class="icon icon--plus-big"
-                          viewBox="0 0 10 10"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M4 6v4h2V6h4V4H6V0H4v4H0v2h4z"
-                            fill="currentColor"
-                          ></path>
-                        </svg>
-                      </button>
-                    </quantity-selector>
+                      function inc_quantity(){
+                        let inc_count = document.getElementById("cart_quantity").value;
+                        inc_count = ++inc_count;
+                        document.getElementById("cart_quantity").value = inc_count;
+                      }
+                    </script>
                   </div>
                   <div class="product-form__buy-buttons">
-                    <form
-                      method="post"
-                      action="/cart/add"
-                      id="product-form-template--15880464695517__main-7737378799837"
-                      accept-charset="UTF-8"
-                      class="shopify-product-form"
-                      enctype="multipart/form-data"
-                      is="product-form"
-                    >
-                      <input
-                        type="hidden"
-                        name="form_type"
-                        value="product"
-                      /><input type="hidden" name="utf8" value="✓" /><input
-                        type="hidden"
-                        disabled
-                        name="id"
-                        value="42885690687709"
-                      />
+                    <?php
+                      if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+                        $url = "https://";   
+                      else  
+                        $url = "http://";   
+                      $url.= $_SERVER['HTTP_HOST'];  
+                      $url.= $_SERVER['REQUEST_URI'];
+                      $url = urlencode($url);
 
-                      <product-payment-container
-                        form-id="product-form-template--15880464695517__main-7737378799837"
-                        id="MainPaymentContainer"
-                        class="product-form__payment-container"
+                      echo '<form
+                        method="post"
+                        action="cart-details.php?id='.$product_id.'&page='.$url.'"
+                        id="product-form-template--15880464695517__main-7737378799837"
+                        accept-charset="UTF-8"
+                        class="shopify-product-form"
+                        enctype="multipart/form-data"
+                        is="product-form"
                       >
-                        <button
-                          id="AddToCart"
-                          type="submit"
-                          is="loader-button"
-                          data-product-add-to-cart-button
-                          data-button-content="Add to cart"
-                          class="product-form__add-button button button--secondary button--full"
-                        >
-                          Add to cart
-                        </button>
-                        <div
-                          data-shopify="payment-button"
-                          data-has-selling-plan="false"
-                          data-has-fixed-selling-plan="false"
-                          class="shopify-payment-button"
+                        <input
+                          type="hidden"
+                          name="form_type"
+                          value="product"
+                        /><input type="hidden" name="utf8" value="✓" /><input
+                          type="hidden"
+                          disabled
+                          name="id"
+                          value="42885690687709"
+                        />
+
+                        <product-payment-container
+                          form-id="product-form-template--15880464695517__main-7737378799837"
+                          id="MainPaymentContainer"
+                          class="product-form__payment-container"
                         >
                           <button
-                            class="shopify-payment-button__button shopify-payment-button__button--unbranded shopify-payment-button__button--hidden"
-                            disabled="disabled"
-                            aria-hidden="true"
-                          ></button
-                          ><button
-                            class="shopify-payment-button__more-options shopify-payment-button__button--hidden"
-                            disabled="disabled"
-                            aria-hidden="true"
-                          ></button>
-                        </div>
-                      </product-payment-container>
-                    </form>
+                            id="AddToCart"
+                            type="submit"
+                            name = "AddToCart"
+                            is="loader-button"
+                            data-product-add-to-cart-button
+                            data-button-content="Add to cart"
+                            class="product-form__add-button button button--secondary button--full"
+                          >
+                            Add to cart
+                          </button>
+                          <div
+                            data-shopify="payment-button"
+                            data-has-selling-plan="false"
+                            data-has-fixed-selling-plan="false"
+                            class="shopify-payment-button"
+                          >
+                            <button
+                              class="shopify-payment-button__button shopify-payment-button__button--unbranded shopify-payment-button__button--hidden"
+                              disabled="disabled"
+                              aria-hidden="true"
+                            ></button
+                            ><button
+                              class="shopify-payment-button__more-options shopify-payment-button__button--hidden"
+                              disabled="disabled"
+                              aria-hidden="true"
+                            ></button>
+                          </div>
+                        </product-payment-container>
+                      </form>';
+                    ?>
                   </div>
                   <store-pickup
                     form-id="product-form-template--15880464695517__main-7737378799837"
