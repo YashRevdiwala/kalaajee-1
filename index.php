@@ -12079,5 +12079,6 @@ if(!isset($_SESSION)){
       id="shopify-block-6048552914641687618"
       class="shopify-block shopify-app-block"
     ></div>
+    <script src="script.js" />
   </body>
 </html>

@@ -54,7 +54,7 @@ if(!isset($_SESSION)){
             $query = mysqli_query($conn,"SELECT * FROM tbl_cart WHERE product_id = '$product_id'");
             if(mysqli_num_rows($query) > 0){
                 $quantity_row = mysqli_fetch_array($query);
-                $quantity_count = $quantity_row["quantity"]+1;
+                $quantity_count = $quantity_row["quantity"]+$cart_quantity-1;
                 $query = mysqli_query($conn,"UPDATE tbl_cart SET quantity = '$quantity_count' WHERE product_id = '$product_id'");
             }else{
                 $query = mysqli_query($conn,"INSERT INTO tbl_cart (email, product_id, product_name, quantity, final_price) VALUES ('$client_email', '$product_id', '$product_name', $cart_quantity, $final_price)");
